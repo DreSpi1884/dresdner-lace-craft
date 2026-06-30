@@ -92,7 +92,7 @@ const Quote = () => {
   }
 
   return (
-    <EditorialLayout eyebrow="Quote Request" title="Let's create something together">
+    <EditorialLayout title="Let's create something together">
       <section className="editorial-section">
         <div className="editorial-container max-w-2xl mx-auto">
           <p className="editorial-body text-muted-foreground mb-12">

@@ -4,7 +4,7 @@ import EditorialLayout from "@/components/EditorialLayout";
 
 const Contact = () => {
   return (
-    <EditorialLayout eyebrow="Contact" title="Let's start a conversation">
+    <EditorialLayout title="Let's start a conversation">
       <section className="editorial-section">
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
