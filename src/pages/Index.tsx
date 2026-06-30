@@ -8,6 +8,9 @@ import serviceCollections from "@/assets/service-collections.jpg.asset.json";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
 import serviceFunctional from "@/assets/service-functional.png.asset.json";
 import serviceDyeing from "@/assets/production-detail.jpg";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import heritageThen from "@/assets/heritage-then.png.asset.json";
+import heritageNow from "@/assets/heritage-now.jpg";
 
 const Index = () => {
   return (
@@ -160,33 +163,34 @@ const Index = () => {
       </EditorialSection>
 
       {/* HERITAGE + INNOVATION */}
-      <section className="editorial-section">
+      <section className="py-16 md:py-20">
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <img
+            <div className="w-full mx-auto lg:max-w-none">
+              <BeforeAfterSlider
+                beforeImage={heritageThen.url}
+                afterImage={heritageNow}
+                beforeAlt="Historic Dresdner Spitzen weaving hall"
+                afterAlt="Modern Dresdner Spitzen production facility"
+              />
+            </div>
 
-              alt="Dresdner Spitzen modern textile production facility in Dresden, Germany"
-              className="w-full h-[400px] md:h-[500px] object-cover" src="/lovable-uploads/4891b76d-8412-4f0b-bb95-442cc7c64562.jpg" />
-            
             <div>
               <p className="editorial-label text-primary mb-4">Heritage & Innovation</p>
               <h2 className="editorial-heading-lg text-foreground mb-6">
                 Generations of expertise
               </h2>
-              <div className="space-y-4 editorial-body text-muted-foreground whitespace-pre-wrap">
+              <div className="space-y-4 editorial-body text-muted-foreground">
                 <p>
-                  Since 1884, we have combined textile craftsmanship with continuous innovation, delivering quality without compromise.&nbsp;
-                  {"\n\n"}
-                  From our facility in Dresden, we unite advanced manufacturing with decades of experience to serve our clients of every scale.
+                  Since 1884, we have combined textile craftsmanship with continuous innovation, delivering quality without compromise.
                 </p>
                 <p>
-                  {"\n"}
+                  From our facility in Dresden, we unite advanced manufacturing with decades of experience to serve our clients of every scale.
                 </p>
               </div>
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300">
-                
                 Read our story <ArrowRight size={16} />
               </Link>
             </div>
