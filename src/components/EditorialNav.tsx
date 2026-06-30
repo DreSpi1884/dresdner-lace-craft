@@ -7,8 +7,11 @@ const navItems = [
   { label: "HOME", path: "/" },
   { label: "SERVICES", path: "/services" },
   { label: "ABOUT", path: "/about" },
-  { label: "CAREERS", path: "/jobs" },
   { label: "CONTACT", path: "/contact" },
+];
+
+const contactSections = [
+  { label: "CAREERS", path: "/jobs" },
 ];
 
 const aboutSections = [
@@ -78,6 +81,34 @@ const EditorialNav = () => {
                           key={s.hash}
                           to={`/about${s.hash}`}
                           onClick={(e) => handleAboutAnchor(e, s.hash)}
+                          className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
+                        >
+                          {s.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+            if (item.label === "CONTACT") {
+              return (
+                <div key={item.path} className="relative group">
+                  <Link
+                    to={item.path}
+                    className={`editorial-body-sm transition-colors duration-300 drop-shadow-md hover:text-background/70 inline-flex items-center gap-1 ${
+                      location.pathname === item.path ? "text-background" : "text-background/85"
+                    }`}
+                  >
+                    {item.label}
+                    <ChevronDown size={14} />
+                  </Link>
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="bg-foreground border border-background/10 min-w-[200px] py-2">
+                      {contactSections.map((s) => (
+                        <Link
+                          key={s.path}
+                          to={s.path}
                           className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
                         >
                           {s.label}
@@ -160,16 +191,31 @@ const EditorialNav = () => {
         <div className="md:hidden bg-foreground/95 backdrop-blur-sm animate-fade-in">
           <div className="editorial-container py-8 flex flex-col gap-6">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`editorial-heading-sm ${
-                  location.pathname === item.path ? "text-background" : "text-background/80"
-                }`}
-              >
-                {item.label}
-              </Link>
+              <div key={item.path}>
+                <Link
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`editorial-heading-sm ${
+                    location.pathname === item.path ? "text-background" : "text-background/80"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+                {item.label === "CONTACT" && (
+                  <div className="mt-2 ml-4 flex flex-col gap-2">
+                    {contactSections.map((s) => (
+                      <Link
+                        key={s.path}
+                        to={s.path}
+                        onClick={() => setIsOpen(false)}
+                        className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+                      >
+                        {s.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <Link
               to="/quote"
