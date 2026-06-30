@@ -30,8 +30,10 @@ const EditorialNav = () => {
   const [lang, setLang] = useState("EN");
   const location = useLocation();
 
+  const isHome = location.pathname === "/";
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.85);
+    const onScroll = () => setScrolled(window.scrollY > 0);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -48,8 +50,8 @@ const EditorialNav = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
-        scrolled ? "bg-foreground shadow-md" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        isHome && !scrolled ? "bg-transparent" : "bg-foreground shadow-md"
       }`}
     >
       <nav className="flex items-center justify-between h-20 md:h-24 pl-2 md:pl-4 pr-4 md:pr-8">
