@@ -63,19 +63,14 @@ const BeforeAfterSlider = ({
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         draggable={false}
       />
-      {/* Before (clipped) */}
-      <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        style={{ width: `${position}%` }}
-      >
-        <img
-          src={beforeImage}
-          alt={beforeAlt}
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{ width: containerRef.current?.clientWidth ?? "100%", maxWidth: "none" }}
-          draggable={false}
-        />
-      </div>
+      {/* Before (clipped from the left) */}
+      <img
+        src={beforeImage}
+        alt={beforeAlt}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        draggable={false}
+      />
 
       {/* Labels */}
       <span className="absolute bottom-3 left-3 editorial-label text-background/90 text-[10px] tracking-[0.25em] drop-shadow">
