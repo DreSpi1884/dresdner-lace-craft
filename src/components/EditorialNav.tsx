@@ -191,16 +191,31 @@ const EditorialNav = () => {
         <div className="md:hidden bg-foreground/95 backdrop-blur-sm animate-fade-in">
           <div className="editorial-container py-8 flex flex-col gap-6">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`editorial-heading-sm ${
-                  location.pathname === item.path ? "text-background" : "text-background/80"
-                }`}
-              >
-                {item.label}
-              </Link>
+              <div key={item.path}>
+                <Link
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`editorial-heading-sm ${
+                    location.pathname === item.path ? "text-background" : "text-background/80"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+                {item.label === "CONTACT" && (
+                  <div className="mt-2 ml-4 flex flex-col gap-2">
+                    {contactSections.map((s) => (
+                      <Link
+                        key={s.path}
+                        to={s.path}
+                        onClick={() => setIsOpen(false)}
+                        className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+                      >
+                        {s.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <Link
               to="/quote"
