@@ -37,6 +37,27 @@ const Index = () => {
       </section>
 
 
+      {/* KEYWORDS BANNER */}
+      <section className="w-full bg-background border-b border-border py-5 md:py-6">
+        <div className="editorial-container flex items-center justify-between">
+          {[
+            "140 Years of Expertise",
+            "Made in Germany",
+            "Certified Quality",
+            "Tailored Solutions",
+          ].map((text, i) => (
+            <div key={text} className="flex items-center">
+              {i > 0 && (
+                <div className="h-5 md:h-6 w-px bg-primary/30 mx-3 md:mx-6" />
+              )}
+              <span className="editorial-label text-primary whitespace-nowrap">
+                {text}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* OUR SERVICES */}
       <EditorialSection className="bg-foreground text-background">
         <div className="editorial-section">
