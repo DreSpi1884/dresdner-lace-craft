@@ -26,15 +26,11 @@ const services = [
 
 const Services = () => {
   return (
-    <EditorialLayout>
-      {/* Hero */}
+    <EditorialLayout eyebrow="Services" title="What we offer">
+      {/* Intro */}
       <section className="editorial-section">
         <div className="editorial-container">
           <div className="max-w-3xl">
-            <p className="editorial-label text-primary mb-6">SERVICES</p>
-            <h1 className="editorial-heading-xl text-foreground mb-8">
-              What we offer
-            </h1>
             <p className="editorial-body text-muted-foreground max-w-2xl">
               From seasonal collections and bespoke designs to in-house dyeing and functional finishes — a complete lace service, made in Dresden.
             </p>
