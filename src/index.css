@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 60% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 60% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 60% 12%;
+
+    --primary: 215 60% 12%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 215 60% 12%;
+
+    --muted: 0 0% 100%;
+    --muted-foreground: 215 30% 30%;
+
+    --accent: 215 60% 12%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 30% 88%;
+    --input: 215 30% 88%;
+    --ring: 215 60% 12%;
+
+    --radius: 0.25rem;
+
+    --gold: 215 60% 12%;
+    --gold-light: 215 40% 25%;
+    --charcoal: 215 60% 12%;
+    --charcoal-light: 215 40% 22%;
+    --cream: 0 0% 100%;
+    --ivory: 0 0% 100%;
+    --warm-gray: 215 15% 45%;
+
+    --font-serif: 'Bodoni Moda', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --shadow-subtle: 0 1px 3px hsl(0 0% 0% / 0.04);
+    --shadow-editorial: 0 8px 30px hsl(0 0% 0% / 0.06);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 60% 12%;
+    --sidebar-primary: 215 60% 12%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 215 60% 12%;
+    --sidebar-border: 215 30% 88%;
+    --sidebar-ring: 215 60% 12%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 40 20% 90%;
+    --card: 0 0% 10%;
+    --card-foreground: 40 20% 90%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 40 20% 90%;
+    --primary: 215 50% 40%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 40 20% 90%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 210 8% 55%;
+    --accent: 215 50% 40%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 215 50% 40%;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer components {
+  .editorial-container {
+    @apply max-w-6xl mx-auto px-6 md:px-12 lg:px-16;
+  }
+
+  .editorial-heading-xl {
+    font-family: var(--font-serif);
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal leading-tight tracking-tight;
+  }
+
+  .editorial-heading-lg {
+    font-family: var(--font-serif);
+    @apply text-3xl md:text-4xl lg:text-5xl font-normal leading-tight;
+  }
+
+  .editorial-heading-md {
+    font-family: var(--font-serif);
+    @apply text-2xl md:text-3xl font-normal leading-snug;
+  }
+
+  .editorial-heading-sm {
+    font-family: var(--font-serif);
+    @apply text-xl md:text-2xl font-normal leading-snug;
+  }
+
+  .editorial-body {
+    font-family: var(--font-sans);
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  .editorial-body-sm {
+    font-family: var(--font-sans);
+    @apply text-sm md:text-base leading-relaxed;
+  }
+
+  .editorial-label {
+    font-family: var(--font-sans);
+    @apply text-xs md:text-sm uppercase tracking-widest font-medium;
+  }
+
+  .editorial-divider {
+    @apply w-12 h-px bg-primary;
+  }
+
+  .editorial-section {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  /* Dark blue CTA with thin transparent border */
+  .cta-lace {
+    position: relative;
+    background-color: hsl(var(--primary)) !important;
+    color: hsl(var(--background)) !important;
+    border: 1px solid hsl(var(--background) / 0.25) !important;
+    padding: 16px 32px !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .cta-lace:hover {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--primary)) !important;
+    border-color: hsl(var(--primary) / 0.25) !important;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection */
+::selection {
+  background-color: hsl(var(--primary) / 0.15);
+}
