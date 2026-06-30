@@ -91,6 +91,34 @@ const EditorialNav = () => {
                 </div>
               );
             }
+            if (item.label === "CONTACT") {
+              return (
+                <div key={item.path} className="relative group">
+                  <Link
+                    to={item.path}
+                    className={`editorial-body-sm transition-colors duration-300 drop-shadow-md hover:text-background/70 inline-flex items-center gap-1 ${
+                      location.pathname === item.path ? "text-background" : "text-background/85"
+                    }`}
+                  >
+                    {item.label}
+                    <ChevronDown size={14} />
+                  </Link>
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="bg-foreground border border-background/10 min-w-[200px] py-2">
+                      {contactSections.map((s) => (
+                        <Link
+                          key={s.path}
+                          to={s.path}
+                          className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
+                        >
+                          {s.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
             return (
               <Link
                 key={item.path}
