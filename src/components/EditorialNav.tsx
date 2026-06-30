@@ -11,6 +11,7 @@ const navItems = [
 ];
 
 const contactSections = [
+  { label: "CONTACT", path: "/contact" },
   { label: "CAREERS", path: "/jobs" },
 ];
 
