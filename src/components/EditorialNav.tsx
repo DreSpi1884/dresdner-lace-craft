@@ -7,8 +7,11 @@ const navItems = [
   { label: "HOME", path: "/" },
   { label: "SERVICES", path: "/services" },
   { label: "ABOUT", path: "/about" },
-  { label: "CAREERS", path: "/jobs" },
   { label: "CONTACT", path: "/contact" },
+];
+
+const contactSections = [
+  { label: "CAREERS", path: "/jobs" },
 ];
 
 const aboutSections = [
