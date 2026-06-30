@@ -30,8 +30,10 @@ const EditorialNav = () => {
   const [lang, setLang] = useState("EN");
   const location = useLocation();
 
+  const isHome = location.pathname === "/";
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.85);
+    const onScroll = () => setScrolled(window.scrollY > 0);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
