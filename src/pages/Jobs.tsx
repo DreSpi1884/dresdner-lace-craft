@@ -27,13 +27,9 @@ const openPositions = [
 
 const Jobs = () => {
   return (
-    <EditorialLayout>
+    <EditorialLayout eyebrow="Careers" title="Build the future of textiles with us">
       <EditorialSection className="editorial-section">
         <div className="editorial-container max-w-3xl">
-          <p className="editorial-label text-primary mb-6">Careers</p>
-          <h1 className="editorial-heading-xl text-foreground mb-8">
-            Build the future of textiles with us
-          </h1>
           <p className="editorial-body text-muted-foreground max-w-2xl">
             At Dresdner Spitzen, we value skilled hands and fresh ideas equally.
             Join a team where tradition meets innovation, in one of Germany's most beautiful cities.

@@ -92,13 +92,9 @@ const Quote = () => {
   }
 
   return (
-    <EditorialLayout>
+    <EditorialLayout eyebrow="Quote Request" title="Let's create something together">
       <section className="editorial-section">
         <div className="editorial-container max-w-2xl mx-auto">
-          <p className="editorial-label text-primary mb-6">Quote Request</p>
-          <h1 className="editorial-heading-lg text-foreground mb-4">
-            Let's create something together
-          </h1>
           <p className="editorial-body text-muted-foreground mb-12">
             Answer 5 short questions to receive a tailored quote. It takes less than a minute.
           </p>

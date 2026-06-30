@@ -4,15 +4,11 @@ import EditorialLayout from "@/components/EditorialLayout";
 
 const Contact = () => {
   return (
-    <EditorialLayout>
+    <EditorialLayout eyebrow="Contact" title="Let's start a conversation">
       <section className="editorial-section">
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
-              <p className="editorial-label text-primary mb-6">Contact</p>
-              <h1 className="editorial-heading-xl text-foreground mb-8">
-                Let's start a conversation
-              </h1>
               <p className="editorial-body text-muted-foreground mb-12">
                 Whether you have a specific project in mind or simply want to learn more about our capabilities,
                 we're here to help. Our team responds within one business day.
