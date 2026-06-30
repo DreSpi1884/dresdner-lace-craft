@@ -2,7 +2,7 @@ import EditorialLayout from "@/components/EditorialLayout";
 
 const Imprint = () => {
   return (
-    <EditorialLayout eyebrow="Legal" title="Imprint">
+    <EditorialLayout title="Imprint">
       <section className="editorial-section">
         <div className="editorial-container max-w-3xl">
           <div className="editorial-body text-muted-foreground space-y-2">

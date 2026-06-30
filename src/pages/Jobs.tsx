@@ -27,7 +27,7 @@ const openPositions = [
 
 const Jobs = () => {
   return (
-    <EditorialLayout eyebrow="Careers" title="Build the future of textiles with us">
+    <EditorialLayout title="Build the future of textiles with us">
       <EditorialSection className="editorial-section">
         <div className="editorial-container max-w-3xl">
           <p className="editorial-body text-muted-foreground max-w-2xl">

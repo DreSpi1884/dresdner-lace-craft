@@ -26,7 +26,7 @@ const services = [
 
 const Services = () => {
   return (
-    <EditorialLayout eyebrow="Services" title="What we offer">
+    <EditorialLayout title="What we offer">
       {/* Intro */}
       <section className="editorial-section">
         <div className="editorial-container">

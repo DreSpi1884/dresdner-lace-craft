@@ -7,10 +7,9 @@ interface EditorialLayoutProps {
   children: ReactNode;
   heroAtTop?: boolean;
   title?: string;
-  eyebrow?: string;
 }
 
-const EditorialLayout = ({ children, heroAtTop = false, title, eyebrow }: EditorialLayoutProps) => {
+const EditorialLayout = ({ children, heroAtTop = false, title }: EditorialLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <EditorialNav />
@@ -22,10 +21,7 @@ const EditorialLayout = ({ children, heroAtTop = false, title, eyebrow }: Editor
           >
             <div className="absolute inset-0 bg-background/40" aria-hidden="true" />
             {title && (
-              <div className="editorial-container relative pb-10 md:pb-14">
-                {eyebrow && (
-                  <p className="editorial-label text-primary mb-3 md:mb-4">{eyebrow}</p>
-                )}
+              <div className="relative w-full px-6 md:px-12 lg:px-16 pb-10 md:pb-14">
                 <h1 className="editorial-heading-xl text-foreground max-w-3xl">
                   {title}
                 </h1>
