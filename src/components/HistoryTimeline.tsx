@@ -89,12 +89,11 @@ const HistoryTimeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background text-foreground w-full overflow-hidden py-24 md:py-32"
+      className="relative bg-background text-foreground w-full overflow-hidden py-16 md:py-20"
     >
       {/* Heading */}
-      <div className="editorial-container text-center mb-20 md:mb-28">
-        <p className="editorial-label text-primary mb-6">Our History</p>
-        <h2 className="editorial-heading-xl text-foreground mb-8">
+      <div className="editorial-container text-center mb-12 md:mb-16">
+        <h2 className="editorial-heading-xl text-foreground mb-6">
           Over 140 years of fabric expertise
         </h2>
         <p className="editorial-body text-muted-foreground max-w-2xl mx-auto">
