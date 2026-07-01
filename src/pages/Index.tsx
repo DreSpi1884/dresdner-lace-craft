@@ -46,7 +46,7 @@ const Index = () => {
           {[
             "140 Years of Expertise",
             "Made in Germany",
-            "Certified Quality",
+            "In-House Production",
             "Tailored Solutions",
           ].map((text, i) => (
             <div key={text} className="flex items-center">
