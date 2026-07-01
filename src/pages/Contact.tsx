@@ -9,9 +9,9 @@ const Contact = () => {
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
-              <p className="editorial-body text-muted-foreground mb-12">
-                Whether you have a specific project in mind or simply want to learn more about our capabilities,
-                we're here to help. Our team responds within one business day.
+              <p className="editorial-body text-muted-foreground mb-12 whitespace-pre-line">
+                Whether you have a specific project in mind or simply want to learn more about our capabilities, we're here to help.{"\n"}
+                Our team responds within one business day.
               </p>
 
               <div className="space-y-8">
