@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-white.png.asset.json";
@@ -24,6 +24,8 @@ const aboutSections = [
 
 const languages = ["EN", "DE", "FR"];
 
+const HERO_SCALE = 4.5;
+
 const EditorialNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -32,12 +34,72 @@ const EditorialNav = () => {
 
   const isHome = location.pathname === "/";
 
+  const logoRef = useRef<HTMLImageElement>(null);
+  const naturalCenter = useRef<{ cx: number; cy: number } | null>(null);
+  const [logoStyle, setLogoStyle] = useState<React.CSSProperties>({});
+  const [progress, setProgress] = useState(isHome ? 0 : 1);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 0);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Measure natural nav logo center (with no transform applied)
+  useLayoutEffect(() => {
+    const measure = () => {
+      const img = logoRef.current;
+      if (!img) return;
+      // Temporarily clear transform to get natural rect
+      const prev = img.style.transform;
+      img.style.transform = "none";
+      const rect = img.getBoundingClientRect();
+      img.style.transform = prev;
+      naturalCenter.current = {
+        cx: rect.left + rect.width / 2,
+        cy: rect.top + rect.height / 2,
+      };
+      updateLogo();
+    };
+    const updateLogo = () => {
+      const nc = naturalCenter.current;
+      if (!nc) return;
+      if (!isHome) {
+        setLogoStyle({ transform: "none" });
+        setProgress(1);
+        return;
+      }
+      const heroH = window.innerHeight;
+      const p = Math.max(0, Math.min(1, window.scrollY / (heroH * 0.9)));
+      const heroCx = window.innerWidth / 2;
+      const heroCy = window.innerHeight * 0.42;
+      const scale = 1 + (HERO_SCALE - 1) * (1 - p);
+      const dx = (heroCx - nc.cx) * (1 - p);
+      const dy = (heroCy - nc.cy) * (1 - p);
+      setLogoStyle({
+        transform: `translate(${dx}px, ${dy}px) scale(${scale})`,
+        transformOrigin: "center center",
+        willChange: "transform",
+      });
+      setProgress(p);
+    };
+    measure();
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        updateLogo();
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", measure);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", measure);
+    };
+  }, [isHome]);
 
   // Smooth scroll to anchor on About page
   const handleAboutAnchor = (e: React.MouseEvent, hash: string) => {
@@ -56,11 +118,21 @@ const EditorialNav = () => {
     >
       <nav className="flex items-center justify-between h-20 md:h-24 pl-2 md:pl-4 pr-4 md:pr-8">
         <Link to="/" className="flex items-center gap-1 text-background">
-          <img src={logo.url} alt="Dresdner Spitzen logo" className="h-16 md:h-20 w-auto" />
-          <span className="font-serif text-sm md:text-base tracking-wide text-background drop-shadow-md -ml-1">
+          <img
+            ref={logoRef}
+            src={logo.url}
+            alt="Dresdner Spitzen logo"
+            className="h-16 md:h-20 w-auto pointer-events-none relative z-50"
+            style={logoStyle}
+          />
+          <span
+            className="font-serif text-sm md:text-base tracking-wide text-background drop-shadow-md -ml-1 transition-opacity duration-200"
+            style={{ opacity: isHome ? progress : 1 }}
+          >
             Dresdner Spitzen
           </span>
         </Link>
+
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
