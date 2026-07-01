@@ -72,10 +72,10 @@ const Services = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { step: "01", title: "Consult", desc: "Share your idea with us." },
-              { step: "02", title: "Plan", desc: "We define the perfect solution." },
-              { step: "03", title: "Produce", desc: "Made in Germany to the highest standards." },
-              { step: "04", title: "Delivery", desc: "Reliable just-in-time delivery." },
+              { step: "01", title: "Consult", desc: "Share your project, requirements and applications with us.\u00a0" },
+              { step: "02", title: "Plan", desc: "We develop custom lace designs or warp-knitted fabrics tailored to your needs." },
+              { step: "03", title: "Produce", desc: "Made in Germany using certified textile production and quality controlled processes." },
+              { step: "04", title: "Delivery", desc: "Reliable just-in-time delivery for efficient production planning." },
             ].map((item) => (
               <div key={item.step} className="flex flex-col h-full">
                 <span className="editorial-label text-background/40 mb-4 block">{item.step}</span>
