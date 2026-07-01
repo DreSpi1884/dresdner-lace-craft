@@ -53,12 +53,13 @@ const About = () => {
             </div>
             <div className="space-y-6 editorial-body text-muted-foreground">
               <p>
-                Sustainability is part of how we manufacture textiles every day. By keeping development, production, dyeing and finishing under one roof in Dresden, we reduce transport, improve efficiency and maintain full control over quality and environmental standards. 
-
-Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® STANDARD 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS). These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes. 
+                Sustainability is part of how we manufacture textiles every day. By keeping development, production, dyeing and finishing under one roof in Dresden, we reduce transport, improve efficiency and maintain full control over quality and environmental standards.
               </p>
               <p>
-                
+                Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® STANDARD 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).
+              </p>
+              <p>
+                These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.
               </p>
             </div>
           </div>
@@ -75,9 +76,14 @@ Our production is supported by an energy management system and certified accordi
               <h2 className="editorial-heading-lg text-foreground mb-6">
                 Modern Machinery, Timeless Standards
               </h2>
-              <p className="editorial-body text-muted-foreground mb-8">
-                Our production combines advanced Karl Mayer warp knitting technology with more than 140 years of textile expertise. We manufacture premium lace, warp-knitted fabrics, elastic textiles and technical fabrics using modern Raschel, Jacquardtronic® and Textronic® machines. 
-              </p>
+              <div className="editorial-body text-muted-foreground mb-8 space-y-4">
+                <p>
+                  Our production combines advanced Karl Mayer warp knitting technology with more than 140 years of textile expertise.
+                </p>
+                <p>
+                  We manufacture premium lace, warp-knitted fabrics, elastic textiles and technical fabrics using modern Raschel, Jacquardtronic® and Textronic® machines.
+                </p>
+              </div>
               <Link
                 to="/quote"
                 className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors duration-300">
