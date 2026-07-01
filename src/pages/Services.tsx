@@ -8,31 +8,31 @@ import productionImage from "@/assets/production-detail.jpg";
 const services = [
   {
     title: "Collections",
-    desc: "Twice a year we design a new lace collection, shaped by international fashion trends. Each collection spans a wide range of styles.",
+    desc: "Our design team continously develops new lace collections inspired by international fashion trends throughout the year. Each collection includes a wide variety of elastic and inelastic lace for lingerie, fashion and apparel. ",
   },
   {
     title: "Custom designs",
-    desc: "If you have a specific idea in mind, we'll work with you to bring it to life, quickly and without unnecessary back and forth.",
+    desc: "Every project starts with an idea. Whether you're developing a unique lace design, a warp-knitted fabric or a functional textile for a specific application, we work closely with you to create a solution tailored to your technical and aesthetic requirements. ",
   },
   {
     title: "Dyeing and finishing",
-    desc: "Once the lace is woven, it goes through our in-house dyeing facility. Whether you're after soft pastels, bold saturated tones or anything in between, we match your colour requirements precisely. We also offer bicolour finishes for more complex designs.",
+    desc: "Our in-house dye house offers precise colour matching across the full spectrum, from subtle neutrals to vibrant shades, including solid and bicolour finishes. We also provide textile finishing tailored to the intended application and performance requirements, including hydrophilic and hydrophobic treatments, dirt and oil repellency, antistatic properties, flame retardancy, softening and stiffening finishes. ",
   },
   {
     title: "Functional treatments",
-    desc: "Lace isn't just for fashion. Depending on the application, we can treat our fabrics with specific functional properties. That includes dirt and oil repellency for the automotive industry, hydrophilic or hydrophobic finishes for apparel, antistatic and softening treatments, as well as flame retardant and stiffening finishes for decorative use and floristry.",
+    desc: "Beyond fashion, we develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments, post-surgical products, lymphatic therapy, orthopaedic supports and other medical applications where consistent elasticity, skin compatibility and durability are essential. ",
   },
 ];
 
 const Services = () => {
   return (
-    <EditorialLayout title="What we offer">
+    <EditorialLayout title="Our Services">
       {/* Intro */}
       <section className="editorial-section">
         <div className="editorial-container">
           <div className="max-w-3xl">
             <p className="editorial-body text-muted-foreground max-w-2xl">
-              From seasonal collections and bespoke designs to in-house dyeing and functional finishes — a complete lace service, made in Dresden.
+              From the first sketch to the finished product, every step of our textile manufacturing takes place under one roof in Dresden. We combine design, warp knitting, dyeing, finishing and quality control to create premium lace, warp-knitted fabrics and technical textiles tailored to your requirements. 
             </p>
           </div>
         </div>
