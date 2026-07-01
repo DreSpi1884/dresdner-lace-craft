@@ -27,16 +27,14 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-foreground/30" />
         <div className="editorial-container relative text-center">
-          <img
-            src={logoWhite.url}
-            alt="Dresdner Spitzen"
-            className="w-56 md:w-64 mx-auto mb-6 drop-shadow-lg"
-          />
+          {/* Spacer reserving room for the animated nav logo that flies in from above */}
+          <div className="w-56 md:w-64 mx-auto mb-6 aspect-[2/3]" aria-hidden="true" />
           <h1 className="font-serif text-background mb-4 leading-[1.02] tracking-[-0.01em] text-[clamp(2.75rem,7vw,5.75rem)] [text-wrap:balance]">
             The Art of Textiles
           </h1>
           <p className="editorial-label text-background/90 mb-12 tracking-[0.3em]">MADE IN GERMANY SINCE 1884</p>
         </div>
+
       </section>
 
 
