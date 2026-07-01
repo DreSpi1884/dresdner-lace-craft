@@ -256,14 +256,29 @@ const HistoryTimeline = () => {
                 data-idx={i}
                 className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center py-20 md:py-28"
               >
-                {/* Side A: YEAR + IMAGE */}
+                {/* Side A: IMAGE */}
                 <div
-                  className={`${isLeft ? "md:order-1 md:text-right md:pr-16" : "md:order-2 md:text-left md:pl-16"} flex flex-col gap-6 ${isLeft ? "md:items-end" : "md:items-start"} transition-all duration-700 ease-out`}
+                  className={`${isLeft ? "md:order-1 md:pr-16 md:items-end" : "md:order-2 md:pl-16 md:items-start"} flex flex-col transition-all duration-700 ease-out`}
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible
                       ? "translateX(0)"
                       : `translateX(${isLeft ? "-40px" : "40px"})`,
+                  }}
+                >
+                  <div className="w-full max-w-sm aspect-[4/3] bg-muted border border-border flex items-center justify-center text-muted-foreground/40 editorial-label">
+                    Image {i + 1}
+                  </div>
+                </div>
+
+                {/* Side B: YEAR + TEXT */}
+                <div
+                  className={`${isLeft ? "md:order-2 md:text-left md:pl-16 md:items-start" : "md:order-1 md:text-right md:pr-16 md:items-end"} flex flex-col gap-6 transition-all duration-700 ease-out delay-150`}
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible
+                      ? "translateX(0)"
+                      : `translateX(${isLeft ? "40px" : "-40px"})`,
                   }}
                 >
                   <div
@@ -272,22 +287,7 @@ const HistoryTimeline = () => {
                   >
                     {entry.year}
                   </div>
-                  <div className="w-full max-w-sm aspect-[4/3] bg-muted border border-border flex items-center justify-center text-muted-foreground/40 editorial-label">
-                    Image {i + 1}
-                  </div>
-                </div>
-
-                {/* Side B: TEXT */}
-                <div
-                  className={`${isLeft ? "md:order-2 md:text-left md:pl-16" : "md:order-1 md:text-right md:pr-16"} transition-all duration-700 ease-out delay-150`}
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible
-                      ? "translateX(0)"
-                      : `translateX(${isLeft ? "40px" : "-40px"})`,
-                  }}
-                >
-                  <p className="editorial-body text-muted-foreground max-w-md md:inline-block">
+                  <p className="editorial-body text-muted-foreground max-w-md">
                     {entry.text}
                   </p>
                 </div>
