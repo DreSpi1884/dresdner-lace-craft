@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import EditorialSection from "@/components/EditorialSection";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
-import logoWhite from "@/assets/logo-white.png.asset.json";
+
 import serviceCollections from "@/assets/service-collections.jpg.asset.json";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
 import serviceFunctional from "@/assets/service-functional.png.asset.json";
