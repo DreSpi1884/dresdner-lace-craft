@@ -26,6 +26,10 @@ const ENTRIES: Entry[] = [
     year: "1995",
     text: "Following German reunification, we reinvented our business. Under the leadership of Manfred and Sascha Schröder, we modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace, warp-knitted fabrics and technical textiles for international markets. ",
   },
+  {
+    year: "Today",
+    text: "Today, Dresdner Spitzen stands as an international partner for premium lace, warp-knitted fabrics and technical textiles. From our Dresden facility, we continue to combine more than 140 years of craftsmanship with modern manufacturing technology, serving customers in fashion, industry and medical applications worldwide. ",
+  },
 ];
 
 const HistoryTimeline = () => {
