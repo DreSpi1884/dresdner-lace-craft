@@ -8,23 +8,23 @@ type Entry = {
 const ENTRIES: Entry[] = [
   {
     year: "1884",
-    text: "Two Dresden merchants founded the Dresdner Gardinen- und Spitzen-Manufaktur in Johannstadt, bringing English bobbin machines into Germany to produce lace and curtains for customers around the world.",
+    text: "Our story began in 1884, when Georg Marwitz and Carl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur. At a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden. ",
   },
   {
     year: "1900",
-    text: "Booming demand led to rapid expansion. The company moved to a larger site in Dobritz, opened factories abroad and grew to over 3,000 employees. Wars, inflation and the Great Depression hit hard, but production never stopped.",
+    text: "As demand for our lace and textiles increased, so did our ambitions. We expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad. Even through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide. ",
   },
   {
     year: "1945",
-    text: "Soviet occupation brought full expropriation and the dismantling of every machine. Starting from scratch with borrowed equipment, the workforce rebuilt within a year. That resilience became known as the Dregusgeist.",
+    text: "After the Second World War, every machine in our factory was dismantled. Starting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees. Within a year, textile manufacturing had resumed. This resilience became known as the Dregusgeist and continues to shape our company today. ",
   },
   {
     year: "1970",
-    text: "The switch to warp knitting technology transformed production. Dresden became the most productive lace facility in East Germany and in 1982 installed the world's first electronically controlled raschel machines.",
+    text: "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany. In 1982, we became the first company in the world to operate electronically controlled Raschel machines, setting new standards in textile manufacturing. ",
   },
   {
     year: "1995",
-    text: "Entrepreneur Manfred Schröder and his son Sascha took over and rebuilt the company from the ground up. Today Dresdner Spitzen produces up to 200,000 kg of certified lace per year, supplying brands like Dolce & Gabbana, Triumph and C&A worldwide.",
+    text: "Following German reunification, we reinvented our business. Under the leadership of Manfred and Sascha Schröder, we modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace, warp-knitted fabrics and technical textiles for international markets. ",
   },
 ];
 
@@ -94,10 +94,10 @@ const HistoryTimeline = () => {
       {/* Heading */}
       <div className="editorial-container text-center mb-12 md:mb-16">
         <h2 className="editorial-heading-xl text-foreground mb-6">
-          Over 140 years of fabric expertise
+          Over 140 Years<br />&nbsp;Textile Expertise
         </h2>
         <p className="editorial-body text-muted-foreground max-w-2xl mx-auto">
-          Five generations of craft. A century and a half of lace, woven through every chapter of European history.
+          For more than 140 years, we have been shaping textile manufacturing in Germany. What began as a lace manufacturer in Dresden has grown into an international partner for fashion textiles, technical textiles and medical textiles. 
         </p>
       </div>
 

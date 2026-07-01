@@ -20,17 +20,17 @@ const About = () => {
         <div className="editorial-container editorial-section">
           <p className="editorial-label text-primary mb-4 text-center">Our Values</p>
           <h2 className="editorial-heading-lg text-foreground mb-16 text-center">
-            What drives us every day
+            What Drives Us Every Day
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
-            { title: "Tradition", desc: "Five generations of knowledge, passed down and refined." },
-            { title: "Innovation", desc: "Continuous investment in technology and processes." },
-            { title: "Quality", desc: "Uncompromising standards at every stage of production." },
-            { title: "Precision", desc: "Meticulous attention to detail in every product." },
-            { title: "Flexibility", desc: "Adaptive production for orders of any scale." },
-            { title: "Reliability", desc: "Consistent delivery and transparent communication." }].
+            { title: "Tradition", desc: "More than 140 years of textile craftsmanship. " },
+            { title: "Innovation", desc: "Driven by new ideas and modern manufacturing. " },
+            { title: "Quality", desc: "Certified quality standards throughout every stage of textile production. " },
+            { title: "Precision", desc: "Meticulous attention to detail in every product. " },
+            { title: "Flexibility", desc: "Tailored solutions for every project. " },
+            { title: "Reliability", desc: "A trusted partner from development to delivery. " }].
             map((item) =>
             <div key={item.title} className="border-t border-border pt-6">
                 <h3 className="editorial-heading-sm text-foreground mb-3">{item.title}</h3>
@@ -48,15 +48,17 @@ const About = () => {
             <div>
               <p className="editorial-label text-primary mb-4">Sustainability</p>
               <h2 className="editorial-heading-lg text-foreground mb-8">
-                Responsible production at every stage
+                Responsible production at<br />every stage
               </h2>
             </div>
             <div className="space-y-6 editorial-body text-muted-foreground">
               <p>
-                We operate with respect for our craft, our people, and the environment. Our facility runs on energy-efficient processes, and we minimise waste through just-in-time production.
+                Sustainability is part of how we manufacture textiles every day. By keeping development, production, dyeing and finishing under one roof in Dresden, we reduce transport, improve efficiency and maintain full control over quality and environmental standards. 
+
+Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® STANDARD 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS). These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes. 
               </p>
               <p>
-                Optional certifications such as GRS and STeP are available for clients seeking verified sustainable sourcing and chemical management.
+                
               </p>
             </div>
           </div>
@@ -71,10 +73,10 @@ const About = () => {
             <div>
               <p className="editorial-label text-primary mb-4">Production</p>
               <h2 className="editorial-heading-lg text-foreground mb-6">
-                Modern machinery, timeless standards
+                Modern Machinery, Timeless Standards
               </h2>
               <p className="editorial-body text-muted-foreground mb-8">
-                Our&nbsp;cutting-edge production equipment&nbsp;handles everything from delicate elastic lace to robust inelastic fabrics. Every meter goes through strict quality control before it leaves our hands.
+                Our production combines advanced Karl Mayer warp knitting technology with more than 140 years of textile expertise. We manufacture premium lace, warp-knitted fabrics, elastic textiles and technical fabrics using modern Raschel, Jacquardtronic® and Textronic® machines. 
               </p>
               <Link
                 to="/quote"
