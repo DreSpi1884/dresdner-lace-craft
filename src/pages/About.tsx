@@ -7,7 +7,7 @@ import productionImage from "@/assets/production-detail.jpg";
 
 const About = () => {
   return (
-    <EditorialLayout title="Our story">
+    <EditorialLayout title="Our Story">
       {/* History timeline */}
       <div id="history" className="scroll-mt-32">
         <HistoryTimeline />
