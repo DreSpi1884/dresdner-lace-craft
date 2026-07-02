@@ -38,13 +38,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Image */}
-      <section className="editorial-container">
-        <img
-          src={heritageImage}
-          alt="Dresdner Spitzen lace production services"
-          className="w-full h-[300px] md:h-[500px] object-cover" />
-      </section>
 
       {/* Service list */}
       <EditorialSection className="bg-card">
