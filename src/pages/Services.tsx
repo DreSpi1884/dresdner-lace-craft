@@ -33,9 +33,9 @@ const services = [
   },
   {
     id: "functional-treatments",
-    nav: "Functional and ME",
-    title: "Functional and ME",
-    text: "Beyond fashion, we develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments, post-surgical products, lymphatic therapy and orthopaedic supports where consistent performance is essential.",
+    nav: "Functional and Medical Textiles",
+    title: "Functional and Medical Textiles",
+    text: "We develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments, post-surgical products, lymphatic therapy and orthopaedic supports where consistent performance is essential.",
   },
 ];
 
