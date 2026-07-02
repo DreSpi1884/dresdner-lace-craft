@@ -65,7 +65,7 @@ const Index = () => {
           <div className="editorial-container text-center mb-16 md:mb-20">
             <p className="editorial-label text-background/40 mb-4">Our Services</p>
             <h2 className="editorial-heading-lg text-background mb-4">
-              What we offer
+              Our Services
             </h2>
           </div>
 
@@ -82,13 +82,13 @@ const Index = () => {
                 image: serviceCollections.url,
               },
               {
-                title: "Dyeing and Finishing",
+                title: "Dyeing and Finishing Treatments",
                 desc: "Our in-house dyeing facility covers the full colour spectrum, from soft pastels to deep saturated tones, in uni or bicolour.",
                 image: serviceDyeing,
               },
               {
-                title: "Functional Treatments",
-                desc: "We can finish our fabrics for specific applications, including dirt repellency, hydrophilic or hydrophobic coatings, antistatic treatments and flame retardancy.",
+                title: "Functional and Medical Textiles",
+                desc: "We develop certified warp-knitted fabrics for medical and technical applications. Our elastic textiles are used in compression garments, post-surgical care and lymphatic therapy, combining skin compatibility, reliable compression and long-lasting performance with the highest quality standards.",
                 image: serviceFunctional.url,
               },
             ].map((item) => (
