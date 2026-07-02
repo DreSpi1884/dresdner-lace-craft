@@ -98,7 +98,7 @@ const HistoryTimeline = () => {
       {/* Heading */}
       <div className="editorial-container text-center mb-12 md:mb-16">
         <p className="editorial-body text-muted-foreground max-w-2xl mx-auto">
-          For more than 140 years, we have been shaping textile manufacturing in Germany. What began as a lace manufacturer in Dresden has grown into an international partner for fashion textiles, technical textiles and medical textiles.
+          For more than 140 years, we have been shaping textile manufacturing in Germany.
         </p>
       </div>
 
