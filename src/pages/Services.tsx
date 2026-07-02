@@ -79,12 +79,14 @@ const Services = () => {
     <EditorialLayout
       title="Our Services"
       subtitle="Every step of our textile manufacturing takes place under one roof in Dresden."
+      heroCompact
+      heroSnap
     >
       {/* Snap scroll experience */}
       <section className="relative">
         <div className="lg:grid lg:grid-cols-[28%_72%] relative">
           {/* Sidebar (desktop) */}
-          <aside className="hidden lg:flex sticky top-24 h-[calc(100vh-6rem)] items-center pl-[60px] self-start">
+          <aside className="hidden lg:flex sticky top-20 md:top-24 h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] items-start pt-4 pl-[60px] self-start">
             <nav className="relative flex flex-col gap-10">
               <span
                 aria-hidden="true"
@@ -134,7 +136,7 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="min-h-screen flex flex-col justify-center px-6 lg:pl-[60px] lg:pr-16 py-16"
+                className="min-h-screen flex flex-col justify-center px-6 lg:pl-[60px] lg:pr-16 pt-4 pb-16"
                 style={{
                   scrollSnapAlign: "start",
                   opacity: activeIdx === i ? 1 : 0.2,
