@@ -61,9 +61,8 @@ const Index = () => {
 
       {/* OUR SERVICES */}
       <EditorialSection className="bg-foreground text-background">
-        <div className="editorial-section">
-          <div className="editorial-container text-center mb-16 md:mb-20">
-            <p className="editorial-label text-background/40 mb-4"></p>
+        <div className="py-10 md:py-14 lg:py-[4.5rem]">
+          <div className="editorial-container text-center mb-8 md:mb-10">
             <h2 className="editorial-heading-lg text-background mb-4">
               Our Services
             </h2>
@@ -75,26 +74,31 @@ const Index = () => {
                 title: "Seasonal Lace Collections",
                 desc: "Twice a year we release a new lace collection, each spanning a wide variety of styles inspired by global fashion trends.",
                 image: serviceBespoke.url,
+                anchor: "collections",
               },
               {
                 title: "Bespoke Designs",
                 desc: "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
                 image: serviceCollections.url,
+                anchor: "custom-designs",
               },
               {
                 title: "Dyeing and Finishing Treatments",
                 desc: "Our in-house dyeing facility covers the full colour spectrum, from soft pastels to deep saturated tones, in uni or bicolour.",
                 image: serviceDyeing,
+                anchor: "dyeing-finishing",
               },
               {
                 title: "Functional and Medical Textiles",
                 desc: "We develop certified warp-knitted fabrics for medical and technical applications. Our elastic textiles are used in compression garments, post-surgical care and lymphatic therapy, combining skin compatibility, reliable compression and long-lasting performance with the highest quality standards.",
                 image: serviceFunctional.url,
+                anchor: "functional-treatments",
               },
             ].map((item) => (
-              <div
+              <Link
                 key={item.title}
-                className="group relative overflow-hidden aspect-[3/4] cursor-pointer"
+                to={`/services#${item.anchor}`}
+                className="group relative overflow-hidden aspect-[3/4] cursor-pointer block"
               >
                 <img
                   src={item.image}
@@ -111,11 +115,11 @@ const Index = () => {
                     <p className="editorial-body-sm text-background/80">{item.desc}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
-          <div className="editorial-container text-center mt-16">
+          <div className="editorial-container text-center mt-8">
             <Link
               to="/services"
               className="inline-flex items-center gap-2 cta-lace editorial-body-sm font-medium transition-colors duration-300">
@@ -124,6 +128,7 @@ const Index = () => {
           </div>
         </div>
       </EditorialSection>
+
 
       {/* CAPABILITIES */}
       <EditorialSection className="editorial-section">
