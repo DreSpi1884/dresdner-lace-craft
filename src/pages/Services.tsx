@@ -2,8 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
-import EditorialSection from "@/components/EditorialSection";
 import productionImage from "@/assets/production-detail.jpg";
+
+const processSteps = [
+  { step: "01", title: "Consult", desc: "Share your project, requirements and applications with us." },
+  { step: "02", title: "Plan", desc: "We develop custom lace designs or warp-knitted fabrics tailored to your needs." },
+  { step: "03", title: "Produce", desc: "Made in Germany using certified textile production and quality-controlled processes." },
+  { step: "04", title: "Delivery", desc: "Reliable just-in-time delivery for efficient production planning." },
+];
 
 const services = [
   {
@@ -17,6 +23,7 @@ const services = [
     nav: "Bespoke Designs",
     title: "Bespoke Designs",
     text: "Every project starts with an idea. We work closely with you to create a lace, warp-knitted fabric or functional textile tailored to your technical and aesthetic requirements. From first sketch to finished cloth, one team owns the process.",
+    process: processSteps,
   },
   {
     id: "dyeing-finishing",
@@ -34,12 +41,19 @@ const services = [
 
 const Services = () => {
   const [activeIdx, setActiveIdx] = useState(0);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
-    const root = scrollRef.current;
-    if (!root) return;
+    // Enable soft (proximity) snap on the document so users glide from the
+    // last service straight into the CTA without a hard trap.
+    const prev = document.documentElement.style.scrollSnapType;
+    document.documentElement.style.scrollSnapType = "y proximity";
+    return () => {
+      document.documentElement.style.scrollSnapType = prev;
+    };
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -50,7 +64,7 @@ const Services = () => {
           setActiveIdx(idx);
         }
       },
-      { root, threshold: [0.25, 0.5, 0.75] }
+      { threshold: [0.35, 0.6, 0.85] }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
@@ -66,19 +80,12 @@ const Services = () => {
       title="Our Services"
       subtitle="Every step of our textile manufacturing takes place under one roof in Dresden."
     >
-
-
       {/* Snap scroll experience */}
-      <section
-        ref={scrollRef}
-        className="relative h-screen overflow-y-scroll no-scrollbar"
-        style={{ scrollSnapType: "y mandatory" }}
-      >
+      <section className="relative">
         <div className="lg:grid lg:grid-cols-[28%_72%] relative">
           {/* Sidebar (desktop) */}
-          <aside className="hidden lg:flex sticky top-0 h-screen items-center pl-[60px]">
+          <aside className="hidden lg:flex sticky top-24 h-[calc(100vh-6rem)] items-center pl-[60px] self-start">
             <nav className="relative flex flex-col gap-10">
-              {/* connector line */}
               <span
                 aria-hidden="true"
                 className="absolute left-0 top-2 bottom-2 w-px bg-border"
@@ -107,10 +114,7 @@ const Services = () => {
                       <span
                         aria-hidden="true"
                         className="absolute left-0 top-0 bottom-0"
-                        style={{
-                          width: "2px",
-                          background: "hsl(var(--primary))",
-                        }}
+                        style={{ width: "2px", background: "hsl(var(--primary))" }}
                       />
                     )}
                     {s.nav}
@@ -130,11 +134,10 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="h-screen flex flex-col justify-center px-6 lg:pl-[60px] lg:pr-16"
+                className="min-h-screen flex flex-col justify-center px-6 lg:pl-[60px] lg:pr-16 py-16"
                 style={{
                   scrollSnapAlign: "start",
-                  scrollSnapStop: "always",
-                  opacity: activeIdx === i ? 1 : 0.15,
+                  opacity: activeIdx === i ? 1 : 0.2,
                   transition: "opacity 600ms ease",
                 }}
               >
@@ -172,6 +175,61 @@ const Services = () => {
                 >
                   {s.text}
                 </p>
+
+                {s.process && (
+                  <div className="mt-12 max-w-2xl">
+                    <p
+                      className="mb-6"
+                      style={{
+                        fontFamily: "'Jost', sans-serif",
+                        fontSize: "10px",
+                        letterSpacing: "2px",
+                        textTransform: "uppercase",
+                        color: "hsl(var(--muted-foreground) / 0.7)",
+                      }}
+                    >
+                      How It Works
+                    </p>
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                      {s.process.map((item) => (
+                        <div key={item.step} className="flex flex-col">
+                          <span
+                            className="mb-2"
+                            style={{
+                              fontFamily: "'Jost', sans-serif",
+                              fontSize: "10px",
+                              letterSpacing: "2px",
+                              color: "hsl(var(--muted-foreground) / 0.6)",
+                            }}
+                          >
+                            {item.step}
+                          </span>
+                          <h3
+                            className="mb-1"
+                            style={{
+                              fontFamily: "'Bodoni Moda', serif",
+                              fontSize: "20px",
+                              color: "hsl(var(--primary))",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {item.title}
+                          </h3>
+                          <p
+                            style={{
+                              fontFamily: "'Jost', sans-serif",
+                              fontSize: "13px",
+                              lineHeight: 1.6,
+                              color: "hsl(var(--muted-foreground))",
+                            }}
+                          >
+                            {item.desc}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </article>
             ))}
           </div>
@@ -199,35 +257,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <EditorialSection className="bg-foreground text-background">
-        <div className="editorial-container editorial-section">
-          <div className="text-center mb-16 md:mb-20">
-            <p className="editorial-label text-background/40 mb-4">How It Works</p>
-            <h2 className="editorial-heading-lg text-background mb-4">
-              From Concept to Creation
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {[
-              { step: "01", title: "Consult", desc: "Share your project, requirements and applications with us.\u00a0" },
-              { step: "02", title: "Plan", desc: "We develop custom lace designs or warp-knitted fabrics tailored to your needs." },
-              { step: "03", title: "Produce", desc: "Made in Germany using certified textile production and quality controlled processes." },
-              { step: "04", title: "Delivery", desc: "Reliable just-in-time delivery for efficient production planning." },
-            ].map((item) => (
-              <div key={item.step} className="flex flex-col h-full">
-                <span className="editorial-label text-background/40 mb-4 block">{item.step}</span>
-                <h3 className="editorial-heading-sm text-background mb-3">{item.title}</h3>
-                <p className="editorial-body-sm text-background/60 flex-1">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </EditorialSection>
-
       {/* CTA */}
-      <section className="editorial-section">
+      <section className="py-20 md:py-24">
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
