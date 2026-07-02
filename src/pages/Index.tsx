@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <EditorialLayout heroAtTop>
       {/* HERO */}
-      <section className="relative overflow-hidden h-screen min-h-[600px] flex items-center justify-center">
+      <section data-no-reveal className="relative overflow-hidden h-screen min-h-[600px] flex items-center justify-center">
         <video
           src={heroVideo.url}
           autoPlay
@@ -29,7 +29,7 @@ const Index = () => {
         <div className="editorial-container relative text-center">
           {/* Spacer reserving room for the animated nav logo that flies in from above */}
           <div className="w-56 md:w-64 mx-auto mb-6 aspect-[2/3]" aria-hidden="true" />
-          <h1 className="font-serif text-background mb-4 leading-[1.02] tracking-[-0.01em] text-[clamp(2.75rem,7vw,5.75rem)] [text-wrap:balance]">
+          <h1 className="font-serif text-background mb-4 leading-[1.15] tracking-[-0.01em] text-[clamp(2.75rem,7vw,5.75rem)] pb-2 [text-wrap:balance]">
             The Art of Textiles
           </h1>
           <p className="editorial-label text-background/90 mb-12 tracking-[0.3em]">MADE IN GERMANY SINCE 1884</p>
@@ -40,30 +40,29 @@ const Index = () => {
 
       {/* KEYWORDS BANNER */}
       <section className="w-full bg-background border-b border-border py-5 md:py-6">
-        <div className="editorial-container flex items-center justify-between">
-          {[
-            "140 Years of Expertise",
-            "Made in Germany",
-            "In-House Production",
-            "Tailored Solutions",
-          ].map((text, i) => (
-            <div key={text} className="flex items-center">
-              {i > 0 && (
-                <div className="h-5 md:h-6 w-px bg-primary/30 mx-3 md:mx-6" />
-              )}
-              <span className="editorial-label text-primary whitespace-nowrap">
-                {text}
-              </span>
-            </div>
-          ))}
+        <div className="editorial-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/30">
+            {[
+              "140 Years of Expertise",
+              "Made in Germany",
+              "In-House Production",
+              "Tailored Solutions",
+            ].map((text) => (
+              <div key={text} className="flex items-center justify-center px-3 md:px-6">
+                <span className="editorial-label text-primary text-center whitespace-nowrap">
+                  {text}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
+
       {/* OUR SERVICES */}
       <EditorialSection className="bg-foreground text-background">
-        <div className="editorial-section">
-          <div className="editorial-container text-center mb-16 md:mb-20">
-            <p className="editorial-label text-background/40 mb-4"></p>
+        <div className="py-10 md:py-14 lg:py-[4.5rem]">
+          <div className="editorial-container text-center mb-8 md:mb-10">
             <h2 className="editorial-heading-lg text-background mb-4">
               Our Services
             </h2>
@@ -75,26 +74,31 @@ const Index = () => {
                 title: "Seasonal Lace Collections",
                 desc: "Twice a year we release a new lace collection, each spanning a wide variety of styles inspired by global fashion trends.",
                 image: serviceBespoke.url,
+                anchor: "collections",
               },
               {
                 title: "Bespoke Designs",
                 desc: "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
                 image: serviceCollections.url,
+                anchor: "custom-designs",
               },
               {
                 title: "Dyeing and Finishing Treatments",
                 desc: "Our in-house dyeing facility covers the full colour spectrum, from soft pastels to deep saturated tones, in uni or bicolour.",
                 image: serviceDyeing,
+                anchor: "dyeing-finishing",
               },
               {
                 title: "Functional and Medical Textiles",
                 desc: "We develop certified warp-knitted fabrics for medical and technical applications. Our elastic textiles are used in compression garments, post-surgical care and lymphatic therapy, combining skin compatibility, reliable compression and long-lasting performance with the highest quality standards.",
                 image: serviceFunctional.url,
+                anchor: "functional-treatments",
               },
             ].map((item) => (
-              <div
+              <Link
                 key={item.title}
-                className="group relative overflow-hidden aspect-[3/4] cursor-pointer"
+                to={`/services#${item.anchor}`}
+                className="group relative overflow-hidden aspect-[3/4] cursor-pointer block"
               >
                 <img
                   src={item.image}
@@ -111,11 +115,11 @@ const Index = () => {
                     <p className="editorial-body-sm text-background/80">{item.desc}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
-          <div className="editorial-container text-center mt-16">
+          <div className="editorial-container text-center mt-8">
             <Link
               to="/services"
               className="inline-flex items-center gap-2 cta-lace editorial-body-sm font-medium transition-colors duration-300">
@@ -124,6 +128,7 @@ const Index = () => {
           </div>
         </div>
       </EditorialSection>
+
 
       {/* CAPABILITIES */}
       <EditorialSection className="editorial-section">

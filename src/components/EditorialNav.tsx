@@ -46,12 +46,13 @@ const EditorialNav = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Measure natural nav logo center (with no transform applied)
+  // Compute hero-position transform for the nav logo. When at top of home,
+  // apply a large scaled/centered transform. On any scroll (or off home),
+  // reset to identity and let CSS transition it smoothly into place.
   useLayoutEffect(() => {
     const measure = () => {
       const img = logoRef.current;
       if (!img) return;
-      // Temporarily clear transform to get natural rect
       const prev = img.style.transform;
       img.style.transform = "none";
       const rect = img.getBoundingClientRect();
@@ -65,34 +66,24 @@ const EditorialNav = () => {
     const updateLogo = () => {
       const nc = naturalCenter.current;
       if (!nc) return;
-      if (!isHome) {
+      const atHeroTop = isHome && window.scrollY <= 0;
+      if (!atHeroTop) {
         setLogoStyle({ transform: "none" });
         setProgress(1);
         return;
       }
-      const rawP = Math.max(0, Math.min(1, window.scrollY / 150));
-      const p = 1 - Math.pow(1 - rawP, 3); // easeOut cubic
       const heroCx = window.innerWidth / 2;
       const heroCy = window.innerHeight * 0.42;
-      const scale = 1 + (HERO_SCALE - 1) * (1 - p);
-      const dx = (heroCx - nc.cx) * (1 - p);
-      const dy = (heroCy - nc.cy) * (1 - p);
+      const dx = heroCx - nc.cx;
+      const dy = heroCy - nc.cy;
       setLogoStyle({
-        transform: `translate(${dx}px, ${dy}px) scale(${scale})`,
+        transform: `translate(${dx}px, ${dy}px) scale(${HERO_SCALE})`,
         transformOrigin: "center center",
-        willChange: "transform",
       });
-      setProgress(p);
+      setProgress(0);
     };
     measure();
-    let raf = 0;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
-        updateLogo();
-      });
-    };
+    const onScroll = () => updateLogo();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", measure);
     return () => {
@@ -100,6 +91,7 @@ const EditorialNav = () => {
       window.removeEventListener("resize", measure);
     };
   }, [isHome]);
+
 
   // Smooth scroll to anchor on About page
   const handleAboutAnchor = (e: React.MouseEvent, hash: string) => {
@@ -112,6 +104,7 @@ const EditorialNav = () => {
 
   return (
     <header
+      data-no-reveal
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         isHome && !scrolled ? "bg-transparent" : "bg-foreground shadow-md"
       }`}
@@ -123,11 +116,18 @@ const EditorialNav = () => {
             src={logo.url}
             alt="Dresdner Spitzen logo"
             className="h-16 md:h-20 w-auto pointer-events-none relative z-50"
-            style={logoStyle}
+            style={{
+              transition: "transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              willChange: "transform",
+              ...logoStyle,
+            }}
           />
           <span
-            className="font-serif text-sm md:text-base tracking-wide text-background drop-shadow-md -ml-1 transition-opacity duration-200"
-            style={{ opacity: isHome ? progress : 1 }}
+            className="font-serif text-sm md:text-base tracking-wide text-background drop-shadow-md -ml-1"
+            style={{
+              opacity: isHome ? progress : 1,
+              transition: "opacity 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+            }}
           >
             Dresdner Spitzen
           </span>

@@ -112,22 +112,26 @@
 
   .editorial-heading-xl {
     font-family: var(--font-serif);
-    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal leading-tight tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal tracking-tight pb-2;
+    line-height: 1.18;
   }
 
   .editorial-heading-lg {
     font-family: var(--font-serif);
-    @apply text-3xl md:text-4xl lg:text-5xl font-normal leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-normal pb-2;
+    line-height: 1.2;
   }
 
   .editorial-heading-md {
     font-family: var(--font-serif);
-    @apply text-2xl md:text-3xl font-normal leading-snug;
+    @apply text-2xl md:text-3xl font-normal pb-1.5;
+    line-height: 1.28;
   }
 
   .editorial-heading-sm {
     font-family: var(--font-serif);
-    @apply text-xl md:text-2xl font-normal leading-snug;
+    @apply text-xl md:text-2xl font-normal pb-1.5;
+    line-height: 1.32;
   }
 
   .editorial-body {
@@ -183,26 +187,8 @@ html {
    Scroll-triggered reveal animations (global)
    ========================================================= */
 
-/* Headings: split into words, each rises independently */
-.reveal-heading .reveal-word {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: baseline;
-}
-.reveal-heading .reveal-word-inner {
-  display: inline-block;
-  transform: translateY(110%);
-  opacity: 0;
-  transition:
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(var(--reveal-i, 0) * 80ms);
-  will-change: transform, opacity;
-}
-.reveal-heading[data-reveal-in="true"] .reveal-word-inner {
-  transform: translateY(0);
-  opacity: 1;
-}
+/* (Word-by-word heading reveals removed — all heading words appear together via .reveal-body) */
+
 
 /* Body copy: gentle fade + rise */
 .reveal-body {
@@ -236,12 +222,10 @@ html {
 @media (max-width: 768px) {
   .reveal-body { transform: translateY(10px); }
   .reveal-image { transform: translateY(6px) scale(1.01); }
-  .reveal-heading .reveal-word-inner { transition-delay: calc(var(--reveal-i, 0) * 60ms); }
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .reveal-heading .reveal-word-inner,
   .reveal-body,
   .reveal-image {
     transition: none !important;

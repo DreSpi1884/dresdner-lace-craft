@@ -7,18 +7,22 @@ import productionImage from "@/assets/production-detail.jpg";
 
 const services = [
   {
+    id: "collections",
     title: "Collections",
     desc: "Our design team continously develops new lace collections inspired by international fashion trends throughout the year. Each collection includes a wide variety of elastic and inelastic lace for lingerie, fashion and apparel. ",
   },
   {
+    id: "custom-designs",
     title: "Custom designs",
     desc: "Every project starts with an idea. Whether you're developing a unique lace design, a warp-knitted fabric or a functional textile for a specific application, we work closely with you to create a solution tailored to your technical and aesthetic requirements. ",
   },
   {
+    id: "dyeing-finishing",
     title: "Dyeing and finishing",
     desc: "Our in-house dye house offers precise colour matching across the full spectrum, from subtle neutrals to vibrant shades, including solid and bicolour finishes. We also provide textile finishing tailored to the intended application and performance requirements, including hydrophilic and hydrophobic treatments, dirt and oil repellency, antistatic properties, flame retardancy, softening and stiffening finishes. ",
   },
   {
+    id: "functional-treatments",
     title: "Functional treatments",
     desc: "Beyond fashion, we develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments, post-surgical products, lymphatic therapy, orthopaedic supports and other medical applications where consistent elasticity, skin compatibility and durability are essential. ",
   },
@@ -44,7 +48,7 @@ const Services = () => {
         <div className="editorial-container editorial-section">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">
             {services.map((item) => (
-              <div key={item.title} className="border-t border-border pt-6">
+              <div key={item.title} id={item.id} className="border-t border-border pt-6 scroll-mt-32">
                 <h3 className="editorial-heading-md text-foreground mb-4">{item.title}</h3>
                 <p className="editorial-body text-muted-foreground">{item.desc}</p>
               </div>
