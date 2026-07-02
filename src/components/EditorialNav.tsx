@@ -104,6 +104,7 @@ const EditorialNav = () => {
 
   return (
     <header
+      data-no-reveal
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         isHome && !scrolled ? "bg-transparent" : "bg-foreground shadow-md"
       }`}
@@ -115,11 +116,18 @@ const EditorialNav = () => {
             src={logo.url}
             alt="Dresdner Spitzen logo"
             className="h-16 md:h-20 w-auto pointer-events-none relative z-50"
-            style={logoStyle}
+            style={{
+              transition: "transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              willChange: "transform",
+              ...logoStyle,
+            }}
           />
           <span
-            className="font-serif text-sm md:text-base tracking-wide text-background drop-shadow-md -ml-1 transition-opacity duration-200"
-            style={{ opacity: isHome ? progress : 1 }}
+            className="font-serif text-sm md:text-base tracking-wide text-background drop-shadow-md -ml-1"
+            style={{
+              opacity: isHome ? progress : 1,
+              transition: "opacity 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+            }}
           >
             Dresdner Spitzen
           </span>
