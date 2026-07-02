@@ -187,26 +187,8 @@ html {
    Scroll-triggered reveal animations (global)
    ========================================================= */
 
-/* Headings: split into words, each rises independently */
-.reveal-heading .reveal-word {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: baseline;
-}
-.reveal-heading .reveal-word-inner {
-  display: inline-block;
-  transform: translateY(110%);
-  opacity: 0;
-  transition:
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(var(--reveal-i, 0) * 80ms);
-  will-change: transform, opacity;
-}
-.reveal-heading[data-reveal-in="true"] .reveal-word-inner {
-  transform: translateY(0);
-  opacity: 1;
-}
+/* (Word-by-word heading reveals removed — all heading words appear together via .reveal-body) */
+
 
 /* Body copy: gentle fade + rise */
 .reveal-body {
