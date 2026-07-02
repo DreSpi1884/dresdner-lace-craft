@@ -62,17 +62,11 @@ const Services = () => {
   };
 
   return (
-    <EditorialLayout title="Our Services">
-      {/* Intro */}
-      <section className="editorial-section">
-        <div className="editorial-container">
-          <div className="max-w-3xl">
-            <p className="editorial-body text-muted-foreground max-w-2xl">
-              Every step of our textile manufacturing takes place under one roof in Dresden.
-            </p>
-          </div>
-        </div>
-      </section>
+    <EditorialLayout
+      title="Our Services"
+      subtitle="Every step of our textile manufacturing takes place under one roof in Dresden."
+    >
+
 
       {/* Snap scroll experience */}
       <section
