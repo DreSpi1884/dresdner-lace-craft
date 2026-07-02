@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <EditorialLayout heroAtTop>
       {/* HERO */}
-      <section className="relative overflow-hidden h-screen min-h-[600px] flex items-center justify-center">
+      <section data-no-reveal className="relative overflow-hidden h-screen min-h-[600px] flex items-center justify-center">
         <video
           src={heroVideo.url}
           autoPlay
@@ -29,7 +29,7 @@ const Index = () => {
         <div className="editorial-container relative text-center">
           {/* Spacer reserving room for the animated nav logo that flies in from above */}
           <div className="w-56 md:w-64 mx-auto mb-6 aspect-[2/3]" aria-hidden="true" />
-          <h1 className="font-serif text-background mb-4 leading-[1.02] tracking-[-0.01em] text-[clamp(2.75rem,7vw,5.75rem)] [text-wrap:balance]">
+          <h1 className="font-serif text-background mb-4 leading-[1.15] tracking-[-0.01em] text-[clamp(2.75rem,7vw,5.75rem)] pb-2 [text-wrap:balance]">
             The Art of Textiles
           </h1>
           <p className="editorial-label text-background/90 mb-12 tracking-[0.3em]">MADE IN GERMANY SINCE 1884</p>
@@ -40,24 +40,24 @@ const Index = () => {
 
       {/* KEYWORDS BANNER */}
       <section className="w-full bg-background border-b border-border py-5 md:py-6">
-        <div className="editorial-container flex items-center justify-between">
-          {[
-            "140 Years of Expertise",
-            "Made in Germany",
-            "In-House Production",
-            "Tailored Solutions",
-          ].map((text, i) => (
-            <div key={text} className="flex items-center">
-              {i > 0 && (
-                <div className="h-5 md:h-6 w-px bg-primary/30 mx-3 md:mx-6" />
-              )}
-              <span className="editorial-label text-primary whitespace-nowrap">
-                {text}
-              </span>
-            </div>
-          ))}
+        <div className="editorial-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/30">
+            {[
+              "140 Years of Expertise",
+              "Made in Germany",
+              "In-House Production",
+              "Tailored Solutions",
+            ].map((text) => (
+              <div key={text} className="flex items-center justify-center px-3 md:px-6">
+                <span className="editorial-label text-primary text-center whitespace-nowrap">
+                  {text}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
 
       {/* OUR SERVICES */}
       <EditorialSection className="bg-foreground text-background">
