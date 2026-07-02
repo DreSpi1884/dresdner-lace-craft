@@ -139,7 +139,7 @@ const HistoryTimeline = () => {
 
 
       {/* Timeline */}
-      <div className="relative max-w-6xl mx-auto px-6">
+      <div className="relative w-full px-6 md:px-20 lg:px-24 xl:px-28">
         {/* SVG lace ribbon, absolute centered. 60px wide tile, repeating 60x80 */}
         <div
           className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[60px] pointer-events-none"
