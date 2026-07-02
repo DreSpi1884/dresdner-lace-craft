@@ -222,12 +222,10 @@ html {
 @media (max-width: 768px) {
   .reveal-body { transform: translateY(10px); }
   .reveal-image { transform: translateY(6px) scale(1.01); }
-  .reveal-heading .reveal-word-inner { transition-delay: calc(var(--reveal-i, 0) * 60ms); }
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .reveal-heading .reveal-word-inner,
   .reveal-body,
   .reveal-image {
     transition: none !important;
