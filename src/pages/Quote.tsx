@@ -168,6 +168,7 @@ const Quote = () => {
                   { label: "Outerwear" },
                   { label: "Technical" },
                   { label: "Custom", subtitle: "Requires large scale production" },
+                  { label: "Not sure" },
                 ].map((opt) => (
                   <OptionButton
                     key={opt.label}
