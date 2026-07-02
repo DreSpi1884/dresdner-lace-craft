@@ -63,7 +63,7 @@ const Index = () => {
       <EditorialSection className="bg-foreground text-background">
         <div className="editorial-section">
           <div className="editorial-container text-center mb-16 md:mb-20">
-            <p className="editorial-label text-background/40 mb-4">Our Services</p>
+            <p className="editorial-label text-background/40 mb-4"></p>
             <h2 className="editorial-heading-lg text-background mb-4">
               Our Services
             </h2>
@@ -72,7 +72,7 @@ const Index = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full">
             {[
               {
-                title: "Seasonal Collections",
+                title: "Seasonal Lace Collections",
                 desc: "Twice a year we release a new lace collection, each spanning a wide variety of styles inspired by global fashion trends.",
                 image: serviceBespoke.url,
               },
@@ -128,9 +128,9 @@ const Index = () => {
       {/* CAPABILITIES */}
       <EditorialSection className="editorial-section">
         <div className="editorial-container">
-          <p className="editorial-label text-primary mb-4">What We Do</p>
+          <p className="editorial-label text-primary mb-4"></p>
           <h2 className="editorial-heading-lg text-foreground mb-16 max-w-2xl">
-            We manage every step
+            Our Competence
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
@@ -174,7 +174,7 @@ const Index = () => {
             </div>
 
             <div>
-              <p className="editorial-label text-primary mb-4">Heritage & Innovation</p>
+              <p className="editorial-label text-primary mb-4">OUR HERITAGE</p>
               <h2 className="editorial-heading-lg text-foreground mb-6">
                 Generations of expertise
               </h2>
