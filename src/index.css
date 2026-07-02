@@ -112,22 +112,26 @@
 
   .editorial-heading-xl {
     font-family: var(--font-serif);
-    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal leading-tight tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal tracking-tight pb-2;
+    line-height: 1.18;
   }
 
   .editorial-heading-lg {
     font-family: var(--font-serif);
-    @apply text-3xl md:text-4xl lg:text-5xl font-normal leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-normal pb-2;
+    line-height: 1.2;
   }
 
   .editorial-heading-md {
     font-family: var(--font-serif);
-    @apply text-2xl md:text-3xl font-normal leading-snug;
+    @apply text-2xl md:text-3xl font-normal pb-1.5;
+    line-height: 1.28;
   }
 
   .editorial-heading-sm {
     font-family: var(--font-serif);
-    @apply text-xl md:text-2xl font-normal leading-snug;
+    @apply text-xl md:text-2xl font-normal pb-1.5;
+    line-height: 1.32;
   }
 
   .editorial-body {
