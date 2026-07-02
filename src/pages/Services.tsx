@@ -48,7 +48,7 @@ const Services = () => {
         <div className="editorial-container editorial-section">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">
             {services.map((item) => (
-              <div key={item.title} className="border-t border-border pt-6">
+              <div key={item.title} id={item.id} className="border-t border-border pt-6 scroll-mt-32">
                 <h3 className="editorial-heading-md text-foreground mb-4">{item.title}</h3>
                 <p className="editorial-body text-muted-foreground">{item.desc}</p>
               </div>
