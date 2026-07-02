@@ -70,8 +70,8 @@ const EditorialNav = () => {
         setProgress(1);
         return;
       }
-      const heroH = window.innerHeight;
-      const p = Math.max(0, Math.min(1, window.scrollY / (heroH * 0.9)));
+      const rawP = Math.max(0, Math.min(1, window.scrollY / 150));
+      const p = 1 - Math.pow(1 - rawP, 3); // easeOut cubic
       const heroCx = window.innerWidth / 2;
       const heroCy = window.innerHeight * 0.42;
       const scale = 1 + (HERO_SCALE - 1) * (1 - p);
