@@ -4,79 +4,61 @@ import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import EditorialSection from "@/components/EditorialSection";
 import productionImage from "@/assets/production-detail.jpg";
-import heritageImage from "@/assets/heritage-workshop.jpg";
 
 const services = [
   {
     id: "collections",
     nav: "Seasonal Collections",
     title: "Seasonal Collections",
-    image: "/__l5e/assets-v1/ab9a0a65-3da2-4a24-aea6-bc5b44139c0c/service-collections.jpg",
-    paragraphs: [
-      "Our design team continuously develops new lace collections inspired by international fashion trends throughout the year.",
-      "Each collection includes a wide variety of elastic and inelastic lace for lingerie, fashion and apparel — carefully engineered for comfort, drape and durability.",
-      "Sample yardage is available on request so your team can evaluate hand-feel, stretch and finish before committing to production.",
-    ],
+    text: "Our design team continuously develops new lace collections inspired by international fashion trends. Each collection includes elastic and inelastic lace for lingerie, fashion and apparel. Sample yardage is available on request.",
   },
   {
     id: "custom-designs",
     nav: "Bespoke Designs",
     title: "Bespoke Designs",
-    image: "/__l5e/assets-v1/d02d6321-9172-48ec-b048-9d6fa3b95236/service-bespoke.jpg",
-    paragraphs: [
-      "Every project starts with an idea. Whether you are developing a unique lace design, a warp-knitted fabric or a functional textile for a specific application, we work closely with you to create a solution tailored to your technical and aesthetic requirements.",
-      "Our designers translate references, mood boards or existing samples into production-ready patterns using our full in-house design and prototyping capability.",
-      "From first sketch to finished cloth, one team owns the process — ensuring intent is preserved at every stage.",
-    ],
+    text: "Every project starts with an idea. We work closely with you to create a lace, warp-knitted fabric or functional textile tailored to your technical and aesthetic requirements. From first sketch to finished cloth, one team owns the process.",
   },
   {
     id: "dyeing-finishing",
     nav: "Dyeing & Finishing",
     title: "Dyeing & Finishing",
-    image: heritageImage,
-    paragraphs: [
-      "Our in-house dye house offers precise colour matching across the full spectrum, from subtle neutrals to vibrant shades, including solid and bicolour finishes.",
-      "We also provide textile finishing tailored to the intended application and performance requirements, including hydrophilic and hydrophobic treatments, dirt and oil repellency, antistatic properties, flame retardancy, softening and stiffening finishes.",
-    ],
+    text: "Our in-house dye house offers precise colour matching across the full spectrum, including solid and bicolour finishes. We also provide finishing tailored to the intended application — hydrophilic, hydrophobic, antistatic, flame retardant, softening and stiffening.",
   },
   {
     id: "functional-treatments",
     nav: "Functional Treatments",
     title: "Functional Treatments",
-    image: "/__l5e/assets-v1/a47d67da-4eaa-4fc9-b44d-dece4a11ff7d/service-functional.png",
-    paragraphs: [
-      "Beyond fashion, we develop functional warp-knitted fabrics for technical and medical applications.",
-      "Our textiles are used in compression garments, post-surgical products, lymphatic therapy, orthopaedic supports and other medical applications where consistent elasticity, skin compatibility and durability are essential.",
-      "Every functional textile is developed to defined performance criteria and validated through our internal quality control processes.",
-    ],
+    text: "Beyond fashion, we develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments, post-surgical products, lymphatic therapy and orthopaedic supports where consistent performance is essential.",
   },
 ];
 
 const Services = () => {
-  const [activeId, setActiveId] = useState(services[0].id);
-  const sectionsRef = useRef<Record<string, HTMLElement | null>>({});
+  const [activeIdx, setActiveIdx] = useState(0);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
+    const root = scrollRef.current;
+    if (!root) return;
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) setActiveId((visible[0].target as HTMLElement).id);
+        if (visible[0]) {
+          const idx = Number((visible[0].target as HTMLElement).dataset.idx);
+          setActiveIdx(idx);
+        }
       },
-      { rootMargin: "-30% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+      { root, threshold: [0.25, 0.5, 0.75] }
     );
-    Object.values(sectionsRef.current).forEach((el) => el && observer.observe(el));
+    sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent, id: string) => {
-    e.preventDefault();
-    const el = sectionsRef.current[id];
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 96;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
+  const scrollTo = (idx: number) => {
+    const el = sectionsRef.current[idx];
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -85,90 +67,141 @@ const Services = () => {
       <section className="editorial-section">
         <div className="editorial-container">
           <div className="max-w-3xl">
-            <p className="editorial-body text-muted-foreground max-w-2xl whitespace-pre-line">
+            <p className="editorial-body text-muted-foreground max-w-2xl">
               Every step of our textile manufacturing takes place under one roof in Dresden.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Sticky sidebar + scrolling content */}
-      <section className="editorial-container pb-24">
-        {/* Mobile tab bar */}
-        <div className="lg:hidden sticky top-16 z-30 -mx-6 px-6 bg-background/95 backdrop-blur border-b border-border">
-          <div className="flex gap-6 overflow-x-auto py-4 no-scrollbar">
-            {services.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                onClick={(e) => handleNavClick(e, s.id)}
-                className={`whitespace-nowrap editorial-label transition-colors ${
-                  activeId === s.id ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {s.nav}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="lg:grid lg:grid-cols-[28%_72%] lg:gap-16 items-start">
-          {/* Sticky sidebar */}
-          <aside className="hidden lg:block sticky top-32 self-start">
-            <p className="editorial-label text-muted-foreground mb-6">Services</p>
-            <nav className="flex flex-col">
-              {services.map((s) => {
-                const active = activeId === s.id;
+      {/* Snap scroll experience */}
+      <section
+        ref={scrollRef}
+        className="relative h-screen overflow-y-scroll no-scrollbar"
+        style={{ scrollSnapType: "y mandatory" }}
+      >
+        <div className="lg:grid lg:grid-cols-[28%_72%] relative">
+          {/* Sidebar (desktop) */}
+          <aside className="hidden lg:flex sticky top-0 h-screen items-center pl-[60px]">
+            <nav className="relative flex flex-col gap-10">
+              {/* connector line */}
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-2 bottom-2 w-px bg-border"
+              />
+              {services.map((s, i) => {
+                const active = activeIdx === i;
                 return (
-                  <a
+                  <button
                     key={s.id}
-                    href={`#${s.id}`}
-                    onClick={(e) => handleNavClick(e, s.id)}
-                    className={`text-left py-3 pl-4 border-l-2 editorial-body-sm ${
-                      active
-                        ? "border-primary text-primary font-medium"
-                        : "border-transparent text-muted-foreground hover:text-foreground"
-                    }`}
+                    type="button"
+                    onClick={() => scrollTo(i)}
+                    className="text-left pl-6 relative"
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "12px",
+                      letterSpacing: "2px",
+                      textTransform: "uppercase",
+                      fontWeight: active ? 600 : 400,
+                      color: active
+                        ? "hsl(var(--primary))"
+                        : "hsl(var(--muted-foreground) / 0.6)",
+                      transition: "color 300ms ease",
+                    }}
                   >
+                    {active && (
+                      <span
+                        aria-hidden="true"
+                        className="absolute left-0 top-0 bottom-0"
+                        style={{
+                          width: "2px",
+                          background: "hsl(var(--primary))",
+                        }}
+                      />
+                    )}
                     {s.nav}
-                  </a>
+                  </button>
                 );
               })}
             </nav>
           </aside>
 
-          {/* Content */}
+          {/* Content column */}
           <div>
-            {services.map((s, idx) => (
+            {services.map((s, i) => (
               <article
                 key={s.id}
                 id={s.id}
+                data-idx={i}
                 ref={(el) => {
-                  sectionsRef.current[s.id] = el;
+                  sectionsRef.current[i] = el;
                 }}
-                className={`scroll-mt-32 reveal-on-scroll ${
-                  idx === 0 ? "pt-4" : "pt-[120px]"
-                } ${idx === services.length - 1 ? "" : "pb-[120px]"}`}
+                className="h-screen flex flex-col justify-center px-6 lg:pl-[60px] lg:pr-16"
+                style={{
+                  scrollSnapAlign: "start",
+                  scrollSnapStop: "always",
+                  opacity: activeIdx === i ? 1 : 0.15,
+                  transition: "opacity 600ms ease",
+                }}
               >
-                <h2 className="editorial-heading-lg text-foreground mb-8">{s.title}</h2>
-                <div className="space-y-5 max-w-2xl mb-10">
-                  {s.paragraphs.map((p, i) => (
-                    <p key={i} className="editorial-body text-muted-foreground">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-                <div className="w-full aspect-[16/9] overflow-hidden bg-muted">
-                  <img
-                    src={s.image}
-                    alt={s.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
+                <p
+                  className="mb-6"
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: "10px",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    color: "hsl(var(--muted-foreground) / 0.7)",
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
+                </p>
+                <h2
+                  className="mb-8 leading-[1.1]"
+                  style={{
+                    fontFamily: "'Bodoni Moda', serif",
+                    fontSize: "clamp(36px, 5vw, 52px)",
+                    color: "hsl(var(--primary))",
+                    fontWeight: 500,
+                  }}
+                >
+                  {s.title}
+                </h2>
+                <p
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: "16px",
+                    lineHeight: 1.7,
+                    maxWidth: "560px",
+                    color: "hsl(var(--muted-foreground))",
+                  }}
+                >
+                  {s.text}
+                </p>
               </article>
             ))}
           </div>
+        </div>
+
+        {/* Mobile dots */}
+        <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-40">
+          {services.map((s, i) => (
+            <button
+              key={s.id}
+              type="button"
+              aria-label={s.nav}
+              onClick={() => scrollTo(i)}
+              className="rounded-full transition-all"
+              style={{
+                width: activeIdx === i ? "24px" : "8px",
+                height: "8px",
+                background:
+                  activeIdx === i
+                    ? "hsl(var(--primary))"
+                    : "hsl(var(--muted-foreground) / 0.35)",
+              }}
+            />
+          ))}
         </div>
       </section>
 
