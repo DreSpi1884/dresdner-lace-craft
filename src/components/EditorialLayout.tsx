@@ -7,9 +7,10 @@ interface EditorialLayoutProps {
   children: ReactNode;
   heroAtTop?: boolean;
   title?: string;
+  subtitle?: string;
 }
 
-const EditorialLayout = ({ children, heroAtTop = false, title }: EditorialLayoutProps) => {
+const EditorialLayout = ({ children, heroAtTop = false, title, subtitle }: EditorialLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <EditorialNav />

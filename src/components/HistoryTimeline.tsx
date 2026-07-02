@@ -93,14 +93,8 @@ const HistoryTimeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background text-foreground w-full overflow-hidden py-16 md:py-20"
+      className="relative bg-background text-foreground w-full overflow-hidden pt-8 md:pt-12 pb-16 md:pb-20"
     >
-      {/* Heading */}
-      <div className="editorial-container text-center mb-12 md:mb-16">
-        <p className="editorial-body text-muted-foreground max-w-2xl mx-auto">
-          For more than 140 years, we have been shaping textile manufacturing in Germany.
-        </p>
-      </div>
 
       {/* Spool at the top — rotates with scroll, ribbon unrolls from its bottom */}
       <div className="relative flex justify-center -mb-6 z-10">

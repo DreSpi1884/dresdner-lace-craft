@@ -7,7 +7,7 @@ import productionImage from "@/assets/production-detail.jpg";
 
 const About = () => {
   return (
-    <EditorialLayout title="Our Story">
+    <EditorialLayout title="Our Story" subtitle="For more than 140 years, we have been shaping textile manufacturing in Germany.">
       {/* History timeline */}
       <div id="history" className="scroll-mt-32">
         <HistoryTimeline />
