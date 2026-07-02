@@ -27,7 +27,7 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-foreground/30" />
         <div className="editorial-container relative text-center">
-          {/* Spacer reserving room for the animated nav logo that flies in from above */}
+          {/* Spacer reserving room for the nav logo that sits in the hero until scrolling */}
           <div className="w-56 md:w-64 mx-auto mb-6 aspect-[2/3]" aria-hidden="true" />
           <h1 className="font-serif text-background mb-4 leading-[1.15] tracking-[-0.01em] text-[clamp(2.75rem,7vw,5.75rem)] pb-2 [text-wrap:balance]">
             The Art of Textiles

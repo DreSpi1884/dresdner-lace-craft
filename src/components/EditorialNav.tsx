@@ -117,7 +117,9 @@ const EditorialNav = () => {
             alt="Dresdner Spitzen logo"
             className="h-16 md:h-20 w-auto pointer-events-none relative z-50"
             style={{
-              transition: "transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              transition: isHome && !scrolled
+                ? "none"
+                : "transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
               willChange: "transform",
               ...logoStyle,
             }}
@@ -126,7 +128,9 @@ const EditorialNav = () => {
             className="font-serif text-sm md:text-base tracking-wide text-background drop-shadow-md -ml-1"
             style={{
               opacity: isHome ? progress : 1,
-              transition: "opacity 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              transition: isHome && !scrolled
+                ? "none"
+                : "opacity 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
             }}
           >
             Dresdner Spitzen
