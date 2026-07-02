@@ -21,11 +21,18 @@ const EditorialLayout = ({ children, heroAtTop = false, title, subtitle }: Edito
             style={{ backgroundImage: `url(${laceBanner.url})` }}
           >
             <div className="absolute inset-0 bg-background/40" aria-hidden="true" />
-            {title && (
+            {(title || subtitle) && (
               <div className="relative w-full px-6 md:px-12 lg:px-16 pb-10 md:pb-14">
-                <h1 className="editorial-heading-xl text-foreground max-w-3xl">
-                  {title}
-                </h1>
+                {title && (
+                  <h1 className="editorial-heading-xl text-foreground max-w-3xl">
+                    {title}
+                  </h1>
+                )}
+                {subtitle && (
+                  <p className="editorial-body text-foreground/80 max-w-3xl mt-3">
+                    {subtitle}
+                  </p>
+                )}
               </div>
             )}
           </div>
