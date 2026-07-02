@@ -42,18 +42,11 @@ const services = [
 const Services = () => {
   const [activeIdx, setActiveIdx] = useState(0);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Enable soft (proximity) snap on the document so users glide from the
-    // last service straight into the CTA without a hard trap.
-    const prev = document.documentElement.style.scrollSnapType;
-    document.documentElement.style.scrollSnapType = "y proximity";
-    return () => {
-      document.documentElement.style.scrollSnapType = prev;
-    };
-  }, []);
-
-  useEffect(() => {
+    const root = scrollRef.current;
+    if (!root) return;
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -64,7 +57,7 @@ const Services = () => {
           setActiveIdx(idx);
         }
       },
-      { threshold: [0.35, 0.6, 0.85] }
+      { root, threshold: [0.35, 0.6, 0.85] }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
@@ -80,13 +73,17 @@ const Services = () => {
       title="Our Services"
       subtitle="Every step of our textile manufacturing takes place under one roof in Dresden."
       heroCompact
-      heroSnap
     >
-      {/* Snap scroll experience */}
+      {/* Snap scroll experience: self-contained scroll container so sidebar
+          and content share the same top edge and height, and reverse snap
+          works both up and down. */}
       <section className="relative">
-        <div className="lg:grid lg:grid-cols-[28%_72%] relative">
+        <div
+          ref={scrollRef}
+          className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] overflow-y-auto snap-y snap-mandatory lg:grid lg:grid-cols-[28%_72%]"
+        >
           {/* Sidebar (desktop) */}
-          <aside className="hidden lg:flex sticky top-20 md:top-24 h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] items-start pt-4 pl-[60px] self-start">
+          <aside className="hidden lg:flex sticky top-0 h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] items-center pl-[60px] self-start">
             <nav className="relative flex flex-col gap-10">
               <span
                 aria-hidden="true"
@@ -136,9 +133,8 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="min-h-screen flex flex-col justify-center px-6 lg:pl-[60px] lg:pr-16 pt-4 pb-16"
+                className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] flex flex-col justify-center px-6 lg:pl-[60px] lg:pr-16 snap-start"
                 style={{
-                  scrollSnapAlign: "start",
                   opacity: activeIdx === i ? 1 : 0.2,
                   transition: "opacity 600ms ease",
                 }}
@@ -258,6 +254,7 @@ const Services = () => {
           ))}
         </div>
       </section>
+
 
       {/* CTA */}
       <section className="py-20 md:py-24">
