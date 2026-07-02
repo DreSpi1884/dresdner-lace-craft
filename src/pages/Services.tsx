@@ -32,7 +32,7 @@ const Services = () => {
         <div className="editorial-container">
           <div className="max-w-3xl">
             <p className="editorial-body text-muted-foreground max-w-2xl">
-              From the first sketch to the finished product, every step of our textile manufacturing takes place under one roof in Dresden. We combine design, warp knitting, dyeing, finishing and quality control to create premium lace, warp-knitted fabrics and technical textiles tailored to your requirements. 
+              Every step of our textile manufacturing takes place under one roof in Dresden. We combine design, warp knitting, dyeing, finishing and quality control to create premium lace, warp-knitted fabrics and technical textiles tailored to your requirements. 
             </p>
           </div>
         </div>
