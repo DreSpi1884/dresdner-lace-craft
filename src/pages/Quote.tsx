@@ -239,7 +239,7 @@ const Quote = () => {
               <h2 className="editorial-heading-sm text-foreground">Estimated quantity?</h2>
               <p className="editorial-body-sm text-muted-foreground">You can select multiple options.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {["Sample", "Small batch", "Medium production", "Large scale"].map((opt) => (
+                {["Sample", "Small batch", "Medium production", "Large scale", "Not sure"].map((opt) => (
                   <OptionButton
                     key={opt}
                     label={opt}
