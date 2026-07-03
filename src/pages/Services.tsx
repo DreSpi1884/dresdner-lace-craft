@@ -221,7 +221,6 @@ const Services = () => {
               </article>
             ))}
           </div>
-        </div>
 
         {/* Mobile dots */}
         <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-40">
