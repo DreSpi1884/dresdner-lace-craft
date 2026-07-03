@@ -71,17 +71,10 @@ const Services = () => {
       subtitle="Every step of our textile manufacturing takes place under one roof in Dresden."
       heroCompact
     >
-      {/* Snap scroll experience: self-contained scroll container so sidebar
-          and content share the same top edge and height, and reverse snap
-          works both up and down. */}
-      <section className="relative">
-        <div
-          ref={scrollRef}
-          className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] overflow-y-auto snap-y snap-mandatory lg:grid lg:grid-cols-[28%_72%]"
-        >
-          {/* Sidebar (desktop) */}
-          <aside className="hidden lg:flex sticky top-0 h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] items-center pl-[60px] self-start">
-            <nav className="relative flex flex-col gap-10">
+      <section className="relative lg:grid lg:grid-cols-[28%_72%]">
+        {/* Sidebar (desktop) */}
+        <aside className="hidden lg:block pl-[60px]">
+          <nav className="sticky top-24 flex flex-col gap-10 pt-10">
               <span
                 aria-hidden="true"
                 className="absolute left-0 top-2 bottom-2 w-px bg-border"
