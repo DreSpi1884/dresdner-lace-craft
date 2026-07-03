@@ -19,7 +19,7 @@ const EditorialLayout = ({ children, heroAtTop = false, title, subtitle, heroCom
       <main className="flex-1">
         {!heroAtTop && (
           <div
-            className={`mt-20 md:mt-24 relative w-full h-[280px] md:h-[340px] bg-cover bg-center flex items-end ${heroCompact ? "pb-4 md:pb-6" : "pb-10 md:pb-14"}`}
+            className={`mt-20 md:mt-24 relative w-full bg-cover bg-center flex items-end ${heroCompact ? "h-[35vh] min-h-[200px] md:min-h-[220px] pb-4 md:pb-6" : "h-[280px] md:h-[340px] pb-10 md:pb-14"}`}
             style={{ backgroundImage: `url(${laceBanner.url})`, scrollSnapAlign: heroSnap ? "start" : undefined }}
           >
             <div className="absolute inset-0 bg-background/40" aria-hidden="true" />
