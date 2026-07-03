@@ -131,40 +131,6 @@ const Index = () => {
       </EditorialSection>
 
 
-      {/* CAPABILITIES */}
-      <EditorialSection className="editorial-section bg-foreground text-background">
-        <div className="editorial-container">
-          <p className="editorial-label text-background mb-4"></p>
-          <h2 className="editorial-heading-lg text-background mb-16 max-w-2xl">
-            Our Competence
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
-            {[
-            {
-              num: "01",
-              title: "Integrated Production",
-              desc: "We manage every stage of production under one roof."
-            },
-            {
-              num: "02",
-              title: "Just-in-Time",
-              desc: "We produce to demand for efficient, reliable delivery."
-            },
-            {
-              num: "03",
-              title: "Certified Quality",
-              desc: "We offer recognized certifications, including GRS and STeP."
-            }].
-            map((item) =>
-            <div key={item.num} className="border-t border-border pt-8">
-                <h3 className="editorial-heading-sm text-background mb-4">{item.title}</h3>
-                <p className="editorial-body-sm text-background/80">{item.desc}</p>
-              </div>
-            )}
-          </div>
-        </div>
-      </EditorialSection>
 
       {/* HERITAGE + INNOVATION */}
       <section className="py-16 md:py-20">
