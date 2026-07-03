@@ -44,10 +44,10 @@ const Index = () => {
         <div className="editorial-container">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/30">
             {[
-              "140 Years of Expertise",
-              "Made in Germany",
-              "In-House Production",
-              "Tailored Solutions",
+              "IN-HOUSE PRODUCTION",
+              "TAILORED SOLUTIONS",
+              "CERTIFIED SUSTAINABLE PRODUCTION",
+              "JUST-IN-TIME DELIVERY",
             ].map((text) => (
               <div key={text} className="flex items-center justify-center px-3 md:px-6">
                 <span className="editorial-label text-primary text-center whitespace-nowrap">
