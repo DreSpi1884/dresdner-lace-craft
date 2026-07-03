@@ -42,11 +42,8 @@ const services = [
 const Services = () => {
   const [activeIdx, setActiveIdx] = useState(0);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const root = scrollRef.current;
-    if (!root) return;
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -57,7 +54,7 @@ const Services = () => {
           setActiveIdx(idx);
         }
       },
-      { root, threshold: [0.35, 0.6, 0.85] }
+      { threshold: [0.25, 0.5, 0.75] }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
