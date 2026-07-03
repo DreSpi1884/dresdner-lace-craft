@@ -240,34 +240,8 @@ const Services = () => {
           ))}
         </div>
       </section>
-
-
-      {/* CTA */}
-      <section className="py-20 md:py-24">
-        <div className="editorial-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <p className="editorial-label text-primary mb-4">Get in touch</p>
-              <h2 className="editorial-heading-lg text-foreground mb-6">
-                Let's build your next collection
-              </h2>
-              <p className="editorial-body text-muted-foreground mb-8">
-                Tell us about your project and our team will craft a tailored offer for your needs.
-              </p>
-              <Link
-                to="/quote"
-                className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors duration-300">
-                Request a Quote <ArrowRight size={16} />
-              </Link>
-            </div>
-            <img
-              src={productionImage}
-              alt="Lace production at Dresdner Spitzen"
-              className="w-full h-[400px] object-cover" />
-          </div>
-        </div>
-      </section>
-    </EditorialLayout>);
+    </EditorialLayout>
+  );
 };
 
 export default Services;
