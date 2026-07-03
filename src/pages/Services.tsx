@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
-import productionImage from "@/assets/production-detail.jpg";
 
 const processSteps = [
   { step: "01", title: "Consult", desc: "Share your project, requirements and applications with us." },
