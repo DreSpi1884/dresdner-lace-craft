@@ -146,7 +146,7 @@ const Index = () => {
             </div>
 
             <div>
-              <p className="editorial-label text-primary mb-4">OUR HERITAGE</p>
+              <p className="editorial-label text-primary mb-4">OUR HISTORY</p>
               <h2 className="editorial-heading-lg text-foreground mb-6">
                 Generations of expertise
               </h2>
