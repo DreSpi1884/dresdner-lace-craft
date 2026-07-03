@@ -24,7 +24,14 @@ const aboutSections = [
 
 const languages = ["EN", "DE", "FR"];
 
-const HERO_SCALE = 4.5;
+const getHeroScale = (width: number) => {
+  if (width < 640) return 2;
+  if (width < 768) return 2.25;
+  if (width < 1024) return 2.5;
+  if (width < 1280) return 3;
+  if (width < 1536) return 3.5;
+  return 4.5;
+};
 
 const EditorialNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,7 +84,7 @@ const EditorialNav = () => {
       const dx = heroCx - nc.cx;
       const dy = heroCy - nc.cy;
       setLogoStyle({
-        transform: `translate(${dx}px, ${dy}px) scale(${HERO_SCALE})`,
+        transform: `translate(${dx}px, ${dy}px) scale(${getHeroScale(window.innerWidth)})`,
         transformOrigin: "center center",
       });
       setProgress(0);
