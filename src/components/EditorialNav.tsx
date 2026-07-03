@@ -84,7 +84,7 @@ const EditorialNav = () => {
       const dx = heroCx - nc.cx;
       const dy = heroCy - nc.cy;
       setLogoStyle({
-        transform: `translate(${dx}px, ${dy}px) scale(${HERO_SCALE})`,
+        transform: `translate(${dx}px, ${dy}px) scale(${getHeroScale(window.innerWidth)})`,
         transformOrigin: "center center",
       });
       setProgress(0);
