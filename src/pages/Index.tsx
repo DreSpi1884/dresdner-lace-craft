@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <EditorialLayout heroAtTop>
       {/* HERO */}
-      <section data-no-reveal className="relative overflow-hidden h-screen min-h-[600px] flex items-center justify-center">
+      <section data-no-reveal className="relative overflow-hidden min-h-screen flex items-center justify-center">
         <video
           src={heroVideo.url}
           autoPlay
@@ -26,15 +26,16 @@ const Index = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-foreground/30" />
-        <div className="editorial-container relative text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] py-[clamp(2rem,5vh,5rem)] w-full">
           {/* Spacer reserving room for the nav logo that sits in the hero until scrolling */}
-          <div className="w-56 md:w-64 mx-auto mb-6 aspect-[2/3]" aria-hidden="true" />
-          <h1 className="font-serif text-background mb-4 leading-[1.15] tracking-[-0.01em] text-[clamp(2.75rem,7vw,5.75rem)] pb-2 [text-wrap:balance]">
+          <div className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]" style={{ width: "clamp(120px, 14vw, 220px)" }} aria-hidden="true" />
+          <h1 className="font-serif text-background leading-[1.1] tracking-[-0.01em] pb-2 [text-wrap:balance]" style={{ fontSize: "clamp(28px, 4vw, 64px)" }}>
             The Art of Textiles
           </h1>
-          <p className="editorial-label text-background/90 mb-12 tracking-[0.3em]">MADE IN GERMANY SINCE 1884</p>
+          <p className="editorial-label text-background/90 tracking-[0.3em] mt-[clamp(0.5rem,1.5vh,1rem)]" style={{ fontSize: "clamp(14px, 1.8vw, 24px)" }}>
+            MADE IN GERMANY SINCE 1884
+          </p>
         </div>
-
       </section>
 
 
