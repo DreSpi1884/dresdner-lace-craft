@@ -84,7 +84,7 @@ const Index = () => {
                 anchor: "custom-designs",
               },
               {
-                title: "Dyeing and Finishing Treatments",
+                title: "Dyeing and Finishing\u00a0",
                 desc: "Our in-house dyeing facility covers the full colour spectrum, from soft pastels to deep saturated tones, in uni or bicolour.",
                 image: serviceDyeing,
                 anchor: "dyeing-finishing",
