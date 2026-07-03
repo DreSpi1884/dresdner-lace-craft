@@ -28,7 +28,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-foreground/30" />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] py-[clamp(2rem,5vh,5rem)] w-full">
           {/* Spacer reserving room for the nav logo that sits in the hero until scrolling */}
-          <div className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]" style={{ width: "clamp(90px, 12vw, 200px)" }} aria-hidden="true" />
+          <div className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]" style={{ width: "clamp(56px, 7vw, 120px)" }} aria-hidden="true" />
           <h1 className="font-serif text-background leading-[1.1] tracking-[-0.01em] pb-2 [text-wrap:balance]" style={{ fontSize: "clamp(28px, 4vw, 64px)" }}>
             The Art of Textiles
           </h1>
