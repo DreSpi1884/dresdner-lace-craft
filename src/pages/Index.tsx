@@ -61,10 +61,10 @@ const Index = () => {
 
 
       {/* OUR SERVICES */}
-      <EditorialSection className="bg-foreground text-background">
+      <EditorialSection className="bg-background text-foreground">
         <div className="py-10 md:py-14 lg:py-[4.5rem]">
           <div className="editorial-container text-center mb-8 md:mb-10">
-            <h2 className="editorial-heading-lg text-background mb-4">
+            <h2 className="editorial-heading-lg text-foreground mb-4">
               Our Services
             </h2>
           </div>
@@ -132,10 +132,10 @@ const Index = () => {
 
 
       {/* CAPABILITIES */}
-      <EditorialSection className="editorial-section">
+      <EditorialSection className="editorial-section bg-foreground text-background">
         <div className="editorial-container">
-          <p className="editorial-label text-primary mb-4"></p>
-          <h2 className="editorial-heading-lg text-foreground mb-16 max-w-2xl">
+          <p className="editorial-label text-background mb-4"></p>
+          <h2 className="editorial-heading-lg text-background mb-16 max-w-2xl">
             Our Competence
           </h2>
 
@@ -158,8 +158,8 @@ const Index = () => {
             }].
             map((item) =>
             <div key={item.num} className="border-t border-border pt-8">
-                <h3 className="editorial-heading-sm text-foreground mb-4">{item.title}</h3>
-                <p className="editorial-body-sm text-muted-foreground">{item.desc}</p>
+                <h3 className="editorial-heading-sm text-background mb-4">{item.title}</h3>
+                <p className="editorial-body-sm text-background/80">{item.desc}</p>
               </div>
             )}
           </div>
