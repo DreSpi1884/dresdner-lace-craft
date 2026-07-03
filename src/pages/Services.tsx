@@ -123,7 +123,7 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] flex flex-col justify-center px-6 lg:pl-[60px] lg:pr-16 snap-start"
+                className="min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] pt-10 pb-16 px-6 lg:pl-[60px] lg:pr-16"
                 style={{
                   opacity: activeIdx === i ? 1 : 0.2,
                   transition: "opacity 600ms ease",
