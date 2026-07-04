@@ -49,50 +49,50 @@ const Contact = () => {
             </div>
 
             {/* Contact form */}
-            <div className="bg-card p-8 md:p-12">
-              <h2 className="editorial-heading-sm text-foreground mb-8">Send us a message</h2>
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+            <div className="bg-[#F0F4F8] p-8 md:p-12">
+              <h2 className="editorial-heading-sm text-foreground mb-10">Send us a message</h2>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div>
-                  <label htmlFor="contact-name" className="editorial-label text-muted-foreground block mb-2">Name</label>
+                  <label htmlFor="contact-name" className="editorial-label text-[#5A6B7D] tracking-[0.15em] uppercase block mb-3">Name</label>
                   <input
                     id="contact-name"
                     type="text"
-                    className="w-full border border-border bg-background px-5 py-3.5 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+                    className="w-full border border-[#D1D9E0] bg-white px-5 py-4 editorial-body text-foreground placeholder:text-[#8895A3] focus:outline-none focus:border-foreground transition-colors"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-company" className="editorial-label text-muted-foreground block mb-2">Company</label>
+                  <label htmlFor="contact-company" className="editorial-label text-[#5A6B7D] tracking-[0.15em] uppercase block mb-3">Company</label>
                   <input
                     id="contact-company"
                     type="text"
-                    className="w-full border border-border bg-background px-5 py-3.5 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+                    className="w-full border border-[#D1D9E0] bg-white px-5 py-4 editorial-body text-foreground placeholder:text-[#8895A3] focus:outline-none focus:border-foreground transition-colors"
                     placeholder="Company name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-email" className="editorial-label text-muted-foreground block mb-2">Email</label>
+                  <label htmlFor="contact-email" className="editorial-label text-[#5A6B7D] tracking-[0.15em] uppercase block mb-3">Email</label>
                   <input
                     id="contact-email"
                     type="email"
-                    className="w-full border border-border bg-background px-5 py-3.5 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+                    className="w-full border border-[#D1D9E0] bg-white px-5 py-4 editorial-body text-foreground placeholder:text-[#8895A3] focus:outline-none focus:border-foreground transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-message" className="editorial-label text-muted-foreground block mb-2">Message</label>
+                  <label htmlFor="contact-message" className="editorial-label text-[#5A6B7D] tracking-[0.15em] uppercase block mb-3">Message</label>
                   <textarea
                     id="contact-message"
                     rows={5}
-                    className="w-full border border-border bg-background px-5 py-3.5 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors resize-none"
+                    className="w-full border border-[#D1D9E0] bg-white px-5 py-4 editorial-body text-foreground placeholder:text-[#8895A3] focus:outline-none focus:border-foreground transition-colors resize-none"
                     placeholder="Tell us about your project..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-3 bg-[#1A2332] text-white px-8 py-4 editorial-body font-medium hover:bg-[#2A3A4D] transition-colors"
                 >
-                  Send Message <ArrowRight size={16} />
+                  Send Message <ArrowRight size={18} />
                 </button>
               </form>
             </div>
