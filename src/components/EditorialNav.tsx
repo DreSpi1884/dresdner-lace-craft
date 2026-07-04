@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram, ChevronDown } from "lucide-react";
+import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-white.png.asset.json";
 
 const navItems = [

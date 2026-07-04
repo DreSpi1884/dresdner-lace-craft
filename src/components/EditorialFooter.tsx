@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 
 const EditorialFooter = () => {
   return (
