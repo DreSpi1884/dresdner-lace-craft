@@ -32,7 +32,7 @@ const Index = () => {
           <h1 className="font-serif text-background leading-[1.1] tracking-[-0.01em] pb-2 [text-wrap:balance]" style={{ fontSize: "clamp(28px, 4vw, 64px)" }}>
             The Art of Textiles
           </h1>
-          <p className="editorial-label text-background/90 tracking-[0.3em] mt-[clamp(0.5rem,1.5vh,1rem)]" style={{ fontSize: "clamp(14px, 1.8vw, 24px)" }}>
+          <p className="editorial-label text-background/90 tracking-[0.3em] mt-[clamp(0.5rem,1.5vh,1rem)]" style={{ fontSize: "clamp(11px, 1.3vw, 18px)" }}>
             MADE IN GERMANY SINCE 1884
           </p>
         </div>
