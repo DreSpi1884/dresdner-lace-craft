@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 
 const EditorialFooter = () => {
   return (
@@ -41,6 +41,13 @@ const EditorialFooter = () => {
               onClick={(e) => {e.preventDefault();window.open("https://www.instagram.com/dresdnerspitzen", "_blank", "noopener,noreferrer");}}>
                 
                 <Instagram size={16} /> Instagram
+              </a>
+              <a href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="inline-flex items-center gap-2 hover:text-background transition-colors"
+              onClick={(e) => {e.preventDefault();window.open("https://www.linkedin.com/company/dresdner-spitzen-gmbh", "_blank", "noopener,noreferrer");}}>
+                <Linkedin size={16} /> LinkedIn
               </a>
             </div>
             <div className="mt-8 flex gap-4">

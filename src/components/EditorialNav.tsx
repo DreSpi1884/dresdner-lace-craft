@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram, ChevronDown } from "lucide-react";
+import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-white.png.asset.json";
 
 const navItems = [
@@ -224,7 +224,7 @@ const EditorialNav = () => {
             ENQUIRY{"\n"}
           </Link>
 
-          {/* Instagram */}
+          {/* Social icons */}
           <a
             href="https://www.instagram.com/dresdnerspitzen"
             target="_blank"
@@ -233,6 +233,15 @@ const EditorialNav = () => {
             className="text-background drop-shadow-md hover:text-background/70 transition-colors"
           >
             <Instagram size={18} />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="text-background drop-shadow-md hover:text-background/70 transition-colors"
+          >
+            <Linkedin size={18} />
           </a>
 
           {/* Language switcher */}
@@ -328,6 +337,15 @@ const EditorialNav = () => {
                 className="ml-auto text-background"
               >
                 <Instagram size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-background"
+              >
+                <Linkedin size={20} />
               </a>
             </div>
           </div>
