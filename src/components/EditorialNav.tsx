@@ -338,6 +338,15 @@ const EditorialNav = () => {
               >
                 <Instagram size={20} />
               </a>
+              <a
+                href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-background"
+              >
+                <Linkedin size={20} />
+              </a>
             </div>
           </div>
         </div>
