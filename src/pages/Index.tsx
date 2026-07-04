@@ -33,7 +33,7 @@ const Index = () => {
             The Art of Textiles
           </h1>
           <p className="editorial-label text-background/90 tracking-[0.3em] mt-[clamp(0.5rem,1.5vh,1rem)]" style={{ fontSize: "clamp(11px, 1.3vw, 18px)" }}>
-            MADE IN GERMANY SINCE 1884
+            MADE IN GERMANY
           </p>
         </div>
       </section>
