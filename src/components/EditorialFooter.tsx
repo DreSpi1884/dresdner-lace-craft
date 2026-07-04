@@ -42,6 +42,13 @@ const EditorialFooter = () => {
                 
                 <Instagram size={16} /> Instagram
               </a>
+              <a href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="inline-flex items-center gap-2 hover:text-background transition-colors"
+              onClick={(e) => {e.preventDefault();window.open("https://www.linkedin.com/company/dresdner-spitzen-gmbh", "_blank", "noopener,noreferrer");}}>
+                <Linkedin size={16} /> LinkedIn
+              </a>
             </div>
             <div className="mt-8 flex gap-4">
               <button className="editorial-label text-background/60 hover:text-background transition-colors">DE</button>
