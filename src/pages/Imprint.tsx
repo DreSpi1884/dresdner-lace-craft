@@ -7,12 +7,24 @@ const Imprint = () => {
         <div className="editorial-container max-w-3xl">
           <div className="editorial-body text-muted-foreground space-y-2">
             <p className="font-semibold text-foreground">DreGuS GmbH &amp; Co. KG</p>
-            <p>Breitscheidstr. 78</p>
-            <p>01237 Dresden</p>
-            <p className="mt-4">Telefon: +49-351-204 8 0</p>
-            <p className="mt-4">Geschäftsführer: Dr.-Ing. Sascha Schröder</p>
-            <p className="mt-4">Ust.-Id.: DE 811 896 186</p>
-            <p>Handelsregister: HRA 2456</p>
+            <p className="whitespace-pre-line">
+              Breitscheidstraße 78{"\u00a0"}
+              {"\n"}01237 Dresden{"\u00a0"}
+              {"\n"}Deutschland{"\u00a0"}
+              {"\n"}Vertreten durch{"\u00a0"}
+              {"\n"}Dr.-Ing. Sascha Schröder{"\u00a0"}
+              {"\n"}Kontakt{"\u00a0"}
+              {"\n"}+49 351 2048 244{"\u00a0"}
+              {"\n"}sales@dresdnerspitzen.com{"\u00a0"}
+              {"\n"}Handelsregister{"\u00a0"}
+              {"\n"}Amtsgericht Dresden{"\u00a0"}
+              {"\n"}HRA 2456{"\u00a0"}
+              {"\n"}Komplementärin{"\u00a0"}
+              {"\n"}M. & S. Schröder GmbH{"\u00a0"}
+              {"\n"}Amtsgericht Dresden, HRB 12846{"\u00a0"}
+              {"\n"}Umsatzsteuer-Identifikationsnummer{"\u00a0"}
+              {"\n"}DE 811 896 186{"\u00a0"}
+            </p>
           </div>
         </div>
       </section>
