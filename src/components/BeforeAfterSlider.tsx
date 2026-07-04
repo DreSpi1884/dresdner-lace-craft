@@ -73,10 +73,16 @@ const BeforeAfterSlider = ({
       />
 
       {/* Labels */}
-      <span className="absolute bottom-3 left-3 editorial-label text-background/90 text-[10px] tracking-[0.25em] drop-shadow">
+      <span
+        className="absolute bottom-3 left-3 editorial-label text-background/90 text-[10px] tracking-[0.25em] drop-shadow transition-opacity duration-150"
+        style={{ opacity: position > 2 ? 1 : 0 }}
+      >
         {beforeLabel}
       </span>
-      <span className="absolute bottom-3 right-3 editorial-label text-background/90 text-[10px] tracking-[0.25em] drop-shadow">
+      <span
+        className="absolute bottom-3 right-3 editorial-label text-background/90 text-[10px] tracking-[0.25em] drop-shadow transition-opacity duration-150"
+        style={{ opacity: position < 98 ? 1 : 0 }}
+      >
         {afterLabel}
       </span>
 
