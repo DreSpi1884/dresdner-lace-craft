@@ -38,7 +38,7 @@ const Jobs = () => {
       </EditorialSection>
 
       <section className="pb-20 md:pb-28">
-        <div className="editorial-container max-w-3xl">
+        <div className="editorial-container max-w-3xl mx-auto">
           <p className="editorial-label text-muted-foreground mb-8">Open Positions</p>
           <div className="space-y-0">
             {openPositions.map((pos) =>
