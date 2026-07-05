@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 
 const Contact = () => {
