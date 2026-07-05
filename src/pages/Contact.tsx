@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 
 const Contact = () => {
@@ -34,17 +33,6 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="mt-12 pt-12 border-t border-border">
-              <p className="editorial-body-sm text-muted-foreground mb-4">
-                Looking to request a tailored quote?
-              </p>
-              <Link
-                to="/quote"
-                className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors"
-              >
-                Request a Quote <ArrowRight size={16} />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
