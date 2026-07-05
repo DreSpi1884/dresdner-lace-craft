@@ -10,7 +10,7 @@ const EditorialFooter = () => {
           <div>
             <h3 className="font-serif text-2xl mb-4">Dresdner Spitzen</h3>
             <p className="editorial-body-sm text-background/60 max-w-xs">
-              European lace manufacturer since 1884.&nbsp;
+              European textile manufacturer since 1884.&nbsp;
             </p>
           </div>
 
