@@ -29,7 +29,7 @@ const Jobs = () => {
   return (
     <EditorialLayout title="Build the future of textiles with us">
       <EditorialSection className="editorial-section">
-        <div className="editorial-container max-w-3xl">
+        <div className="editorial-container max-w-3xl mx-auto">
           <p className="editorial-body text-muted-foreground max-w-2xl">
             At Dresdner Spitzen, we value skilled hands and fresh ideas equally.
             Join a team where tradition meets innovation, in one of Germany's most beautiful cities.
@@ -38,7 +38,7 @@ const Jobs = () => {
       </EditorialSection>
 
       <section className="pb-20 md:pb-28">
-        <div className="editorial-container max-w-3xl">
+        <div className="editorial-container max-w-3xl mx-auto">
           <p className="editorial-label text-muted-foreground mb-8">Open Positions</p>
           <div className="space-y-0">
             {openPositions.map((pos) =>
