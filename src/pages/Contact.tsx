@@ -3,16 +3,17 @@ import EditorialLayout from "@/components/EditorialLayout";
 
 const Contact = () => {
   return (
-    <EditorialLayout title="Let's start a conversation">
-      <section className="editorial-section">
+    <EditorialLayout heroAtTop={true}>
+      <section className="pt-12 md:pt-16 pb-8 md:pb-12">
         <div className="editorial-container">
+          <h1 className="editorial-heading-xl mb-6">Let's start a conversation</h1>
           <div className="max-w-xl">
-            <p className="editorial-body text-muted-foreground mb-12 whitespace-pre-line">
+            <p className="editorial-body text-muted-foreground mb-6 whitespace-pre-line">
               Whether you have a specific project in mind or simply want to learn more about our capabilities, we're here to help.{"\n"}
               Our team responds within one business day.
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-4">
               <div className="flex items-start gap-4">
                 <Mail size={20} className="text-primary mt-1 shrink-0" />
                 <div>
