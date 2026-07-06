@@ -378,7 +378,7 @@ const HistoryTimeline = () => {
                     }}
                   >
                     <div className="w-full max-w-sm aspect-[4/3] bg-muted border border-border flex items-center justify-center text-muted-foreground/40 editorial-label">
-                      Image {i + 1}
+                      {t("Image", "Bild")} {i + 1}
                     </div>
                   </div>
 
