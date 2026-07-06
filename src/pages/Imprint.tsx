@@ -2,9 +2,10 @@ import EditorialLayout from "@/components/EditorialLayout";
 
 const Imprint = () => {
   return (
-    <EditorialLayout title="Imprint">
-      <section className="editorial-section">
+    <EditorialLayout heroAtTop={true}>
+      <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12">
         <div className="editorial-container max-w-3xl">
+          <h1 className="editorial-heading-xl mb-6">Imprint</h1>
           <div className="editorial-body text-muted-foreground space-y-2">
             <p className="font-semibold text-foreground">DreGuS GmbH &amp; Co. KG</p>
             <p className="whitespace-pre-line">
