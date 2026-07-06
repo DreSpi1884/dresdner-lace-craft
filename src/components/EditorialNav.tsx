@@ -307,7 +307,7 @@ const EditorialNav = () => {
                 >
                   {item.label}
                 </Link>
-                {item.label === "CONTACT" && (
+                {item.key === "contact" && (
                   <div className="mt-2 ml-4 flex flex-col gap-2">
                     {contactSections.map((s) => (
                       <Link
@@ -331,18 +331,19 @@ const EditorialNav = () => {
               }}
               className="editorial-body cta-lace border border-background text-background px-5 py-3 text-center mt-2"
             >
-              ENQUIRY
+              {t("ENQUIRY", "ANFRAGE")}
             </button>
             <div className="flex gap-4 pt-2">
               {languages.map((l) => (
                 <button
-                  key={l}
-                  onClick={() => setLang(l)}
-                  className={`editorial-body-sm ${lang === l ? "text-background" : "text-background/60"}`}
+                  key={l.code}
+                  onClick={() => setLang(l.code)}
+                  className={`editorial-body-sm ${lang === l.code ? "text-background" : "text-background/60"}`}
                 >
-                  {l}
+                  {l.label}
                 </button>
               ))}
+
               <a
                 href="https://www.instagram.com/dresdnerspitzen"
                 target="_blank"
