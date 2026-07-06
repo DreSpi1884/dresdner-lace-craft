@@ -84,6 +84,7 @@ const Quote = () => {
   if (submitted) {
     return (
       <EditorialLayout>
+        {QUOTE_SEO}
         <section className="editorial-section">
           <div className="editorial-container max-w-2xl mx-auto text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-full mb-8">
