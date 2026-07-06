@@ -1,4 +1,5 @@
 import EditorialLayout from "@/components/EditorialLayout";
+import SEO from "@/components/SEO";
 
 const Imprint = () => {
   return (
