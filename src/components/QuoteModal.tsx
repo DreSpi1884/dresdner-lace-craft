@@ -1,19 +1,13 @@
 import { createContext, useCallback, useContext, useState, ReactNode } from "react";
-import { ArrowRight, Check, Info } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
-type Step = 1 | 2 | 3 | 4 | 5 | 6;
+type Step = 1 | 2 | 3 | 4 | 5;
 
 type QuoteModalContextType = {
   open: () => void;
@@ -35,7 +29,6 @@ const initialForm = {
   widths: "",
   widthsNotSure: false,
   usage: [] as string[],
-  certified: [] as string[],
   quantity: [] as string[],
   name: "",
   company: "",
@@ -57,7 +50,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
   const close = useCallback(() => setIsOpen(false), []);
 
   const toggleMulti = (
-    key: "laceType" | "usage" | "certified" | "quantity",
+    key: "laceType" | "usage" | "quantity",
     value: string,
   ) => {
     setForm((prev) => {
@@ -74,7 +67,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
-  const nextStep = () => setStep((s) => Math.min(s + 1, 6) as Step);
+  const nextStep = () => setStep((s) => Math.min(s + 1, 5) as Step);
   const prevStep = () => setStep((s) => Math.max(s - 1, 1) as Step);
   const handleSubmit = () => setSubmitted(true);
 
@@ -142,7 +135,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
             <div className="mt-2">
               {/* Progress */}
               <div className="flex gap-1.5 mb-8">
-                {[1, 2, 3, 4, 5, 6].map((s) => (
+                {[1, 2, 3, 4, 5].map((s) => (
                   <div
                     key={s}
                     className={`h-1 flex-1 transition-colors duration-300 ${
