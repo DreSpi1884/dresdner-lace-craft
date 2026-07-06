@@ -157,8 +157,8 @@ const EditorialNav = () => {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            if (item.key === "about") {
-
+            if (item.key === "about" || item.key === "contact") {
+              const sections = item.key === "about" ? aboutSections : contactSections;
               return (
                 <div key={item.path} className="relative group">
                   <Link
@@ -172,15 +172,20 @@ const EditorialNav = () => {
                   </Link>
                   <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                     <div className="bg-foreground border border-background/10 min-w-[200px] py-2">
-                      {contactSections.map((s) => (
-                        <Link
-                          key={s.path}
-                          to={s.path}
-                          className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
-                        >
-                          {s.label}
-                        </Link>
-                      ))}
+                      {sections.map((s) => {
+                        const to = "hash" in s ? `/about${s.hash}` : s.path;
+                        const key = "hash" in s ? s.hash : s.path;
+                        return (
+                          <Link
+                            key={key}
+                            to={to}
+                            onClick={"hash" in s ? (e) => handleAboutAnchor(e, s.hash) : undefined}
+                            className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
+                          >
+                            {s.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -203,8 +208,9 @@ const EditorialNav = () => {
             onClick={openQuote}
             className="editorial-body-sm cta-lace border border-background/70 text-background px-5 py-2.5 hover:bg-background hover:text-foreground transition-colors duration-300"
           >
-            ENQUIRY
+            {t("ENQUIRY", "ANFRAGE")}
           </button>
+
 
           {/* Social icons */}
           <a
