@@ -92,13 +92,13 @@ const Index = () => {
               },
               {
                 title: "Dyeing and Finishing\u00a0",
-                desc: "Our in-house dyeing facility covers the full colour spectrum, from soft pastels to deep saturated tones, in uni or bicolour.",
+                desc: "Our in-house dyeing facility covers the full colour spectrum in uni or bicolour.",
                 image: serviceDyeing,
                 anchor: "dyeing-finishing",
               },
               {
                 title: "Functional and Medical Textiles",
-                desc: "We develop certified warp-knitted fabrics for medical and technical use.\n\nOur elastic textiles are used in compression garments, post-surgical care, and lymphatic therapy.",
+                desc: "We develop warp-knitted fabrics for medical and technical use.\u00a0\nOur elastic textiles are used in compression garments, post-surgical care, and lymphatic therapy.",
                 image: serviceFunctional.url,
                 anchor: "functional-treatments",
               },
