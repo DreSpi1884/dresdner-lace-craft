@@ -57,38 +57,15 @@ const Services = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Enable snap only when scrolling down; scrolling up stays free
   useEffect(() => {
     const html = document.documentElement;
-    const prevSnap = html.style.scrollSnapType;
     const prevBehavior = html.style.scrollBehavior;
     html.style.scrollBehavior = "smooth";
-    html.style.scrollSnapType = "none";
-
-    let lastY = window.scrollY;
-    let timeout: number | undefined;
-
-    const onScroll = () => {
-      const y = window.scrollY;
-      const goingDown = y > lastY;
-      lastY = y;
-      html.style.scrollSnapType = goingDown ? "y proximity" : "none";
-      if (timeout) window.clearTimeout(timeout);
-      // When scrolling settles after a downward move, allow snap to finalize,
-      // then release so the next upward scroll is unrestricted.
-      timeout = window.setTimeout(() => {
-        html.style.scrollSnapType = "none";
-      }, 250);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (timeout) window.clearTimeout(timeout);
-      html.style.scrollSnapType = prevSnap;
       html.style.scrollBehavior = prevBehavior;
     };
   }, []);
+
 
 
   const scrollTo = (idx: number) => {
@@ -155,14 +132,13 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] pt-16 md:pt-24 pb-8 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-start overflow-hidden"
+                className="min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] pt-16 md:pt-24 pb-16 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-start"
                 style={{
-                  opacity: activeIdx === i ? 1 : 0.2,
-                  transition: "opacity 600ms ease",
-                  scrollSnapAlign: "start",
-                  scrollSnapStop: "normal",
-                  scrollMarginTop: "6rem",
+                  opacity: activeIdx === i ? 1 : 0.25,
+                  transform: activeIdx === i ? "translateY(0)" : "translateY(12px)",
+                  transition: "opacity 700ms ease, transform 700ms ease",
                 }}
+
               >
                 <p
                   className="mb-5"
