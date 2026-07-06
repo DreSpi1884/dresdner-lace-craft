@@ -48,7 +48,7 @@ const About = () => {
             <div>
               <p className="editorial-label text-primary mb-4">Sustainability</p>
               <h2 className="editorial-heading-lg text-foreground mb-8">
-                Responsible production at<br />every stage
+                Responsible production at every stage
               </h2>
             </div>
             <div className="space-y-6 editorial-body text-muted-foreground">
