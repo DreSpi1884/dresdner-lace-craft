@@ -1,16 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useLang } from "@/i18n/LanguageContext";
 
-const sections = [
-  { id: "history", label: "History" },
-  { id: "sustainability", label: "Sustainability" },
-  { id: "values", label: "Values" },
-  { id: "production", label: "Production" },
-];
-
-const NAV_HEIGHT = 96; // h-20 md:h-24 + sticky nav height buffer
+const NAV_HEIGHT = 96;
 
 const AboutAnchorNav = () => {
+  const { t } = useLang();
+  const sections = useMemo(() => [
+    { id: "history", label: t("History", "Geschichte") },
+    { id: "sustainability", label: t("Sustainability", "Nachhaltigkeit") },
+    { id: "values", label: t("Values", "Werte") },
+    { id: "production", label: t("Production", "Produktion") },
+  ], [t]);
+
   const [activeId, setActiveId] = useState<string>(sections[0].id);
   const clickActiveRef = useRef<string | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -18,9 +20,7 @@ const AboutAnchorNav = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // If a recent click set the active item, ignore observer updates briefly
         if (clickActiveRef.current) return;
-
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -37,7 +37,7 @@ const AboutAnchorNav = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [sections]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -69,9 +69,7 @@ const AboutAnchorNav = () => {
                   onClick={(e) => handleClick(e, id)}
                   className={cn(
                     "editorial-label relative block transition-colors duration-300",
-                    active
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                    active ? "text-primary" : "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   {label}

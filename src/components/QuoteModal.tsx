@@ -6,6 +6,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { useLang } from "@/i18n/LanguageContext";
 
 type Step = 1 | 2 | 3 | 4 | 5;
 
@@ -22,8 +23,6 @@ export const useQuoteModal = () => {
   return ctx;
 };
 
-const NOT_SURE = "I'm not sure";
-
 const initialForm = {
   laceType: [] as string[],
   widths: "",
@@ -36,6 +35,9 @@ const initialForm = {
 };
 
 export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
+  const { t } = useLang();
+  const NOT_SURE = t("I'm not sure", "Ich bin mir nicht sicher");
+
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<Step>(1);
   const [submitted, setSubmitted] = useState(false);
@@ -101,6 +103,8 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const contactValid = form.name.trim() !== "" && form.email.trim() !== "";
+  const continueLabel = t("Continue", "Weiter");
+  const multiHint = t("You can select multiple options.", "Sie können mehrere Optionen auswählen.");
 
   return (
     <QuoteModalContext.Provider value={{ open, close }}>
@@ -112,10 +116,13 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
           onInteractOutside={(e) => e.preventDefault()}
         >
           <DialogTitle className="editorial-heading-md text-foreground font-normal">
-            Let's create something together
+            {t("Let's create something together", "Lassen Sie uns gemeinsam etwas schaffen")}
           </DialogTitle>
           <DialogDescription className="sr-only">
-            Multi-step enquiry form to request a tailored quote.
+            {t(
+              "Multi-step enquiry form to request a tailored quote.",
+              "Mehrstufiges Anfrageformular für ein individuelles Angebot."
+            )}
           </DialogDescription>
 
           {submitted ? (
@@ -124,11 +131,13 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                 <Check size={32} />
               </div>
               <h2 className="editorial-heading-sm text-foreground mb-4">
-                Thank you for your inquiry
+                {t("Thank you for your inquiry", "Vielen Dank für Ihre Anfrage")}
               </h2>
               <p className="editorial-body text-muted-foreground">
-                We have received your quote request and will respond within 2 business days
-                with a tailored proposal.
+                {t(
+                  "We have received your quote request and will respond within 2 business days with a tailored proposal.",
+                  "Wir haben Ihre Angebotsanfrage erhalten und melden uns innerhalb von 2 Werktagen mit einem individuellen Vorschlag bei Ihnen."
+                )}
               </p>
             </div>
           ) : (
@@ -148,15 +157,22 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
               {/* Step 1 */}
               {step === 1 && (
                 <div className="space-y-6 animate-fade-in">
-                  <h3 className="editorial-heading-sm text-foreground">What type of lace do you need?</h3>
-                  <p className="editorial-body-sm text-muted-foreground">You can select multiple options.</p>
+                  <h3 className="editorial-heading-sm text-foreground">
+                    {t("What type of lace do you need?", "Welche Art von Spitze benötigen Sie?")}
+                  </h3>
+                  <p className="editorial-body-sm text-muted-foreground">{multiHint}</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {["Elastic", "Inelastic", "Both", NOT_SURE].map((opt) => (
+                    {[
+                      { value: "Elastic", label: t("Elastic", "Elastisch") },
+                      { value: "Inelastic", label: t("Inelastic", "Unelastisch") },
+                      { value: "Both", label: t("Both", "Beides") },
+                      { value: NOT_SURE, label: NOT_SURE },
+                    ].map((opt) => (
                       <OptionButton
-                        key={opt}
-                        label={opt}
-                        selected={form.laceType.includes(opt)}
-                        onClick={() => toggleMulti("laceType", opt)}
+                        key={opt.value}
+                        label={opt.label}
+                        selected={form.laceType.includes(opt.value)}
+                        onClick={() => toggleMulti("laceType", opt.value)}
                       />
                     ))}
                   </div>
@@ -165,7 +181,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                     disabled={form.laceType.length === 0}
                     className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    Continue <ArrowRight size={16} />
+                    {continueLabel} <ArrowRight size={16} />
                   </button>
                 </div>
               )}
@@ -173,13 +189,20 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
               {/* Step 2 */}
               {step === 2 && (
                 <div className="space-y-6 animate-fade-in">
-                  <h3 className="editorial-heading-sm text-foreground">Required widths?</h3>
-                  <p className="editorial-body-sm text-muted-foreground">Please specify the desired widths in mm or cm, or skip.</p>
+                  <h3 className="editorial-heading-sm text-foreground">
+                    {t("Required widths?", "Gewünschte Breiten?")}
+                  </h3>
+                  <p className="editorial-body-sm text-muted-foreground">
+                    {t(
+                      "Please specify the desired widths in mm or cm, or skip.",
+                      "Bitte geben Sie die gewünschten Breiten in mm oder cm an, oder überspringen Sie diesen Schritt."
+                    )}
+                  </p>
                   <input
                     type="text"
                     value={form.widths}
                     onChange={(e) => updateForm("widths", e.target.value)}
-                    placeholder="e.g., 15mm, 30mm, 50mm"
+                    placeholder={t("e.g., 15mm, 30mm, 50mm", "z. B. 15 mm, 30 mm, 50 mm")}
                     disabled={form.widthsNotSure}
                     className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors disabled:opacity-40"
                   />
@@ -195,7 +218,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                     disabled={!form.widthsNotSure && form.widths.trim() === ""}
                     className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    Continue <ArrowRight size={16} />
+                    {continueLabel} <ArrowRight size={16} />
                   </button>
                 </div>
               )}
@@ -203,22 +226,24 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
               {/* Step 3 */}
               {step === 3 && (
                 <div className="space-y-6 animate-fade-in">
-                  <h3 className="editorial-heading-sm text-foreground">Design or usage?</h3>
-                  <p className="editorial-body-sm text-muted-foreground">You can select multiple options.</p>
+                  <h3 className="editorial-heading-sm text-foreground">
+                    {t("Design or usage?", "Design oder Verwendung?")}
+                  </h3>
+                  <p className="editorial-body-sm text-muted-foreground">{multiHint}</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
-                      { label: "Lingerie" },
-                      { label: "Outerwear" },
-                      { label: "Technical" },
-                      { label: "Custom", subtitle: "Requires large scale production" },
-                      { label: NOT_SURE },
+                      { value: "Lingerie", label: t("Lingerie", "Dessous") },
+                      { value: "Outerwear", label: t("Outerwear", "Oberbekleidung") },
+                      { value: "Technical", label: t("Technical", "Technisch") },
+                      { value: "Custom", label: t("Custom", "Individuell"), subtitle: t("Requires large scale production", "Erfordert Großserienproduktion") },
+                      { value: NOT_SURE, label: NOT_SURE },
                     ].map((opt) => (
                       <OptionButton
-                        key={opt.label}
+                        key={opt.value}
                         label={opt.label}
                         subtitle={opt.subtitle}
-                        selected={form.usage.includes(opt.label)}
-                        onClick={() => toggleMulti("usage", opt.label)}
+                        selected={form.usage.includes(opt.value)}
+                        onClick={() => toggleMulti("usage", opt.value)}
                       />
                     ))}
                   </div>
@@ -227,24 +252,31 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                     disabled={form.usage.length === 0}
                     className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    Continue <ArrowRight size={16} />
+                    {continueLabel} <ArrowRight size={16} />
                   </button>
                 </div>
               )}
 
-
               {/* Step 4 */}
               {step === 4 && (
                 <div className="space-y-6 animate-fade-in">
-                  <h3 className="editorial-heading-sm text-foreground">Estimated quantity?</h3>
-                  <p className="editorial-body-sm text-muted-foreground">You can select multiple options.</p>
+                  <h3 className="editorial-heading-sm text-foreground">
+                    {t("Estimated quantity?", "Geschätzte Menge?")}
+                  </h3>
+                  <p className="editorial-body-sm text-muted-foreground">{multiHint}</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {["Sample", "Small batch", "Medium production", "Large scale", NOT_SURE].map((opt) => (
+                    {[
+                      { value: "Sample", label: t("Sample", "Muster") },
+                      { value: "Small batch", label: t("Small batch", "Kleinserie") },
+                      { value: "Medium production", label: t("Medium production", "Mittlere Serie") },
+                      { value: "Large scale", label: t("Large scale", "Großserie") },
+                      { value: NOT_SURE, label: NOT_SURE },
+                    ].map((opt) => (
                       <OptionButton
-                        key={opt}
-                        label={opt}
-                        selected={form.quantity.includes(opt)}
-                        onClick={() => toggleMulti("quantity", opt)}
+                        key={opt.value}
+                        label={opt.label}
+                        selected={form.quantity.includes(opt.value)}
+                        onClick={() => toggleMulti("quantity", opt.value)}
                       />
                     ))}
                   </div>
@@ -253,7 +285,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                     disabled={form.quantity.length === 0}
                     className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    Continue <ArrowRight size={16} />
+                    {continueLabel} <ArrowRight size={16} />
                   </button>
                 </div>
               )}
@@ -261,27 +293,29 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
               {/* Step 5 */}
               {step === 5 && (
                 <div className="space-y-6 animate-fade-in">
-                  <h3 className="editorial-heading-sm text-foreground">Your contact details</h3>
+                  <h3 className="editorial-heading-sm text-foreground">
+                    {t("Your contact details", "Ihre Kontaktdaten")}
+                  </h3>
                   <div className="space-y-4">
                     <input
                       type="text"
                       value={form.name}
                       onChange={(e) => updateForm("name", e.target.value)}
-                      placeholder="Your name"
+                      placeholder={t("Your name", "Ihr Name")}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                     <input
                       type="text"
                       value={form.company}
                       onChange={(e) => updateForm("company", e.target.value)}
-                      placeholder="Company name"
+                      placeholder={t("Company name", "Firmenname")}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                     <input
                       type="email"
                       value={form.email}
                       onChange={(e) => updateForm("email", e.target.value)}
-                      placeholder="Email address"
+                      placeholder={t("Email address", "E-Mail-Adresse")}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                   </div>
@@ -290,7 +324,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                     disabled={!contactValid}
                     className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors w-full justify-center disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    Submit Quote Request <ArrowRight size={16} />
+                    {t("Submit Quote Request", "Angebot anfordern")} <ArrowRight size={16} />
                   </button>
                 </div>
               )}
@@ -300,7 +334,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                   onClick={prevStep}
                   className="mt-6 editorial-body-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  ← Back
+                  ← {t("Back", "Zurück")}
                 </button>
               )}
             </div>

@@ -3,27 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-white.png.asset.json";
 import { useQuoteModal } from "@/components/QuoteModal";
+import { useLang, type Lang } from "@/i18n/LanguageContext";
 
-const navItems = [
-  { label: "HOME", path: "/" },
-  { label: "SERVICES", path: "/services" },
-  { label: "ABOUT", path: "/about" },
-  { label: "CONTACT", path: "/contact" },
+const languages: { code: Lang; label: string }[] = [
+  { code: "en", label: "EN" },
+  { code: "de", label: "DE" },
 ];
-
-const contactSections = [
-  { label: "CONTACT", path: "/contact" },
-  { label: "CAREERS", path: "/jobs" },
-];
-
-const aboutSections = [
-  { label: "HISTORY", hash: "#history" },
-  { label: "VALUES", hash: "#values" },
-  { label: "SUSTAINABILITY", hash: "#sustainability" },
-  { label: "PRODUCTION", hash: "#production" },
-];
-
-const languages = ["EN", "DE", "FR"];
 
 const getHeroScale = (width: number) => {
   if (width < 640) return 1.6;
@@ -36,13 +21,34 @@ const getHeroScale = (width: number) => {
 
 
 const EditorialNav = () => {
+  const { t, lang, setLang } = useLang();
+
+  const navItems = [
+    { key: "home", label: t("HOME", "START"), path: "/" },
+    { key: "services", label: t("SERVICES", "LEISTUNGEN"), path: "/services" },
+    { key: "about", label: t("ABOUT", "ÜBER UNS"), path: "/about" },
+    { key: "contact", label: t("CONTACT", "KONTAKT"), path: "/contact" },
+  ];
+
+  const contactSections = [
+    { label: t("CONTACT", "KONTAKT"), path: "/contact" },
+    { label: t("CAREERS", "KARRIERE"), path: "/jobs" },
+  ];
+
+  const aboutSections = [
+    { label: t("HISTORY", "GESCHICHTE"), hash: "#history" },
+    { label: t("VALUES", "WERTE"), hash: "#values" },
+    { label: t("SUSTAINABILITY", "NACHHALTIGKEIT"), hash: "#sustainability" },
+    { label: t("PRODUCTION", "PRODUKTION"), hash: "#production" },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState("EN");
   const location = useLocation();
   const { open: openQuote } = useQuoteModal();
 
   const isHome = location.pathname === "/";
+
 
   const logoRef = useRef<HTMLImageElement>(null);
   const naturalCenter = useRef<{ cx: number; cy: number } | null>(null);
@@ -151,7 +157,8 @@ const EditorialNav = () => {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            if (item.label === "ABOUT") {
+            if (item.key === "about" || item.key === "contact") {
+              const sections = item.key === "about" ? aboutSections : contactSections;
               return (
                 <div key={item.path} className="relative group">
                   <Link
@@ -165,44 +172,20 @@ const EditorialNav = () => {
                   </Link>
                   <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                     <div className="bg-foreground border border-background/10 min-w-[200px] py-2">
-                      {aboutSections.map((s) => (
-                        <Link
-                          key={s.hash}
-                          to={`/about${s.hash}`}
-                          onClick={(e) => handleAboutAnchor(e, s.hash)}
-                          className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
-                        >
-                          {s.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-            if (item.label === "CONTACT") {
-              return (
-                <div key={item.path} className="relative group">
-                  <Link
-                    to={item.path}
-                    className={`editorial-body-sm transition-colors duration-300 drop-shadow-md hover:text-background/70 inline-flex items-center gap-1 ${
-                      location.pathname === item.path ? "text-background" : "text-background/85"
-                    }`}
-                  >
-                    {item.label}
-                    <ChevronDown size={14} />
-                  </Link>
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                    <div className="bg-foreground border border-background/10 min-w-[200px] py-2">
-                      {contactSections.map((s) => (
-                        <Link
-                          key={s.path}
-                          to={s.path}
-                          className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
-                        >
-                          {s.label}
-                        </Link>
-                      ))}
+                      {sections.map((s) => {
+                        const to = "hash" in s ? `/about${s.hash}` : s.path;
+                        const key = "hash" in s ? s.hash : s.path;
+                        return (
+                          <Link
+                            key={key}
+                            to={to}
+                            onClick={"hash" in s ? (e) => handleAboutAnchor(e, s.hash) : undefined}
+                            className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
+                          >
+                            {s.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -225,8 +208,9 @@ const EditorialNav = () => {
             onClick={openQuote}
             className="editorial-body-sm cta-lace border border-background/70 text-background px-5 py-2.5 hover:bg-background hover:text-foreground transition-colors duration-300"
           >
-            ENQUIRY
+            {t("ENQUIRY", "ANFRAGE")}
           </button>
+
 
           {/* Social icons */}
           <a
@@ -254,22 +238,23 @@ const EditorialNav = () => {
               className="editorial-body-sm text-background drop-shadow-md inline-flex items-center gap-1 hover:text-background/70 transition-colors"
               aria-label="Language"
             >
-              {lang}
+              {lang.toUpperCase()}
               <ChevronDown size={14} />
             </button>
             <div className="absolute right-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
               <div className="bg-foreground border border-background/10 min-w-[80px] py-2">
                 {languages.map((l) => (
                   <button
-                    key={l}
-                    onClick={() => setLang(l)}
+                    key={l.code}
+                    onClick={() => setLang(l.code)}
                     className={`block w-full text-left px-4 py-2 editorial-body-sm transition-colors hover:bg-background/5 ${
-                      lang === l ? "text-background" : "text-background/70"
+                      lang === l.code ? "text-background" : "text-background/70"
                     }`}
                   >
-                    {l}
+                    {l.label}
                   </button>
                 ))}
+
               </div>
             </div>
           </div>
@@ -300,7 +285,7 @@ const EditorialNav = () => {
                 >
                   {item.label}
                 </Link>
-                {item.label === "CONTACT" && (
+                {item.key === "contact" && (
                   <div className="mt-2 ml-4 flex flex-col gap-2">
                     {contactSections.map((s) => (
                       <Link
@@ -324,18 +309,19 @@ const EditorialNav = () => {
               }}
               className="editorial-body cta-lace border border-background text-background px-5 py-3 text-center mt-2"
             >
-              ENQUIRY
+              {t("ENQUIRY", "ANFRAGE")}
             </button>
             <div className="flex gap-4 pt-2">
               {languages.map((l) => (
                 <button
-                  key={l}
-                  onClick={() => setLang(l)}
-                  className={`editorial-body-sm ${lang === l ? "text-background" : "text-background/60"}`}
+                  key={l.code}
+                  onClick={() => setLang(l.code)}
+                  className={`editorial-body-sm ${lang === l.code ? "text-background" : "text-background/60"}`}
                 >
-                  {l}
+                  {l.label}
                 </button>
               ))}
+
               <a
                 href="https://www.instagram.com/dresdnerspitzen"
                 target="_blank"

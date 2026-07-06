@@ -12,13 +12,21 @@ import serviceDyeing from "@/assets/production-detail.jpg";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
 import heritageNow from "@/assets/heritage-now.jpg";
+import { useLang } from "@/i18n/LanguageContext";
 
 const Index = () => {
+  const { t } = useLang();
   return (
     <EditorialLayout heroAtTop>
       <SEO
-        title="Premium Lace & Textile Manufacturer since 1882"
-        description="Dresdner Spitzen designs and manufactures premium lace, warp-knitted fabrics and functional textiles in Germany. Bespoke collections since 1882."
+        title={t(
+          "Premium Lace & Textile Manufacturer since 1882",
+          "Premium Spitzen- & Textilhersteller seit 1882"
+        )}
+        description={t(
+          "Dresdner Spitzen designs and manufactures premium lace, warp-knitted fabrics and functional textiles in Germany. Bespoke collections since 1882.",
+          "Dresdner Spitzen entwickelt und fertigt Premium-Spitzen, Kettengewirke und funktionale Textilien in Deutschland. Maßgeschneiderte Kollektionen seit 1882."
+        )}
         path="/"
       />
       {/* HERO */}
@@ -33,10 +41,9 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-foreground/30" />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] py-[clamp(2rem,5vh,5rem)] w-full">
-          {/* Spacer reserving room for the nav logo that sits in the hero until scrolling */}
           <div className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]" style={{ width: "clamp(96px, 12.5vw, 240px)" }} aria-hidden="true" />
           <h1 className="font-serif text-background leading-[1.1] tracking-[-0.01em] pb-2 [text-wrap:balance]" style={{ fontSize: "clamp(28px, 4vw, 64px)" }}>
-            The Art of Textiles
+            {t("The Art of Textiles", "Die Kunst der Textilien")}
           </h1>
           <p className="editorial-label text-background/90 tracking-[0.3em] mt-[clamp(0.5rem,1.5vh,1rem)]" style={{ fontSize: "clamp(11px, 1.3vw, 18px)" }}>
             MADE IN GERMANY
@@ -44,16 +51,15 @@ const Index = () => {
         </div>
       </section>
 
-
       {/* KEYWORDS BANNER */}
       <section className="w-full bg-background border-b border-border py-5 md:py-6">
         <div className="editorial-container">
           <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/30">
             {[
-              "IN-HOUSE PRODUCTION",
-              "TAILORED SOLUTIONS",
-              "CERTIFIED SUSTAINABLE PRODUCTION",
-              "JUST-IN-TIME DELIVERY",
+              t("IN-HOUSE PRODUCTION", "EIGENE PRODUKTION"),
+              t("TAILORED SOLUTIONS", "MASSGESCHNEIDERTE LÖSUNGEN"),
+              t("CERTIFIED SUSTAINABLE PRODUCTION", "ZERTIFIZIERT NACHHALTIGE PRODUKTION"),
+              t("JUST-IN-TIME DELIVERY", "JUST-IN-TIME-LIEFERUNG"),
             ].map((text) => (
               <div key={text} className="flex items-center justify-center px-3 md:px-6 py-2 md:py-0 min-h-[3rem]">
                 <span className="editorial-label text-primary text-center leading-tight" style={{ fontSize: "clamp(9px, 1vw, 13px)" }}>
@@ -65,40 +71,50 @@ const Index = () => {
         </div>
       </section>
 
-
-
       {/* OUR SERVICES */}
       <EditorialSection className="bg-background text-foreground">
         <div className="py-10 md:py-14 lg:py-[4.5rem]">
           <div className="editorial-container text-center mb-8 md:mb-10">
             <h2 className="editorial-heading-lg text-foreground mb-4">
-              Our Services
+              {t("Our Services", "Unsere Leistungen")}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full">
             {[
               {
-                title: "Seasonal Lace Collections",
-                desc: "Our team continuosly releases new lace collections, each spanning a wide variety of styles inspired by global fashion trends.",
+                title: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
+                desc: t(
+                  "Our team continuosly releases new lace collections, each spanning a wide variety of styles inspired by global fashion trends.",
+                  "Unser Team veröffentlicht kontinuierlich neue Spitzenkollektionen, die eine große Vielfalt an Stilen, inspiriert von internationalen Modetrends, umfassen."
+                ),
                 image: serviceBespoke.url,
                 anchor: "collections",
               },
               {
-                title: "Bespoke Designs",
-                desc: "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
+                title: t("Bespoke Designs", "Maßgeschneiderte Entwürfe"),
+                desc: t(
+                  "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
+                  "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um."
+                ),
                 image: serviceCollections.url,
                 anchor: "custom-designs",
               },
               {
-                title: "Dyeing and Finishing\u00a0",
-                desc: "Our in-house dyeing facility covers the full colour spectrum in uni or bicolour.",
+                title: t("Dyeing and Finishing\u00a0", "Färben und Veredeln\u00a0"),
+                desc: t(
+                  "Our in-house dyeing facility covers the full colour spectrum in uni or bicolour.",
+                  "Unsere hauseigene Färberei deckt das gesamte Farbspektrum in Uni oder Bicolor ab."
+                ),
                 image: serviceDyeing,
                 anchor: "dyeing-finishing",
               },
               {
-                title: "Functional and Medical Textiles",
-                desc: "We develop warp-knitted fabrics for medical and technical use.\u00a0\nOur elastic textiles are used in compression garments, post-surgical care, and lymphatic therapy.",
+                title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
+                desc: t(
+                  "We develop warp-knitted fabrics for medical and technical use.\u00a0\nOur elastic textiles are used in compression garments, post-surgical care, and lymphatic therapy.",
+                  "Wir entwickeln Kettengewirke für medizinische und technische Anwendungen.\u00a0\nUnsere elastischen Textilien kommen in Kompressionsbekleidung, postoperativer Versorgung und Lymphtherapie zum Einsatz."
+                ),
                 image: serviceFunctional.url,
                 anchor: "functional-treatments",
               },
@@ -131,13 +147,11 @@ const Index = () => {
             <Link
               to="/services"
               className="inline-flex items-center gap-2 cta-lace editorial-body-sm font-medium transition-colors duration-300">
-              Learn More <ArrowRight size={16} />
+              {t("Learn More", "Mehr erfahren")} <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </EditorialSection>
-
-
 
       {/* HERITAGE + INNOVATION */}
       <section className="py-16 md:py-20">
@@ -153,22 +167,28 @@ const Index = () => {
             </div>
 
             <div>
-              <p className="editorial-label text-primary mb-4">OUR HISTORY</p>
+              <p className="editorial-label text-primary mb-4">{t("OUR HISTORY", "UNSERE GESCHICHTE")}</p>
               <h2 className="editorial-heading-lg text-foreground mb-6">
-                Generations of expertise
+                {t("Generations of expertise", "Generationen von Erfahrung")}
               </h2>
               <div className="space-y-4 editorial-body text-muted-foreground">
                 <p>
-                  Since 1884, we have combined textile craftsmanship with continuous innovation, delivering quality without compromise.
+                  {t(
+                    "Since 1884, we have combined textile craftsmanship with continuous innovation, delivering quality without compromise.",
+                    "Seit 1884 verbinden wir textiles Handwerk mit kontinuierlicher Innovation und liefern Qualität ohne Kompromisse."
+                  )}
                 </p>
                 <p>
-                  From our facility in Dresden, we unite advanced manufacturing with decades of experience to serve our clients of every scale.
+                  {t(
+                    "From our facility in Dresden, we unite advanced manufacturing with decades of experience to serve our clients of every scale.",
+                    "Von unserem Standort in Dresden aus verbinden wir moderne Fertigung mit jahrzehntelanger Erfahrung, um Kunden jeder Größenordnung zu bedienen."
+                  )}
                 </p>
               </div>
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300">
-                Read our story <ArrowRight size={16} />
+                {t("Read our story", "Unsere Geschichte lesen")} <ArrowRight size={16} />
               </Link>
             </div>
           </div>
@@ -178,19 +198,20 @@ const Index = () => {
       {/* JOBS PREVIEW */}
       <EditorialSection className="bg-card">
         <div className="editorial-container editorial-section text-center">
-          <p className="editorial-label text-primary mb-4">Careers</p>
+          <p className="editorial-label text-primary mb-4">{t("Careers", "Karriere")}</p>
           <h2 className="editorial-heading-lg text-foreground mb-6">
-            Join our team in Dresden
+            {t("Join our team in Dresden", "Werden Sie Teil unseres Teams in Dresden")}
           </h2>
           <p className="editorial-body text-muted-foreground max-w-xl mx-auto mb-10">
-            We are always looking for skilled and passionate people to join our team.&nbsp;
-            Discover current opportunities and become part of our story.
+            {t(
+              "We are always looking for skilled and passionate people to join our team. Discover current opportunities and become part of our story.",
+              "Wir suchen stets qualifizierte und engagierte Menschen für unser Team. Entdecken Sie aktuelle Stellen und werden Sie Teil unserer Geschichte."
+            )}
           </p>
           <Link
             to="/jobs"
             className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-8 py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300">
-            
-            View Open Positions <ArrowRight size={16} />
+            {t("View Open Positions", "Offene Stellen ansehen")} <ArrowRight size={16} />
           </Link>
         </div>
       </EditorialSection>
