@@ -32,9 +32,17 @@ const ENTRIES: Entry[] = [
   },
 ];
 
+// Ribbon geometry
+const RIBBON_WIDTH = 44; // px, narrow realistic lace ribbon
+const ROLL_HEIGHT = 56; // px, cylinder thickness
+const ROLL_WIDTH = 180; // px, cylinder length
+const TILE_HEIGHT = 80; // px, one repeat of the lace pattern
+
 const HistoryTimeline = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
+  const ribbonAreaRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0); // 0..1 across ribbon area
+  const [ribbonHeight, setRibbonHeight] = useState(0); // total px of ribbon track
   const [visible, setVisible] = useState<boolean[]>(() => ENTRIES.map(() => false));
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -43,14 +51,17 @@ const HistoryTimeline = () => {
     let ticking = false;
     const compute = () => {
       ticking = false;
-      const el = sectionRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
+      const area = ribbonAreaRef.current;
+      if (!area) return;
+      const rect = area.getBoundingClientRect();
+      setRibbonHeight(rect.height);
       const vh = window.innerHeight;
-      const start = vh * 0.85;
-      const end = -rect.height + vh * 0.2;
-      const total = start - end;
-      const p = (start - rect.top) / total;
+      // Progress from when top of ribbon-area reaches ~30% of viewport
+      // to when bottom reaches ~70% of viewport.
+      const start = vh * 0.3; // ribbon starts revealing
+      const traveled = start - rect.top;
+      const total = rect.height; // 1:1 with scroll through area
+      const p = traveled / total;
       setProgress(Math.max(0, Math.min(1, p)));
     };
     const onScroll = () => {
@@ -67,7 +78,6 @@ const HistoryTimeline = () => {
       window.removeEventListener("resize", onScroll);
     };
   }, []);
-
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,248 +100,292 @@ const HistoryTimeline = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Revealed ribbon length in px
+  const revealed = Math.max(0, progress * ribbonHeight);
+  // Rotation: full turn per TILE_HEIGHT of unrolled ribbon (natural feel)
+  const rotation = (revealed / TILE_HEIGHT) * 360;
+
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background text-foreground w-full overflow-hidden pt-8 md:pt-12 pb-16 md:pb-20"
+      className="relative bg-background text-foreground w-full overflow-hidden pt-10 md:pt-16 pb-16 md:pb-20"
     >
-
-      {/* Spool at the top — rotates with scroll, ribbon unrolls from its bottom */}
-      <div className="relative flex justify-center -mb-6 z-10">
+      {/* Horizontal fabric roll — sits at the top of the section and scrolls away with it */}
+      <div
+        className="relative mx-auto flex justify-center"
+        style={{ width: ROLL_WIDTH, height: ROLL_HEIGHT, marginBottom: -ROLL_HEIGHT / 2 }}
+        aria-hidden="true"
+      >
         <svg
-          width="120"
-          height="120"
-          viewBox="0 0 120 120"
-          className="text-foreground"
-          aria-hidden="true"
-          style={{
-            transform: `rotate(${progress * 720}deg)`,
-            transformOrigin: "60px 60px",
-            willChange: "transform",
-          }}
+          width={ROLL_WIDTH}
+          height={ROLL_HEIGHT}
+          viewBox={`0 0 ${ROLL_WIDTH} ${ROLL_HEIGHT}`}
+          className="text-foreground block"
         >
-          {/* outer rim */}
-          <circle cx="60" cy="60" r="46" fill="hsl(var(--background))" stroke="currentColor" strokeWidth="1.5" />
-          {/* wound thread rings */}
-          <circle cx="60" cy="60" r="38" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.55" />
-          <circle cx="60" cy="60" r="32" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.45" />
-          <circle cx="60" cy="60" r="26" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.35" />
-          {/* spokes — make rotation visible */}
-          <g stroke="currentColor" strokeWidth="0.8" opacity="0.7">
-            <line x1="60" y1="16" x2="60" y2="104" />
-            <line x1="16" y1="60" x2="104" y2="60" />
-            <line x1="29" y1="29" x2="91" y2="91" />
-            <line x1="91" y1="29" x2="29" y2="91" />
+          <defs>
+            {/* Cylindrical shading */}
+            <linearGradient id="rollShade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="hsl(var(--muted))" stopOpacity="1" />
+              <stop offset="45%" stopColor="hsl(var(--background))" stopOpacity="1" />
+              <stop offset="100%" stopColor="hsl(var(--muted))" stopOpacity="1" />
+            </linearGradient>
+            {/* Wound-thread stripes that rotate to imply spin */}
+            <pattern
+              id="woundThread"
+              x="0"
+              y="0"
+              width="6"
+              height={ROLL_HEIGHT}
+              patternUnits="userSpaceOnUse"
+              patternTransform={`rotate(${rotation * 0.15})`}
+            >
+              <rect width="6" height={ROLL_HEIGHT} fill="transparent" />
+              <line
+                x1="0"
+                y1="0"
+                x2="0"
+                y2={ROLL_HEIGHT}
+                stroke="currentColor"
+                strokeWidth="0.35"
+                opacity="0.35"
+              />
+            </pattern>
+            {/* End cap radial */}
+            <radialGradient id="capShade" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0%" stopColor="hsl(var(--background))" />
+              <stop offset="80%" stopColor="hsl(var(--muted))" />
+              <stop offset="100%" stopColor="hsl(var(--foreground))" stopOpacity="0.35" />
+            </radialGradient>
+          </defs>
+
+          {/* Body */}
+          <rect
+            x={ROLL_HEIGHT / 2}
+            y="0"
+            width={ROLL_WIDTH - ROLL_HEIGHT}
+            height={ROLL_HEIGHT}
+            fill="url(#rollShade)"
+          />
+          <rect
+            x={ROLL_HEIGHT / 2}
+            y="0"
+            width={ROLL_WIDTH - ROLL_HEIGHT}
+            height={ROLL_HEIGHT}
+            fill="url(#woundThread)"
+          />
+
+          {/* End caps (ellipses) */}
+          <ellipse
+            cx={ROLL_HEIGHT / 2}
+            cy={ROLL_HEIGHT / 2}
+            rx={ROLL_HEIGHT / 2}
+            ry={ROLL_HEIGHT / 2}
+            fill="url(#capShade)"
+            stroke="currentColor"
+            strokeWidth="0.6"
+          />
+          <ellipse
+            cx={ROLL_WIDTH - ROLL_HEIGHT / 2}
+            cy={ROLL_HEIGHT / 2}
+            rx={ROLL_HEIGHT / 2}
+            ry={ROLL_HEIGHT / 2}
+            fill="url(#capShade)"
+            stroke="currentColor"
+            strokeWidth="0.6"
+          />
+
+          {/* Cap spin markers — rotate to show the roll turning */}
+          <g
+            transform={`translate(${ROLL_HEIGHT / 2} ${ROLL_HEIGHT / 2}) rotate(${rotation})`}
+            opacity="0.55"
+          >
+            <line
+              x1={-ROLL_HEIGHT / 2 + 6}
+              y1="0"
+              x2={ROLL_HEIGHT / 2 - 6}
+              y2="0"
+              stroke="currentColor"
+              strokeWidth="0.6"
+            />
+            <circle r="2" fill="currentColor" />
           </g>
-          {/* central hub */}
-          <circle cx="60" cy="60" r="6" fill="currentColor" />
-          <circle cx="60" cy="60" r="2.5" fill="hsl(var(--background))" />
-          {/* tiny notch marker so rotation is unmistakable */}
-          <circle cx="60" cy="20" r="2" fill="currentColor" />
+          <g
+            transform={`translate(${ROLL_WIDTH - ROLL_HEIGHT / 2} ${ROLL_HEIGHT / 2}) rotate(${-rotation})`}
+            opacity="0.55"
+          >
+            <line
+              x1={-ROLL_HEIGHT / 2 + 6}
+              y1="0"
+              x2={ROLL_HEIGHT / 2 - 6}
+              y2="0"
+              stroke="currentColor"
+              strokeWidth="0.6"
+            />
+            <circle r="2" fill="currentColor" />
+          </g>
+
+          {/* Top and bottom edge highlights to sell cylindricality */}
+          <line
+            x1={ROLL_HEIGHT / 2}
+            y1="0.5"
+            x2={ROLL_WIDTH - ROLL_HEIGHT / 2}
+            y2="0.5"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            opacity="0.4"
+          />
+          <line
+            x1={ROLL_HEIGHT / 2}
+            y1={ROLL_HEIGHT - 0.5}
+            x2={ROLL_WIDTH - ROLL_HEIGHT / 2}
+            y2={ROLL_HEIGHT - 0.5}
+            stroke="currentColor"
+            strokeWidth="0.5"
+            opacity="0.4"
+          />
         </svg>
       </div>
 
-
-      {/* Timeline */}
+      {/* Ribbon area — spans the entries and holds the unrolled lace */}
       <div className="relative w-full px-6 md:px-20 lg:px-24 xl:px-28">
-        {/* SVG lace ribbon, absolute centered. 60px wide tile, repeating 60x80 */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[60px] pointer-events-none"
-          aria-hidden="true"
-        >
-          {/* Faded full ribbon underneath for context */}
-          <svg
-            width="60"
-            height="100%"
-            viewBox="0 0 60 2000"
-            preserveAspectRatio="xMidYMin slice"
-            className="absolute inset-0 text-foreground block w-full h-full opacity-[0.07]"
-          >
-            <rect width="60" height="2000" fill="url(#laceTile)" />
-          </svg>
-
-          {/* Revealed ribbon, clipped by progress */}
+        <div ref={ribbonAreaRef} className="relative">
+          {/* Ribbon column, absolute-centered, only visible portion is drawn */}
           <div
-            className="absolute inset-0 overflow-hidden transition-[height] duration-150 ease-out"
-            style={{ height: `${progress * 100}%` }}
+            className="absolute left-1/2 -translate-x-1/2 top-0 pointer-events-none"
+            style={{ width: RIBBON_WIDTH, height: revealed, overflow: "hidden" }}
+            aria-hidden="true"
           >
+            {/* Fixed-size SVG that tiles vertically — never stretches */}
             <svg
-              width="60"
-              height="100%"
-              viewBox="0 0 60 2000"
-              preserveAspectRatio="xMidYMin slice"
-              className="text-foreground block w-full h-full"
+              width={RIBBON_WIDTH}
+              height={ribbonHeight || 0}
+              viewBox={`0 0 ${RIBBON_WIDTH} ${ribbonHeight || 0}`}
+              preserveAspectRatio="xMidYMin"
+              className="text-foreground block"
+              style={{ display: "block" }}
             >
               <defs>
                 <pattern
-                  id="laceTile"
+                  id="laceTileHoriz"
                   x="0"
                   y="0"
-                  width="60"
-                  height="80"
+                  width={RIBBON_WIDTH}
+                  height={TILE_HEIGHT}
                   patternUnits="userSpaceOnUse"
                 >
-                  {/* Scalloped left edge: connected arcs */}
+                  {/* Scalloped edges */}
                   <path
-                    d="M 6 0 A 4 10 0 0 1 6 20 A 4 10 0 0 0 6 40 A 4 10 0 0 1 6 60 A 4 10 0 0 0 6 80"
+                    d={`M 4 0 A 3 10 0 0 1 4 20 A 3 10 0 0 0 4 40 A 3 10 0 0 1 4 60 A 3 10 0 0 0 4 80`}
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1"
+                    strokeWidth="0.9"
                     strokeLinecap="round"
                   />
-                  {/* Scalloped right edge: connected arcs */}
                   <path
-                    d="M 54 0 A 4 10 0 0 0 54 20 A 4 10 0 0 1 54 40 A 4 10 0 0 0 54 60 A 4 10 0 0 1 54 80"
+                    d={`M ${RIBBON_WIDTH - 4} 0 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 20 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 40 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 60 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 80`}
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1"
+                    strokeWidth="0.9"
                     strokeLinecap="round"
                   />
-
-                  {/* Diamond mesh: diagonal crossing threads */}
-                  <g stroke="currentColor" strokeWidth="0.4" opacity="0.55" fill="none">
-                    <path d="M 10 0 L 50 40 L 10 80" />
-                    <path d="M 50 0 L 10 40 L 50 80" />
-                    <path d="M 30 0 L 10 20 L 30 40 L 50 20 Z" />
-                    <path d="M 30 40 L 10 60 L 30 80 L 50 60 Z" />
+                  {/* Diamond mesh */}
+                  <g stroke="currentColor" strokeWidth="0.35" opacity="0.55" fill="none">
+                    <path d={`M 8 0 L ${RIBBON_WIDTH - 8} 40 L 8 80`} />
+                    <path d={`M ${RIBBON_WIDTH - 8} 0 L 8 40 L ${RIBBON_WIDTH - 8} 80`} />
                   </g>
-
-                  {/* Eyelets at diamond intersections */}
-                  <g stroke="currentColor" strokeWidth="0.6" fill="hsl(var(--background))">
-                    <circle cx="30" cy="0" r="2" />
-                    <circle cx="30" cy="40" r="2" />
-                    <circle cx="30" cy="80" r="2" />
-                    <circle cx="10" cy="20" r="1.6" />
-                    <circle cx="50" cy="20" r="1.6" />
-                    <circle cx="10" cy="60" r="1.6" />
-                    <circle cx="50" cy="60" r="1.6" />
-                  </g>
-
-                  {/* Central vertical thread */}
+                  {/* Central thread */}
                   <line
-                    x1="30"
+                    x1={RIBBON_WIDTH / 2}
                     y1="0"
-                    x2="30"
+                    x2={RIBBON_WIDTH / 2}
                     y2="80"
                     stroke="currentColor"
-                    strokeWidth="0.6"
-                    opacity="0.85"
+                    strokeWidth="0.5"
+                    opacity="0.7"
                   />
-
-                  {/* Floral / leaf motif at tile center, made of petal curves */}
+                  {/* Eyelets */}
+                  <g stroke="currentColor" strokeWidth="0.5" fill="hsl(var(--background))">
+                    <circle cx={RIBBON_WIDTH / 2} cy="0" r="1.6" />
+                    <circle cx={RIBBON_WIDTH / 2} cy="40" r="1.6" />
+                    <circle cx={RIBBON_WIDTH / 2} cy="80" r="1.6" />
+                  </g>
+                  {/* Small floral motif */}
                   <g
-                    transform="translate(30 40)"
+                    transform={`translate(${RIBBON_WIDTH / 2} 40)`}
                     stroke="currentColor"
-                    strokeWidth="0.55"
+                    strokeWidth="0.45"
                     fill="none"
                   >
-                    <path d="M 0 -10 C 5 -6 5 -2 0 0 C -5 -2 -5 -6 0 -10 Z" />
-                    <path d="M 0 10 C 5 6 5 2 0 0 C -5 2 -5 6 0 10 Z" />
-                    <path d="M -10 0 C -6 -4 -2 -4 0 0 C -2 4 -6 4 -10 0 Z" />
-                    <path d="M 10 0 C 6 -4 2 -4 0 0 C 2 4 6 4 10 0 Z" />
-                    <circle r="1.3" fill="currentColor" stroke="none" />
+                    <path d="M 0 -8 C 4 -5 4 -1 0 0 C -4 -1 -4 -5 0 -8 Z" />
+                    <path d="M 0 8 C 4 5 4 1 0 0 C -4 1 -4 5 0 8 Z" />
+                    <path d="M -8 0 C -5 -3 -1 -3 0 0 C -1 3 -5 3 -8 0 Z" />
+                    <path d="M 8 0 C 5 -3 1 -3 0 0 C 1 3 5 3 8 0 Z" />
                   </g>
                 </pattern>
               </defs>
-              <rect width="60" height="2000" fill="url(#laceTile)" />
+              <rect
+                x="0"
+                y="0"
+                width={RIBBON_WIDTH}
+                height={ribbonHeight || 0}
+                fill="url(#laceTileHoriz)"
+              />
             </svg>
           </div>
-        </div>
 
-        {/* Entries */}
-        <div className="relative">
-          {ENTRIES.map((entry, i) => {
-            const isLeft = i % 2 === 0;
-            const isVisible = visible[i];
-            return (
-              <div
-                key={entry.year}
-                ref={(el) => (entryRefs.current[i] = el)}
-                data-idx={i}
-                className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center py-20 md:py-28"
-              >
-                {/* Side A: IMAGE */}
+          {/* Entries */}
+          <div className="relative">
+            {ENTRIES.map((entry, i) => {
+              const isLeft = i % 2 === 0;
+              const isVisible = visible[i];
+              return (
                 <div
-                  className={`${isLeft ? "md:order-1 md:pr-16 md:items-end" : "md:order-2 md:pl-16 md:items-start"} flex flex-col transition-all duration-700 ease-out`}
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible
-                      ? "translateX(0)"
-                      : `translateX(${isLeft ? "-40px" : "40px"})`,
-                  }}
+                  key={entry.year}
+                  ref={(el) => (entryRefs.current[i] = el)}
+                  data-idx={i}
+                  className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center py-20 md:py-28"
                 >
-                  <div className="w-full max-w-sm aspect-[4/3] bg-muted border border-border flex items-center justify-center text-muted-foreground/40 editorial-label">
-                    Image {i + 1}
-                  </div>
-                </div>
-
-                {/* Side B: YEAR + TEXT */}
-                <div
-                  className={`${isLeft ? "md:order-2 md:text-left md:pl-16 md:items-start" : "md:order-1 md:text-right md:pr-16 md:items-end"} flex flex-col gap-6 transition-all duration-700 ease-out delay-150`}
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible
-                      ? "translateX(0)"
-                      : `translateX(${isLeft ? "40px" : "-40px"})`,
-                  }}
-                >
+                  {/* Image side */}
                   <div
-                    className="font-serif leading-none text-foreground"
-                    style={{ fontSize: "clamp(4rem, 9vw, 8rem)", letterSpacing: "-0.02em" }}
+                    className={`${isLeft ? "md:order-1 md:pr-16 md:items-end" : "md:order-2 md:pl-16 md:items-start"} flex flex-col transition-all duration-700 ease-out`}
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible
+                        ? "translateX(0)"
+                        : `translateX(${isLeft ? "-40px" : "40px"})`,
+                    }}
                   >
-                    {entry.year}
+                    <div className="w-full max-w-sm aspect-[4/3] bg-muted border border-border flex items-center justify-center text-muted-foreground/40 editorial-label">
+                      Image {i + 1}
+                    </div>
                   </div>
-                  <p className="editorial-body text-muted-foreground max-w-md">
-                    {entry.text}
-                  </p>
-                </div>
 
-                {/* Decorative medallion on ribbon — widens the band at each entry */}
-                <div
-                  className="hidden md:block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-opacity duration-500"
-                  style={{ opacity: isVisible ? 1 : 0.25 }}
-                  aria-hidden="true"
-                >
-                  <svg width="110" height="110" viewBox="0 0 110 110" className="text-foreground block">
-                    {/* outer scalloped medallion */}
-                    <g transform="translate(55 55)" fill="none" stroke="currentColor">
-                      <circle r="44" strokeWidth="0.6" opacity="0.4" />
-                      <circle r="36" strokeWidth="0.8" fill="hsl(var(--background))" />
-                      {/* scallop ring */}
-                      {Array.from({ length: 16 }).map((_, k) => {
-                        const a = (k * 360) / 16;
-                        return (
-                          <circle
-                            key={k}
-                            cx={Math.cos((a * Math.PI) / 180) * 36}
-                            cy={Math.sin((a * Math.PI) / 180) * 36}
-                            r="3"
-                            strokeWidth="0.6"
-                            fill="hsl(var(--background))"
-                          />
-                        );
-                      })}
-                      <circle r="26" strokeWidth="0.5" opacity="0.7" />
-                      <circle r="18" strokeWidth="0.5" opacity="0.5" />
-                      {/* petals */}
-                      {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
-                        <path
-                          key={a}
-                          d="M 0 -26 C 4 -18 4 -10 0 -6 C -4 -10 -4 -18 0 -26 Z"
-                          strokeWidth="0.6"
-                          transform={`rotate(${a})`}
-                        />
-                      ))}
-                      <circle r="3" fill="currentColor" stroke="none" />
-                    </g>
-                  </svg>
+                  {/* Text side */}
+                  <div
+                    className={`${isLeft ? "md:order-2 md:text-left md:pl-16 md:items-start" : "md:order-1 md:text-right md:pr-16 md:items-end"} flex flex-col gap-6 transition-all duration-700 ease-out delay-150`}
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible
+                        ? "translateX(0)"
+                        : `translateX(${isLeft ? "40px" : "-40px"})`,
+                    }}
+                  >
+                    <div
+                      className="font-serif leading-none text-foreground"
+                      style={{ fontSize: "clamp(4rem, 9vw, 8rem)", letterSpacing: "-0.02em" }}
+                    >
+                      {entry.year}
+                    </div>
+                    <p className="editorial-body text-muted-foreground max-w-md">
+                      {entry.text}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
-
     </section>
   );
 };
