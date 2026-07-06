@@ -43,28 +43,42 @@ const Services = () => {
   const [activeIdx, setActiveIdx] = useState(0);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
-  // Single IntersectionObserver — activate a service only when it occupies
-  // roughly the middle 60% of the viewport. The narrow rootMargin band
-  // guarantees only one section satisfies the condition at a time, which
-  // prevents flickering between adjacent items.
+  // Deterministic active-section tracking via rAF-throttled scroll.
+  // We pick the section whose top has crossed an "activation line" placed
+  // ~35% down the viewport. The last section whose top is above that line
+  // is active. This guarantees exactly one active item, reliably reaches
+  // every section (including tall ones like Bespoke Designs), and never
+  // flickers between neighbours.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = Number((entry.target as HTMLElement).dataset.idx);
-            setActiveIdx(idx);
-          }
-        });
-      },
-      {
-        // Active band: ~20% from top, ~20% from bottom → middle 60%
-        rootMargin: "-20% 0px -20% 0px",
-        threshold: 0,
+    let ticking = false;
+
+    const compute = () => {
+      ticking = false;
+      const activationY = NAV_OFFSET + (window.innerHeight - NAV_OFFSET) * 0.35;
+      let current = 0;
+      for (let i = 0; i < sectionsRef.current.length; i++) {
+        const el = sectionsRef.current[i];
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top <= activationY) current = i;
+        else break;
       }
-    );
-    sectionsRef.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+      setActiveIdx((prev) => (prev === current ? prev : current));
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(compute);
+    };
+
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   const scrollTo = (idx: number) => {
