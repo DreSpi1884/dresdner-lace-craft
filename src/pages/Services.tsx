@@ -57,18 +57,39 @@ const Services = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Enable page-level scroll snapping only while this page is mounted
+  // Enable snap only when scrolling down; scrolling up stays free
   useEffect(() => {
     const html = document.documentElement;
     const prevSnap = html.style.scrollSnapType;
     const prevBehavior = html.style.scrollBehavior;
-    html.style.scrollSnapType = "y mandatory";
     html.style.scrollBehavior = "smooth";
+    html.style.scrollSnapType = "none";
+
+    let lastY = window.scrollY;
+    let timeout: number | undefined;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      const goingDown = y > lastY;
+      lastY = y;
+      html.style.scrollSnapType = goingDown ? "y proximity" : "none";
+      if (timeout) window.clearTimeout(timeout);
+      // When scrolling settles after a downward move, allow snap to finalize,
+      // then release so the next upward scroll is unrestricted.
+      timeout = window.setTimeout(() => {
+        html.style.scrollSnapType = "none";
+      }, 250);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (timeout) window.clearTimeout(timeout);
       html.style.scrollSnapType = prevSnap;
       html.style.scrollBehavior = prevBehavior;
     };
   }, []);
+
 
   const scrollTo = (idx: number) => {
     const el = sectionsRef.current[idx];
@@ -83,7 +104,8 @@ const Services = () => {
       <section className="relative lg:grid lg:grid-cols-[28%_72%]">
         {/* Sidebar (desktop) */}
         <aside className="hidden lg:block pl-[60px]">
-          <nav className="sticky top-24 flex flex-col gap-10 pt-10">
+          <nav className="sticky top-[calc(6rem+5.5rem)] flex flex-col gap-10">
+
               <span
                 aria-hidden="true"
                 className="absolute left-0 top-2 bottom-2 w-px bg-border"
@@ -132,12 +154,12 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] pt-10 md:pt-12 pb-8 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-center overflow-hidden"
+                className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] pt-16 md:pt-24 pb-8 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-start overflow-hidden"
                 style={{
                   opacity: activeIdx === i ? 1 : 0.2,
                   transition: "opacity 600ms ease",
                   scrollSnapAlign: "start",
-                  scrollSnapStop: "always",
+                  scrollSnapStop: "normal",
                   scrollMarginTop: "6rem",
                 }}
               >
