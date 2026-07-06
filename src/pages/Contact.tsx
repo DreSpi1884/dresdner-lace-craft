@@ -6,6 +6,11 @@ import germanyMap from "@/assets/germany-map-dregus.png.asset.json";
 const Contact = () => {
   return (
     <EditorialLayout heroAtTop={true}>
+      <SEO
+        title="Contact"
+        description="Speak to the Dresdner Spitzen team in Germany. Reach out for samples, bespoke projects or partnership inquiries."
+        path="/contact"
+      />
       <section className="min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] pt-20 md:pt-24">
         <div className="editorial-container w-full h-full py-8 md:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 h-full">
