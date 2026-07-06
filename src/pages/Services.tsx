@@ -26,7 +26,7 @@ const services = [
     id: "dyeing-finishing",
     nav: "Dyeing & Finishing",
     title: "Dyeing & Finishing",
-    text: "Our in-house dye house offers precise colour matching across the full spectrum, including solid and bicolour finishes. We also provide finishing tailored to the intended application — hydrophilic, hydrophobic, antistatic, flame retardant, softening and stiffening.",
+    text: "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes. We also provide finishing tailored to the intended application: hydrophilic, hydrophobic, antistatic, flame retardant, softening and stiffening.",
   },
   {
     id: "functional-treatments",
