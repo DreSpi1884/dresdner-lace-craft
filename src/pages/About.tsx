@@ -11,9 +11,9 @@ import { useQuoteModal } from "@/components/QuoteModal";
 const About = () => {
   const { open: openQuote } = useQuoteModal();
   return (
-    <EditorialLayout title="Our Story" subtitle="For more than 140 years, we have been shaping textile manufacturing in Germany.">
+    <EditorialLayout title="About Us" subtitle="For more than 140 years, we have been shaping textile manufacturing in Germany.">
       <SEO
-        title="Our Story — 140 Years of German Textile Craft"
+        title="About Us — 140 Years of German Textile Craft"
         description="Since 1882, Dresdner Spitzen has shaped textile manufacturing in Germany with tradition, innovation and sustainable production."
         path="/about"
       />
