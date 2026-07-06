@@ -1,8 +1,14 @@
 import EditorialLayout from "@/components/EditorialLayout";
+import SEO from "@/components/SEO";
 
 const Imprint = () => {
   return (
     <EditorialLayout heroAtTop={true}>
+      <SEO
+        title="Imprint"
+        description="Legal information and company details for DreGuS / Dresdner Spitzen."
+        path="/imprint"
+      />
       <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12">
         <div className="editorial-container max-w-3xl">
           <h1 className="editorial-heading-xl mb-6">Imprint</h1>

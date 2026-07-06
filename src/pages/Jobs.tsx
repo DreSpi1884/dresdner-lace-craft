@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import EditorialSection from "@/components/EditorialSection";
+import SEO from "@/components/SEO";
 
 const openPositions = [
 {
@@ -28,6 +29,11 @@ const openPositions = [
 const Jobs = () => {
   return (
     <EditorialLayout title="Build the future of textiles with us">
+      <SEO
+        title="Careers"
+        description="Join the Dresdner Spitzen team in Germany. Open positions in textile design, production and engineering."
+        path="/jobs"
+      />
       <EditorialSection className="editorial-section">
         <div className="editorial-container max-w-3xl mx-auto">
           <p className="editorial-body text-muted-foreground max-w-2xl">

@@ -1,8 +1,14 @@
 import EditorialLayout from "@/components/EditorialLayout";
+import SEO from "@/components/SEO";
 
 const Privacy = () => {
   return (
     <EditorialLayout title="Privacy Policy">
+      <SEO
+        title="Privacy Policy"
+        description="How Dresdner Spitzen handles your data, in compliance with GDPR."
+        path="/privacy"
+      />
       <section className="editorial-section">
         <div className="editorial-container max-w-3xl">
           <div className="editorial-body text-muted-foreground space-y-4">

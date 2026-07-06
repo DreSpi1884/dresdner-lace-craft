@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import EditorialLayout from "@/components/EditorialLayout";
+import SEO from "@/components/SEO";
 
 const processSteps = [
   { step: "01", title: "Consult", desc: "Share your project, requirements and applications with us." },
@@ -90,6 +91,11 @@ const Services = () => {
 
   return (
     <EditorialLayout title="Our Services" heroCompact>
+      <SEO
+        title="Our Services — Lace, Bespoke Designs & Finishing"
+        description="Seasonal lace collections, bespoke designs, in-house dyeing and finishing, and functional or medical textiles — engineered in Germany."
+        path="/services"
+      />
       <section className="mx-auto w-full max-w-[1280px] px-6 lg:px-12 pt-12 md:pt-16 pb-24 lg:pb-28">
         <div className="lg:grid lg:grid-cols-[280px_1fr] lg:gap-24">
           {/* Sticky left navigation — scoped to this grid, stops at footer naturally */}
