@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import EditorialLayout from "@/components/EditorialLayout";
+import SEO from "@/components/SEO";
 
 const processSteps = [
   { step: "01", title: "Consult", desc: "Share your project, requirements and applications with us." },
