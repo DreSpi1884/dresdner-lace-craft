@@ -16,6 +16,11 @@ import heritageNow from "@/assets/heritage-now.jpg";
 const Index = () => {
   return (
     <EditorialLayout heroAtTop>
+      <SEO
+        title="Premium Lace & Textile Manufacturer since 1882"
+        description="Dresdner Spitzen designs and manufactures premium lace, warp-knitted fabrics and functional textiles in Germany. Bespoke collections since 1882."
+        path="/"
+      />
       {/* HERO */}
       <section data-no-reveal className="relative overflow-hidden min-h-screen flex items-center justify-center">
         <video
