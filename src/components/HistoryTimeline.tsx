@@ -48,28 +48,60 @@ const HistoryTimeline = () => {
 
   useEffect(() => {
     let rafId = 0;
-    let ticking = false;
-    const compute = () => {
-      ticking = false;
+    let targetProgress = 0;
+    let currentProgress = 0;
+    let animating = false;
+
+    // Smootherstep — soft accel/decel, no linear stiffness at the ends
+    const ease = (t: number) => {
+      const x = Math.max(0, Math.min(1, t));
+      return x * x * x * (x * (x * 6 - 15) + 10);
+    };
+
+    const measure = () => {
       const area = ribbonAreaRef.current;
       if (!area) return;
       const rect = area.getBoundingClientRect();
       setRibbonHeight(rect.height);
       const vh = window.innerHeight;
-      // Progress from when top of ribbon-area reaches ~30% of viewport
-      // to when bottom reaches ~70% of viewport.
-      const start = vh * 0.3; // ribbon starts revealing
+      // Reveal window: starts when area top hits 35% of viewport,
+      // completes a bit before the section's bottom leaves.
+      const start = vh * 0.35;
       const traveled = start - rect.top;
-      const total = rect.height; // 1:1 with scroll through area
-      const p = traveled / total;
-      setProgress(Math.max(0, Math.min(1, p)));
+      const total = Math.max(1, rect.height - vh * 0.3);
+      targetProgress = Math.max(0, Math.min(1, traveled / total));
     };
+
+    const tick = () => {
+      // Frame-rate independent smoothing — same feel at any scroll speed
+      const delta = targetProgress - currentProgress;
+      currentProgress += delta * 0.12;
+      if (Math.abs(delta) < 0.0005) {
+        currentProgress = targetProgress;
+        animating = false;
+        setProgress(ease(currentProgress));
+        return;
+      }
+      setProgress(ease(currentProgress));
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const kick = () => {
+      if (!animating) {
+        animating = true;
+        rafId = requestAnimationFrame(tick);
+      }
+    };
+
     const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      rafId = requestAnimationFrame(compute);
+      measure();
+      kick();
     };
-    compute();
+
+    measure();
+    currentProgress = targetProgress;
+    setProgress(ease(currentProgress));
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
