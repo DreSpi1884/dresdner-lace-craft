@@ -132,14 +132,17 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] pt-10 pb-16 px-6 lg:pl-[60px] lg:pr-16"
+                className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] pt-10 md:pt-12 pb-8 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-center overflow-hidden"
                 style={{
                   opacity: activeIdx === i ? 1 : 0.2,
                   transition: "opacity 600ms ease",
+                  scrollSnapAlign: "start",
+                  scrollSnapStop: "always",
+                  scrollMarginTop: "6rem",
                 }}
               >
                 <p
-                  className="mb-6"
+                  className="mb-5"
                   style={{
                     fontFamily: "'Jost', sans-serif",
                     fontSize: "10px",
@@ -151,10 +154,10 @@ const Services = () => {
                   {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
                 </p>
                 <h2
-                  className="mb-8 leading-[1.1]"
+                  className="mb-6 leading-[1.1]"
                   style={{
                     fontFamily: "'Bodoni Moda', serif",
-                    fontSize: "clamp(36px, 5vw, 52px)",
+                    fontSize: "clamp(30px, 4vw, 42px)",
                     color: "hsl(var(--primary))",
                     fontWeight: 500,
                   }}
@@ -164,8 +167,8 @@ const Services = () => {
                 <p
                   style={{
                     fontFamily: "'Jost', sans-serif",
-                    fontSize: "16px",
-                    lineHeight: 1.7,
+                    fontSize: "15px",
+                    lineHeight: 1.65,
                     maxWidth: "560px",
                     color: "hsl(var(--muted-foreground))",
                   }}
