@@ -260,22 +260,23 @@ const EditorialNav = () => {
               className="editorial-body-sm text-background drop-shadow-md inline-flex items-center gap-1 hover:text-background/70 transition-colors"
               aria-label="Language"
             >
-              {lang}
+              {lang.toUpperCase()}
               <ChevronDown size={14} />
             </button>
             <div className="absolute right-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
               <div className="bg-foreground border border-background/10 min-w-[80px] py-2">
                 {languages.map((l) => (
                   <button
-                    key={l}
-                    onClick={() => setLang(l)}
+                    key={l.code}
+                    onClick={() => setLang(l.code)}
                     className={`block w-full text-left px-4 py-2 editorial-body-sm transition-colors hover:bg-background/5 ${
-                      lang === l ? "text-background" : "text-background/70"
+                      lang === l.code ? "text-background" : "text-background/70"
                     }`}
                   >
-                    {l}
+                    {l.label}
                   </button>
                 ))}
+
               </div>
             </div>
           </div>
