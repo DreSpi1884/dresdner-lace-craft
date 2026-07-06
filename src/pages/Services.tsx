@@ -36,42 +36,34 @@ const services = [
   },
 ];
 
-// Navbar offset: h-20 (80px) mobile, h-24 (96px) desktop
+// Fixed header height (h-20 mobile / h-24 desktop)
 const NAV_OFFSET = 96;
 
 const Services = () => {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [navVisible, setNavVisible] = useState(false);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
-  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // Active service tracking
+  // Single IntersectionObserver — activate a service only when it occupies
+  // roughly the middle 60% of the viewport. The narrow rootMargin band
+  // guarantees only one section satisfies the condition at a time, which
+  // prevents flickering between adjacent items.
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) {
-          const idx = Number((visible[0].target as HTMLElement).dataset.idx);
-          setActiveIdx(idx);
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number((entry.target as HTMLElement).dataset.idx);
+            setActiveIdx(idx);
+          }
+        });
       },
-      { rootMargin: `-${NAV_OFFSET + 40}px 0px -45% 0px`, threshold: [0, 0.25, 0.5] }
+      {
+        // Active band: ~20% from top, ~20% from bottom → middle 60%
+        rootMargin: "-20% 0px -20% 0px",
+        threshold: 0,
+      }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  // Show/hide fixed nav based on container visibility
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setNavVisible(entry.isIntersecting),
-      { rootMargin: `-${NAV_OFFSET}px 0px -20% 0px`, threshold: 0 }
-    );
-    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
@@ -84,109 +76,75 @@ const Services = () => {
 
   return (
     <EditorialLayout title="Our Services" heroCompact>
-      {/* Fixed left navigation — only visible while services section is in view */}
-      <nav
-        aria-label="Services navigation"
-        className="hidden lg:flex fixed left-[60px] top-1/2 -translate-y-1/2 z-30 flex-col gap-8 pointer-events-none"
-        style={{
-          opacity: navVisible ? 1 : 0,
-          transition: "opacity 500ms ease",
-        }}
-      >
-        <span
-          aria-hidden="true"
-          className="absolute left-0 top-2 bottom-2 w-px bg-border"
-        />
-        {services.map((s, i) => {
-          const active = activeIdx === i;
-          return (
-            <button
-              key={s.id}
-              type="button"
-              onClick={() => scrollTo(i)}
-              className="text-left pl-6 relative pointer-events-auto"
+      <section className="mx-auto w-full max-w-[1280px] px-6 lg:px-12 pt-12 md:pt-16 pb-24 lg:pb-28">
+        <div className="lg:grid lg:grid-cols-[280px_1fr] lg:gap-24">
+          {/* Sticky left navigation — scoped to this grid, stops at footer naturally */}
+          <aside className="hidden lg:block">
+            <nav
+              aria-label="Services navigation"
+              className="sticky flex flex-col gap-8"
               style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "12px",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                fontWeight: active ? 600 : 400,
-                color: active
-                  ? "hsl(var(--primary))"
-                  : "hsl(var(--muted-foreground) / 0.6)",
-                transition: "color 400ms ease, font-weight 400ms ease",
+                // Vertically centered in the visible viewport below the fixed header
+                top: `calc(50vh - 120px)`,
               }}
             >
-              {active && (
-                <span
-                  aria-hidden="true"
-                  className="absolute left-0 top-0 bottom-0"
-                  style={{ width: "2px", background: "hsl(var(--primary))" }}
-                />
-              )}
-              {s.nav}
-            </button>
-          );
-        })}
-      </nav>
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-2 bottom-2 w-px bg-border"
+              />
+              {services.map((s, i) => {
+                const active = activeIdx === i;
+                return (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => scrollTo(i)}
+                    className="text-left pl-6 relative"
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "12px",
+                      letterSpacing: "2px",
+                      textTransform: "uppercase",
+                      fontWeight: active ? 600 : 400,
+                      color: active
+                        ? "hsl(var(--primary))"
+                        : "hsl(var(--muted-foreground) / 0.6)",
+                      transition:
+                        "color 400ms ease, font-weight 400ms ease",
+                    }}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-0 top-0 bottom-0"
+                      style={{
+                        width: "2px",
+                        background: "hsl(var(--primary))",
+                        opacity: active ? 1 : 0,
+                        transition: "opacity 400ms ease",
+                      }}
+                    />
+                    {s.nav}
+                  </button>
+                );
+              })}
+            </nav>
+          </aside>
 
-      <div
-        ref={containerRef}
-        className="px-6 lg:pl-[calc(60px+260px)] lg:pr-16"
-        style={{ paddingBottom: "100px" }}
-      >
-        {services.map((s, i) => (
-          <article
-            key={s.id}
-            id={s.id}
-            data-idx={i}
-            ref={(el) => {
-              sectionsRef.current[i] = el;
-            }}
-            className="max-w-2xl py-20 md:py-28 first:pt-8 md:first:pt-12"
-            style={{
-              scrollMarginTop: `${NAV_OFFSET + 24}px`,
-            }}
-          >
-            <p
-              className="mb-5"
-              style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "10px",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "hsl(var(--muted-foreground) / 0.7)",
-              }}
-            >
-              {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
-            </p>
-            <h2
-              className="mb-6 leading-[1.1]"
-              style={{
-                fontFamily: "'Bodoni Moda', serif",
-                fontSize: "clamp(30px, 4vw, 42px)",
-                color: "hsl(var(--primary))",
-                fontWeight: 500,
-              }}
-            >
-              {s.title}
-            </h2>
-            <p
-              style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "15px",
-                lineHeight: 1.65,
-                maxWidth: "560px",
-                color: "hsl(var(--muted-foreground))",
-              }}
-            >
-              {s.text}
-            </p>
-
-            {s.process && (
-              <div className="mt-10 max-w-2xl">
+          {/* Content column */}
+          <div className="min-w-0">
+            {services.map((s, i) => (
+              <article
+                key={s.id}
+                id={s.id}
+                data-idx={i}
+                ref={(el) => {
+                  sectionsRef.current[i] = el;
+                }}
+                className="max-w-2xl py-16 md:py-24 first:pt-0 last:pb-0"
+                style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
+              >
                 <p
-                  className="mb-4"
+                  className="mb-5"
                   style={{
                     fontFamily: "'Jost', sans-serif",
                     fontSize: "10px",
@@ -195,61 +153,94 @@ const Services = () => {
                     color: "hsl(var(--muted-foreground) / 0.7)",
                   }}
                 >
-                  How It Works
+                  {String(i + 1).padStart(2, "0")} /{" "}
+                  {String(services.length).padStart(2, "0")}
                 </p>
-                <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                  {s.process.map((item) => (
-                    <div key={item.step} className="flex flex-col">
-                      <span
-                        className="mb-2"
-                        style={{
-                          fontFamily: "'Jost', sans-serif",
-                          fontSize: "10px",
-                          letterSpacing: "2px",
-                          color: "hsl(var(--muted-foreground) / 0.6)",
-                        }}
-                      >
-                        {item.step}
-                      </span>
-                      <h3
-                        className="mb-1"
-                        style={{
-                          fontFamily: "'Bodoni Moda', serif",
-                          fontSize: "20px",
-                          color: "hsl(var(--primary))",
-                          fontWeight: 500,
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontFamily: "'Jost', sans-serif",
-                          fontSize: "13px",
-                          lineHeight: 1.6,
-                          color: "hsl(var(--muted-foreground))",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
+                <h2
+                  className="mb-6 leading-[1.1]"
+                  style={{
+                    fontFamily: "'Bodoni Moda', serif",
+                    fontSize: "clamp(30px, 4vw, 42px)",
+                    color: "hsl(var(--primary))",
+                    fontWeight: 500,
+                  }}
+                >
+                  {s.title}
+                </h2>
+                <p
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: "15px",
+                    lineHeight: 1.65,
+                    maxWidth: "560px",
+                    color: "hsl(var(--muted-foreground))",
+                  }}
+                >
+                  {s.text}
+                </p>
+
+                {s.process && (
+                  <div className="mt-10 max-w-2xl">
+                    <p
+                      className="mb-4"
+                      style={{
+                        fontFamily: "'Jost', sans-serif",
+                        fontSize: "10px",
+                        letterSpacing: "2px",
+                        textTransform: "uppercase",
+                        color: "hsl(var(--muted-foreground) / 0.7)",
+                      }}
+                    >
+                      How It Works
+                    </p>
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                      {s.process.map((item) => (
+                        <div key={item.step} className="flex flex-col">
+                          <span
+                            className="mb-2"
+                            style={{
+                              fontFamily: "'Jost', sans-serif",
+                              fontSize: "10px",
+                              letterSpacing: "2px",
+                              color: "hsl(var(--muted-foreground) / 0.6)",
+                            }}
+                          >
+                            {item.step}
+                          </span>
+                          <h3
+                            className="mb-1"
+                            style={{
+                              fontFamily: "'Bodoni Moda', serif",
+                              fontSize: "20px",
+                              color: "hsl(var(--primary))",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {item.title}
+                          </h3>
+                          <p
+                            style={{
+                              fontFamily: "'Jost', sans-serif",
+                              fontSize: "13px",
+                              lineHeight: 1.6,
+                              color: "hsl(var(--muted-foreground))",
+                            }}
+                          >
+                            {item.desc}
+                          </p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </article>
-        ))}
-      </div>
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Mobile dots */}
-      <div
-        className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-40"
-        style={{
-          opacity: navVisible ? 1 : 0,
-          transition: "opacity 400ms ease",
-          pointerEvents: navVisible ? "auto" : "none",
-        }}
-      >
+      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-40">
         {services.map((s, i) => (
           <button
             key={s.id}
