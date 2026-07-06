@@ -132,7 +132,7 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] pt-16 md:pt-24 pb-16 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-start"
+                className={`${i === services.length - 1 ? "pb-16 md:pb-20" : "min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] pb-16"} pt-16 md:pt-24 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-start`}
                 style={{
                   opacity: activeIdx === i ? 1 : 0.25,
                   transform: activeIdx === i ? "translateY(0)" : "translateY(12px)",
