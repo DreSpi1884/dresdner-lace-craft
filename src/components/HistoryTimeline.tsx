@@ -134,8 +134,8 @@ const HistoryTimeline = () => {
 
   // Revealed ribbon length in px
   const revealed = Math.max(0, progress * ribbonHeight);
-  // Rotation: full turn per TILE_HEIGHT of unrolled ribbon (natural feel)
-  const rotation = (revealed / TILE_HEIGHT) * 360;
+  // Rotation: gentler — ~half turn per tile of unrolled ribbon
+  const rotation = (revealed / TILE_HEIGHT) * 180;
 
   return (
     <section
