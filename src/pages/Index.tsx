@@ -97,7 +97,7 @@ const Index = () => {
               },
               {
                 title: "Functional and Medical Textiles",
-                desc: "We develop certified warp-knitted fabrics for medical and technical applications. Our elastic textiles are used in compression garments, post-surgical care and lymphatic therapy, combining skin compatibility, reliable compression and long-lasting performance with the highest quality standards.",
+                desc: "We develop certified warp-knitted fabrics for medical and technical use.\nOur elastic textiles are used in compression garments, post-surgical care, and lymphatic therapy, offering skin-friendly comfort, reliable compression, and long-lasting performance, made to high quality standards.",
                 image: serviceFunctional.url,
                 anchor: "functional-treatments",
               },
@@ -119,7 +119,7 @@ const Index = () => {
                 <div className="absolute inset-0 bg-foreground/85 flex items-center p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
                   <div>
                     <h3 className="editorial-heading-sm text-background mb-3">{item.title}</h3>
-                    <p className="editorial-body-sm text-background/80">{item.desc}</p>
+                    <p className="editorial-body-sm text-background/80 whitespace-pre-line">{item.desc}</p>
                   </div>
                 </div>
               </Link>
