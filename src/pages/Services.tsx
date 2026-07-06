@@ -57,18 +57,39 @@ const Services = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Enable page-level scroll snapping only while this page is mounted
+  // Enable snap only when scrolling down; scrolling up stays free
   useEffect(() => {
     const html = document.documentElement;
     const prevSnap = html.style.scrollSnapType;
     const prevBehavior = html.style.scrollBehavior;
-    html.style.scrollSnapType = "y mandatory";
     html.style.scrollBehavior = "smooth";
+    html.style.scrollSnapType = "none";
+
+    let lastY = window.scrollY;
+    let timeout: number | undefined;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      const goingDown = y > lastY;
+      lastY = y;
+      html.style.scrollSnapType = goingDown ? "y proximity" : "none";
+      if (timeout) window.clearTimeout(timeout);
+      // When scrolling settles after a downward move, allow snap to finalize,
+      // then release so the next upward scroll is unrestricted.
+      timeout = window.setTimeout(() => {
+        html.style.scrollSnapType = "none";
+      }, 250);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (timeout) window.clearTimeout(timeout);
       html.style.scrollSnapType = prevSnap;
       html.style.scrollBehavior = prevBehavior;
     };
   }, []);
+
 
   const scrollTo = (idx: number) => {
     const el = sectionsRef.current[idx];
