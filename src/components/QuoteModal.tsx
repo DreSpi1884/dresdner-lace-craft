@@ -40,7 +40,6 @@ const initialForm = {
   name: "",
   company: "",
   email: "",
-  contactNotSure: false,
 };
 
 export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
@@ -108,9 +107,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
     </button>
   );
 
-  const contactValid =
-    form.contactNotSure ||
-    (form.name.trim() !== "" && form.email.trim() !== "");
+  const contactValid = form.name.trim() !== "" && form.email.trim() !== "";
 
   return (
     <QuoteModalContext.Provider value={{ open, close }}>
@@ -321,39 +318,23 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                       value={form.name}
                       onChange={(e) => updateForm("name", e.target.value)}
                       placeholder="Your name"
-                      disabled={form.contactNotSure}
-                      className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors disabled:opacity-40"
+                      className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                     <input
                       type="text"
                       value={form.company}
                       onChange={(e) => updateForm("company", e.target.value)}
                       placeholder="Company name"
-                      disabled={form.contactNotSure}
-                      className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors disabled:opacity-40"
+                      className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                     <input
                       type="email"
                       value={form.email}
                       onChange={(e) => updateForm("email", e.target.value)}
                       placeholder="Email address"
-                      disabled={form.contactNotSure}
-                      className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors disabled:opacity-40"
+                      className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                   </div>
-                  <OptionButton
-                    label={NOT_SURE}
-                    selected={form.contactNotSure}
-                    onClick={() =>
-                      setForm((p) => ({
-                        ...p,
-                        contactNotSure: !p.contactNotSure,
-                        name: !p.contactNotSure ? "" : p.name,
-                        company: !p.contactNotSure ? "" : p.company,
-                        email: !p.contactNotSure ? "" : p.email,
-                      }))
-                    }
-                  />
                   <button
                     onClick={handleSubmit}
                     disabled={!contactValid}
