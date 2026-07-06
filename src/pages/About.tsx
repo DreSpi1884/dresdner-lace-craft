@@ -4,6 +4,7 @@ import EditorialLayout from "@/components/EditorialLayout";
 import EditorialSection from "@/components/EditorialSection";
 import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
+import SEO from "@/components/SEO";
 import productionImage from "@/assets/production-detail.jpg";
 
 const About = () => {
