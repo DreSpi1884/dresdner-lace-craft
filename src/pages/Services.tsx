@@ -20,7 +20,7 @@ const services = [
     id: "custom-designs",
     nav: "Bespoke Designs",
     title: "Bespoke Designs",
-    text: "Every project starts with an idea. We work closely with you to create a lace, warp-knitted fabric or functional textile tailored to your technical and aesthetic requirements. From first sketch to finished cloth, one team owns the process.",
+    text: "Every project starts with an idea. We work closely with you to create a lace, warp-knitted fabric or functional textile tailored to your technical and aesthetic requirements. From first sketch to finished product, one team owns the process.",
     process: processSteps,
   },
   {
