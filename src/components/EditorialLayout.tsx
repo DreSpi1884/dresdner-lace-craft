@@ -10,16 +10,17 @@ interface EditorialLayoutProps {
   subtitle?: string;
   heroCompact?: boolean;
   heroSnap?: boolean;
+  heroClassName?: string;
 }
 
-const EditorialLayout = ({ children, heroAtTop = false, title, subtitle, heroCompact = false, heroSnap = false }: EditorialLayoutProps) => {
+const EditorialLayout = ({ children, heroAtTop = false, title, subtitle, heroCompact = false, heroSnap = false, heroClassName }: EditorialLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <EditorialNav />
       <main className="flex-1">
         {!heroAtTop && (
           <div
-            className={`mt-20 md:mt-24 relative w-full bg-cover bg-center flex items-end ${heroCompact ? "h-[20vh] min-h-[120px] md:min-h-[140px] pb-3 md:pb-4" : "h-[280px] md:h-[340px] pb-10 md:pb-14"}`}
+            className={`mt-20 md:mt-24 relative w-full bg-cover bg-center flex items-end ${heroCompact ? "h-[20vh] min-h-[120px] md:min-h-[140px] pb-3 md:pb-4" : "h-[280px] md:h-[340px] pb-10 md:pb-14"} ${heroClassName || ""}`}
             style={{ backgroundImage: `url(${laceBanner.url})`, scrollSnapAlign: heroSnap ? "start" : undefined }}
           >
             <div className="absolute inset-0 bg-background/40" aria-hidden="true" />

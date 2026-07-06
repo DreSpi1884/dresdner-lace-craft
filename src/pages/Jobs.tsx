@@ -28,13 +28,13 @@ const openPositions = [
 
 const Jobs = () => {
   return (
-    <EditorialLayout title="Build the future of textiles with us">
+    <EditorialLayout title="Join the future of textile innovation." heroCompact heroClassName="h-[160px] md:h-[200px]">
       <SEO
         title="Careers"
         description="Join the Dresdner Spitzen team in Germany. Open positions in textile design, production and engineering."
         path="/jobs"
       />
-      <EditorialSection className="editorial-section">
+      <EditorialSection className="py-10 md:py-12">
         <div className="editorial-container max-w-3xl mx-auto">
           <p className="editorial-body text-muted-foreground max-w-2xl">
             At Dresdner Spitzen, we value skilled hands and fresh ideas equally.
@@ -43,7 +43,7 @@ const Jobs = () => {
         </div>
       </EditorialSection>
 
-      <section className="pb-20 md:pb-28">
+      <section className="pb-16 md:pb-20">
         <div className="editorial-container max-w-3xl mx-auto">
           <p className="editorial-label text-muted-foreground mb-8">Open Positions</p>
           <div className="space-y-0">
@@ -67,7 +67,7 @@ const Jobs = () => {
             <div className="border-t border-border" />
           </div>
 
-          <div className="mt-16 bg-card p-8 md:p-12">
+          <div className="mt-12 bg-card p-8 md:p-12">
             <h3 className="editorial-heading-sm text-foreground mb-4">Don't see the right role?</h3>
             <p className="editorial-body-sm text-muted-foreground mb-6">
               We're always interested in hearing from talented people. Send us your CV and a short introduction.
