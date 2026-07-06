@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin } from "lucide-react";
+import { useQuoteModal } from "@/components/QuoteModal";
 
 const EditorialFooter = () => {
+  const { open: openQuote } = useQuoteModal();
   return (
     <footer data-no-reveal className="bg-foreground text-background">
       <div className="editorial-container py-16 md:py-24">
@@ -20,7 +22,7 @@ const EditorialFooter = () => {
             <div className="flex flex-col gap-3">
               <Link to="/" className="editorial-body-sm text-background/70 hover:text-background transition-colors">Home</Link>
               <Link to="/about" className="editorial-body-sm text-background/70 hover:text-background transition-colors">About</Link>
-              <Link to="/quote" className="editorial-body-sm text-background/70 hover:text-background transition-colors">Request a Quote</Link>
+              <button type="button" onClick={openQuote} className="text-left editorial-body-sm text-background/70 hover:text-background transition-colors">Request a Quote</button>
               <Link to="/jobs" className="editorial-body-sm text-background/70 hover:text-background transition-colors">Careers</Link>
               <Link to="/contact" className="editorial-body-sm text-background/70 hover:text-background transition-colors">Contact</Link>
             </div>
