@@ -3,10 +3,10 @@ import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 
 const processSteps = [
-  { step: "01", title: "Consult", desc: "Share your project, requirements and applications with us." },
-  { step: "02", title: "Plan", desc: "We develop custom lace designs or warp-knitted fabrics tailored to your needs." },
-  { step: "03", title: "Produce", desc: "Made in Germany using certified textile production and quality-controlled processes." },
-  { step: "04", title: "Delivery", desc: "Reliable just-in-time delivery for efficient production planning." },
+  { step: "01", title: "Consult", desc: "Share your project requirements and applications with us." },
+  { step: "02", title: "Plan", desc: "We design and develop textile solutions tailored to your needs." },
+  { step: "03", title: "Produce", desc: "Certified textile production and quality-controlled processes, made in Germany." },
+  { step: "04", title: "Delivery", desc: "Reliable just-in-time delivery to support efficient production planning." },
 ];
 
 const services = [
@@ -20,7 +20,7 @@ const services = [
     id: "custom-designs",
     nav: "Bespoke Designs",
     title: "Bespoke Designs",
-    text: "Every project starts with an idea. We work closely with you to create a lace, warp-knitted fabric or functional textile tailored to your technical and aesthetic requirements. From first sketch to finished product, we manage the entire process.",
+    text: "Every project starts with an idea. We work closely with you to create a lace, warp-knitted fabric or functional textile tailored to your technical and aesthetic requirements.\nFrom first sketch to finished product, we manage the entire process.",
     process: processSteps,
   },
   {
@@ -196,7 +196,12 @@ const Services = () => {
                     color: "hsl(var(--muted-foreground))",
                   }}
                 >
-                  {s.text}
+                  {s.text.split('\n').map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      {i < s.text.split('\n').length - 1 && <br />}
+                    </span>
+                  ))}
                 </p>
 
                 {s.process && (
