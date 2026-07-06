@@ -48,15 +48,15 @@ const Index = () => {
       {/* KEYWORDS BANNER */}
       <section className="w-full bg-background border-b border-border py-5 md:py-6">
         <div className="editorial-container">
-          <div className="flex divide-x divide-primary/30">
+          <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/30">
             {[
               "IN-HOUSE PRODUCTION",
               "TAILORED SOLUTIONS",
               "CERTIFIED SUSTAINABLE PRODUCTION",
               "JUST-IN-TIME DELIVERY",
             ].map((text) => (
-              <div key={text} className="flex-1 flex items-center justify-center px-3 md:px-6">
-                <span className="editorial-label text-primary text-center whitespace-nowrap" style={{ fontSize: "clamp(9px, 1vw, 13px)" }}>
+              <div key={text} className="flex items-center justify-center px-3 md:px-6 py-2 md:py-0 min-h-[3rem]">
+                <span className="editorial-label text-primary text-center leading-tight" style={{ fontSize: "clamp(9px, 1vw, 13px)" }}>
                   {text}
                 </span>
               </div>
@@ -64,6 +64,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
 
 
       {/* OUR SERVICES */}
