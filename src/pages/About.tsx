@@ -18,10 +18,10 @@ const About = () => {
       <EditorialSection id="values" className="bg-card scroll-mt-32">
 
         <div className="editorial-container editorial-section">
-          <p className="editorial-label text-primary mb-4 text-center">WHAT DRIVES US EVERYDAY</p>
-          <h2 className="editorial-heading-lg text-foreground mb-16 text-center">
+          <h2 className="editorial-heading-lg text-foreground mb-4 text-center">
             Our Values
           </h2>
+          <p className="editorial-label text-primary mb-16 text-center">WHAT DRIVES US EVERYDAY</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
