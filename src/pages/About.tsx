@@ -3,11 +3,13 @@ import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import EditorialSection from "@/components/EditorialSection";
 import HistoryTimeline from "@/components/HistoryTimeline";
+import AboutAnchorNav from "@/components/AboutAnchorNav";
 import productionImage from "@/assets/production-detail.jpg";
 
 const About = () => {
   return (
     <EditorialLayout title="Our Story" subtitle="For more than 140 years, we have been shaping textile manufacturing in Germany.">
+      <AboutAnchorNav />
       {/* History timeline */}
       <div id="history" className="scroll-mt-32">
         <HistoryTimeline />
