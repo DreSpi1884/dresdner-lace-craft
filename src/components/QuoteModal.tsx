@@ -232,52 +232,9 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                 </div>
               )}
 
+
               {/* Step 4 */}
               {step === 4 && (
-                <div className="space-y-6 animate-fade-in">
-                  <div className="flex items-center gap-2">
-                    <h3 className="editorial-heading-sm text-foreground">Do you require certified materials?</h3>
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <span className="inline-flex items-center justify-center cursor-help text-muted-foreground hover:text-foreground transition-colors">
-                            <Info size={18} />
-                          </span>
-                        </TooltipTrigger>
-                        <TooltipContent side="top" className="max-w-xs">
-                          <p className="text-sm font-medium mb-1">Available certifications:</p>
-                          <ul className="text-sm list-disc list-inside space-y-0.5">
-                            <li>GRS certification</li>
-                            <li>OEKO-TEX</li>
-                            <li>STeP</li>
-                          </ul>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </div>
-                  <p className="editorial-body-sm text-muted-foreground">You can select multiple options.</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {["Yes", "No", NOT_SURE].map((opt) => (
-                      <OptionButton
-                        key={opt}
-                        label={opt}
-                        selected={form.certified.includes(opt)}
-                        onClick={() => toggleMulti("certified", opt)}
-                      />
-                    ))}
-                  </div>
-                  <button
-                    onClick={nextStep}
-                    disabled={form.certified.length === 0}
-                    className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                  >
-                    Continue <ArrowRight size={16} />
-                  </button>
-                </div>
-              )}
-
-              {/* Step 5 */}
-              {step === 5 && (
                 <div className="space-y-6 animate-fade-in">
                   <h3 className="editorial-heading-sm text-foreground">Estimated quantity?</h3>
                   <p className="editorial-body-sm text-muted-foreground">You can select multiple options.</p>
@@ -301,8 +258,8 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                 </div>
               )}
 
-              {/* Step 6 */}
-              {step === 6 && (
+              {/* Step 5 */}
+              {step === 5 && (
                 <div className="space-y-6 animate-fade-in">
                   <h3 className="editorial-heading-sm text-foreground">Your contact details</h3>
                   <div className="space-y-4">
