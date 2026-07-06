@@ -53,11 +53,11 @@ const Jobs = () => {
             <div className="mt-12 md:mt-16">
               <h3 className="editorial-heading-sm text-foreground mb-4">Interested in joining our team?</h3>
               <div className="editorial-body-sm text-muted-foreground space-y-4 mb-8">
-                <p>
+                <p className="whitespace-pre-line">
                   Please send your application to{" "}
                   <a href="mailto:jobs@dresdnerspitzen.com" className="text-foreground hover:text-primary transition-colors">
                     jobs@dresdnerspitzen.com
-                  </a>{" "}
+                  </a>{"\n"}
                   or by post to the address listed in the{" "}
                   <Link to="/imprint" className="text-foreground hover:text-primary transition-colors">
                     Imprint
