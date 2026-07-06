@@ -28,7 +28,7 @@ const openPositions = [
 
 const Jobs = () => {
   return (
-    <EditorialLayout title="Join the future of textile innovation." heroCompact heroClassName="h-[180px] md:h-[220px]">
+    <EditorialLayout title="Join the future of textile innovation." heroCompact heroClassName="h-[160px] md:h-[200px]">
       <SEO
         title="Careers"
         description="Join the Dresdner Spitzen team in Germany. Open positions in textile design, production and engineering."
