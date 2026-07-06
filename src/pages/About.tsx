@@ -53,9 +53,6 @@ const About = () => {
             </div>
             <div className="space-y-6 editorial-body text-muted-foreground">
               <p>
-                Sustainability is part of how we manufacture textiles every day. By keeping development, production, dyeing and finishing under one roof in Dresden, we reduce transport, improve efficiency and maintain full control over quality and environmental standards.
-              </p>
-              <p>
                 Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® STANDARD 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).
               </p>
               <p>
