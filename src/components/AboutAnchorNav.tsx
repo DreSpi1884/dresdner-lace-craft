@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 const sections = [
   { id: "history", label: "History" },
   { id: "sustainability", label: "Sustainability" },
-  { id: "values", label: "Our Values" },
+  { id: "values", label: "Values" },
   { id: "production", label: "Production" },
 ];
 
