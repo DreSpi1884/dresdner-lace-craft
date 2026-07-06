@@ -5,9 +5,9 @@ import germanyMap from "@/assets/germany-map-dregus.png.asset.json";
 const Contact = () => {
   return (
     <EditorialLayout heroAtTop={true}>
-      <section className="min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] flex items-center pt-20 md:pt-24">
-        <div className="editorial-container w-full py-8 md:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch">
+      <section className="min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] pt-20 md:pt-24">
+        <div className="editorial-container w-full h-full py-8 md:py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 h-full">
             <div className="flex flex-col justify-center">
               <h1 className="editorial-heading-lg mb-4">Let's start a conversation</h1>
               <p className="editorial-body text-muted-foreground mb-6">
@@ -35,11 +35,11 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center lg:justify-end">
+            <div className="flex items-start justify-center lg:justify-end">
               <img
                 src="/germany-map-dregus.png"
                 alt="Map of Germany showing Dresden location"
-                className="max-w-full h-auto max-h-[420px] lg:max-h-[520px] object-contain"
+                className="max-w-full h-auto max-h-[420px] lg:max-h-[480px] object-contain"
               />
             </div>
           </div>
