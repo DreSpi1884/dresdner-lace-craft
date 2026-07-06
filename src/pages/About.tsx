@@ -27,7 +27,7 @@ const About = () => {
             {[
             { title: "Tradition", desc: "More than 140 years of textile craftsmanship. " },
             { title: "Innovation", desc: "Driven by new ideas and modern manufacturing. " },
-            { title: "Quality", desc: "Certified quality standards throughout every stage of textile production. " },
+            { title: "Quality", desc: "Certified textile production with strict quality standards." },
             { title: "Precision", desc: "Meticulous attention to detail in every product. " },
             { title: "Flexibility", desc: "Tailored solutions for every project. " },
             { title: "Reliability", desc: "A trusted partner from development to delivery. " }].
