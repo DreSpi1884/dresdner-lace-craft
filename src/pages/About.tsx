@@ -14,6 +14,28 @@ const About = () => {
       </div>
 
 
+      {/* Sustainability */}
+      <section id="sustainability" className="editorial-section scroll-mt-32">
+        <div className="editorial-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            <div>
+              <h2 className="editorial-heading-lg text-foreground mb-4">
+                Sustainability
+              </h2>
+              <p className="editorial-label text-primary mb-8">RESPONSIBLE PRODUCTION AT EVERY STAGE</p>
+            </div>
+            <div className="space-y-6 editorial-body text-muted-foreground">
+              <p>
+                Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® STANDARD 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).
+              </p>
+              <p>
+                These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
       <EditorialSection id="values" className="bg-card scroll-mt-32">
 
@@ -40,28 +62,6 @@ const About = () => {
           </div>
         </div>
       </EditorialSection>
-
-      {/* Sustainability */}
-      <section id="sustainability" className="editorial-section scroll-mt-32">
-        <div className="editorial-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-            <div>
-              <h2 className="editorial-heading-lg text-foreground mb-4">
-                Sustainability
-              </h2>
-              <p className="editorial-label text-primary mb-8">RESPONSIBLE PRODUCTION AT EVERY STAGE</p>
-            </div>
-            <div className="space-y-6 editorial-body text-muted-foreground">
-              <p>
-                Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® STANDARD 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).
-              </p>
-              <p>
-                These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Production */}
       <section id="production" className="editorial-section scroll-mt-32">
