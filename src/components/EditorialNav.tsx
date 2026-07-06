@@ -3,27 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-white.png.asset.json";
 import { useQuoteModal } from "@/components/QuoteModal";
+import { useLang, type Lang } from "@/i18n/LanguageContext";
 
-const navItems = [
-  { label: "HOME", path: "/" },
-  { label: "SERVICES", path: "/services" },
-  { label: "ABOUT", path: "/about" },
-  { label: "CONTACT", path: "/contact" },
+const languages: { code: Lang; label: string }[] = [
+  { code: "en", label: "EN" },
+  { code: "de", label: "DE" },
 ];
-
-const contactSections = [
-  { label: "CONTACT", path: "/contact" },
-  { label: "CAREERS", path: "/jobs" },
-];
-
-const aboutSections = [
-  { label: "HISTORY", hash: "#history" },
-  { label: "VALUES", hash: "#values" },
-  { label: "SUSTAINABILITY", hash: "#sustainability" },
-  { label: "PRODUCTION", hash: "#production" },
-];
-
-const languages = ["EN", "DE", "FR"];
 
 const getHeroScale = (width: number) => {
   if (width < 640) return 1.6;
@@ -36,13 +21,34 @@ const getHeroScale = (width: number) => {
 
 
 const EditorialNav = () => {
+  const { t, lang, setLang } = useLang();
+
+  const navItems = [
+    { key: "home", label: t("HOME", "START"), path: "/" },
+    { key: "services", label: t("SERVICES", "LEISTUNGEN"), path: "/services" },
+    { key: "about", label: t("ABOUT", "ÜBER UNS"), path: "/about" },
+    { key: "contact", label: t("CONTACT", "KONTAKT"), path: "/contact" },
+  ];
+
+  const contactSections = [
+    { label: t("CONTACT", "KONTAKT"), path: "/contact" },
+    { label: t("CAREERS", "KARRIERE"), path: "/jobs" },
+  ];
+
+  const aboutSections = [
+    { label: t("HISTORY", "GESCHICHTE"), hash: "#history" },
+    { label: t("VALUES", "WERTE"), hash: "#values" },
+    { label: t("SUSTAINABILITY", "NACHHALTIGKEIT"), hash: "#sustainability" },
+    { label: t("PRODUCTION", "PRODUKTION"), hash: "#production" },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState("EN");
   const location = useLocation();
   const { open: openQuote } = useQuoteModal();
 
   const isHome = location.pathname === "/";
+
 
   const logoRef = useRef<HTMLImageElement>(null);
   const naturalCenter = useRef<{ cx: number; cy: number } | null>(null);

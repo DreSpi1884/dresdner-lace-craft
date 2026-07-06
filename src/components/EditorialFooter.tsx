@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
+import { useLang } from "@/i18n/LanguageContext";
 
 const EditorialFooter = () => {
   const { open: openQuote } = useQuoteModal();
+  const { t, lang, setLang } = useLang();
   return (
     <footer data-no-reveal className="bg-foreground text-background">
       <div className="editorial-container py-16 md:py-24">
@@ -12,27 +14,27 @@ const EditorialFooter = () => {
           <div>
             <h3 className="font-serif text-2xl mb-4">Dresdner Spitzen</h3>
             <p className="editorial-body-sm text-background/60 max-w-xs">
-              European textile manufacturer since 1884.&nbsp;
+              {t("European textile manufacturer since 1884.", "Europäischer Textilhersteller seit 1884.")}&nbsp;
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <p className="editorial-label text-background/40 mb-6">Navigation</p>
+            <p className="editorial-label text-background/40 mb-6">{t("Navigation", "Navigation")}</p>
             <div className="flex flex-col gap-3">
-              <Link to="/" className="editorial-body-sm text-background/70 hover:text-background transition-colors">Home</Link>
-              <Link to="/about" className="editorial-body-sm text-background/70 hover:text-background transition-colors">About</Link>
-              <button type="button" onClick={openQuote} className="text-left editorial-body-sm text-background/70 hover:text-background transition-colors">Request a Quote</button>
-              <Link to="/jobs" className="editorial-body-sm text-background/70 hover:text-background transition-colors">Careers</Link>
-              <Link to="/contact" className="editorial-body-sm text-background/70 hover:text-background transition-colors">Contact</Link>
+              <Link to="/" className="editorial-body-sm text-background/70 hover:text-background transition-colors">{t("Home", "Startseite")}</Link>
+              <Link to="/about" className="editorial-body-sm text-background/70 hover:text-background transition-colors">{t("About", "Über uns")}</Link>
+              <button type="button" onClick={openQuote} className="text-left editorial-body-sm text-background/70 hover:text-background transition-colors">{t("Request a Quote", "Angebot anfragen")}</button>
+              <Link to="/jobs" className="editorial-body-sm text-background/70 hover:text-background transition-colors">{t("Careers", "Karriere")}</Link>
+              <Link to="/contact" className="editorial-body-sm text-background/70 hover:text-background transition-colors">{t("Contact", "Kontakt")}</Link>
             </div>
           </div>
 
           {/* Contact */}
           <div>
-            <p className="editorial-label text-background/40 mb-6">Contact</p>
+            <p className="editorial-label text-background/40 mb-6">{t("Contact", "Kontakt")}</p>
             <div className="flex flex-col gap-3 editorial-body-sm text-background/70">
-              <p>Dresden, Germany</p>
+              <p>{t("Dresden, Germany", "Dresden, Deutschland")}</p>
               <a className="hover:text-background transition-colors" href="mailto:sales@dresdnerspitzen.com">
                 sales@dresdnerspitzen.com
               </a>
@@ -53,20 +55,32 @@ const EditorialFooter = () => {
               </a>
             </div>
             <div className="mt-8 flex gap-4">
-              <button className="editorial-label text-background/60 hover:text-background transition-colors">DE</button>
+              <button
+                onClick={() => setLang("de")}
+                className={`editorial-label transition-colors ${lang === "de" ? "text-background" : "text-background/60 hover:text-background"}`}
+                aria-pressed={lang === "de"}
+              >
+                DE
+              </button>
               <span className="text-background/30">|</span>
-              <button className="editorial-label text-background hover:text-background transition-colors">EN</button>
+              <button
+                onClick={() => setLang("en")}
+                className={`editorial-label transition-colors ${lang === "en" ? "text-background" : "text-background/60 hover:text-background"}`}
+                aria-pressed={lang === "en"}
+              >
+                EN
+              </button>
             </div>
           </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="editorial-body-sm text-background/40">
-            © {new Date().getFullYear()} Dresdner Spitzen. All rights reserved.
+            © {new Date().getFullYear()} Dresdner Spitzen. {t("All rights reserved.", "Alle Rechte vorbehalten.")}
           </p>
           <div className="flex gap-6">
-            <Link to="/imprint" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">Imprint</Link>
-            <Link to="/privacy" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">Privacy</Link>
+            <Link to="/imprint" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">{t("Imprint", "Impressum")}</Link>
+            <Link to="/privacy" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">{t("Privacy", "Datenschutz")}</Link>
           </div>
         </div>
       </div>
