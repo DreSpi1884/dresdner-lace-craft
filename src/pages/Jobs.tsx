@@ -33,8 +33,8 @@ const Jobs = () => {
       </EditorialSection>
 
       <section className="pb-16 md:pb-20">
-        <div className="px-6 md:px-12 lg:px-16">
-          <div className="w-full lg:w-[72%]">
+        <div className="editorial-container">
+          <div className="max-w-2xl mx-auto text-center">
             <p className="editorial-label text-muted-foreground mb-8">Professional Positions</p>
             <div className="border-t border-border py-8">
               <p className="editorial-body text-muted-foreground">There are currently no open positions.</p>
