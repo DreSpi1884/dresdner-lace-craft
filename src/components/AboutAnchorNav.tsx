@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const sections = [
@@ -8,12 +8,19 @@ const sections = [
   { id: "production", label: "Production" },
 ];
 
+const NAV_HEIGHT = 96; // h-20 md:h-24 + sticky nav height buffer
+
 const AboutAnchorNav = () => {
   const [activeId, setActiveId] = useState<string>(sections[0].id);
+  const clickActiveRef = useRef<string | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        // If a recent click set the active item, ignore observer updates briefly
+        if (clickActiveRef.current) return;
+
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -21,7 +28,7 @@ const AboutAnchorNav = () => {
           setActiveId(visible[0].target.id);
         }
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-35% 0px -40% 0px", threshold: 0 }
     );
 
     sections.forEach(({ id }) => {
@@ -35,9 +42,18 @@ const AboutAnchorNav = () => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (!el) return;
+
+    setActiveId(id);
+    clickActiveRef.current = id;
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      clickActiveRef.current = null;
+    }, 800);
+
+    const navOffset = NAV_HEIGHT + 24;
+    const y = el.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
   };
 
   return (
