@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-white.png.asset.json";
+import { useQuoteModal } from "@/components/QuoteModal";
 
 const navItems = [
   { label: "HOME", path: "/" },
@@ -38,6 +39,7 @@ const EditorialNav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [lang, setLang] = useState("EN");
   const location = useLocation();
+  const { open: openQuote } = useQuoteModal();
 
   const isHome = location.pathname === "/";
 
@@ -217,12 +219,13 @@ const EditorialNav = () => {
               </Link>
             );
           })}
-          <Link
-            to="/quote"
+          <button
+            type="button"
+            onClick={openQuote}
             className="editorial-body-sm cta-lace border border-background/70 text-background px-5 py-2.5 hover:bg-background hover:text-foreground transition-colors duration-300"
           >
-            ENQUIRY{"\n"}
-          </Link>
+            ENQUIRY
+          </button>
 
           {/* Social icons */}
           <a
@@ -312,13 +315,16 @@ const EditorialNav = () => {
                 )}
               </div>
             ))}
-            <Link
-              to="/quote"
-              onClick={() => setIsOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setIsOpen(false);
+                openQuote();
+              }}
               className="editorial-body cta-lace border border-background text-background px-5 py-3 text-center mt-2"
             >
-              ENQUIRY{"\n"}
-            </Link>
+              ENQUIRY
+            </button>
             <div className="flex gap-4 pt-2">
               {languages.map((l) => (
                 <button

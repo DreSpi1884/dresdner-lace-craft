@@ -6,8 +6,10 @@ import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
 import productionImage from "@/assets/production-detail.jpg";
+import { useQuoteModal } from "@/components/QuoteModal";
 
 const About = () => {
+  const { open: openQuote } = useQuoteModal();
   return (
     <EditorialLayout title="Our Story" subtitle="For more than 140 years, we have been shaping textile manufacturing in Germany.">
       <SEO
@@ -89,11 +91,12 @@ const About = () => {
                   We manufacture premium lace, warp-knitted fabrics, elastic textiles and technical fabrics using modern Raschel, Jacquardtronic® and Textronic® machines.
                 </p>
               </div>
-              <Link
-                to="/quote"
+              <button
+                type="button"
+                onClick={openQuote}
                 className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors duration-300">
                 Request a Quote <ArrowRight size={16} />
-              </Link>
+              </button>
             </div>
             <img
               src={productionImage}
