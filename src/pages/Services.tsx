@@ -104,7 +104,8 @@ const Services = () => {
       <section className="relative lg:grid lg:grid-cols-[28%_72%]">
         {/* Sidebar (desktop) */}
         <aside className="hidden lg:block pl-[60px]">
-          <nav className="sticky top-24 flex flex-col gap-10 pt-10">
+          <nav className="sticky top-[calc(6rem+5.5rem)] flex flex-col gap-10">
+
               <span
                 aria-hidden="true"
                 className="absolute left-0 top-2 bottom-2 w-px bg-border"
