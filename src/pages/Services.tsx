@@ -13,7 +13,7 @@ const services = [
     id: "collections",
     nav: "Seasonal Lace Collections",
     title: "Seasonal Lace Collections",
-    text: "Our design team continuously develops new lace collections inspired by international fashion trends. Each collection includes elastic and inelastic lace for lingerie, fashion and apparel. Sample yardage is available on request.",
+    text: "Our design team continuously develops new lace collections inspired by international fashion trends. Each collection includes elastic and inelastic lace for lingerie, fashion and apparel. Samples are available on request.",
   },
   {
     id: "custom-designs",
