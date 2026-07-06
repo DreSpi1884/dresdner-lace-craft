@@ -46,10 +46,10 @@ const About = () => {
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
-              <p className="editorial-label text-primary mb-4">RESPONSIBLE PRODUCTION AT EVERY STAGE</p>
-              <h2 className="editorial-heading-lg text-foreground mb-8">
+              <h2 className="editorial-heading-lg text-foreground mb-4">
                 Sustainability
               </h2>
+              <p className="editorial-label text-primary mb-8">RESPONSIBLE PRODUCTION AT EVERY STAGE</p>
             </div>
             <div className="space-y-6 editorial-body text-muted-foreground">
               <p>
