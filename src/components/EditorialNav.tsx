@@ -26,13 +26,14 @@ const aboutSections = [
 const languages = ["EN", "DE", "FR"];
 
 const getHeroScale = (width: number) => {
-  if (width < 640) return 2;
+  if (width < 640) return 1.6;
   if (width < 768) return 2.25;
   if (width < 1024) return 2.5;
   if (width < 1280) return 3;
   if (width < 1536) return 3.5;
   return 4.5;
 };
+
 
 const EditorialNav = () => {
   const [isOpen, setIsOpen] = useState(false);
