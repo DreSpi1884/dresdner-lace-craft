@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import EditorialSection from "@/components/EditorialSection";
+import SEO from "@/components/SEO";
 
 const openPositions = [
 {
