@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { ArrowRight, Check, Info } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
+import SEO from "@/components/SEO";
+
+const QUOTE_SEO = (
+  <SEO
+    title="Request a Quote"
+    description="Tell us about your project. Get a personalized quote for lace, warp-knitted fabrics or functional textiles from Dresdner Spitzen."
+    path="/quote"
+  />
+);
 import {
   Tooltip,
   TooltipContent,
