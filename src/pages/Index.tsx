@@ -79,7 +79,7 @@ const Index = () => {
             {[
               {
                 title: "Seasonal Lace Collections",
-                desc: "Twice a year we release a new lace collection, each spanning a wide variety of styles inspired by global fashion trends.",
+                desc: "Our team continuosly releases new lace collections, each spanning a wide variety of styles inspired by global fashion trends.",
                 image: serviceBespoke.url,
                 anchor: "collections",
               },
