@@ -4,7 +4,7 @@ import EditorialLayout from "@/components/EditorialLayout";
 const Contact = () => {
   return (
     <EditorialLayout heroAtTop={true}>
-      <section className="pt-12 md:pt-16 pb-8 md:pb-12">
+      <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12">
         <div className="editorial-container">
           <h1 className="editorial-heading-xl mb-6">Let's start a conversation</h1>
           <div className="max-w-xl">
