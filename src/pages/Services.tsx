@@ -132,14 +132,13 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] pt-16 md:pt-24 pb-8 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-start overflow-hidden"
+                className="min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] pt-16 md:pt-24 pb-16 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-start"
                 style={{
-                  opacity: activeIdx === i ? 1 : 0.2,
-                  transition: "opacity 600ms ease",
-                  scrollSnapAlign: "start",
-                  scrollSnapStop: "normal",
-                  scrollMarginTop: "6rem",
+                  opacity: activeIdx === i ? 1 : 0.25,
+                  transform: activeIdx === i ? "translateY(0)" : "translateY(12px)",
+                  transition: "opacity 700ms ease, transform 700ms ease",
                 }}
+
               >
                 <p
                   className="mb-5"
