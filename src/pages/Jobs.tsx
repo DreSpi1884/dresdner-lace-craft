@@ -12,7 +12,7 @@ const apprenticeships = [
 const Jobs = () => {
   return (
     <EditorialLayout
-      title={<>Join the future of<br />textile innovation.</>}
+      title={<>Join the future of <br />textile innovation.</>}
       titleClassName="editorial-heading-lg"
       heroCompact
       heroClassName="h-[160px] md:h-[200px]"
