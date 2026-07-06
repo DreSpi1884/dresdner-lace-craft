@@ -6,14 +6,15 @@ import laceBanner from "@/assets/lace-banner.png.asset.json";
 interface EditorialLayoutProps {
   children: ReactNode;
   heroAtTop?: boolean;
-  title?: string;
+  title?: ReactNode;
   subtitle?: string;
   heroCompact?: boolean;
   heroSnap?: boolean;
   heroClassName?: string;
+  titleClassName?: string;
 }
 
-const EditorialLayout = ({ children, heroAtTop = false, title, subtitle, heroCompact = false, heroSnap = false, heroClassName }: EditorialLayoutProps) => {
+const EditorialLayout = ({ children, heroAtTop = false, title, subtitle, heroCompact = false, heroSnap = false, heroClassName, titleClassName }: EditorialLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <EditorialNav />
@@ -27,7 +28,7 @@ const EditorialLayout = ({ children, heroAtTop = false, title, subtitle, heroCom
             {(title || subtitle) && (
               <div className={`relative w-full px-6 md:px-12 lg:px-16 ${heroCompact ? "pb-0" : "pb-10 md:pb-14"}`}>
                 {title && (
-                  <h1 className="editorial-heading-xl text-foreground max-w-3xl">
+                  <h1 className={`text-foreground max-w-3xl ${titleClassName || "editorial-heading-xl"}`}>
                     {title}
                   </h1>
                 )}
