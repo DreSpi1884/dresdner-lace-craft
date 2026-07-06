@@ -1,6 +1,5 @@
 import { Mail, MapPin } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
-import germanyMap from "@/assets/germany-map.png.asset.json";
 
 const Contact = () => {
   return (
