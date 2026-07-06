@@ -51,10 +51,23 @@ const Services = () => {
           setActiveIdx(idx);
         }
       },
-      { threshold: [0.25, 0.5, 0.75] }
+      { threshold: [0.35, 0.6] }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  // Enable page-level scroll snapping only while this page is mounted
+  useEffect(() => {
+    const html = document.documentElement;
+    const prevSnap = html.style.scrollSnapType;
+    const prevBehavior = html.style.scrollBehavior;
+    html.style.scrollSnapType = "y mandatory";
+    html.style.scrollBehavior = "smooth";
+    return () => {
+      html.style.scrollSnapType = prevSnap;
+      html.style.scrollBehavior = prevBehavior;
+    };
   }, []);
 
   const scrollTo = (idx: number) => {
@@ -65,7 +78,6 @@ const Services = () => {
   return (
     <EditorialLayout
       title="Our Services"
-      subtitle="Every step of our textile manufacturing takes place under one roof in Dresden."
       heroCompact
     >
       <section className="relative lg:grid lg:grid-cols-[28%_72%]">
