@@ -37,7 +37,7 @@ const Contact = () => {
             </div>
             <div className="flex items-center justify-center lg:justify-end">
               <img
-                src={germanyMap.url}
+                src="/germany-map-dregus.png"
                 alt="Map of Germany showing Dresden location"
                 className="max-w-full h-auto max-h-[420px] lg:max-h-[520px] object-contain"
               />
