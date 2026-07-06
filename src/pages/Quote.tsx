@@ -103,6 +103,7 @@ const Quote = () => {
 
   return (
     <EditorialLayout title="Let's create something together">
+      {QUOTE_SEO}
       <section className="editorial-section">
         <div className="editorial-container max-w-2xl mx-auto">
           <p className="editorial-body text-muted-foreground mb-12">
