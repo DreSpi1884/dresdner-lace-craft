@@ -18,7 +18,7 @@ const About = () => {
       <EditorialSection id="values" className="bg-card scroll-mt-32">
 
         <div className="editorial-container editorial-section">
-          <p className="editorial-label text-primary mb-4 text-center">Our Values</p>
+          <p className="editorial-label text-primary mb-4 text-center">WHAT DRIVES US EVERYDAY</p>
           <h2 className="editorial-heading-lg text-foreground mb-16 text-center">
             Our Values
           </h2>
