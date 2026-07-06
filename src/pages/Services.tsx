@@ -177,9 +177,9 @@ const Services = () => {
                 </p>
 
                 {s.process && (
-                  <div className="mt-12 max-w-2xl">
+                  <div className="mt-8 max-w-2xl">
                     <p
-                      className="mb-6"
+                      className="mb-4"
                       style={{
                         fontFamily: "'Jost', sans-serif",
                         fontSize: "10px",
@@ -190,7 +190,7 @@ const Services = () => {
                     >
                       How It Works
                     </p>
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-4">
                       {s.process.map((item) => (
                         <div key={item.step} className="flex flex-col">
                           <span
