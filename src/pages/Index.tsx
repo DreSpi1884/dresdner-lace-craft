@@ -97,7 +97,7 @@ const Index = () => {
               },
               {
                 title: "Functional and Medical Textiles",
-                desc: "We develop certified warp-knitted fabrics for medical and technical use.\nOur elastic textiles are used in compression garments, post-surgical care, and lymphatic therapy, offering skin-friendly comfort, reliable compression, and long-lasting performance, made to high quality standards.",
+                desc: "We develop certified warp-knitted fabrics for medical and technical use.\n\nOur elastic textiles are used in compression garments, post-surgical care, and lymphatic therapy, offering skin-friendly comfort, reliable compression, and long-lasting quality.",
                 image: serviceFunctional.url,
                 anchor: "functional-treatments",
               },
