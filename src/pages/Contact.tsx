@@ -1,5 +1,6 @@
 import { Mail, MapPin } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
+import SEO from "@/components/SEO";
 import germanyMap from "@/assets/germany-map-dregus.png.asset.json";
 
 const Contact = () => {
