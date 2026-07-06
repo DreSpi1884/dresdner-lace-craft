@@ -14,12 +14,59 @@ const ROLL_WIDTH = 180; // px, cylinder length
 const TILE_HEIGHT = 80; // px, one repeat of the lace pattern
 
 const HistoryTimeline = () => {
+  const { t } = useLang();
+  const ENTRIES: Entry[] = useMemo(() => [
+    {
+      year: "1884",
+      text: t(
+        "Our story began in 1884, when Georg Marwitz and Carl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur. At a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden.",
+        "Unsere Geschichte begann 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründeten. Zu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wurde, brachten wir englische Bobbinet-Maschinen nach Deutschland und legten den Grundstein für die moderne Spitzenherstellung in Dresden."
+      ),
+    },
+    {
+      year: "1900",
+      text: t(
+        "As demand for our lace and textiles increased, so did our ambitions. We expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad. Even through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide.",
+        "Mit der wachsenden Nachfrage nach unseren Spitzen und Textilien wuchsen auch unsere Ambitionen. Wir verlagerten unsere Produktion an einen größeren Standort in Dresden-Dobritz, investierten in neue Fertigungsanlagen und eröffneten Werke im Ausland. Selbst durch Kriege, Inflation und wirtschaftliche Unsicherheit hindurch produzierten und exportierten wir unsere Textilien weltweit."
+      ),
+    },
+    {
+      year: "1945",
+      text: t(
+        "After the Second World War, every machine in our factory was dismantled. Starting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees. Within a year, textile manufacturing had resumed. This resilience became known as the Dregusgeist and continues to shape our company today.",
+        "Nach dem Zweiten Weltkrieg wurde jede Maschine unserer Fabrik demontiert. Fast bei null beginnend, bauten wir unsere Produktion mit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden wieder auf. Innerhalb eines Jahres lief die Textilproduktion erneut. Diese Widerstandskraft wurde als Dregusgeist bekannt und prägt unser Unternehmen bis heute."
+      ),
+    },
+    {
+      year: "1970",
+      text: t(
+        "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany. In 1982, we became the first company in the world to operate electronically controlled Raschel machines, setting new standards in textile manufacturing.",
+        "Die Einführung der Kettenwirktechnik veränderte unsere Produktion grundlegend und etablierte uns als einen der führenden Spitzenhersteller in Ostdeutschland. 1982 waren wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzte, und setzten damit neue Maßstäbe in der Textilherstellung."
+      ),
+    },
+    {
+      year: "1995",
+      text: t(
+        "Following German reunification, we reinvented our business. Under the leadership of Manfred and Sascha Schröder, we modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace, warp-knitted fabrics and technical textiles for international markets.",
+        "Nach der Wiedervereinigung erfanden wir unser Unternehmen neu. Unter der Leitung von Manfred und Sascha Schröder modernisierten wir unsere Anlagen, erweiterten unsere Kompetenzen und entwickelten uns vom traditionellen Spitzenhersteller zum Produzenten von Premium-Spitzen, Kettengewirken und technischen Textilien für internationale Märkte."
+      ),
+    },
+    {
+      year: t("Today", "Heute"),
+      text: t(
+        "Today, Dresdner Spitzen stands as an international partner for premium lace, warp-knitted fabrics and technical textiles. From our Dresden facility, we continue to combine more than 140 years of craftsmanship with modern manufacturing technology, serving customers in fashion, industry and medical applications worldwide.",
+        "Heute steht Dresdner Spitzen als internationaler Partner für Premium-Spitzen, Kettengewirke und technische Textilien. Von unserem Dresdner Standort aus verbinden wir über 140 Jahre Handwerkskunst mit moderner Fertigungstechnologie und beliefern Kunden aus Mode, Industrie und Medizin weltweit."
+      ),
+    },
+  ], [t]);
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const ribbonAreaRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0); // 0..1 across ribbon area
-  const [ribbonHeight, setRibbonHeight] = useState(0); // total px of ribbon track
+  const [progress, setProgress] = useState(0);
+  const [ribbonHeight, setRibbonHeight] = useState(0);
   const [visible, setVisible] = useState<boolean[]>(() => ENTRIES.map(() => false));
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
+
 
   useEffect(() => {
     let rafId = 0;
