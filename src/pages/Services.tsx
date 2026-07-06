@@ -51,10 +51,23 @@ const Services = () => {
           setActiveIdx(idx);
         }
       },
-      { threshold: [0.25, 0.5, 0.75] }
+      { threshold: [0.35, 0.6] }
     );
     sectionsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  // Enable page-level scroll snapping only while this page is mounted
+  useEffect(() => {
+    const html = document.documentElement;
+    const prevSnap = html.style.scrollSnapType;
+    const prevBehavior = html.style.scrollBehavior;
+    html.style.scrollSnapType = "y mandatory";
+    html.style.scrollBehavior = "smooth";
+    return () => {
+      html.style.scrollSnapType = prevSnap;
+      html.style.scrollBehavior = prevBehavior;
+    };
   }, []);
 
   const scrollTo = (idx: number) => {
@@ -65,7 +78,6 @@ const Services = () => {
   return (
     <EditorialLayout
       title="Our Services"
-      subtitle="Every step of our textile manufacturing takes place under one roof in Dresden."
       heroCompact
     >
       <section className="relative lg:grid lg:grid-cols-[28%_72%]">
@@ -120,14 +132,17 @@ const Services = () => {
                 ref={(el) => {
                   sectionsRef.current[i] = el;
                 }}
-                className="min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] pt-10 pb-16 px-6 lg:pl-[60px] lg:pr-16"
+                className="h-[calc(100vh-5rem)] md:h-[calc(100vh-6rem)] pt-10 md:pt-12 pb-8 px-6 lg:pl-[60px] lg:pr-16 flex flex-col justify-center overflow-hidden"
                 style={{
                   opacity: activeIdx === i ? 1 : 0.2,
                   transition: "opacity 600ms ease",
+                  scrollSnapAlign: "start",
+                  scrollSnapStop: "always",
+                  scrollMarginTop: "6rem",
                 }}
               >
                 <p
-                  className="mb-6"
+                  className="mb-5"
                   style={{
                     fontFamily: "'Jost', sans-serif",
                     fontSize: "10px",
@@ -139,10 +154,10 @@ const Services = () => {
                   {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
                 </p>
                 <h2
-                  className="mb-8 leading-[1.1]"
+                  className="mb-6 leading-[1.1]"
                   style={{
                     fontFamily: "'Bodoni Moda', serif",
-                    fontSize: "clamp(36px, 5vw, 52px)",
+                    fontSize: "clamp(30px, 4vw, 42px)",
                     color: "hsl(var(--primary))",
                     fontWeight: 500,
                   }}
@@ -152,8 +167,8 @@ const Services = () => {
                 <p
                   style={{
                     fontFamily: "'Jost', sans-serif",
-                    fontSize: "16px",
-                    lineHeight: 1.7,
+                    fontSize: "15px",
+                    lineHeight: 1.65,
                     maxWidth: "560px",
                     color: "hsl(var(--muted-foreground))",
                   }}
@@ -162,9 +177,9 @@ const Services = () => {
                 </p>
 
                 {s.process && (
-                  <div className="mt-12 max-w-2xl">
+                  <div className="mt-8 max-w-2xl">
                     <p
-                      className="mb-6"
+                      className="mb-4"
                       style={{
                         fontFamily: "'Jost', sans-serif",
                         fontSize: "10px",
@@ -175,7 +190,7 @@ const Services = () => {
                     >
                       How It Works
                     </p>
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-4">
                       {s.process.map((item) => (
                         <div key={item.step} className="flex flex-col">
                           <span
