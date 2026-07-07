@@ -138,24 +138,28 @@ const HistoryTimeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background text-foreground w-full pt-10 md:pt-16 pb-16 md:pb-20"
+      className="relative bg-background text-primary w-full pt-10 md:pt-16 pb-16 md:pb-20"
     >
-      {/* Sticky rail — pins roll + ribbon to the viewport while the section scrolls */}
-      <div
-        className="sticky top-0 h-screen z-10 pointer-events-none"
-        aria-hidden="true"
-      >
-        {/* Roll */}
+      {/* Timeline column: sticky roll + unrolling ribbon overlays the entries */}
+      <div ref={timelineRef} className="relative w-full px-6 md:px-20 lg:px-24 xl:px-28">
         <div
-          className="absolute left-1/2 -translate-x-1/2"
-          style={{ top: rollTop, width: ROLL_WIDTH, height: ROLL_HEIGHT }}
+          className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 z-10 hidden md:block"
+          style={{ width: ROLL_WIDTH }}
+          aria-hidden="true"
         >
-          <svg
-            width={ROLL_WIDTH}
-            height={ROLL_HEIGHT}
-            viewBox={`0 0 ${ROLL_WIDTH} ${ROLL_HEIGHT}`}
-            className="text-foreground block overflow-visible"
+          <div
+            className="flex flex-col items-center"
+            style={{ position: "sticky", top: STICKY_TOP }}
           >
+            {/* Roll */}
+            <div style={{ width: ROLL_WIDTH, height: ROLL_HEIGHT }}>
+              <svg
+                width={ROLL_WIDTH}
+                height={ROLL_HEIGHT}
+                viewBox={`0 0 ${ROLL_WIDTH} ${ROLL_HEIGHT}`}
+                className="text-primary block overflow-visible"
+              >
+
             <defs>
               {/* Cylindrical shading for the wound-lace body */}
               <linearGradient id="rollShade" x1="0" y1="0" x2="0" y2="1">
