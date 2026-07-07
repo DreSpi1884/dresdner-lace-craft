@@ -131,6 +131,84 @@ const Services = () => {
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
+  const toggleMobile = (idx: number) => {
+    setMobileOpenIdx((prev) => (prev === idx ? -1 : idx));
+  };
+
+  const renderBody = (s: typeof services[number]) => (
+    <div
+      style={{
+        fontFamily: "'Jost', sans-serif",
+        fontSize: "15px",
+        lineHeight: 1.65,
+        maxWidth: "560px",
+        color: "hsl(var(--muted-foreground))",
+      }}
+    >
+      {s.id === "collections" ? (
+        <p>
+          <TextWithLink
+            text={s.text}
+            link={lang === "de" ? "Anfrage" : "request"}
+            onClick={openQuote}
+          />
+        </p>
+      ) : (
+        s.text.split('\n').map((line, li) => (
+          <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+            {line}
+          </p>
+        ))
+      )}
+    </div>
+  );
+
+  const renderProcess = (s: typeof services[number]) =>
+    s.process && (
+      <div className="mt-8 pt-8 border-t border-primary/15 max-w-none">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
+          {s.process.map((item) => (
+            <div key={item.step} className="group flex flex-col">
+              <span
+                className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
+                style={{
+                  fontFamily: "'Bodoni Moda', serif",
+                  fontSize: "30px",
+                  lineHeight: 1,
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                {item.step}
+              </span>
+              <h3
+                className="mb-3"
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: "15px",
+                  letterSpacing: "0.5px",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                {item.title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: "13px",
+                  lineHeight: 1.6,
+                  color: "hsl(var(--muted-foreground) / 0.9)",
+                }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+
   return (
     <EditorialLayout title={t("Our Services", "Unsere Leistungen")} heroCompact>
       <SEO
