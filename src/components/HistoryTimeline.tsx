@@ -46,7 +46,7 @@ const HistoryTimeline = () => {
       year: "1970",
       text: t(
         "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany. In 1982, we became the first company in the world to operate electronically controlled Raschel machines, setting new standards in textile manufacturing.",
-        "Die Einführung der Kettenwirktechnik veränderte unsere Produktion grundlegend und etablierte uns als einen der führenden Spitzenhersteller in Ostdeutschland.\n1982 waren wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzte, und setzten damit neue Maßstäbe in der Textilherstellung."
+        "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland.\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt, und setzen damit neue Maßstäbe in der Textilherstellung."
       ),
     },
     {
