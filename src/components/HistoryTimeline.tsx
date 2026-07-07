@@ -14,7 +14,8 @@ const CAP_EXTRA = 9; // px, thin end caps that stick out past the lace on each s
 const ROLL_WIDTH = RIBBON_WIDTH + CAP_EXTRA * 2; // roll only as wide as the lace + caps
 const TILE_HEIGHT = 80; // px, one repeat of the lace pattern
 const INITIAL_REVEAL = 34; // px, short lace piece pre-visible between the caps at load
-const PIN_UNROLL_VH = 0.9; // fraction of viewport height spent unrolling while pinned
+const STICKY_TOP = 96; // px, where the roll pins in the viewport as you scroll
+
 
 
 const HistoryTimeline = () => {
