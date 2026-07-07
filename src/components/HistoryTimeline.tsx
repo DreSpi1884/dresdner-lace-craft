@@ -53,7 +53,7 @@ const HistoryTimeline = () => {
       year: "1995",
       text: t(
         "Following German reunification, we reinvented our business. Under the leadership of Manfred and Sascha Schröder, we modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace, warp-knitted fabrics and technical textiles for international markets.",
-        "Nach der Wiedervereinigung erfanden wir unser Unternehmen neu. Unter der Leitung von Manfred und Sascha Schröder modernisierten wir unsere Anlagen, erweiterten unsere Kompetenzen und entwickelten uns vom traditionellen Spitzenhersteller zum Produzenten von Premium-Spitzen, Kettengewirken und technischen Textilien für internationale Märkte."
+        "Nach der Wiedervereinigung erfinden wir unser Unternehmen neu. Unter der Leitung von Manfred und Sascha Schröder modernisieren wir unsere Anlagen und erweitern unsere Kompetenzen. Aus dem traditionellen Spitzenhersteller wird ein Produzent von Premium-Spitzen, Kettengewirken und technischen Textilien für internationale Märkte."
       ),
     },
     {
