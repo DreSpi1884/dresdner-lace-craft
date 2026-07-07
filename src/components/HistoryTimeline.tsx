@@ -10,8 +10,12 @@ type Entry = {
 // Ribbon geometry
 const RIBBON_WIDTH = 44; // px, narrow realistic lace ribbon
 const ROLL_HEIGHT = 56; // px, cylinder thickness
-const ROLL_WIDTH = 180; // px, cylinder length
+const CAP_EXTRA = 9; // px, thin end caps that stick out past the lace on each side
+const ROLL_WIDTH = RIBBON_WIDTH + CAP_EXTRA * 2; // roll only as wide as the lace + caps
 const TILE_HEIGHT = 80; // px, one repeat of the lace pattern
+const INITIAL_REVEAL = 34; // px, short lace piece pre-visible between the caps at load
+const PIN_UNROLL_VH = 0.9; // fraction of viewport height spent unrolling while pinned
+
 
 const HistoryTimeline = () => {
   const { t } = useLang();
@@ -61,30 +65,28 @@ const HistoryTimeline = () => {
   ], [t]);
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  const ribbonAreaRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-  const [ribbonHeight, setRibbonHeight] = useState(0);
+  const entriesAreaRef = useRef<HTMLDivElement>(null);
+  const [unrollProgress, setUnrollProgress] = useState(0); // 0..1 during the pinned unroll
+  const [viewportH, setViewportH] = useState(typeof window !== "undefined" ? window.innerHeight : 800);
   const [visible, setVisible] = useState<boolean[]>(() => ENTRIES.map(() => false));
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
-
 
   useEffect(() => {
     let rafId = 0;
     let ticking = false;
     const compute = () => {
       ticking = false;
-      const area = ribbonAreaRef.current;
-      if (!area) return;
-      const rect = area.getBoundingClientRect();
-      setRibbonHeight(rect.height);
+      const section = sectionRef.current;
+      if (!section) return;
       const vh = window.innerHeight;
-      // Progress from when top of ribbon-area reaches ~30% of viewport
-      // to when bottom reaches ~70% of viewport.
-      const start = vh * 0.3; // ribbon starts revealing
-      const traveled = start - rect.top;
-      const total = rect.height; // 1:1 with scroll through area
-      const p = traveled / total;
-      setProgress(Math.max(0, Math.min(1, p)));
+      setViewportH(vh);
+      const rect = section.getBoundingClientRect();
+      const pinScroll = vh * PIN_UNROLL_VH;
+      // How far we've scrolled past the section's top (only counts once section top hits viewport top)
+      const scrolled = Math.max(0, -rect.top);
+      // Phase 1: pinned unroll (0..pinScroll)
+      const p = Math.max(0, Math.min(1, scrolled / Math.max(1, pinScroll)));
+      setUnrollProgress(p);
     };
     const onScroll = () => {
       if (ticking) return;
@@ -122,290 +124,291 @@ const HistoryTimeline = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Revealed ribbon length in px
-  const revealed = Math.max(0, progress * ribbonHeight);
+  // Roll sits near the top of the viewport during the pinned phase
+  const rollTop = Math.round(viewportH * 0.18);
+  // Base ribbon length after the pinned unroll completes — fills most of the viewport
+  const baseRevealed = Math.max(INITIAL_REVEAL + 40, viewportH - rollTop - ROLL_HEIGHT - 80);
+  const revealed = INITIAL_REVEAL + unrollProgress * (baseRevealed - INITIAL_REVEAL);
   // Rotation: full turn per TILE_HEIGHT of unrolled ribbon (natural feel)
   const rotation = (revealed / TILE_HEIGHT) * 360;
+  const pinScrollPx = Math.round(viewportH * PIN_UNROLL_VH);
+
 
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background text-foreground w-full overflow-hidden pt-10 md:pt-16 pb-16 md:pb-20"
+      className="relative bg-background text-foreground w-full pt-10 md:pt-16 pb-16 md:pb-20"
     >
-      {/* Horizontal fabric roll — sits at the top of the section and scrolls away with it */}
+      {/* Sticky rail — pins roll + ribbon to the viewport while the section scrolls */}
       <div
-        className="relative mx-auto flex justify-center"
-        style={{ width: ROLL_WIDTH, height: ROLL_HEIGHT, marginBottom: -ROLL_HEIGHT / 2 }}
+        className="sticky top-0 h-screen z-10 pointer-events-none"
         aria-hidden="true"
       >
-        <svg
-          width={ROLL_WIDTH}
-          height={ROLL_HEIGHT}
-          viewBox={`0 0 ${ROLL_WIDTH} ${ROLL_HEIGHT}`}
-          className="text-foreground block"
+        {/* Roll */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2"
+          style={{ top: rollTop, width: ROLL_WIDTH, height: ROLL_HEIGHT }}
         >
-          <defs>
-            {/* Cylindrical shading */}
-            <linearGradient id="rollShade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="hsl(var(--muted))" stopOpacity="1" />
-              <stop offset="45%" stopColor="hsl(var(--background))" stopOpacity="1" />
-              <stop offset="100%" stopColor="hsl(var(--muted))" stopOpacity="1" />
-            </linearGradient>
-            {/* Wound-thread stripes that rotate to imply spin */}
-            <pattern
-              id="woundThread"
-              x="0"
+          <svg
+            width={ROLL_WIDTH}
+            height={ROLL_HEIGHT}
+            viewBox={`0 0 ${ROLL_WIDTH} ${ROLL_HEIGHT}`}
+            className="text-foreground block overflow-visible"
+          >
+            <defs>
+              {/* Cylindrical shading for the wound-lace body */}
+              <linearGradient id="rollShade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="hsl(var(--muted))" stopOpacity="1" />
+                <stop offset="45%" stopColor="hsl(var(--background))" stopOpacity="1" />
+                <stop offset="100%" stopColor="hsl(var(--muted))" stopOpacity="1" />
+              </linearGradient>
+              {/* Wound-thread stripes that rotate to imply spin */}
+              <pattern
+                id="woundThread"
+                x="0"
+                y="0"
+                width="6"
+                height={ROLL_HEIGHT}
+                patternUnits="userSpaceOnUse"
+                patternTransform={`rotate(${rotation * 0.15})`}
+              >
+                <rect width="6" height={ROLL_HEIGHT} fill="transparent" />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2={ROLL_HEIGHT}
+                  stroke="currentColor"
+                  strokeWidth="0.35"
+                  opacity="0.35"
+                />
+              </pattern>
+              {/* Thin end-cap flange gradient */}
+              <linearGradient id="capFlange" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="hsl(var(--muted))" />
+                <stop offset="50%" stopColor="hsl(var(--foreground))" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="hsl(var(--muted))" />
+              </linearGradient>
+            </defs>
+
+            {/* Wound-lace body — only as wide as the ribbon */}
+            <rect
+              x={CAP_EXTRA}
               y="0"
-              width="6"
-              height={ROLL_HEIGHT}
-              patternUnits="userSpaceOnUse"
-              patternTransform={`rotate(${rotation * 0.15})`}
-            >
-              <rect width="6" height={ROLL_HEIGHT} fill="transparent" />
-              <line
-                x1="0"
-                y1="0"
-                x2="0"
-                y2={ROLL_HEIGHT}
-                stroke="currentColor"
-                strokeWidth="0.35"
-                opacity="0.35"
-              />
-            </pattern>
-            {/* End cap radial */}
-            <radialGradient id="capShade" cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0%" stopColor="hsl(var(--background))" />
-              <stop offset="80%" stopColor="hsl(var(--muted))" />
-              <stop offset="100%" stopColor="hsl(var(--foreground))" stopOpacity="0.35" />
-            </radialGradient>
-          </defs>
-
-          {/* Body */}
-          <rect
-            x={ROLL_HEIGHT / 2}
-            y="0"
-            width={ROLL_WIDTH - ROLL_HEIGHT}
-            height={ROLL_HEIGHT}
-            fill="url(#rollShade)"
-          />
-          <rect
-            x={ROLL_HEIGHT / 2}
-            y="0"
-            width={ROLL_WIDTH - ROLL_HEIGHT}
-            height={ROLL_HEIGHT}
-            fill="url(#woundThread)"
-          />
-
-          {/* End caps (ellipses) */}
-          <ellipse
-            cx={ROLL_HEIGHT / 2}
-            cy={ROLL_HEIGHT / 2}
-            rx={ROLL_HEIGHT / 2}
-            ry={ROLL_HEIGHT / 2}
-            fill="url(#capShade)"
-            stroke="currentColor"
-            strokeWidth="0.6"
-          />
-          <ellipse
-            cx={ROLL_WIDTH - ROLL_HEIGHT / 2}
-            cy={ROLL_HEIGHT / 2}
-            rx={ROLL_HEIGHT / 2}
-            ry={ROLL_HEIGHT / 2}
-            fill="url(#capShade)"
-            stroke="currentColor"
-            strokeWidth="0.6"
-          />
-
-          {/* Cap spin markers — rotate to show the roll turning */}
-          <g
-            transform={`translate(${ROLL_HEIGHT / 2} ${ROLL_HEIGHT / 2}) rotate(${rotation})`}
-            opacity="0.55"
-          >
-            <line
-              x1={-ROLL_HEIGHT / 2 + 6}
-              y1="0"
-              x2={ROLL_HEIGHT / 2 - 6}
-              y2="0"
-              stroke="currentColor"
-              strokeWidth="0.6"
-            />
-            <circle r="2" fill="currentColor" />
-          </g>
-          <g
-            transform={`translate(${ROLL_WIDTH - ROLL_HEIGHT / 2} ${ROLL_HEIGHT / 2}) rotate(${-rotation})`}
-            opacity="0.55"
-          >
-            <line
-              x1={-ROLL_HEIGHT / 2 + 6}
-              y1="0"
-              x2={ROLL_HEIGHT / 2 - 6}
-              y2="0"
-              stroke="currentColor"
-              strokeWidth="0.6"
-            />
-            <circle r="2" fill="currentColor" />
-          </g>
-
-          {/* Top and bottom edge highlights to sell cylindricality */}
-          <line
-            x1={ROLL_HEIGHT / 2}
-            y1="0.5"
-            x2={ROLL_WIDTH - ROLL_HEIGHT / 2}
-            y2="0.5"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            opacity="0.4"
-          />
-          <line
-            x1={ROLL_HEIGHT / 2}
-            y1={ROLL_HEIGHT - 0.5}
-            x2={ROLL_WIDTH - ROLL_HEIGHT / 2}
-            y2={ROLL_HEIGHT - 0.5}
-            stroke="currentColor"
-            strokeWidth="0.5"
-            opacity="0.4"
-          />
-        </svg>
-      </div>
-
-      {/* Ribbon area — spans the entries and holds the unrolled lace */}
-      <div className="relative w-full px-6 md:px-20 lg:px-24 xl:px-28">
-        <div ref={ribbonAreaRef} className="relative">
-          {/* Ribbon column, absolute-centered, only visible portion is drawn */}
-          <div
-            className="absolute left-1/2 -translate-x-1/2 top-0 pointer-events-none"
-            style={{ width: RIBBON_WIDTH, height: revealed, overflow: "hidden" }}
-            aria-hidden="true"
-          >
-            {/* Fixed-size SVG that tiles vertically — never stretches */}
-            <svg
               width={RIBBON_WIDTH}
-              height={ribbonHeight || 0}
-              viewBox={`0 0 ${RIBBON_WIDTH} ${ribbonHeight || 0}`}
-              preserveAspectRatio="xMidYMin"
-              className="text-foreground block"
-              style={{ display: "block" }}
+              height={ROLL_HEIGHT}
+              fill="url(#rollShade)"
+            />
+            <rect
+              x={CAP_EXTRA}
+              y="0"
+              width={RIBBON_WIDTH}
+              height={ROLL_HEIGHT}
+              fill="url(#woundThread)"
+            />
+
+            {/* Left end cap (thin flange sticking out past the lace) */}
+            <ellipse
+              cx={CAP_EXTRA / 2}
+              cy={ROLL_HEIGHT / 2}
+              rx={CAP_EXTRA / 2}
+              ry={ROLL_HEIGHT / 2 + 3}
+              fill="url(#capFlange)"
+              stroke="currentColor"
+              strokeWidth="0.6"
+            />
+            {/* Right end cap */}
+            <ellipse
+              cx={ROLL_WIDTH - CAP_EXTRA / 2}
+              cy={ROLL_HEIGHT / 2}
+              rx={CAP_EXTRA / 2}
+              ry={ROLL_HEIGHT / 2 + 3}
+              fill="url(#capFlange)"
+              stroke="currentColor"
+              strokeWidth="0.6"
+            />
+
+            {/* Cap spin markers — tiny centered dots that rotate with the roll */}
+            <g
+              transform={`translate(${CAP_EXTRA / 2} ${ROLL_HEIGHT / 2}) rotate(${rotation})`}
+              opacity="0.65"
             >
-              <defs>
-                <pattern
-                  id="laceTileHoriz"
-                  x="0"
-                  y="0"
-                  width={RIBBON_WIDTH}
-                  height={TILE_HEIGHT}
-                  patternUnits="userSpaceOnUse"
-                >
-                  {/* Scalloped edges */}
-                  <path
-                    d={`M 4 0 A 3 10 0 0 1 4 20 A 3 10 0 0 0 4 40 A 3 10 0 0 1 4 60 A 3 10 0 0 0 4 80`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.9"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d={`M ${RIBBON_WIDTH - 4} 0 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 20 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 40 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 60 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 80`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.9"
-                    strokeLinecap="round"
-                  />
-                  {/* Diamond mesh */}
-                  <g stroke="currentColor" strokeWidth="0.35" opacity="0.55" fill="none">
-                    <path d={`M 8 0 L ${RIBBON_WIDTH - 8} 40 L 8 80`} />
-                    <path d={`M ${RIBBON_WIDTH - 8} 0 L 8 40 L ${RIBBON_WIDTH - 8} 80`} />
-                  </g>
-                  {/* Central thread */}
-                  <line
-                    x1={RIBBON_WIDTH / 2}
-                    y1="0"
-                    x2={RIBBON_WIDTH / 2}
-                    y2="80"
-                    stroke="currentColor"
-                    strokeWidth="0.5"
-                    opacity="0.7"
-                  />
-                  {/* Eyelets */}
-                  <g stroke="currentColor" strokeWidth="0.5" fill="hsl(var(--background))">
-                    <circle cx={RIBBON_WIDTH / 2} cy="0" r="1.6" />
-                    <circle cx={RIBBON_WIDTH / 2} cy="40" r="1.6" />
-                    <circle cx={RIBBON_WIDTH / 2} cy="80" r="1.6" />
-                  </g>
-                  {/* Small floral motif */}
-                  <g
-                    transform={`translate(${RIBBON_WIDTH / 2} 40)`}
-                    stroke="currentColor"
-                    strokeWidth="0.45"
-                    fill="none"
-                  >
-                    <path d="M 0 -8 C 4 -5 4 -1 0 0 C -4 -1 -4 -5 0 -8 Z" />
-                    <path d="M 0 8 C 4 5 4 1 0 0 C -4 1 -4 5 0 8 Z" />
-                    <path d="M -8 0 C -5 -3 -1 -3 0 0 C -1 3 -5 3 -8 0 Z" />
-                    <path d="M 8 0 C 5 -3 1 -3 0 0 C 1 3 5 3 8 0 Z" />
-                  </g>
-                </pattern>
-              </defs>
-              <rect
+              <circle r="1.5" fill="currentColor" />
+            </g>
+            <g
+              transform={`translate(${ROLL_WIDTH - CAP_EXTRA / 2} ${ROLL_HEIGHT / 2}) rotate(${-rotation})`}
+              opacity="0.65"
+            >
+              <circle r="1.5" fill="currentColor" />
+            </g>
+
+            {/* Top and bottom edge highlights to sell cylindricality */}
+            <line
+              x1={CAP_EXTRA}
+              y1="0.5"
+              x2={ROLL_WIDTH - CAP_EXTRA}
+              y2="0.5"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              opacity="0.4"
+            />
+            <line
+              x1={CAP_EXTRA}
+              y1={ROLL_HEIGHT - 0.5}
+              x2={ROLL_WIDTH - CAP_EXTRA}
+              y2={ROLL_HEIGHT - 0.5}
+              stroke="currentColor"
+              strokeWidth="0.5"
+              opacity="0.4"
+            />
+          </svg>
+        </div>
+
+        {/* Ribbon — exits from the underside of the roll and grows downward as it unrolls */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 overflow-hidden"
+          style={{
+            top: rollTop + ROLL_HEIGHT / 2,
+            width: RIBBON_WIDTH,
+            height: revealed,
+            transition: "height 120ms linear",
+          }}
+        >
+          <svg
+            width={RIBBON_WIDTH}
+            height={baseRevealed}
+            viewBox={`0 0 ${RIBBON_WIDTH} ${baseRevealed}`}
+            preserveAspectRatio="xMidYMin"
+            className="text-foreground block"
+          >
+            <defs>
+              <pattern
+                id="laceTileHoriz"
                 x="0"
                 y="0"
                 width={RIBBON_WIDTH}
-                height={ribbonHeight || 0}
-                fill="url(#laceTileHoriz)"
-              />
-            </svg>
-          </div>
-
-          {/* Entries */}
-          <div className="relative">
-            {ENTRIES.map((entry, i) => {
-              const isLeft = i % 2 === 0;
-              const isVisible = visible[i];
-              return (
-                <div
-                  key={entry.year}
-                  ref={(el) => (entryRefs.current[i] = el)}
-                  data-idx={i}
-                  className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center py-20 md:py-28"
+                height={TILE_HEIGHT}
+                patternUnits="userSpaceOnUse"
+              >
+                {/* Scalloped edges */}
+                <path
+                  d={`M 4 0 A 3 10 0 0 1 4 20 A 3 10 0 0 0 4 40 A 3 10 0 0 1 4 60 A 3 10 0 0 0 4 80`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.9"
+                  strokeLinecap="round"
+                />
+                <path
+                  d={`M ${RIBBON_WIDTH - 4} 0 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 20 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 40 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 60 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 80`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.9"
+                  strokeLinecap="round"
+                />
+                {/* Diamond mesh */}
+                <g stroke="currentColor" strokeWidth="0.35" opacity="0.55" fill="none">
+                  <path d={`M 8 0 L ${RIBBON_WIDTH - 8} 40 L 8 80`} />
+                  <path d={`M ${RIBBON_WIDTH - 8} 0 L 8 40 L ${RIBBON_WIDTH - 8} 80`} />
+                </g>
+                {/* Central thread */}
+                <line
+                  x1={RIBBON_WIDTH / 2}
+                  y1="0"
+                  x2={RIBBON_WIDTH / 2}
+                  y2="80"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  opacity="0.7"
+                />
+                {/* Eyelets */}
+                <g stroke="currentColor" strokeWidth="0.5" fill="hsl(var(--background))">
+                  <circle cx={RIBBON_WIDTH / 2} cy="0" r="1.6" />
+                  <circle cx={RIBBON_WIDTH / 2} cy="40" r="1.6" />
+                  <circle cx={RIBBON_WIDTH / 2} cy="80" r="1.6" />
+                </g>
+                {/* Small floral motif */}
+                <g
+                  transform={`translate(${RIBBON_WIDTH / 2} 40)`}
+                  stroke="currentColor"
+                  strokeWidth="0.45"
+                  fill="none"
                 >
-                  {/* Image side */}
-                  <div
-                    className={`${isLeft ? "md:order-1 md:pr-16 md:items-end" : "md:order-2 md:pl-16 md:items-start"} flex flex-col transition-all duration-700 ease-out`}
-                    style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible
-                        ? "translateX(0)"
-                        : `translateX(${isLeft ? "-40px" : "40px"})`,
-                    }}
-                  >
-                    <div className="w-full max-w-sm aspect-[4/3] bg-muted border border-border flex items-center justify-center text-muted-foreground/40 editorial-label">
-                      {t("Image", "Bild")} {i + 1}
-                    </div>
-                  </div>
+                  <path d="M 0 -8 C 4 -5 4 -1 0 0 C -4 -1 -4 -5 0 -8 Z" />
+                  <path d="M 0 8 C 4 5 4 1 0 0 C -4 1 -4 5 0 8 Z" />
+                  <path d="M -8 0 C -5 -3 -1 -3 0 0 C -1 3 -5 3 -8 0 Z" />
+                  <path d="M 8 0 C 5 -3 1 -3 0 0 C 1 3 5 3 8 0 Z" />
+                </g>
+              </pattern>
+            </defs>
+            <rect
+              x="0"
+              y="0"
+              width={RIBBON_WIDTH}
+              height={baseRevealed}
+              fill="url(#laceTileHoriz)"
+            />
+          </svg>
+        </div>
+      </div>
 
-                  {/* Text side */}
-                  <div
-                    className={`${isLeft ? "md:order-2 md:text-left md:pl-16 md:items-start" : "md:order-1 md:text-right md:pr-16 md:items-end"} flex flex-col gap-6 transition-all duration-700 ease-out delay-150`}
-                    style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible
-                        ? "translateX(0)"
-                        : `translateX(${isLeft ? "40px" : "-40px"})`,
-                    }}
-                  >
-                    <div
-                      className="font-serif leading-none text-foreground"
-                      style={{ fontSize: "clamp(4rem, 9vw, 8rem)", letterSpacing: "-0.02em" }}
-                    >
-                      {entry.year}
-                    </div>
-                    <p className="editorial-body text-muted-foreground max-w-md">
-                      {entry.text}
-                    </p>
+      {/* Pin spacer — user scrolls through this while the lace unrolls; the sticky rail stays put */}
+      <div style={{ height: pinScrollPx }} aria-hidden="true" />
+
+      {/* Entries area — begins after the pinned unroll and scrolls normally beneath the sticky ribbon */}
+      <div
+        ref={entriesAreaRef}
+        className="relative w-full px-6 md:px-20 lg:px-24 xl:px-28 -mt-screen"
+        style={{ marginTop: -Math.round(viewportH) }}
+      >
+        <div className="relative">
+          {ENTRIES.map((entry, i) => {
+            const isLeft = i % 2 === 0;
+            const isVisible = visible[i];
+            return (
+              <div
+                key={entry.year}
+                ref={(el) => (entryRefs.current[i] = el)}
+                data-idx={i}
+                className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center py-20 md:py-28"
+              >
+                {/* Image side */}
+                <div
+                  className={`${isLeft ? "md:order-1 md:pr-16 md:items-end" : "md:order-2 md:pl-16 md:items-start"} flex flex-col transition-all duration-700 ease-out`}
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible
+                      ? "translateX(0)"
+                      : `translateX(${isLeft ? "-40px" : "40px"})`,
+                  }}
+                >
+                  <div className="w-full max-w-sm aspect-[4/3] bg-muted border border-border flex items-center justify-center text-muted-foreground/40 editorial-label">
+                    {t("Image", "Bild")} {i + 1}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Text side */}
+                <div
+                  className={`${isLeft ? "md:order-2 md:text-left md:pl-16 md:items-start" : "md:order-1 md:text-right md:pr-16 md:items-end"} flex flex-col gap-6 transition-all duration-700 ease-out delay-150`}
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible
+                      ? "translateX(0)"
+                      : `translateX(${isLeft ? "40px" : "-40px"})`,
+                  }}
+                >
+                  <div
+                    className="font-serif leading-none text-foreground"
+                    style={{ fontSize: "clamp(4rem, 9vw, 8rem)", letterSpacing: "-0.02em" }}
+                  >
+                    {entry.year}
+                  </div>
+                  <p className="editorial-body text-muted-foreground max-w-md">
+                    {entry.text}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -413,3 +416,4 @@ const HistoryTimeline = () => {
 };
 
 export default HistoryTimeline;
+
