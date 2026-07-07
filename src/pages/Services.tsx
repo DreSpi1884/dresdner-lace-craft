@@ -152,13 +152,32 @@ const Services = () => {
     >
       {s.id === "collections" ? (
         <>
+          {s.text.split('\n').map((line, li) => {
+            const linkWord = lang === "de" ? "Anfrage" : "request";
+            const isLinkLine = line.includes(linkWord);
+            return line ? (
+              <p key={`collections-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+                {isLinkLine ? (
+                  <TextWithLink
+                    text={line}
+                    link={linkWord}
+                    onClick={openQuote}
+                  />
+                ) : (
+                  line
+                )}
+              </p>
+            ) : null;
+          })}
           <h3
-            className="mb-4 leading-[1.1]"
+            className="mt-8 mb-6"
             style={{
-              fontFamily: "'Bodoni Moda', serif",
-              fontSize: "clamp(24px, 3vw, 30px)",
+              fontFamily: "'Jost', sans-serif",
+              fontSize: "12px",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              fontWeight: 600,
               color: "hsl(var(--primary))",
-              fontWeight: 500,
             }}
           >
             {t("Custom Designs", "Maßgeschneiderte Entwürfe")}
@@ -205,13 +224,6 @@ const Services = () => {
               ))}
             </div>
           </div>
-          <p>
-            <TextWithLink
-              text={s.text}
-              link={lang === "de" ? "Anfrage" : "request"}
-              onClick={openQuote}
-            />
-          </p>
         </>
       ) : (
         s.text.split('\n').map((line, li) => (
