@@ -21,12 +21,12 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 h-full">
             <div className="flex flex-col justify-center">
               <h1 className="editorial-heading-lg mb-4">
-                {t("Let's start a conversation", "Lassen Sie uns ins Gespräch kommen")}
+                {t("Let's start a conversation", "Reden Wir")}
               </h1>
               <p className="editorial-body text-muted-foreground mb-6">
                 {t(
                   "Whether you have a specific project in mind or simply want to learn more about our capabilities, we're here to help. Our team responds within one business day.",
-                  "Ob Sie ein konkretes Projekt planen oder mehr über unsere Möglichkeiten erfahren möchten – wir sind für Sie da. Unser Team antwortet innerhalb eines Werktages."
+                  "Ob Sie ein konkretes Projekt planen oder mehr über unsere Möglichkeiten erfahren möchten, wir sind für Sie da. Unser Team antwortet innerhalb eines Werktages."
                 )}
               </p>
               <hr className="border-border mb-6" />
