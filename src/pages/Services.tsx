@@ -140,7 +140,7 @@ const Services = () => {
     setMobileOpenIdx((prev) => (prev === idx ? -1 : idx));
   };
 
-  const renderBody = (s: typeof services[number]) => (
+  const renderBody = (s: ServiceItem) => (
     <div
       style={{
         fontFamily: "'Jost', sans-serif",
@@ -223,7 +223,7 @@ const Services = () => {
     </div>
   );
 
-  const renderProcess = (s: typeof services[number]) =>
+  const renderProcess = (s: ServiceItem) =>
     s.process && (
       <div className="mt-8 pt-8 border-t border-primary/15 max-w-none">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
