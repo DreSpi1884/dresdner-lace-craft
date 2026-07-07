@@ -160,7 +160,7 @@ const Index = () => {
             <div className="w-full mx-auto lg:max-w-none">
               <BeforeAfterSlider
                 beforeImage={heritageThen.url}
-                afterImage={heritageNow}
+                afterImage={heritageNow.url}
                 beforeAlt="Historic Dresdner Spitzen weaving hall"
                 afterAlt="Modern Dresdner Spitzen production facility"
               />
