@@ -66,8 +66,9 @@ const HistoryTimeline = () => {
   ], [t]);
 
   const sectionRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
   const entriesAreaRef = useRef<HTMLDivElement>(null);
-  const [unrollProgress, setUnrollProgress] = useState(0); // 0..1 during the pinned unroll
+  const [unrollProgress, setUnrollProgress] = useState(0); // 0..1 across the timeline scroll
   const [viewportH, setViewportH] = useState(typeof window !== "undefined" ? window.innerHeight : 800);
   const [visible, setVisible] = useState<boolean[]>(() => ENTRIES.map(() => false));
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -77,16 +78,17 @@ const HistoryTimeline = () => {
     let ticking = false;
     const compute = () => {
       ticking = false;
-      const section = sectionRef.current;
-      if (!section) return;
+      const timeline = timelineRef.current;
+      if (!timeline) return;
       const vh = window.innerHeight;
       setViewportH(vh);
-      const rect = section.getBoundingClientRect();
-      const pinScroll = vh * PIN_UNROLL_VH;
-      // How far we've scrolled past the section's top (only counts once section top hits viewport top)
-      const scrolled = Math.max(0, -rect.top);
-      // Phase 1: pinned unroll (0..pinScroll)
-      const p = Math.max(0, Math.min(1, scrolled / Math.max(1, pinScroll)));
+      const rect = timeline.getBoundingClientRect();
+      // Unroll begins when timeline top passes the sticky offset,
+      // completes when the bottom leaves the viewport.
+      const start = STICKY_TOP;
+      const total = Math.max(1, rect.height - (vh - STICKY_TOP));
+      const scrolled = Math.max(0, start - rect.top);
+      const p = Math.max(0, Math.min(1, scrolled / total));
       setUnrollProgress(p);
     };
     const onScroll = () => {
@@ -125,14 +127,12 @@ const HistoryTimeline = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Roll sits near the top of the viewport during the pinned phase
-  const rollTop = Math.round(viewportH * 0.18);
-  // Base ribbon length after the pinned unroll completes — fills most of the viewport
-  const baseRevealed = Math.max(INITIAL_REVEAL + 40, viewportH - rollTop - ROLL_HEIGHT - 80);
-  const revealed = INITIAL_REVEAL + unrollProgress * (baseRevealed - INITIAL_REVEAL);
+  // Max ribbon length while sticky — fills most of the viewport below the roll
+  const maxRibbon = Math.max(INITIAL_REVEAL + 80, viewportH - STICKY_TOP - ROLL_HEIGHT - 80);
+  const revealed = INITIAL_REVEAL + unrollProgress * (maxRibbon - INITIAL_REVEAL);
   // Rotation: full turn per TILE_HEIGHT of unrolled ribbon (natural feel)
   const rotation = (revealed / TILE_HEIGHT) * 360;
-  const pinScrollPx = Math.round(viewportH * PIN_UNROLL_VH);
+
 
 
   return (
