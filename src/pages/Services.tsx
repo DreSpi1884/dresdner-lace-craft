@@ -62,8 +62,8 @@ const Services = () => {
       nav: t("Design", "Design"),
       title: t("Design", "Design"),
       text: t(
-        "Twice a year we develop new lace collections inspired by international fashion trends, alongside custom warp-knitted fabrics for technical and medical applications.\nBeyond our seasonal collections, we develop custom designs tailored to your exact specifications. Whether you need a specific pattern, weight or construction, we translate your vision into finished textile.",
-        "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends, sowie maßgeschneiderte Kettengewirke für technische und medizinische Anwendungen.\nÜber unsere saisonalen Kollektionen hinaus entwickeln wir maßgeschneiderte Designs, die genau auf Ihre Spezifikationen zugeschnitten sind. Ob Sie ein bestimmtes Muster, Gewicht oder eine bestimmte Konstruktion benötigen, wir setzen Ihre Vision in ein fertiges Textil um."
+        "Twice a year we develop new lace collections inspired by international fashion trends, alongside custom warp-knitted fabrics for technical and medical applications.\n\n\nOur Portfolio\nBeyond our seasonal collections, we develop custom designs tailored to your exact specifications. Whether you need a specific pattern, weight or construction, we translate your vision into finished textile.",
+        "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends, sowie maßgeschneiderte Kettengewirke für technische und medizinische Anwendungen.\n\n\nUnser Portfolio\nÜber unsere saisonalen Kollektionen hinaus entwickeln wir maßgeschneiderte Designs, die genau auf Ihre Spezifikationen zugeschnitten sind. Ob Sie ein bestimmtes Muster, Gewicht oder eine bestimmte Konstruktion benötigen, wir setzen Ihre Vision in ein fertiges Textil um."
       ),
     },
     {
@@ -152,10 +152,11 @@ const Services = () => {
     >
       {s.id === "collections" ? (
         <>
-          {s.text.split('\n').map((line, li) =>
-            line ? (
+          {s.text.split('\n').map((line, li, array) => {
+            const isBeyondLine = line.trim().startsWith("Beyond") || line.trim().startsWith("Über");
+            return (
               <div key={`collections-${lang}-${li}`}>
-                {li === 1 && (
+                {isBeyondLine && (
                   <h3
                     className="mb-6"
                     style={{
@@ -170,10 +171,14 @@ const Services = () => {
                     {t("ELASTIC LACE | INELASTIC LACE | WARP KNITTED FABRICS", "ELASTISCHE SPITZE | UNELASTISCHE SPITZE | KETTENGEWIRKE")}
                   </h3>
                 )}
-                <p className={li > 0 ? "mt-3" : ""}>{line}</p>
+                {line ? (
+                  <p className={li > 0 && array[li-1] ? "mt-3" : ""}>{line}</p>
+                ) : (
+                  <div className="h-4" />
+                )}
               </div>
-            ) : null
-          )}
+            );
+          })}
           <h3
             className="mt-8 mb-6"
             style={{
