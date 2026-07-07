@@ -48,7 +48,15 @@ const Services = () => {
     { step: "04", title: t("Delivery", "Lieferung"), desc: t("Reliable just-in-time delivery to support efficient production planning.", "Zuverlässige Just-in-Time-Lieferung für eine effiziente Produktionsplanung.") },
   ], [t]);
 
-  const services = useMemo(() => [
+  type ServiceItem = {
+    id: string;
+    nav: string;
+    title: string;
+    text: string;
+    process?: typeof processSteps;
+  };
+
+  const services = useMemo((): ServiceItem[] => [
     {
       id: "collections",
       nav: t("Design", "Design"),
