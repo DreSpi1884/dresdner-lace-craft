@@ -167,9 +167,9 @@ const Index = () => {
             </div>
 
             <div>
-              <p className="editorial-label text-primary mb-4">{t("OUR HISTORY", "UNSERE GESCHICHTE")}</p>
+              <p className="editorial-label text-primary mb-4">{t("140 YEARS OF EXPERIENCE", "140 JAHRE ERFAHRUNG")}</p>
               <h2 className="editorial-heading-lg text-foreground mb-6">
-                {t("Generations of expertise", "Generationen von Erfahrung")}
+                {t("Our Story", "Unsere Geschichte")}
               </h2>
               <div className="space-y-4 editorial-body text-muted-foreground">
                 <p>
