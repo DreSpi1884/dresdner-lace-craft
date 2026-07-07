@@ -413,8 +413,10 @@ const HistoryTimeline = () => {
             );
           })}
         </div>
+        </div>
       </div>
     </section>
+
   );
 };
 
