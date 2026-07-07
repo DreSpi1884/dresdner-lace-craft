@@ -8,7 +8,7 @@ import heroVideo from "@/assets/hero-video.mp4.asset.json";
 import serviceCollections from "@/assets/service-collections.jpg.asset.json";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
 import serviceFunctional from "@/assets/service-functional.png.asset.json";
-import serviceDyeing from "@/assets/production-detail.jpg";
+import serviceDyeing from "@/assets/hydrophobic-fabric.JPG.asset.json";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
 import heritageNow from "@/assets/heritage-now.jpg";
@@ -106,7 +106,7 @@ const Index = () => {
                   "Our in-house dyeing facility covers the full colour spectrum in uni or bicolour.",
                   "Unsere hauseigene Färberei deckt das gesamte Farbspektrum in Uni oder Bicolor ab."
                 ),
-                image: serviceDyeing,
+                image: serviceDyeing.url,
                 anchor: "dyeing-finishing",
               },
               {
