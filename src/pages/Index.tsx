@@ -92,7 +92,7 @@ const Index = () => {
                 anchor: "collections",
               },
               {
-                title: t("Bespoke Designs", "Maßgeschneiderte Entwürfe"),
+                title: t("Bespoke Designs", "Maßgeschneiderte Designs"),
                 desc: t(
                   "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
                   "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um."
@@ -101,7 +101,7 @@ const Index = () => {
                 anchor: "custom-designs",
               },
               {
-                title: t("Dyeing and Finishing\u00a0", "Färben und Veredeln\u00a0"),
+                title: t("Dyeing and Finishing", "Färben & Ausrüsten"),
                 desc: t(
                   "Our in-house dyeing facility covers the full colour spectrum in uni or bicolour.",
                   "Unsere hauseigene Färberei deckt das gesamte Farbspektrum in Uni oder Bicolor ab."
