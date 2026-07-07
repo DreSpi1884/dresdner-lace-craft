@@ -90,6 +90,8 @@ const Services = () => {
   ], [t, processSteps]);
 
   const [activeIdx, setActiveIdx] = useState(0);
+  const [mobileOpenIdx, setMobileOpenIdx] = useState(-1);
+  const isMobile = useIsMobile();
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
