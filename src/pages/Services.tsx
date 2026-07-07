@@ -62,8 +62,8 @@ const Services = () => {
       nav: t("Bespoke Designs", "Maßgeschneiderte Entwürfe"),
       title: t("Bespoke Designs", "Maßgeschneiderte Entwürfe"),
       text: t(
-        "Every project starts with an idea. We work closely with you to create a lace, warp-knitted fabric or functional textile tailored to your technical and aesthetic requirements.\nFrom first sketch to finished product, we manage the entire process.",
-        "Jedes Projekt beginnt mit einer Idee. Wir arbeiten eng mit Ihnen zusammen, um eine Spitze, ein Kettengewirke oder ein funktionales Textil zu entwickeln, das Ihren technischen und ästhetischen Anforderungen entspricht.\nVom ersten Entwurf bis zum fertigen Produkt begleiten wir den gesamten Prozess."
+        "Every project starts with an idea. From the first initial concept to the finished product, we develop individual lace, warp-knitted fabrics, and functional textiles for your technical and creative requirements.",
+        "Von der ersten Idee bis zum fertigen Produkt entwickeln wir individuelle Spitzen, Kettengewirke und Funktionstextilien für Ihre technischen und gestalterischen Anforderungen."
       ),
       process: processSteps,
     },
