@@ -51,11 +51,11 @@ const Services = () => {
   const services = useMemo(() => [
     {
       id: "collections",
-      nav: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
-      title: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
+      nav: t("Design", "Design"),
+      title: t("Design", "Design"),
       text: t(
-        "Our design team continuously develops new lace collections inspired by international fashion trends. Each collection includes elastic and inelastic lace for lingerie, fashion and apparel. Samples are available on request.",
-        "Unser Designteam entwickelt kontinuierlich neue Spitzenkollektionen, inspiriert von internationalen Modetrends. Jede Kollektion umfasst elastische und unelastische Spitzen für Lingerie, Mode und Bekleidung. Muster sind auf Anfrage erhältlich."
+        "Twice a year, our design team develops new lace collections inspired by international fashion trends. \nBeyond our seasonal collections, we develop custom designs tailored to your exact specifications. Whether you need a specific pattern, weight or construction, we translate your vision into finished textile.\n\n\n Samples are available on request.",
+        "Zweimal im Jahr entwickelt unser Designteam neue Spitzenkollektionen, inspiriert von internationalen Modetrends. \nÜber unsere saisonalen Kollektionen hinaus entwickeln wir maßgeschneiderte Designs, die genau auf Ihre Spezifikationen zugeschnitten sind. Ob Sie ein bestimmtes Muster, Gewicht oder eine bestimmte Konstruktion benötigen, wir setzen Ihre Vision in ein fertiges Textil um.\n\n\n Muster sind auf Anfrage erhältlich."
       ),
     },
     {
