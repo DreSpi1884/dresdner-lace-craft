@@ -213,7 +213,7 @@ const Services = () => {
                 >
                   {s.title}
                 </h2>
-                <p
+                <div
                   style={{
                     fontFamily: "'Jost', sans-serif",
                     fontSize: "15px",
@@ -223,20 +223,22 @@ const Services = () => {
                   }}
                 >
                   {s.id === "collections" ? (
-                    <TextWithLink
-                      text={s.text}
-                      link={lang === "de" ? "Anfrage" : "request"}
-                      onClick={openQuote}
-                    />
+                    <p>
+                      <TextWithLink
+                        text={s.text}
+                        link={lang === "de" ? "Anfrage" : "request"}
+                        onClick={openQuote}
+                      />
+                    </p>
                   ) : (
                     s.text.split('\n').map((line, li) => (
-                      <span key={li}>
+                      <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
                         {line}
-                        {li < s.text.split('\n').length - 1 && <br />}
-                      </span>
+                      </p>
                     ))
                   )}
-                </p>
+                </div>
+
 
                 {s.process && (
                   <div className="mt-10 max-w-2xl">
