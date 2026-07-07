@@ -39,7 +39,7 @@ const HistoryTimeline = () => {
       year: "1945",
       text: t(
         "After the Second World War, every machine in our factory was dismantled. Starting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees. Within a year, textile manufacturing had resumed. This resilience became known as the Dregusgeist and continues to shape our company today.",
-        "Nach dem Zweiten Weltkrieg wurde jede Maschine unserer Fabrik demontiert. Fast bei null beginnend, haben wir unsere Produktion mit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden wieder aufgebaut. Innerhalb eines Jahres lief die Textilproduktion wieder. Diese Widerstandskraft wurde als Dregusgeist bekannt und prägt unser Unternehmen bis heute."
+        "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert. Mit leeren Händen bauen wir unsere Produktion mit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden wieder auf. Innerhalb eines Jahres läuft die Textilproduktion wieder. Diese Widerstandskraft wird als Dregusgeist bekannt und prägt unser Unternehmen bis heute."
       ),
     },
     {
