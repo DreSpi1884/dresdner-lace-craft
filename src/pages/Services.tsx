@@ -4,7 +4,6 @@ import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 // Inline link helper that turns a specific word in a paragraph into a button.
 const TextWithLink = ({
