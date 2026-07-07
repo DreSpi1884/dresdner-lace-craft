@@ -36,7 +36,9 @@ const TextWithLink = ({
 const NAV_OFFSET = 96;
 
 const Services = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const { open: openQuote } = useQuoteModal();
+
 
   const processSteps = useMemo(() => [
     { step: "01", title: t("Consult", "Beraten"), desc: t("Share your project requirements and applications with us.", "Teilen Sie uns Ihre Projektanforderungen und Anwendungen mit.") },
