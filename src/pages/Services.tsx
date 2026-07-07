@@ -1,7 +1,36 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
+import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
+
+// Inline link helper that turns a specific word in a paragraph into a button.
+const TextWithLink = ({
+  text,
+  link,
+  onClick,
+}: {
+  text: string;
+  link: string;
+  onClick: () => void;
+}): ReactNode => {
+  const parts = text.split(link);
+  if (parts.length !== 2) return <>{text}</>;
+  return (
+    <>
+      {parts[0]}
+      <button
+        type="button"
+        onClick={onClick}
+        className="inline underline underline-offset-4 text-primary hover:opacity-80 transition-opacity"
+      >
+        {link}
+      </button>
+      {parts[1]}
+    </>
+  );
+};
+
 
 // Fixed header height (h-20 mobile / h-24 desktop)
 const NAV_OFFSET = 96;
