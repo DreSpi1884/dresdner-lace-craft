@@ -25,7 +25,7 @@ const HistoryTimeline = () => {
       year: "1884",
       text: t(
         "Our story began in 1884, when Georg Marwitz and Carl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur. At a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden.",
-        "Unsere Geschichte begann 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründeten. Zu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wurde, brachten sie englische Bobbinet-Maschinen nach Deutschland und legten den Grundstein für die moderne Spitzenherstellung in Dresden."
+        "Unsere Geschichte beginnt 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen. Zu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
       ),
     },
     {
