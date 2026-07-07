@@ -242,6 +242,27 @@ const Services = () => {
             />
           </p>
         </>
+      ) : s.id === "custom-designs" ? (
+        <>
+          {s.text.split('\n').map((line, li) => (
+            <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+              {line}
+            </p>
+          ))}
+          <p
+            className="mt-8"
+            style={{
+              fontFamily: "'Jost', sans-serif",
+              fontSize: "12px",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              fontWeight: 600,
+              color: "hsl(var(--primary))",
+            }}
+          >
+            {t("Contract manufacturing available on request.", "Konfektionsfertigung auf Anfrage.")}
+          </p>
+        </>
       ) : (
         s.text.split('\n').map((line, li) => (
           <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
