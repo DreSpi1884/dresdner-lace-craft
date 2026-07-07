@@ -11,7 +11,7 @@ import serviceFunctional from "@/assets/functional-medical-fabric.jpg.asset.json
 import serviceDyeing from "@/assets/hydrophobic-fabric.JPG.asset.json";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
-import heritageNow from "@/assets/heritage-now.jpg";
+import heritageNow from "@/assets/heritage-now.jpg.asset.json";
 import { useLang } from "@/i18n/LanguageContext";
 
 const Index = () => {
