@@ -62,7 +62,7 @@ const About = () => {
             {[
               { title: t("Tradition", "Tradition"), desc: t("More than 140 years of textile craftsmanship.", "Über 140 Jahre textiles Handwerk.") },
               { title: t("Innovation", "Innovation"), desc: t("Driven by new ideas and modern manufacturing.", "Angetrieben von neuen Ideen und moderner Fertigung.") },
-              { title: t("Quality", "Qualität"), desc: t("Certified textile production with strict quality standards.", "Zertifizierte Textilproduktion mit strengen Qualitätsstandards.") },
+              { title: t("Quality", "Qualität"), desc: t("Strict quality standards throughout the entire production.", "Strenge Qualitätsstandards entlang der gesamten Produktion.") },
               { title: t("Precision", "Präzision"), desc: t("Meticulous attention to detail in every product.", "Höchste Sorgfalt im Detail bei jedem Produkt.") },
               { title: t("Flexibility", "Flexibilität"), desc: t("Tailored solutions for every project.", "Maßgeschneiderte Lösungen für jedes Projekt.") },
               { title: t("Reliability", "Zuverlässigkeit"), desc: t("A trusted partner from development to delivery.", "Ein verlässlicher Partner von der Entwicklung bis zur Lieferung.") },
