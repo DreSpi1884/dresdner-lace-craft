@@ -68,11 +68,11 @@ const Services = () => {
     },
     {
       id: "custom-designs",
-      nav: t("Bespoke Designs", "Maßgeschneiderte Entwürfe"),
-      title: t("Bespoke Designs", "Maßgeschneiderte Entwürfe"),
+      nav: t("Raw Material Production", "Rohwarenproduktion"),
+      title: t("Raw Material Production", "Rohwarenproduktion"),
       text: t(
-        "Every project starts with an idea. From the first initial concept to the finished product, we develop individual lace, warp-knitted fabrics, and functional textiles for your technical and creative requirements.",
-        "Von der ersten Idee bis zum fertigen Produkt entwickeln wir individuelle Spitzen, Kettengewirke und Funktionstextilien für Ihre technischen und gestalterischen Anforderungen."
+        "All production takes place under one roof in Dresden. Our Karl Mayer Raschel, Jacquardtronic® and Textronic® machines combine the latest warp knitting technology with over 140 years of textile expertise to produce premium lace, elastic fabrics and technical textiles.",
+        "Die gesamte Produktion findet unter einem Dach in Dresden statt. Unsere Karl Mayer Raschel-, Jacquardtronic®- und Textronic®-Maschinen kombinieren modernste Wirktechnologie mit über 140 Jahren Textilexpertise zur Herstellung hochwertiger Spitzen, elastischer Stoffe und technischer Textilien."
       ),
     },
     {
