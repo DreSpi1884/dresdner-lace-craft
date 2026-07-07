@@ -222,12 +222,20 @@ const Services = () => {
                     color: "hsl(var(--muted-foreground))",
                   }}
                 >
-                  {s.text.split('\n').map((line, li) => (
-                    <span key={li}>
-                      {line}
-                      {li < s.text.split('\n').length - 1 && <br />}
-                    </span>
-                  ))}
+                  {s.id === "collections" ? (
+                    <TextWithLink
+                      text={s.text}
+                      link={lang === "de" ? "Anfrage" : "request"}
+                      onClick={openQuote}
+                    />
+                  ) : (
+                    s.text.split('\n').map((line, li) => (
+                      <span key={li}>
+                        {line}
+                        {li < s.text.split('\n').length - 1 && <br />}
+                      </span>
+                    ))
+                  )}
                 </p>
 
                 {s.process && (
