@@ -89,7 +89,7 @@ const Index = () => {
                   "Our team continuosly releases new lace collections, each spanning a wide variety of styles inspired by global fashion trends.",
                   "Unser Team veröffentlicht kontinuierlich neue Spitzenkollektionen, die eine große Vielfalt an Stilen, inspiriert von internationalen Modetrends, umfassen."
                 ),
-                image: serviceBespoke.url,
+                image: serviceLaceCollections.url,
                 anchor: "collections",
               },
               {
