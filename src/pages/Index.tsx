@@ -7,6 +7,7 @@ import heroVideo from "@/assets/hero-video.mp4.asset.json";
 
 import serviceCollections from "@/assets/service-collections.jpg.asset.json";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
+import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg.asset.json";
 import serviceFunctional from "@/assets/functional-medical-fabric.jpg.asset.json";
 import serviceDyeing from "@/assets/hydrophobic-fabric.JPG.asset.json";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
@@ -88,7 +89,7 @@ const Index = () => {
                   "Our team continuosly releases new lace collections, each spanning a wide variety of styles inspired by global fashion trends.",
                   "Unser Team veröffentlicht kontinuierlich neue Spitzenkollektionen, die eine große Vielfalt an Stilen, inspiriert von internationalen Modetrends, umfassen."
                 ),
-                image: serviceBespoke.url,
+                image: serviceLaceCollections.url,
                 anchor: "collections",
               },
               {
