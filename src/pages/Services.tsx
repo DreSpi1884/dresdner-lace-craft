@@ -77,8 +77,8 @@ const Services = () => {
     },
     {
       id: "dyeing-finishing",
-      nav: t("Dyeing & Finishing", "Färben & Veredeln"),
-      title: t("Dyeing & Finishing", "Färben & Veredeln"),
+      nav: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
+      title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
       text: t(
         "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes. We also provide finishing tailored to your intended application.\nhydrophilic | hydrophobic\u00a0 | antistatic | flame retardant | softening | stiffening",
         "Unsere hauseigene Färberei bietet präzises Color-Matching über das gesamte Farbspektrum, inklusive Uni- und Bicolor-Ausführungen an. Wir bieten zudem Veredelungen an, die auf Ihre jeweilige Anwendung abgestimmt sind.\n\nhydrophil | hydrophob | antistatisch | flammhemmend | weichmachend | versteifend"
