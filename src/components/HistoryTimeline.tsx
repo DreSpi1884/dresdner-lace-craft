@@ -32,7 +32,7 @@ const HistoryTimeline = () => {
       year: "1900",
       text: t(
         "As demand for our lace and textiles increased, so did our ambitions. We expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad. Even through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide.",
-        "Mit der wachsenden Nachfrage nach unseren Spitzen und Textilien wuchsen auch unsere Ambitionen. Wir verlagerten unsere Produktion an einen größeren Standort in Dresden-Dobritz, investierten in neue Fertigungsanlagen und eröffneten Werke im Ausland. Selbst durch Kriege, Inflation und wirtschaftliche Unsicherheit hindurch produzierten und exportierten wir unsere Textilien weltweit."
+        "Mit wachsender Nachfrage wachsen auch unsere Ambitionen. Wir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland.\nAuch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
       ),
     },
     {
