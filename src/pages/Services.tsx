@@ -208,9 +208,9 @@ const Services = () => {
     );
 
   return (
-    <EditorialLayout title={t("Our Services", "Unsere Leistungen")} heroCompact>
+    <EditorialLayout title={t("Our Production", "Unsere Produktion")} heroCompact>
       <SEO
-        title={t("Our Services — Lace, Bespoke Designs & Finishing", "Unsere Leistungen — Spitzen, Maßanfertigungen & Veredelung")}
+        title={t("Our Production — Lace, Bespoke Designs & Finishing", "Unsere Produktion — Spitzen, Maßanfertigungen & Veredelung")}
         description={t(
           "Seasonal lace collections, bespoke designs, in-house dyeing and finishing, and functional or medical textiles — engineered in Germany.",
           "Saisonale Spitzenkollektionen, maßgeschneiderte Entwürfe, hauseigenes Färben und Veredeln sowie funktionale und medizinische Textilien — entwickelt in Deutschland."
