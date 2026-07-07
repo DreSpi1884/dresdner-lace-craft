@@ -64,6 +64,7 @@ const HistoryTimeline = () => {
     },
   ], [t]);
 
+  const sectionRef = useRef<HTMLDivElement>(null);
   const entriesAreaRef = useRef<HTMLDivElement>(null);
   const [unrollProgress, setUnrollProgress] = useState(0); // 0..1 during the pinned unroll
   const [viewportH, setViewportH] = useState(typeof window !== "undefined" ? window.innerHeight : 800);
