@@ -59,7 +59,7 @@ const HistoryTimeline = () => {
     {
       year: t("Today", "Heute"),
       text: t(
-        "Today, Dresdner Spitzen stands as an international partner for premium lace, warp-knitted fabrics and technical textiles. From our Dresden facility, we continue to combine more than 140 years of craftsmanship with modern manufacturing technology, serving customers in fashion, industry and medical applications worldwide.",
+        "Today, Dresdner Spitzen is an international manufacturer of premium lace, warp-knitted fabrics and technical textiles. From Dresden, we combine over 140 years of craftsmanship with modern manufacturing technology, serving customers in fashion, lingerie, industry and medical applications worldwide.",
         "Heute steht Dresdner Spitzen als internationaler Partner für Premium-Spitzen, Kettengewirke und technische Textilien. Von unserem Dresdner Standort aus verbinden wir über 140 Jahre Handwerkskunst mit moderner Fertigungstechnologie und beliefern Kunden aus Mode, Industrie und Medizin weltweit."
       ),
     },
