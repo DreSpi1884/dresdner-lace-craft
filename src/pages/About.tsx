@@ -40,14 +40,8 @@ const About = () => {
             <div className="space-y-6 editorial-body text-muted-foreground">
               <p>
                 {t(
-                  "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® STANDARD 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
-                  "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® STANDARD 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
-                )}
-              </p>
-              <p>
-                {t(
-                  "These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
-                  "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
+                  "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\nThese certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.\n\nWe generate part of our electricity through our own solar power systems on our production site in Dresden.",
+                  "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\nDiese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse.\n\nEinen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
                 )}
               </p>
             </div>
