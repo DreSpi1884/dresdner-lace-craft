@@ -187,7 +187,7 @@ const Services = () => {
                 id={s.id}
                 data-idx={i}
                 ref={(el) => { sectionsRef.current[i] = el; }}
-                className="max-w-2xl py-16 md:py-24 first:pt-0 last:pb-0"
+                className={`${s.process ? "max-w-4xl" : "max-w-2xl"} py-16 md:py-24 first:pt-0 last:pb-0`}
                 style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
               >
                 <p
