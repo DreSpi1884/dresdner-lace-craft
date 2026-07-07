@@ -188,7 +188,7 @@ const Index = () => {
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300">
-                {t("Read our story", "Unsere Geschichte lesen")} <ArrowRight size={16} />
+                {t("Learn More", "Mehr erfahren")} <ArrowRight size={16} />
               </Link>
             </div>
           </div>
