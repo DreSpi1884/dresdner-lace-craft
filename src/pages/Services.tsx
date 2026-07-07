@@ -54,8 +54,8 @@ const Services = () => {
       nav: t("Design", "Design"),
       title: t("Design", "Design"),
       text: t(
-        "Twice a year, our design team develops new lace collections inspired by international fashion trends. \nBeyond our seasonal collections, we develop custom designs tailored to your exact specifications. Whether you need a specific pattern, weight or construction, we translate your vision into finished textile.\n\n\n Samples are available on request.",
-        "Zweimal im Jahr entwickelt unser Designteam neue Spitzenkollektionen, inspiriert von internationalen Modetrends. \nÜber unsere saisonalen Kollektionen hinaus entwickeln wir maßgeschneiderte Designs, die genau auf Ihre Spezifikationen zugeschnitten sind. Ob Sie ein bestimmtes Muster, Gewicht oder eine bestimmte Konstruktion benötigen, wir setzen Ihre Vision in ein fertiges Textil um.\n\n\n Muster sind auf Anfrage erhältlich."
+        "\n\nSamples are available on request.",
+        "\n\nMuster sind auf Anfrage erhältlich."
       ),
     },
     {
