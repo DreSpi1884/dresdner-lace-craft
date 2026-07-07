@@ -57,7 +57,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/30">
             {[
               t("IN-HOUSE PRODUCTION", "INTEGRIERTE PRODUKTION"),
-              t("TAILORED SOLUTIONS", "MASSGESCHNEIDERTE LÖSUNGEN"),
+              t("TAILORED DESIGNS", "MASSGESCHNEIDERTE DESIGNS"),
               t("CERTIFIED SUSTAINABLE PRODUCTION", "ZERTIFIZIERTE NACHHALTIGKEIT"),
               t("JUST-IN-TIME DELIVERY", "JUST-IN-TIME-LIEFERUNG"),
             ].map((text) => (
