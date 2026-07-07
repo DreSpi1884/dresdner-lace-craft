@@ -11,7 +11,7 @@ import serviceFunctional from "@/assets/functional-medical-fabric.jpg.asset.json
 import serviceDyeing from "@/assets/hydrophobic-fabric.JPG.asset.json";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
-import heritageNow from "@/assets/heritage-now.jpg";
+import heritageNow from "@/assets/heritage-now.jpg.asset.json";
 import { useLang } from "@/i18n/LanguageContext";
 
 const Index = () => {
@@ -160,7 +160,7 @@ const Index = () => {
             <div className="w-full mx-auto lg:max-w-none">
               <BeforeAfterSlider
                 beforeImage={heritageThen.url}
-                afterImage={heritageNow}
+                afterImage={heritageNow.url}
                 beforeAlt="Historic Dresdner Spitzen weaving hall"
                 afterAlt="Modern Dresdner Spitzen production facility"
               />
