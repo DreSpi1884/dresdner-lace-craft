@@ -66,7 +66,6 @@ const Services = () => {
         "Every project starts with an idea. From the first initial concept to the finished product, we develop individual lace, warp-knitted fabrics, and functional textiles for your technical and creative requirements.",
         "Von der ersten Idee bis zum fertigen Produkt entwickeln wir individuelle Spitzen, Kettengewirke und Funktionstextilien für Ihre technischen und gestalterischen Anforderungen."
       ),
-      process: processSteps,
     },
     {
       id: "dyeing-finishing",
@@ -144,13 +143,68 @@ const Services = () => {
       }}
     >
       {s.id === "collections" ? (
-        <p>
-          <TextWithLink
-            text={s.text}
-            link={lang === "de" ? "Anfrage" : "request"}
-            onClick={openQuote}
-          />
-        </p>
+        <>
+          <h3
+            className="mb-4 leading-[1.1]"
+            style={{
+              fontFamily: "'Bodoni Moda', serif",
+              fontSize: "clamp(24px, 3vw, 30px)",
+              color: "hsl(var(--primary))",
+              fontWeight: 500,
+            }}
+          >
+            {t("Custom Designs", "Maßgeschneiderte Entwürfe")}
+          </h3>
+          <div className="pb-8 mb-8 border-b border-primary/15 max-w-none">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
+              {processSteps.map((item) => (
+                <div key={item.step} className="group flex flex-col">
+                  <span
+                    className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
+                    style={{
+                      fontFamily: "'Bodoni Moda', serif",
+                      fontSize: "30px",
+                      lineHeight: 1,
+                      color: "hsl(var(--primary))",
+                    }}
+                  >
+                    {item.step}
+                  </span>
+                  <h3
+                    className="mb-3"
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "15px",
+                      letterSpacing: "0.5px",
+                      textTransform: "uppercase",
+                      fontWeight: 600,
+                      color: "hsl(var(--primary))",
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "13px",
+                      lineHeight: 1.6,
+                      color: "hsl(var(--muted-foreground) / 0.9)",
+                    }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p>
+            <TextWithLink
+              text={s.text}
+              link={lang === "de" ? "Anfrage" : "request"}
+              onClick={openQuote}
+            />
+          </p>
+        </>
       ) : (
         s.text.split('\n').map((line, li) => (
           <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
@@ -339,7 +393,7 @@ const Services = () => {
                   id={s.id}
                   data-idx={i}
                   ref={(el) => { sectionsRef.current[i] = el; }}
-                  className={`${s.process ? "max-w-4xl" : "max-w-2xl"} py-16 md:py-24 first:pt-0 last:pb-0`}
+                  className={`${s.id === "collections" || s.process ? "max-w-4xl" : "max-w-2xl"} py-16 md:py-24 first:pt-0 last:pb-0`}
                   style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
                 >
                   <p
