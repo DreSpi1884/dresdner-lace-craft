@@ -82,7 +82,7 @@ const Services = () => {
       title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
       text: t(
         "We develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments, post-surgical products, lymphatic therapy and orthopaedic supports where consistent performance is essential.",
-        "Wir entwickeln funktionale Kettengewirke für technische und medizinische Anwendungen. Unsere Textilien werden in Kompressionsbekleidung, postoperativen Produkten, Lymphtherapie und orthopädischen Bandagen eingesetzt, wo konstante Leistung entscheidend ist."
+        "Wir entwickeln funktionale Kettengewirke für technische und medizinische Anwendungen. Unsere Textilien werden in Kompressionsbekleidung, postoperativen Produkten, Lymphtherapie und orthopädischen Bandagen eingesetzt, wo zuverlässige Qualität entscheidend ist."
       ),
     },
   ], [t, processSteps]);
