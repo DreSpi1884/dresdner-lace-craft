@@ -14,7 +14,8 @@ const CAP_EXTRA = 9; // px, thin end caps that stick out past the lace on each s
 const ROLL_WIDTH = RIBBON_WIDTH + CAP_EXTRA * 2; // roll only as wide as the lace + caps
 const TILE_HEIGHT = 80; // px, one repeat of the lace pattern
 const INITIAL_REVEAL = 34; // px, short lace piece pre-visible between the caps at load
-const PIN_UNROLL_VH = 0.9; // fraction of viewport height spent unrolling while pinned
+const STICKY_TOP = 96; // px, where the roll pins in the viewport as you scroll
+
 
 
 const HistoryTimeline = () => {
@@ -65,8 +66,9 @@ const HistoryTimeline = () => {
   ], [t]);
 
   const sectionRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
   const entriesAreaRef = useRef<HTMLDivElement>(null);
-  const [unrollProgress, setUnrollProgress] = useState(0); // 0..1 during the pinned unroll
+  const [unrollProgress, setUnrollProgress] = useState(0); // 0..1 across the timeline scroll
   const [viewportH, setViewportH] = useState(typeof window !== "undefined" ? window.innerHeight : 800);
   const [visible, setVisible] = useState<boolean[]>(() => ENTRIES.map(() => false));
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -76,16 +78,17 @@ const HistoryTimeline = () => {
     let ticking = false;
     const compute = () => {
       ticking = false;
-      const section = sectionRef.current;
-      if (!section) return;
+      const timeline = timelineRef.current;
+      if (!timeline) return;
       const vh = window.innerHeight;
       setViewportH(vh);
-      const rect = section.getBoundingClientRect();
-      const pinScroll = vh * PIN_UNROLL_VH;
-      // How far we've scrolled past the section's top (only counts once section top hits viewport top)
-      const scrolled = Math.max(0, -rect.top);
-      // Phase 1: pinned unroll (0..pinScroll)
-      const p = Math.max(0, Math.min(1, scrolled / Math.max(1, pinScroll)));
+      const rect = timeline.getBoundingClientRect();
+      // Unroll begins when timeline top passes the sticky offset,
+      // completes when the bottom leaves the viewport.
+      const start = STICKY_TOP;
+      const total = Math.max(1, rect.height - (vh - STICKY_TOP));
+      const scrolled = Math.max(0, start - rect.top);
+      const p = Math.max(0, Math.min(1, scrolled / total));
       setUnrollProgress(p);
     };
     const onScroll = () => {
@@ -124,37 +127,39 @@ const HistoryTimeline = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Roll sits near the top of the viewport during the pinned phase
-  const rollTop = Math.round(viewportH * 0.18);
-  // Base ribbon length after the pinned unroll completes — fills most of the viewport
-  const baseRevealed = Math.max(INITIAL_REVEAL + 40, viewportH - rollTop - ROLL_HEIGHT - 80);
-  const revealed = INITIAL_REVEAL + unrollProgress * (baseRevealed - INITIAL_REVEAL);
+  // Max ribbon length while sticky — fills most of the viewport below the roll
+  const maxRibbon = Math.max(INITIAL_REVEAL + 80, viewportH - STICKY_TOP - ROLL_HEIGHT - 80);
+  const revealed = INITIAL_REVEAL + unrollProgress * (maxRibbon - INITIAL_REVEAL);
   // Rotation: full turn per TILE_HEIGHT of unrolled ribbon (natural feel)
   const rotation = (revealed / TILE_HEIGHT) * 360;
-  const pinScrollPx = Math.round(viewportH * PIN_UNROLL_VH);
+
 
 
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background text-foreground w-full pt-10 md:pt-16 pb-16 md:pb-20"
+      className="relative bg-background text-primary w-full pt-10 md:pt-16 pb-16 md:pb-20"
     >
-      {/* Sticky rail — pins roll + ribbon to the viewport while the section scrolls */}
-      <div
-        className="sticky top-0 h-screen z-10 pointer-events-none"
-        aria-hidden="true"
-      >
-        {/* Roll */}
+      {/* Timeline column: sticky roll + unrolling ribbon overlays the entries */}
+      <div ref={timelineRef} className="relative w-full px-6 md:px-20 lg:px-24 xl:px-28">
         <div
-          className="absolute left-1/2 -translate-x-1/2"
-          style={{ top: rollTop, width: ROLL_WIDTH, height: ROLL_HEIGHT }}
+          className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 z-10 hidden md:block"
+          style={{ width: ROLL_WIDTH }}
+          aria-hidden="true"
         >
-          <svg
-            width={ROLL_WIDTH}
-            height={ROLL_HEIGHT}
-            viewBox={`0 0 ${ROLL_WIDTH} ${ROLL_HEIGHT}`}
-            className="text-foreground block overflow-visible"
+          <div
+            className="flex flex-col items-center"
+            style={{ position: "sticky", top: STICKY_TOP }}
           >
+            {/* Roll */}
+            <div style={{ width: ROLL_WIDTH, height: ROLL_HEIGHT }}>
+              <svg
+                width={ROLL_WIDTH}
+                height={ROLL_HEIGHT}
+                viewBox={`0 0 ${ROLL_WIDTH} ${ROLL_HEIGHT}`}
+                className="text-primary block overflow-visible"
+              >
+
             <defs>
               {/* Cylindrical shading for the wound-lace body */}
               <linearGradient id="rollShade" x1="0" y1="0" x2="0" y2="1">
@@ -261,105 +266,103 @@ const HistoryTimeline = () => {
               strokeWidth="0.5"
               opacity="0.4"
             />
-          </svg>
-        </div>
+              </svg>
+            </div>
 
-        {/* Ribbon — exits from the underside of the roll and grows downward as it unrolls */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 overflow-hidden"
-          style={{
-            top: rollTop + ROLL_HEIGHT / 2,
-            width: RIBBON_WIDTH,
-            height: revealed,
-            transition: "height 120ms linear",
-          }}
-        >
-          <svg
-            width={RIBBON_WIDTH}
-            height={baseRevealed}
-            viewBox={`0 0 ${RIBBON_WIDTH} ${baseRevealed}`}
-            preserveAspectRatio="xMidYMin"
-            className="text-foreground block"
-          >
-            <defs>
-              <pattern
-                id="laceTileHoriz"
-                x="0"
-                y="0"
+            {/* Ribbon — grows downward from the underside of the roll */}
+            <div
+              className="overflow-hidden"
+              style={{
+                width: RIBBON_WIDTH,
+                height: revealed,
+                transition: "height 120ms linear",
+              }}
+            >
+              <svg
                 width={RIBBON_WIDTH}
-                height={TILE_HEIGHT}
-                patternUnits="userSpaceOnUse"
+                height={maxRibbon}
+                viewBox={`0 0 ${RIBBON_WIDTH} ${maxRibbon}`}
+                preserveAspectRatio="xMidYMin"
+                className="text-primary block"
               >
-                {/* Scalloped edges */}
-                <path
-                  d={`M 4 0 A 3 10 0 0 1 4 20 A 3 10 0 0 0 4 40 A 3 10 0 0 1 4 60 A 3 10 0 0 0 4 80`}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="0.9"
-                  strokeLinecap="round"
+                <defs>
+                  <pattern
+                    id="laceTileHoriz"
+                    x="0"
+                    y="0"
+                    width={RIBBON_WIDTH}
+                    height={TILE_HEIGHT}
+                    patternUnits="userSpaceOnUse"
+                  >
+                    {/* Scalloped edges */}
+                    <path
+                      d={`M 4 0 A 3 10 0 0 1 4 20 A 3 10 0 0 0 4 40 A 3 10 0 0 1 4 60 A 3 10 0 0 0 4 80`}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="0.9"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d={`M ${RIBBON_WIDTH - 4} 0 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 20 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 40 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 60 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 80`}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="0.9"
+                      strokeLinecap="round"
+                    />
+                    {/* Diamond mesh */}
+                    <g stroke="currentColor" strokeWidth="0.35" opacity="0.55" fill="none">
+                      <path d={`M 8 0 L ${RIBBON_WIDTH - 8} 40 L 8 80`} />
+                      <path d={`M ${RIBBON_WIDTH - 8} 0 L 8 40 L ${RIBBON_WIDTH - 8} 80`} />
+                    </g>
+                    {/* Central thread */}
+                    <line
+                      x1={RIBBON_WIDTH / 2}
+                      y1="0"
+                      x2={RIBBON_WIDTH / 2}
+                      y2="80"
+                      stroke="currentColor"
+                      strokeWidth="0.5"
+                      opacity="0.7"
+                    />
+                    {/* Eyelets */}
+                    <g stroke="currentColor" strokeWidth="0.5" fill="hsl(var(--background))">
+                      <circle cx={RIBBON_WIDTH / 2} cy="0" r="1.6" />
+                      <circle cx={RIBBON_WIDTH / 2} cy="40" r="1.6" />
+                      <circle cx={RIBBON_WIDTH / 2} cy="80" r="1.6" />
+                    </g>
+                    {/* Small floral motif */}
+                    <g
+                      transform={`translate(${RIBBON_WIDTH / 2} 40)`}
+                      stroke="currentColor"
+                      strokeWidth="0.45"
+                      fill="none"
+                    >
+                      <path d="M 0 -8 C 4 -5 4 -1 0 0 C -4 -1 -4 -5 0 -8 Z" />
+                      <path d="M 0 8 C 4 5 4 1 0 0 C -4 1 -4 5 0 8 Z" />
+                      <path d="M -8 0 C -5 -3 -1 -3 0 0 C -1 3 -5 3 -8 0 Z" />
+                      <path d="M 8 0 C 5 -3 1 -3 0 0 C 1 3 5 3 8 0 Z" />
+                    </g>
+                  </pattern>
+                </defs>
+                <rect
+                  x="0"
+                  y="0"
+                  width={RIBBON_WIDTH}
+                  height={maxRibbon}
+                  fill="url(#laceTileHoriz)"
                 />
-                <path
-                  d={`M ${RIBBON_WIDTH - 4} 0 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 20 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 40 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 60 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 80`}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="0.9"
-                  strokeLinecap="round"
-                />
-                {/* Diamond mesh */}
-                <g stroke="currentColor" strokeWidth="0.35" opacity="0.55" fill="none">
-                  <path d={`M 8 0 L ${RIBBON_WIDTH - 8} 40 L 8 80`} />
-                  <path d={`M ${RIBBON_WIDTH - 8} 0 L 8 40 L ${RIBBON_WIDTH - 8} 80`} />
-                </g>
-                {/* Central thread */}
-                <line
-                  x1={RIBBON_WIDTH / 2}
-                  y1="0"
-                  x2={RIBBON_WIDTH / 2}
-                  y2="80"
-                  stroke="currentColor"
-                  strokeWidth="0.5"
-                  opacity="0.7"
-                />
-                {/* Eyelets */}
-                <g stroke="currentColor" strokeWidth="0.5" fill="hsl(var(--background))">
-                  <circle cx={RIBBON_WIDTH / 2} cy="0" r="1.6" />
-                  <circle cx={RIBBON_WIDTH / 2} cy="40" r="1.6" />
-                  <circle cx={RIBBON_WIDTH / 2} cy="80" r="1.6" />
-                </g>
-                {/* Small floral motif */}
-                <g
-                  transform={`translate(${RIBBON_WIDTH / 2} 40)`}
-                  stroke="currentColor"
-                  strokeWidth="0.45"
-                  fill="none"
-                >
-                  <path d="M 0 -8 C 4 -5 4 -1 0 0 C -4 -1 -4 -5 0 -8 Z" />
-                  <path d="M 0 8 C 4 5 4 1 0 0 C -4 1 -4 5 0 8 Z" />
-                  <path d="M -8 0 C -5 -3 -1 -3 0 0 C -1 3 -5 3 -8 0 Z" />
-                  <path d="M 8 0 C 5 -3 1 -3 0 0 C 1 3 5 3 8 0 Z" />
-                </g>
-              </pattern>
-            </defs>
-            <rect
-              x="0"
-              y="0"
-              width={RIBBON_WIDTH}
-              height={baseRevealed}
-              fill="url(#laceTileHoriz)"
-            />
-          </svg>
+              </svg>
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Pin spacer — user scrolls through this while the lace unrolls; the sticky rail stays put */}
-      <div style={{ height: pinScrollPx }} aria-hidden="true" />
+        {/* Entries area — flows normally under the sticky roll + ribbon */}
+        <div
+          ref={entriesAreaRef}
+          className="relative"
+          style={{ paddingTop: ROLL_HEIGHT + INITIAL_REVEAL + 24 }}
+        >
 
-      {/* Entries area — begins after the pinned unroll and scrolls normally beneath the sticky ribbon */}
-      <div
-        ref={entriesAreaRef}
-        className="relative w-full px-6 md:px-20 lg:px-24 xl:px-28 -mt-screen"
-        style={{ marginTop: -Math.round(viewportH) }}
-      >
         <div className="relative">
           {ENTRIES.map((entry, i) => {
             const isLeft = i % 2 === 0;
@@ -410,8 +413,10 @@ const HistoryTimeline = () => {
             );
           })}
         </div>
+        </div>
       </div>
     </section>
+
   );
 };
 
