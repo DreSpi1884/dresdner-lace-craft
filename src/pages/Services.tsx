@@ -152,23 +152,13 @@ const Services = () => {
     >
       {s.id === "collections" ? (
         <>
-          {s.text.split('\n').map((line, li) => {
-            const linkWord = lang === "de" ? "Anfrage" : "request";
-            const isLinkLine = line.includes(linkWord);
-            return line ? (
+          {s.text.split('\n').map((line, li) =>
+            line ? (
               <p key={`collections-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-                {isLinkLine ? (
-                  <TextWithLink
-                    text={line}
-                    link={linkWord}
-                    onClick={openQuote}
-                  />
-                ) : (
-                  line
-                )}
+                {line}
               </p>
-            ) : null;
-          })}
+            ) : null
+          )}
           <h3
             className="mt-8 mb-6"
             style={{
@@ -224,6 +214,13 @@ const Services = () => {
               ))}
             </div>
           </div>
+          <p>
+            <TextWithLink
+              text={t("Samples are available on request.", "Muster sind auf Anfrage erhältlich.")}
+              link={lang === "de" ? "Anfrage" : "request"}
+              onClick={openQuote}
+            />
+          </p>
         </>
       ) : (
         s.text.split('\n').map((line, li) => (
