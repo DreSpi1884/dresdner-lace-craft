@@ -126,6 +126,7 @@ const Services = () => {
   const scrollTo = (idx: number) => {
     const el = sectionsRef.current[idx];
     if (!el) return;
+    setMobileOpenIdx(idx);
     const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET - 24;
     window.scrollTo({ top: y, behavior: "smooth" });
   };
