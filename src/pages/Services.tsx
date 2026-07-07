@@ -242,19 +242,6 @@ const Services = () => {
 
                 {s.process && (
                   <div className="mt-8 pt-8 border-t border-primary/15 max-w-none">
-                    <p
-                      className="mb-10"
-                      style={{
-                        fontFamily: "'Jost', sans-serif",
-                        fontSize: "11px",
-                        letterSpacing: "3px",
-                        textTransform: "uppercase",
-                        fontWeight: 700,
-                        color: "hsl(var(--primary))",
-                      }}
-                    >
-                      {t("How It Works", "So läuft es ab")}
-                    </p>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
                       {s.process.map((item) => (
                         <div key={item.step} className="group flex flex-col">
