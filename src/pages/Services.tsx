@@ -187,7 +187,7 @@ const Services = () => {
                 id={s.id}
                 data-idx={i}
                 ref={(el) => { sectionsRef.current[i] = el; }}
-                className="max-w-2xl py-16 md:py-24 first:pt-0 last:pb-0"
+                className={`${s.process ? "max-w-4xl" : "max-w-2xl"} py-16 md:py-24 first:pt-0 last:pb-0`}
                 style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
               >
                 <p
@@ -241,40 +241,43 @@ const Services = () => {
 
 
                 {s.process && (
-                  <div className="mt-10 max-w-2xl">
+                  <div className="mt-8 pt-8 border-t border-primary/15 max-w-none">
                     <p
-                      className="mb-4"
+                      className="mb-10"
                       style={{
                         fontFamily: "'Jost', sans-serif",
-                        fontSize: "10px",
-                        letterSpacing: "2px",
+                        fontSize: "11px",
+                        letterSpacing: "3px",
                         textTransform: "uppercase",
-                        color: "hsl(var(--muted-foreground) / 0.7)",
+                        fontWeight: 700,
+                        color: "hsl(var(--primary))",
                       }}
                     >
                       {t("How It Works", "So läuft es ab")}
                     </p>
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
                       {s.process.map((item) => (
-                        <div key={item.step} className="flex flex-col">
+                        <div key={item.step} className="group flex flex-col">
                           <span
-                            className="mb-2"
+                            className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
                             style={{
-                              fontFamily: "'Jost', sans-serif",
-                              fontSize: "10px",
-                              letterSpacing: "2px",
-                              color: "hsl(var(--muted-foreground) / 0.6)",
+                              fontFamily: "'Bodoni Moda', serif",
+                              fontSize: "30px",
+                              lineHeight: 1,
+                              color: "hsl(var(--primary))",
                             }}
                           >
                             {item.step}
                           </span>
                           <h3
-                            className="mb-1"
+                            className="mb-3"
                             style={{
-                              fontFamily: "'Bodoni Moda', serif",
-                              fontSize: "20px",
+                              fontFamily: "'Jost', sans-serif",
+                              fontSize: "15px",
+                              letterSpacing: "0.5px",
+                              textTransform: "uppercase",
+                              fontWeight: 600,
                               color: "hsl(var(--primary))",
-                              fontWeight: 500,
                             }}
                           >
                             {item.title}
@@ -284,7 +287,7 @@ const Services = () => {
                               fontFamily: "'Jost', sans-serif",
                               fontSize: "13px",
                               lineHeight: 1.6,
-                              color: "hsl(var(--muted-foreground))",
+                              color: "hsl(var(--muted-foreground) / 0.9)",
                             }}
                           >
                             {item.desc}
