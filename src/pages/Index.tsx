@@ -56,9 +56,9 @@ const Index = () => {
         <div className="editorial-container">
           <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/30">
             {[
-              t("IN-HOUSE PRODUCTION", "EIGENE PRODUKTION"),
+              t("IN-HOUSE PRODUCTION", "INTEGRIERTE PRODUKTION"),
               t("TAILORED SOLUTIONS", "MASSGESCHNEIDERTE LÖSUNGEN"),
-              t("CERTIFIED SUSTAINABLE PRODUCTION", "ZERTIFIZIERT NACHHALTIGE PRODUKTION"),
+              t("CERTIFIED SUSTAINABLE PRODUCTION", "ZERTIFIZIERTE NACHHALTIGKEIT"),
               t("JUST-IN-TIME DELIVERY", "JUST-IN-TIME-LIEFERUNG"),
             ].map((text) => (
               <div key={text} className="flex items-center justify-center px-3 md:px-6 py-2 md:py-0 min-h-[3rem]">
