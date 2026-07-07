@@ -154,9 +154,24 @@ const Services = () => {
         <>
           {s.text.split('\n').map((line, li) =>
             line ? (
-              <p key={`collections-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-                {line}
-              </p>
+              <div key={`collections-${lang}-${li}`}>
+                {li === 1 && (
+                  <h3
+                    className="mb-6"
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "12px",
+                      letterSpacing: "2px",
+                      textTransform: "uppercase",
+                      fontWeight: 600,
+                      color: "hsl(var(--primary))",
+                    }}
+                  >
+                    {t("Custom Designs", "Maßgeschneiderte Entwürfe")}
+                  </h3>
+                )}
+                <p className={li > 0 ? "mt-3" : ""}>{line}</p>
+              </div>
             ) : null
           )}
           <h3
