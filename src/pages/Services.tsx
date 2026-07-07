@@ -62,8 +62,8 @@ const Services = () => {
       nav: t("Design", "Design"),
       title: t("Design", "Design"),
       text: t(
-        "Twice a year, our design team develops new lace collections inspired by international fashion trends.\u00a0\nBeyond our seasonal collections, we develop custom designs tailored to your exact specifications. Whether you need a specific pattern, weight or construction, we translate your vision into finished textile.",
-        "Zweimal im Jahr entwickelt unser Designteam neue Spitzenkollektionen, inspiriert von internationalen Modetrends. \nÜber unsere saisonalen Kollektionen hinaus entwickeln wir maßgeschneiderte Designs, die genau auf Ihre Spezifikationen zugeschnitten sind. Ob Sie ein bestimmtes Muster, Gewicht oder eine bestimmte Konstruktion benötigen, wir setzen Ihre Vision in ein fertiges Textil um."
+        "Twice a year we develop new lace collections inspired by international fashion trends, alongside custom warp-knitted fabrics for technical and medical applications.\nBeyond our seasonal collections, we develop custom designs tailored to your exact specifications. Whether you need a specific pattern, weight or construction, we translate your vision into finished textile.",
+        "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends, sowie maßgeschneiderte Kettengewirke für technische und medizinische Anwendungen.\nÜber unsere saisonalen Kollektionen hinaus entwickeln wir maßgeschneiderte Designs, die genau auf Ihre Spezifikationen zugeschnitten sind. Ob Sie ein bestimmtes Muster, Gewicht oder eine bestimmte Konstruktion benötigen, wir setzen Ihre Vision in ein fertiges Textil um."
       ),
     },
     {
@@ -167,7 +167,7 @@ const Services = () => {
                       color: "hsl(var(--primary))",
                     }}
                   >
-                    {t("Custom Designs", "Maßgeschneiderte Entwürfe")}
+                    {t("ELASTIC LACE | INELASTIC LACE | WARP KNITTED FABRICS", "ELASTISCHE SPITZE | UNELASTISCHE SPITZE | KETTENGEWIRKE")}
                   </h3>
                 )}
                 <p className={li > 0 ? "mt-3" : ""}>{line}</p>
