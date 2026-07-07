@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { ChevronDown } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
@@ -88,6 +89,7 @@ const Services = () => {
   ], [t, processSteps]);
 
   const [activeIdx, setActiveIdx] = useState(0);
+  const [mobileOpenIdx, setMobileOpenIdx] = useState(-1);
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -122,9 +124,88 @@ const Services = () => {
   const scrollTo = (idx: number) => {
     const el = sectionsRef.current[idx];
     if (!el) return;
+    setMobileOpenIdx(idx);
     const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET - 24;
     window.scrollTo({ top: y, behavior: "smooth" });
   };
+
+  const toggleMobile = (idx: number) => {
+    setMobileOpenIdx((prev) => (prev === idx ? -1 : idx));
+  };
+
+  const renderBody = (s: typeof services[number]) => (
+    <div
+      style={{
+        fontFamily: "'Jost', sans-serif",
+        fontSize: "15px",
+        lineHeight: 1.65,
+        maxWidth: "560px",
+        color: "hsl(var(--muted-foreground))",
+      }}
+    >
+      {s.id === "collections" ? (
+        <p>
+          <TextWithLink
+            text={s.text}
+            link={lang === "de" ? "Anfrage" : "request"}
+            onClick={openQuote}
+          />
+        </p>
+      ) : (
+        s.text.split('\n').map((line, li) => (
+          <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+            {line}
+          </p>
+        ))
+      )}
+    </div>
+  );
+
+  const renderProcess = (s: typeof services[number]) =>
+    s.process && (
+      <div className="mt-8 pt-8 border-t border-primary/15 max-w-none">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
+          {s.process.map((item) => (
+            <div key={item.step} className="group flex flex-col">
+              <span
+                className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
+                style={{
+                  fontFamily: "'Bodoni Moda', serif",
+                  fontSize: "30px",
+                  lineHeight: 1,
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                {item.step}
+              </span>
+              <h3
+                className="mb-3"
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: "15px",
+                  letterSpacing: "0.5px",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                {item.title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: "13px",
+                  lineHeight: 1.6,
+                  color: "hsl(var(--muted-foreground) / 0.9)",
+                }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
 
   return (
     <EditorialLayout title={t("Our Services", "Unsere Leistungen")} heroCompact>
@@ -181,111 +262,114 @@ const Services = () => {
           </aside>
 
           <div className="min-w-0">
-            {services.map((s, i) => (
-              <article
-                key={s.id}
-                id={s.id}
-                data-idx={i}
-                ref={(el) => { sectionsRef.current[i] = el; }}
-                className={`${s.process ? "max-w-4xl" : "max-w-2xl"} py-16 md:py-24 first:pt-0 last:pb-0`}
-                style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
-              >
-                <p
-                  className="mb-5"
-                  style={{
-                    fontFamily: "'Jost', sans-serif",
-                    fontSize: "10px",
-                    letterSpacing: "2px",
-                    textTransform: "uppercase",
-                    color: "hsl(var(--muted-foreground) / 0.7)",
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
-                </p>
-                <h2
-                  className="mb-6 leading-[1.1]"
-                  style={{
-                    fontFamily: "'Bodoni Moda', serif",
-                    fontSize: "clamp(30px, 4vw, 42px)",
-                    color: "hsl(var(--primary))",
-                    fontWeight: 500,
-                  }}
-                >
-                  {s.title}
-                </h2>
-                <div
-                  style={{
-                    fontFamily: "'Jost', sans-serif",
-                    fontSize: "15px",
-                    lineHeight: 1.65,
-                    maxWidth: "560px",
-                    color: "hsl(var(--muted-foreground))",
-                  }}
-                >
-                  {s.id === "collections" ? (
-                    <p>
-                      <TextWithLink
-                        text={s.text}
-                        link={lang === "de" ? "Anfrage" : "request"}
-                        onClick={openQuote}
+            {/* Mobile accordion (below lg breakpoint) */}
+            <div className="lg:hidden">
+              {services.map((s, i) => {
+                const open = mobileOpenIdx === i;
+                return (
+                  <article
+                    key={s.id}
+                    id={s.id}
+                    data-idx={i}
+                    ref={(el) => { sectionsRef.current[i] = el; }}
+                    className="border-b border-primary/15"
+                    style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => toggleMobile(i)}
+                      aria-expanded={open}
+                      className="w-full flex items-center justify-between py-6 text-left"
+                    >
+                      <span className="flex items-baseline gap-4">
+                        <span
+                          style={{
+                            fontFamily: "'Jost', sans-serif",
+                            fontSize: "10px",
+                            letterSpacing: "2px",
+                            textTransform: "uppercase",
+                            color: "hsl(var(--muted-foreground) / 0.7)",
+                          }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span
+                          className="leading-[1.1]"
+                          style={{
+                            fontFamily: "'Bodoni Moda', serif",
+                            fontSize: "clamp(24px, 6vw, 32px)",
+                            color: "hsl(var(--primary))",
+                            fontWeight: 500,
+                          }}
+                        >
+                          {s.title}
+                        </span>
+                      </span>
+                      <ChevronDown
+                        size={20}
+                        className="shrink-0 ml-4 transition-transform duration-300"
+                        style={{
+                          color: "hsl(var(--primary))",
+                          transform: open ? "rotate(180deg)" : "rotate(0deg)",
+                        }}
                       />
-                    </p>
-                  ) : (
-                    s.text.split('\n').map((line, li) => (
-                      <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-                        {line}
-                      </p>
-                    ))
-                  )}
-                </div>
-
-
-                {s.process && (
-                  <div className="mt-8 pt-8 border-t border-primary/15 max-w-none">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
-                      {s.process.map((item) => (
-                        <div key={item.step} className="group flex flex-col">
-                          <span
-                            className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
-                            style={{
-                              fontFamily: "'Bodoni Moda', serif",
-                              fontSize: "30px",
-                              lineHeight: 1,
-                              color: "hsl(var(--primary))",
-                            }}
-                          >
-                            {item.step}
-                          </span>
-                          <h3
-                            className="mb-3"
-                            style={{
-                              fontFamily: "'Jost', sans-serif",
-                              fontSize: "15px",
-                              letterSpacing: "0.5px",
-                              textTransform: "uppercase",
-                              fontWeight: 600,
-                              color: "hsl(var(--primary))",
-                            }}
-                          >
-                            {item.title}
-                          </h3>
-                          <p
-                            style={{
-                              fontFamily: "'Jost', sans-serif",
-                              fontSize: "13px",
-                              lineHeight: 1.6,
-                              color: "hsl(var(--muted-foreground) / 0.9)",
-                            }}
-                          >
-                            {item.desc}
-                          </p>
-                        </div>
-                      ))}
+                    </button>
+                    <div
+                      className="overflow-hidden transition-all duration-300 ease-out"
+                      style={{
+                        maxHeight: open ? "1000px" : "0px",
+                        opacity: open ? 1 : 0,
+                      }}
+                    >
+                      <div className="pb-6 pr-8">
+                        {renderBody(s)}
+                        {renderProcess(s)}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </article>
-            ))}
+                  </article>
+                );
+              })}
+            </div>
+
+            {/* Desktop layout (lg and above) */}
+            <div className="hidden lg:block">
+              {services.map((s, i) => (
+                <article
+                  key={s.id}
+                  id={s.id}
+                  data-idx={i}
+                  ref={(el) => { sectionsRef.current[i] = el; }}
+                  className={`${s.process ? "max-w-4xl" : "max-w-2xl"} py-16 md:py-24 first:pt-0 last:pb-0`}
+                  style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
+                >
+                  <p
+                    className="mb-5"
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "10px",
+                      letterSpacing: "2px",
+                      textTransform: "uppercase",
+                      color: "hsl(var(--muted-foreground) / 0.7)",
+                    }}
+                  >
+                    {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
+                  </p>
+                  <h2
+                    className="mb-6 leading-[1.1]"
+                    style={{
+                      fontFamily: "'Bodoni Moda', serif",
+                      fontSize: "clamp(30px, 4vw, 42px)",
+                      color: "hsl(var(--primary))",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {s.title}
+                  </h2>
+                  {renderBody(s)}
+                  {renderProcess(s)}
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
