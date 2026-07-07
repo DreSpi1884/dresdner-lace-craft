@@ -43,9 +43,9 @@ const Services = () => {
 
   const processSteps = useMemo(() => [
     { step: "01", title: t("Consult", "BERATUNG"), desc: t("Share your project requirements and applications with us.", "Teilen Sie uns Ihre Projektanforderungen und Anwendungen mit.") },
-    { step: "02", title: t("Plan", "PLANUNG"), desc: t("We design and develop textile solutions tailored to your needs.", "Wir entwerfen und entwickeln textile Lösungen, die auf Ihre Bedürfnisse zugeschnitten sind.") },
-    { step: "03", title: t("Produce", "PRODUKTION"), desc: t("Certified textile production and quality-controlled processes, made in Germany.", "Zertifizierte Textilproduktion und qualitätsgeprüfte Prozesse, Made in Germany.") },
-    { step: "04", title: t("Delivery", "Lieferung"), desc: t("Reliable just-in-time delivery to support efficient production planning.", "Zuverlässige Just-in-Time-Lieferung für eine effiziente Produktionsplanung.") },
+    { step: "02", title: t("Plan", "PLANUNG"), desc: t("We develop textile solutions tailored to your needs.", "Wir entwickeln textile Lösungen, die auf Ihre Bedürfnisse zugeschnitten sind.") },
+    { step: "03", title: t("Produce", "PRODUKTION"), desc: t("Your order is produced to certified quality standards.", "Ihre Bestellung wird nach zertifizierten Qualitätsstandards produziert.") },
+    { step: "04", title: t("Delivery", "Lieferung"), desc: t("We deliver reliably to your schedule", "Wir liefern zuverlässig nach Ihrem Zeitplan") },
   ], [t]);
 
   type ServiceItem = {
