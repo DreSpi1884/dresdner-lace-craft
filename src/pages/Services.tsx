@@ -91,20 +91,20 @@ const Services = () => {
           "Die gesamte Produktion findet unter einem Dach in Dresden statt.\nAuf Karl Mayer Raschel-, Jacquardtronic®- und Textronic®-Maschinen fertigen wir hochwertige Spitzen, elastische Stoffe und technische Textilien mit über 140 Jahren Textilexpertise.\u00a0",
         ),
       },
-{
-  id: "dyeing & finishing",
-  nav: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
-  title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
-  text: t(
-    "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes.\nWe use jet dyeing technology, reducing water consumption by up to 70% compared to conventional dyeing methods.\nWe also provide finishing tailored to your intended application.\n\nContract dyeing and finishing services available on request.",
-    "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 70% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\nLohnfärberei und -ausrüstung auf Anfrage."
-  ),
-  tags: t(
-    ["Hydrophilic", "Hydrophobic", "Antistatic", "Flame Retardant", "Soft Finish", "Stiff Finish"],
-    ["Hydrophil", "Hydrophob", "Antistatisch", "Flammhemmend", "Weichausrüstung", "Steifausrüstung"]
-  )
-}
-        {
+      {
+        id: "dyeing & finishing",
+        nav: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
+        title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
+        text: t(
+          "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes.\nWe use jet dyeing technology, reducing water consumption by up to 70% compared to conventional dyeing methods.\nWe also provide finishing tailored to your intended application.\n\nContract dyeing and finishing services available on request.",
+          "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 70% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\nLohnfärberei und -ausrüstung auf Anfrage.",
+        ),
+        tags: t(
+          ["Hydrophilic", "Hydrophobic", "Antistatic", "Flame Retardant", "Soft Finish", "Stiff Finish"],
+          ["Hydrophil", "Hydrophob", "Antistatisch", "Flammhemmend", "Weichausrüstung", "Steifausrüstung"],
+        ),
+      },
+      {
         id: "functional and medical textiles",
         nav: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
         title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
