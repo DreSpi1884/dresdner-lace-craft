@@ -176,7 +176,7 @@ const Index = () => {
                 <p>
                   {t(
                     "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
-                    "Jedes Textil erzählt eine Geschichte.\nUnsere begann 1884 und wird bis heute durch handwerkliches Können, neue Ideen und die Leidenschaft für Textilien geprägt."
+                    "Mehr als 140 Jahre Geschichte erzählen von Wandel, neuen Ideen und Anpassungsfähigkeit. Was geblieben ist, ist unser Anspruch an hochwertige Textilien."
                   )}
                 </p>
                 <p>
