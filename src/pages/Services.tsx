@@ -152,89 +152,87 @@ const Services = () => {
     >
       {s.id === "collections" ? (
         <>
-          {s.text.split('\n').map((line, li, array) => {
-            const isBeyondLine = line.trim().startsWith("Beyond") || line.trim().startsWith("Über");
+          {(() => {
+            const [intro, customIntro] = s.text.split("\n\n\n\n");
             return (
-              <div key={`collections-${lang}-${li}`}>
-                {isBeyondLine && (
-                  <h3
-                    className="mb-6"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontSize: "12px",
-                      letterSpacing: "2px",
-                      textTransform: "uppercase",
-                      fontWeight: 600,
-                      color: "hsl(var(--primary))",
-                    }}
-                  >
-                    {t("ELASTIC LACE | INELASTIC LACE | WARP KNITTED FABRICS", "ELASTISCHE SPITZE | UNELASTISCHE SPITZE | KETTENGEWIRKE")}
-                  </h3>
-                )}
-                {line ? (
-                  <p className={li > 0 && array[li-1] ? "mt-3" : ""}>{line}</p>
-                ) : (
-                  <div className="h-4" />
-                )}
-              </div>
-            );
-          })}
-          <h3
-            className="mt-8 mb-6"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "12px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: "hsl(var(--primary))",
-            }}
-          >
-            {t("Custom Designs", "MASSGESCHNEIDERTE DESIGNS")}
-          </h3>
-          <div className="pb-8 mb-8 border-b border-primary/15 max-w-none">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
-              {processSteps.map((item) => (
-                <div key={item.step} className="group flex flex-col">
-                  <span
-                    className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
-                    style={{
-                      fontFamily: "'Bodoni Moda', serif",
-                      fontSize: "30px",
-                      lineHeight: 1,
-                      color: "hsl(var(--primary))",
-                    }}
-                  >
-                    {item.step}
-                  </span>
-                  <h3
-                    className="mb-3"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontSize: "15px",
-                      letterSpacing: "0.5px",
-                      textTransform: "uppercase",
-                      fontWeight: 600,
-                      color: "hsl(var(--primary))",
-                    }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontSize: "13px",
-                      lineHeight: 1.6,
-                      color: "hsl(var(--muted-foreground) / 0.9)",
-                    }}
-                  >
-                    {item.desc}
-                  </p>
+              <>
+                {intro.split('\n').map((line, li, array) => (
+                  <div key={`collections-intro-${lang}-${li}`}>
+                    {line ? (
+                      <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p>
+                    ) : (
+                      <div className="h-4" />
+                    )}
+                  </div>
+                ))}
+                <h3
+                  className="mt-8 mb-6"
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: "12px",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    fontWeight: 600,
+                    color: "hsl(var(--primary))",
+                  }}
+                >
+                  {t("Custom Designs", "MASSGESCHNEIDERTE DESIGNS")}
+                </h3>
+                <div className="pb-8 mb-8 border-b border-primary/15 max-w-none">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
+                    {processSteps.map((item) => (
+                      <div key={item.step} className="group flex flex-col">
+                        <span
+                          className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
+                          style={{
+                            fontFamily: "'Bodoni Moda', serif",
+                            fontSize: "30px",
+                            lineHeight: 1,
+                            color: "hsl(var(--primary))",
+                          }}
+                        >
+                          {item.step}
+                        </span>
+                        <h3
+                          className="mb-3"
+                          style={{
+                            fontFamily: "'Jost', sans-serif",
+                            fontSize: "15px",
+                            letterSpacing: "0.5px",
+                            textTransform: "uppercase",
+                            fontWeight: 600,
+                            color: "hsl(var(--primary))",
+                          }}
+                        >
+                          {item.title}
+                        </h3>
+                        <p
+                          style={{
+                            fontFamily: "'Jost', sans-serif",
+                            fontSize: "13px",
+                            lineHeight: 1.6,
+                            color: "hsl(var(--muted-foreground) / 0.9)",
+                          }}
+                        >
+                          {item.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          <p>
+                {customIntro?.split('\n').map((line, li, array) => (
+                  <div key={`collections-custom-${lang}-${li}`}>
+                    {line ? (
+                      <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p>
+                    ) : (
+                      <div className="h-4" />
+                    )}
+                  </div>
+                ))}
+              </>
+            );
+          })()}
+          <p className="mt-8">
             <TextWithLink
               text={t("Samples are available on request.", "Muster sind auf Anfrage erhältlich.")}
               link={lang === "de" ? "Anfrage" : "request"}
