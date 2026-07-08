@@ -21,12 +21,12 @@ const Index = () => {
     <EditorialLayout heroAtTop>
       <SEO
         title={t(
-          "Premium Lace & Textile Manufacturer since 1882",
-          "Premium Spitzen- & Textilhersteller seit 1882"
+          "Dresdner Spitzen | Premium German Textile Manufacturer since 1884",
+          "Dresdner Spitzen | Deutscher Premium-Textilhersteller seit 1884",
         )}
         description={t(
-          "Dresdner Spitzen designs and manufactures premium lace, warp-knitted fabrics and functional textiles in Germany. Bespoke collections since 1882.",
-          "Dresdner Spitzen entwickelt und fertigt Premium-Spitzen, Kettengewirke und funktionale Textilien in Deutschland. Maßgeschneiderte Kollektionen seit 1882."
+          "Dresdner Spitzen since 1884: German manufacturer of lace, warp-knitted & functional textiles. Offering seasonal collections & bespoke custom solutions.",
+          "Dresdner Spitzen seit 1884: Deutscher Hersteller von Spitze, Wirkwaren & Funktionstextilien. Wir bieten saisonale Kollektionen & maßgeschneiderte Lösungen.",
         )}
         path="/"
       />
@@ -42,11 +42,21 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-foreground/30" />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] py-[clamp(2rem,5vh,5rem)] w-full">
-          <div className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]" style={{ width: "clamp(96px, 12.5vw, 240px)" }} aria-hidden="true" />
-          <h1 className="font-serif text-background leading-[1.1] tracking-[-0.01em] pb-2 [text-wrap:balance]" style={{ fontSize: "clamp(28px, 4vw, 64px)" }}>
+          <div
+            className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]"
+            style={{ width: "clamp(96px, 12.5vw, 240px)" }}
+            aria-hidden="true"
+          />
+          <h1
+            className="font-serif text-background leading-[1.1] tracking-[-0.01em] pb-2 [text-wrap:balance]"
+            style={{ fontSize: "clamp(28px, 4vw, 64px)" }}
+          >
             {t("The Art of Textiles", "The Art of Textiles")}
           </h1>
-          <p className="editorial-label text-background/90 tracking-[0.3em] mt-[clamp(0.5rem,1.5vh,1rem)]" style={{ fontSize: "clamp(11px, 1.3vw, 18px)" }}>
+          <p
+            className="editorial-label text-background/90 tracking-[0.3em] mt-[clamp(0.5rem,1.5vh,1rem)]"
+            style={{ fontSize: "clamp(11px, 1.3vw, 18px)" }}
+          >
             MADE IN GERMANY
           </p>
         </div>
@@ -63,7 +73,10 @@ const Index = () => {
               t("JUST-IN-TIME DELIVERY", "JUST-IN-TIME-LIEFERUNG"),
             ].map((text) => (
               <div key={text} className="flex items-center justify-center px-3 md:px-6 py-2 md:py-0 min-h-[3rem]">
-                <span className="editorial-label text-primary text-center leading-tight" style={{ fontSize: "clamp(9px, 1vw, 13px)" }}>
+                <span
+                  className="editorial-label text-primary text-center leading-tight"
+                  style={{ fontSize: "clamp(9px, 1vw, 13px)" }}
+                >
                   {text}
                 </span>
               </div>
@@ -76,9 +89,7 @@ const Index = () => {
       <EditorialSection className="bg-background text-foreground">
         <div className="py-10 md:py-14 lg:py-[4.5rem]">
           <div className="editorial-container text-center mb-8 md:mb-10">
-            <h2 className="editorial-heading-lg text-foreground mb-4">
-              {t("Our Services", "Unsere Leistungen")}
-            </h2>
+            <h2 className="editorial-heading-lg text-foreground mb-4">{t("Our Services", "Unsere Leistungen")}</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full">
@@ -87,7 +98,7 @@ const Index = () => {
                 title: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
                 desc: t(
                   "Every collection starts with new ideas.\n\nTwice a year, we develop designs that combine international fashion trends with our lace expertise.",
-                  "Jede Kollektion beginnt mit neuen Ideen.\n\nZweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden."
+                  "Jede Kollektion beginnt mit neuen Ideen.\n\nZweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden.",
                 ),
                 image: serviceLaceCollections.url,
                 anchor: "collections",
@@ -96,7 +107,7 @@ const Index = () => {
                 title: t("Bespoke Designs", "Maßgeschneiderte Designs"),
                 desc: t(
                   "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
-                  "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um."
+                  "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
                 ),
                 image: serviceCollections.url,
                 anchor: "custom-designs",
@@ -105,7 +116,7 @@ const Index = () => {
                 title: t("Dyeing and Finishing", "Färben & Ausrüsten"),
                 desc: t(
                   "Our in-house dyeing facility covers the full colour spectrum in uni or bicolour.",
-                  "Unsere hauseigene Färberei deckt das gesamte Farbspektrum in Uni oder Bicolor ab."
+                  "Unsere hauseigene Färberei deckt das gesamte Farbspektrum in Uni oder Bicolor ab.",
                 ),
                 image: serviceDyeing.url,
                 anchor: "dyeing-finishing",
@@ -114,7 +125,7 @@ const Index = () => {
                 title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
                 desc: t(
                   "We develop warp-knitted fabrics for medical and technical use.",
-                  "Wir entwickeln Kettengewirke für medizinische und technische Anwendungen.\n"
+                  "Wir entwickeln Kettengewirke für medizinische und technische Anwendungen.\n",
                 ),
                 image: serviceFunctional.url,
                 anchor: "functional-treatments",
@@ -147,7 +158,8 @@ const Index = () => {
           <div className="editorial-container text-center mt-8">
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 cta-lace editorial-body-sm font-medium transition-colors duration-300">
+              className="inline-flex items-center gap-2 cta-lace editorial-body-sm font-medium transition-colors duration-300"
+            >
               {t("Learn More", "Mehr erfahren")} <ArrowRight size={16} />
             </Link>
           </div>
@@ -169,26 +181,20 @@ const Index = () => {
 
             <div>
               <p className="editorial-label text-primary mb-4">{t("140 YEARS OF EXPERIENCE", "1884 GEGRÜNDET")}</p>
-              <h2 className="editorial-heading-lg text-foreground mb-6">
-                {t("Our Story", "Unsere Geschichte")}
-              </h2>
+              <h2 className="editorial-heading-lg text-foreground mb-6">{t("Our Story", "Unsere Geschichte")}</h2>
               <div className="space-y-4 editorial-body text-muted-foreground">
                 <p>
                   {t(
                     "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
-                    "Mehr als 140 Jahre Geschichte erzählen von Wandel und Innovationsgeist. Geblieben ist unsere Leidenschaft und unser Anspruch an hochwertige Textilien."
+                    "Mehr als 140 Jahre Geschichte erzählen von Wandel und Innovationsgeist. Geblieben ist unsere Leidenschaft und unser Anspruch an hochwertige Textilien.",
                   )}
                 </p>
-                <p>
-                  {t(
-                    "\n",
-                    "\n"
-                  )}
-                </p>
+                <p>{t("\n", "\n")}</p>
               </div>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300">
+                className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300"
+              >
                 {t("From 1884 to today", "von 1884 bis heute")} <ArrowRight size={16} />
               </Link>
             </div>
@@ -206,18 +212,19 @@ const Index = () => {
           <p className="editorial-body text-muted-foreground max-w-xl mx-auto mb-10">
             {t(
               "We are always looking for skilled and passionate people to join our team. Discover current opportunities and become part of our story.",
-              "Wir suchen stets qualifizierte und engagierte Menschen für unser Team. Entdecken Sie aktuelle Stellen und werden Sie Teil unserer Geschichte."
+              "Wir suchen stets qualifizierte und engagierte Menschen für unser Team. Entdecken Sie aktuelle Stellen und werden Sie Teil unserer Geschichte.",
             )}
           </p>
           <Link
             to="/jobs"
-            className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-8 py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300">
+            className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-8 py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300"
+          >
             {t("View Open Positions", "Offene Stellen ansehen")} <ArrowRight size={16} />
           </Link>
         </div>
       </EditorialSection>
-    </EditorialLayout>);
-
+    </EditorialLayout>
+  );
 };
 
 export default Index;
