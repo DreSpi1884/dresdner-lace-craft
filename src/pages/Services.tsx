@@ -351,12 +351,12 @@ const Services = () => {
       </div>
     );
 
-  return (
-    <EditorialLayout title={t("Our Production", "Unsere Produktion")} heroCompact>
+    return (
+    <EditorialLayout title={t("Services", "Leistungen")} heroCompact>
       <SEO
         title={t(
-          "Our Production — Lace, Bespoke Designs & Finishing",
-          "Unsere Produktion — Spitzen, Maßanfertigungen & Veredelung",
+          "Services — Lace, Production & Finishing",
+          "Leistungen — Spitzen, Produktion & Veredelung",
         )}
         description={t(
           "Seasonal lace collections, bespoke designs, in-house dyeing and finishing, and functional or medical textiles — engineered in Germany.",
@@ -364,138 +364,137 @@ const Services = () => {
         )}
         path="/services"
       />
-  <section className="w-full">
-    <div className="lg:grid lg:grid-cols-[260px_1fr]">
-      <aside className="hidden lg:block border-r border-border/40">
-            <nav
-              aria-label={t("Services navigation", "Leistungsnavigation")}
-              className="sticky flex flex-col gap-8"
-              style={{ top: `calc(50vh - 120px)` }}
-            >
-              <span aria-hidden="true" className="absolute left-0 top-2 bottom-2 w-px bg-border" />
-              {services.map((s, i) => {
-                const active = activeIdx === i;
-                return (
-                  <button
-                    key={s.id}
-                    type="button"
-                    onClick={() => scrollTo(i)}
-                    className="text-left pl-6 relative"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontSize: "12px",
-                      letterSpacing: "2px",
-                      textTransform: "uppercase",
-                      fontWeight: active ? 600 : 400,
-                      color: active ? "hsl(var(--primary))" : "hsl(var(--muted-foreground) / 0.6)",
-                      transition: "color 400ms ease, font-weight 400ms ease",
-                    }}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="absolute left-0 top-0 bottom-0"
-                      style={{
-                        width: "2px",
-                        background: "hsl(var(--primary))",
-                        opacity: active ? 1 : 0,
-                        transition: "opacity 400ms ease",
-                      }}
-                    />
-                    {s.nav}
-                  </button>
-                );
-              })}
-            </nav>
-          </aside>
 
-          <div className="min-w-0">
-            {/* Mobile accordion (below lg breakpoint) */}
-            <div className="lg:hidden">
-              {services.map((s, i) => {
-                const open = mobileOpenIdx === i;
-                return (
-                  <article
-                    key={s.id}
-                    id={s.id}
-                    data-idx={i}
-                    ref={(el) => {
-                      sectionsRef.current[i] = el;
-                    }}
-                    className="border-b border-primary/15"
-                    style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => toggleMobile(i)}
-                      aria-expanded={open}
-                      className="w-full flex items-center justify-between py-6 text-left"
-                    >
-                      <span className="flex items-baseline gap-4">
-                        <span
-                          style={{
-                            fontFamily: "'Jost', sans-serif",
-                            fontSize: "10px",
-                            letterSpacing: "2px",
-                            textTransform: "uppercase",
-                            color: "hsl(var(--muted-foreground) / 0.7)",
-                          }}
-                        >
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span
-                          className="leading-[1.1]"
-                          style={{
-                            fontFamily: "'Bodoni Moda', serif",
-                            fontSize: "clamp(24px, 6vw, 32px)",
-                            color: "hsl(var(--primary))",
-                            fontWeight: 500,
-                          }}
-                        >
-                          {s.title}
-                        </span>
-                      </span>
-                      <ChevronDown
-                        size={20}
-                        className="shrink-0 ml-4 transition-transform duration-300"
-                        style={{
-                          color: "hsl(var(--primary))",
-                          transform: open ? "rotate(180deg)" : "rotate(0deg)",
-                        }}
-                      />
-                    </button>
-                    <div
-                      className="overflow-hidden transition-all duration-300 ease-out"
-                      style={{
-                        maxHeight: open ? "1000px" : "0px",
-                        opacity: open ? 1 : 0,
-                      }}
-                    >
-                      <div className="pb-6 pr-8">
-                        {renderBody(s)}
-                        {renderProcess(s)}
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+      <section className="w-full">
+        {/* Desktop navigation */}
+        <nav
+          aria-label={t("Services navigation", "Leistungsnavigation")}
+          className="sticky z-30 hidden border-y border-primary/10 bg-background/95 backdrop-blur lg:block"
+          style={{ top: `${NAV_OFFSET}px` }}
+        >
+          <div className="grid grid-cols-4">
+            {services.map((s, i) => {
+              const active = activeIdx === i;
 
-            {/* Desktop layout (lg and above) */}
-            <div className="hidden lg:block">
-              {services.map((s, i) => (
-                <article
+              return (
+                <button
                   key={s.id}
-                  id={s.id}
-                  data-idx={i}
-                  ref={(el) => {
-                    sectionsRef.current[i] = el;
+                  type="button"
+                  onClick={() => scrollTo(i)}
+                  className="relative px-8 py-5 text-center transition-colors"
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: "12px",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    fontWeight: active ? 600 : 400,
+                    color: active
+                      ? "hsl(var(--primary))"
+                      : "hsl(var(--muted-foreground) / 0.65)",
                   }}
-                 className="grid grid-cols-[minmax(520px,1fr)_minmax(520px,1fr)] items-stretch py-24"
-                  style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
                 >
-                  
-            <div className="flex flex-col justify-center max-w-xl px-16 xl:px-24">
+                  {s.nav}
+                  <span
+                    aria-hidden="true"
+                    className="absolute bottom-0 left-1/2 h-px -translate-x-1/2 transition-all duration-300"
+                    style={{
+                      width: active ? "48px" : "0px",
+                      background: "hsl(var(--primary))",
+                    }}
+                  />
+                </button>
+              );
+            })}
+          </div>
+        </nav>
 
+        {/* Mobile accordion */}
+        <div className="lg:hidden px-6 pb-20 pt-8">
+          {services.map((s, i) => {
+            const open = mobileOpenIdx === i;
+
+            return (
+              <article
+                key={s.id}
+                id={s.id}
+                data-idx={i}
+                className="border-b border-primary/15"
+                style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleMobile(i)}
+                  aria-expanded={open}
+                  className="flex w-full items-center justify-between py-6 text-left"
+                >
+                  <span className="flex items-baseline gap-4">
+                    <span
+                      style={{
+                        fontFamily: "'Jost', sans-serif",
+                        fontSize: "10px",
+                        letterSpacing: "2px",
+                        textTransform: "uppercase",
+                        color: "hsl(var(--muted-foreground) / 0.7)",
+                      }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <span
+                      className="leading-[1.1]"
+                      style={{
+                        fontFamily: "'Bodoni Moda', serif",
+                        fontSize: "clamp(24px, 6vw, 32px)",
+                        color: "hsl(var(--primary))",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {s.title}
+                    </span>
+                  </span>
+
+                  <ChevronDown
+                    size={20}
+                    className="ml-4 shrink-0 transition-transform duration-300"
+                    style={{
+                      color: "hsl(var(--primary))",
+                      transform: open ? "rotate(180deg)" : "rotate(0deg)",
+                    }}
+                  />
+                </button>
+
+                <div
+                  className="overflow-hidden transition-all duration-300 ease-out"
+                  style={{
+                    maxHeight: open ? "2200px" : "0px",
+                    opacity: open ? 1 : 0,
+                  }}
+                >
+                  <div className="pb-8 pr-4">
+                    {renderBody(s)}
+                    {renderProcess(s)}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Desktop split sections */}
+        <div className="hidden lg:block">
+          {services.map((s, i) => (
+            <article
+              key={s.id}
+              id={s.id}
+              data-idx={i}
+              ref={(el) => {
+                sectionsRef.current[i] = el;
+              }}
+              className="grid grid-cols-2 border-b border-primary/10"
+              style={{ scrollMarginTop: `${NAV_OFFSET + 88}px` }}
+            >
+              <div className="flex min-h-[760px] items-center justify-center px-16 py-20 xl:px-24">
+                <div className="w-full max-w-[620px]">
                   <p
                     className="mb-5"
                     style={{
@@ -506,52 +505,53 @@ const Services = () => {
                       color: "hsl(var(--muted-foreground) / 0.7)",
                     }}
                   >
-                    {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
+                    {String(i + 1).padStart(2, "0")} /{" "}
+                    {String(services.length).padStart(2, "0")}
                   </p>
+
                   <h2
                     className="mb-6 leading-[1.1]"
                     style={{
                       fontFamily: "'Bodoni Moda', serif",
-                      fontSize: "clamp(30px, 4vw, 42px)",
+                      fontSize: "clamp(34px, 4vw, 48px)",
                       color: "hsl(var(--primary))",
                       fontWeight: 500,
                     }}
                   >
                     {s.title}
                   </h2>
+
                   {renderBody(s)}
                   {renderProcess(s)}
-                  </div>
-<div className="relative h-[700px]">
-    <div className="absolute inset-0 -right-[100vw] bg-muted flex items-center justify-center text-muted-foreground">
-        Image
-    </div>
-</div>
-</article>
-              ))}
-            </div>
-          </div>
+                </div>
+              </div>
+
+              <div className="min-h-[760px] bg-muted">
+                <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
+                  <span
+                    className="relative text-center"
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "11px",
+                      letterSpacing: "2px",
+                      textTransform: "uppercase",
+                      color: "hsl(var(--muted-foreground) / 0.6)",
+                    }}
+                  >
+                    {t("Image placeholder", "Bildplatzhalter")}{" "}
+                    {String(i + 1).padStart(2, "0")}
+                    <br />
+                    {s.title}
+                  </span>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
-
-      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-40">
-        {services.map((s, i) => (
-          <button
-            key={s.id}
-            type="button"
-            aria-label={s.nav}
-            onClick={() => scrollTo(i)}
-            className="rounded-full transition-all"
-            style={{
-              width: activeIdx === i ? "24px" : "8px",
-              height: "8px",
-              background: activeIdx === i ? "hsl(var(--primary))" : "hsl(var(--muted-foreground) / 0.35)",
-            }}
-          />
-        ))}
-      </div>
     </EditorialLayout>
   );
-};
+  };
 
 export default Services;
