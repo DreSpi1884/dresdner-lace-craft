@@ -348,9 +348,9 @@ const Services = () => {
         )}
         path="/services"
       />
-      <section className="mx-auto w-full max-w-[1280px] px-6 lg:px-12 pt-12 md:pt-16 pb-24 lg:pb-28">
-        <div className="lg:grid lg:grid-cols-[280px_1fr] lg:gap-24">
-          <aside className="hidden lg:block">
+      <section className="w-full pt-12 md:pt-16 pb-24 lg:pb-28">
+        <div className="lg:grid lg:grid-cols-[25%_75%]">
+          <aside className="hidden lg:block px-[60px]">
             <nav
               aria-label={t("Services navigation", "Leistungsnavigation")}
               className="sticky flex flex-col gap-8"
@@ -392,7 +392,7 @@ const Services = () => {
             </nav>
           </aside>
 
-          <div className="min-w-0">
+          <div className="min-w-0 px-6 lg:px-[60px]">
             {/* Mobile accordion (below lg breakpoint) */}
             <div className="lg:hidden">
               {services.map((s, i) => {
