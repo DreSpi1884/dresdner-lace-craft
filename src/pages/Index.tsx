@@ -175,7 +175,7 @@ const Index = () => {
               <div className="space-y-4 editorial-body text-muted-foreground">
                 <p>
                   {t(
-                    "Since 1884, we have combined textile craftsmanship with continuous innovation, delivering quality without compromise.",
+                    "Since 1884, we have been crafting textiles in Dresden. By combining tradition with modern technology, we create lace and warp knitted fabrics that meet the highest standards of quality and performance.",
                     "Seit 1884 verbinden wir textiles Handwerk mit kontinuierlicher Innovation und liefern Qualität ohne Kompromisse."
                   )}
                 </p>
