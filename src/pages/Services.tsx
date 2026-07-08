@@ -178,7 +178,16 @@ const Services = () => {
                 >
                   {t("Custom Designs", "MASSGESCHNEIDERTE DESIGNS")}
                 </h3>
-                <div className="pb-8 mb-8 border-b border-primary/15 max-w-none">
+                {customIntro?.split('\n').map((line, li, array) => (
+                  <div key={`collections-custom-${lang}-${li}`}>
+                    {line ? (
+                      <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p>
+                    ) : (
+                      <div className="h-4" />
+                    )}
+                  </div>
+                ))}
+                <div className="pb-8 mb-8 border-b border-primary/15 max-w-none mt-8">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
                     {processSteps.map((item) => (
                       <div key={item.step} className="group flex flex-col">
@@ -220,15 +229,6 @@ const Services = () => {
                     ))}
                   </div>
                 </div>
-                {customIntro?.split('\n').map((line, li, array) => (
-                  <div key={`collections-custom-${lang}-${li}`}>
-                    {line ? (
-                      <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p>
-                    ) : (
-                      <div className="h-4" />
-                    )}
-                  </div>
-                ))}
               </>
             );
           })()}
