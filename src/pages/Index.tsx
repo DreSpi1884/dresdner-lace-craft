@@ -86,8 +86,8 @@ const Index = () => {
               {
                 title: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
                 desc: t(
-                  "Our seasonal designs offer a wide range of lace for current fashion trends and individual requirements.",
-                  "Unsere saisonalen Designs bieten vielfältige Spitzen für aktuelle Modetrends und individuelle Anforderungen."
+                  "Every collection starts with new ideas.\n\nTwice a year, we develop designs that combine international fashion trends with our lace expertise.",
+                  "Jede Kollektion beginnt mit neuen Ideen.\n\nZweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden."
                 ),
                 image: serviceLaceCollections.url,
                 anchor: "collections",
