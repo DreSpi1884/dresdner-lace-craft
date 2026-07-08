@@ -62,7 +62,7 @@ const Services = () => {
       nav: t("Design", "Design"),
       title: t("Design", "Design"),
       text: t(
-        "Twice a year we develop new lace collections inspired by international fashion trends, alongside custom warp-knitted fabrics for technical and medical applications.\n\n\nOur Portfolio\nBeyond our seasonal collections, we develop custom designs tailored to your exact specifications. Whether you need a specific pattern, weight or construction, we translate your vision into finished textile.",
+        "Twice a year we develop new lace collections inspired by international fashion trends, alongside custom warp-knitted fabrics for technical and medical applications.\n\n\nOur Portfolio\nBeyond our seasonal collections, we develop custom designs tailored to your exact specifications.",
         "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends, sowie maßgeschneiderte Kettengewirke für technische und medizinische Anwendungen.\n\n\nUnser Portfolio\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte Spitzen und Kettengewirke nach Ihren individuellen Anforderungen."
       ),
     },
