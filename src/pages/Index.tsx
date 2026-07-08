@@ -175,7 +175,7 @@ const Index = () => {
               <div className="space-y-4 editorial-body text-muted-foreground">
                 <p>
                   {t(
-                    "Since 1884, we have been crafting textiles in Dresden. By combining tradition with modern technology, we create lace and warp knitted fabrics that meet the highest standards of quality and performance.",
+                    "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
                     "Seit 1884 verbinden wir textiles Handwerk mit kontinuierlicher Innovation und liefern Qualität ohne Kompromisse."
                   )}
                 </p>
@@ -189,7 +189,7 @@ const Index = () => {
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300">
-                {t("Learn More", "Mehr erfahren")} <ArrowRight size={16} />
+                {t("Read more", "Mehr erfahren")} <ArrowRight size={16} />
               </Link>
             </div>
           </div>
