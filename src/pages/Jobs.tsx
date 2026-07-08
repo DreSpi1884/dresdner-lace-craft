@@ -47,7 +47,7 @@ const Jobs = () => {
               <p className="editorial-body text-muted-foreground whitespace-pre-line">
                 {t(
                   "There are currently no open positions, but we're always happy to hear from people\nwho share our passion for textiles. Get in touch.\n\n",
-                  "Aktuell sind keine Stellen ausgeschrieben, aber wir freuen uns immer, von Menschen zu hören,\ndie unsere Leidenschaft für Textilien teilen. Kontaktieren Sie uns.\n\n"
+                  "Aktuell keine offenen Stellen, aber wir freuen uns immer, von Menschen zu hören, die unsere Leidenschaft für Textilien teilen. Kontaktieren Sie uns.\n\n"
                 )}
               </p>
             </div>
