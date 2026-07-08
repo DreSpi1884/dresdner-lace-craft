@@ -493,7 +493,7 @@ const Services = () => {
               className="grid grid-cols-2 border-b border-primary/10"
               style={{ scrollMarginTop: `${NAV_OFFSET + 88}px` }}
             >
-              <div className="flex min-h-[760px] items-start px-[60px] pr-8 pt-20 pb-20">
+              <div className="flex min-h-[760px] items-start pl-[48px] pr-8 pt-20 pb-20">
                 <div className="w-full max-w-none">
                  
                   <h2
