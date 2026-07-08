@@ -493,22 +493,9 @@ const Services = () => {
               className="grid grid-cols-2 border-b border-primary/10"
               style={{ scrollMarginTop: `${NAV_OFFSET + 88}px` }}
             >
-              <div className="flex min-h-[760px] items-center px-[60px] py-20">
+              <div className="flex min-h-[760px] items-start px-[60px] pt-20 pb-20">
                 <div className="w-full max-w-[620px]">
-                  <p
-                    className="mb-5"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontSize: "10px",
-                      letterSpacing: "2px",
-                      textTransform: "uppercase",
-                      color: "hsl(var(--muted-foreground) / 0.7)",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")} /{" "}
-                    {String(services.length).padStart(2, "0")}
-                  </p>
-
+                 
                   <h2
                     className="mb-6 leading-[1.1]"
                     style={{
