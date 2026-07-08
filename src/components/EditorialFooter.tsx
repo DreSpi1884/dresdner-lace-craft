@@ -13,8 +13,11 @@ const EditorialFooter = () => {
           {/* Brand */}
           <div>
             <h3 className="font-serif text-2xl mb-4">Dresdner Spitzen</h3>
-            <p className="editorial-body-sm text-background/60 max-w-xs">
-              {t("European textile manufacturer since 1884.", "Europäischer Textilhersteller seit 1884.")}&nbsp;
+            <p className="editorial-body-sm text-background/60 max-w-xs whitespace-pre-line">
+              {t(
+                "European textile manufacturer since 1884.\nYour partner for high-quality lace, warp-knitted fabrics and functional textiles, developed and produced in Dresden.",
+                "Europäischer Textilhersteller seit 1884.\nIhr Partner für hochwertige Spitzen, Kettengewirke und funktionale Textilien, entwickelt und produziert in Dresden."
+              )}
             </p>
           </div>
 
