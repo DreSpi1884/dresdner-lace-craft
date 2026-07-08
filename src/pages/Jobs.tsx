@@ -44,7 +44,12 @@ const Jobs = () => {
           <div className="max-w-2xl mx-auto text-center">
             <p className="editorial-label text-muted-foreground mb-8">{t("Professional Positions", "Feste Stellen")}</p>
             <div className="border-t border-border py-8">
-              <p className="editorial-body text-muted-foreground">{t("There are currently no open positions.", "Aktuell sind keine Stellen ausgeschrieben.")}</p>
+              <p className="editorial-body text-muted-foreground whitespace-pre-line">
+                {t(
+                  "There are currently no open positions, but we're always happy to hear from people\nwho share our passion for textiles. Get in touch.\n\n",
+                  "Aktuell sind keine Stellen ausgeschrieben, aber wir freuen uns immer, von Menschen zu hören,\ndie unsere Leidenschaft für Textilien teilen. Kontaktieren Sie uns.\n\n"
+                )}
+              </p>
             </div>
 
             <p className="editorial-label text-muted-foreground mb-8 mt-12">{t("Apprenticeships", "Ausbildungsplätze")}</p>
