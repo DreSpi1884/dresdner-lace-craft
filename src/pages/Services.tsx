@@ -71,7 +71,7 @@ const Services = () => {
       nav: t("Raw Material Production", "Rohwarenproduktion"),
       title: t("Raw Material Production", "Rohwarenproduktion"),
       text: t(
-        "All production processes takes place under one roof in Dresden, Germany.\nOur Karl Mayer Raschel, Jacquardtronic® and Textronic® machines combine the latest warp knitting technology with over 140 years of textile expertise to produce premium lace, elastic fabrics and technical textiles.",
+        "All production processes takes place under one roof in Dresden, Germany.\nOn Karl Mayer Raschel, Jacquardtronic® and Textronic® machines, we manufacture premium lace, elastic fabrics and technical textiles with over 140 years of textile expertise.",
         "Die gesamte Produktion findet unter einem Dach in Dresden statt.\nAuf Karl Mayer Raschel-, Jacquardtronic®- und Textronic®-Maschinen fertigen wir hochwertige Spitzen, elastische Stoffe und technische Textilien.\u00a0"
       ),
     },
