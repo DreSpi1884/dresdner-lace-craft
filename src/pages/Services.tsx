@@ -190,7 +190,7 @@ const Services = () => {
               color: "hsl(var(--primary))",
             }}
           >
-            {t("Custom Designs", "Maßgeschneiderte Entwürfe")}
+            {t("Custom Designs", "MASSGESCHNEIDERTE DESIGNS")}
           </h3>
           <div className="pb-8 mb-8 border-b border-primary/15 max-w-none">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
