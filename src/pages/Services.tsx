@@ -74,7 +74,7 @@ const Services = () => {
   const services = useMemo(
     (): ServiceItem[] => [
       {
-        id: "Design",
+        id: "design",
         nav: t("Design", "Design"),
         title: t("Design", "Design"),
         text: t(
@@ -83,7 +83,7 @@ const Services = () => {
         ),
       },
       {
-        id: "Raw Material Production",
+        id: "raw-material-production",
         nav: t("Raw Material Production", "Rohwarenproduktion"),
         title: t("Raw Material Production", "Rohwarenproduktion"),
         text: t(
@@ -92,7 +92,7 @@ const Services = () => {
         ),
       },
       {
-        id: "dyeing & finishing",
+        id: "dyeing-finishing",
         nav: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
         title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
         text: t(
@@ -101,7 +101,7 @@ const Services = () => {
         ),
       },
       {
-        id: "functional and medical textiles",
+        id: "functional-textiles",
         nav: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
         title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
         text: t(
@@ -168,7 +168,7 @@ const Services = () => {
         color: "hsl(var(--muted-foreground))",
       }}
     >
-      {s.id === "collections" ? (
+      {s.id === "design" ? (
         <>
           {(() => {
             const [intro, customIntro] = s.text.split("\n\n\n\n");
@@ -250,7 +250,7 @@ const Services = () => {
             />
           </p>
         </>
-      ) : s.id === "custom-designs" ? (
+      ) : s.id === "raw-materials-production" ? (
         <>
           {s.text.split("\n").map((line, li) => (
             <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
