@@ -6,15 +6,7 @@ import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
 
 // Inline link helper that turns a specific word in a paragraph into a button.
-const TextWithLink = ({
-  text,
-  link,
-  onClick,
-}: {
-  text: string;
-  link: string;
-  onClick: () => void;
-}): ReactNode => {
+const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onClick: () => void }): ReactNode => {
   const parts = text.split(link);
   if (parts.length !== 2) return <>{text}</>;
   return (
@@ -32,7 +24,6 @@ const TextWithLink = ({
   );
 };
 
-
 // Fixed header height (h-20 mobile / h-24 desktop)
 const NAV_OFFSET = 96;
 
@@ -40,13 +31,37 @@ const Services = () => {
   const { t, lang } = useLang();
   const { open: openQuote } = useQuoteModal();
 
-
-  const processSteps = useMemo(() => [
-    { step: "01", title: t("CONSULTATION", "BERATUNG"), desc: t("We discuss your project and requirements.", "Wir besprechen Ihre Anforderungen.") },
-    { step: "02", title: t("Plan", "PLANUNG"), desc: t("We develop the right solution for your project.", "Wir entwickeln eine Lösung, die exakt zu Ihrem Projekt passt.") },
-    { step: "03", title: t("PRODUCTION", "PRODUKTION"), desc: t("Your order is produced to certified standards.", "Ihre Bestellung wird nachhaltig zertifiziert produziert.") },
-    { step: "04", title: t("Delivery", "Lieferung"), desc: t("We deliver reliably and on schedule.", "Wir liefern zuverlässig nach Ihrem Zeitplan.") },
-  ], [t]);
+  const processSteps = useMemo(
+    () => [
+      {
+        step: "01",
+        title: t("CONSULTATION", "BERATUNG"),
+        desc: t("We discuss your project and requirements.", "Wir besprechen Ihre Anforderungen."),
+      },
+      {
+        step: "02",
+        title: t("Plan", "PLANUNG"),
+        desc: t(
+          "We develop the right solution for your project.",
+          "Wir entwickeln eine Lösung, die exakt zu Ihrem Projekt passt.",
+        ),
+      },
+      {
+        step: "03",
+        title: t("PRODUCTION", "PRODUKTION"),
+        desc: t(
+          "Your order is produced to certified standards.",
+          "Ihre Bestellung wird nachhaltig zertifiziert produziert.",
+        ),
+      },
+      {
+        step: "04",
+        title: t("Delivery", "Lieferung"),
+        desc: t("We deliver reliably and on schedule.", "Wir liefern zuverlässig nach Ihrem Zeitplan."),
+      },
+    ],
+    [t],
+  );
 
   type ServiceItem = {
     id: string;
@@ -56,44 +71,47 @@ const Services = () => {
     process?: typeof processSteps;
   };
 
-  const services = useMemo((): ServiceItem[] => [
-    {
-      id: "collections",
-      nav: t("Design", "Design"),
-      title: t("Design", "Design"),
-      text: t(
-        "Twice a year we develop new lace collections inspired by international fashion trends, alongside warp-knitted fabrics for technical and medical applications.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
-        "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends, sowie Kettengewirke für technische und medizinische Anwendungen.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte elastische und unelastische Spitzen und Kettengewirke nach Ihren individuellen Anforderungen."
-      ),
-    },
-    {
-      id: "custom-designs",
-      nav: t("Raw Material Production", "Rohwarenproduktion"),
-      title: t("Raw Material Production", "Rohwarenproduktion"),
-      text: t(
-        "All production processes takes place under one roof in Dresden, Germany.\nOn Karl Mayer Raschel, Jacquardtronic® and Textronic® machines, we manufacture premium lace, elastic fabrics and technical textiles with over 140 years of textile expertise.",
-        "Die gesamte Produktion findet unter einem Dach in Dresden statt.\nAuf Karl Mayer Raschel-, Jacquardtronic®- und Textronic®-Maschinen fertigen wir hochwertige Spitzen, elastische Stoffe und technische Textilien mit über 140 Jahren Textilexpertise.\u00a0"
-      ),
-    },
-    {
-      id: "dyeing-finishing",
-      nav: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
-      title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
-      text: t(
-        "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes.\nWe use jet dyeing technology, reducing water consumption by up to 70% compared to conventional dyeing methods.\nWe also provide finishing tailored to your intended application.\nHydrophilic | Hydrophobic | Antistatic | Flame Retardant | Soft Finish | Stiff Finish\n\nContract dyeing and finishing services available on request.",
-        "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 70% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\u00a0\nHydrophil | Hydrophob | Antistatisch | Flammhemmend | Weichausrüstung | Steifausrüstung\nLohnfärberei und -ausrüstung auf Anfrage."
-      ),
-    },
-    {
-      id: "functional-treatments",
-      nav: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
-      title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
-      text: t(
-        "We develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments and post-surgical products,\u00a0delivering consistent quality, comfort and reliable performance.",
-        "Wir entwickeln funktionale Kettengewirke für technische und medizinische Anwendungen. Unsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit."
-      ),
-    },
-  ], [t, processSteps]);
+  const services = useMemo(
+    (): ServiceItem[] => [
+      {
+        id: "Design",
+        nav: t("Design", "Design"),
+        title: t("Design", "Design"),
+        text: t(
+          "Twice a year we develop new lace collections inspired by international fashion trends, alongside warp-knitted fabrics for technical and medical applications.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
+          "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends, sowie Kettengewirke für technische und medizinische Anwendungen.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte elastische und unelastische Spitzen und Kettengewirke nach Ihren individuellen Anforderungen.",
+        ),
+      },
+      {
+        id: "Raw Material Production",
+        nav: t("Raw Material Production", "Rohwarenproduktion"),
+        title: t("Raw Material Production", "Rohwarenproduktion"),
+        text: t(
+          "All production processes takes place under one roof in Dresden, Germany.\nOn Karl Mayer Raschel, Jacquardtronic® and Textronic® machines, we manufacture premium lace, elastic fabrics and technical textiles with over 140 years of textile expertise.",
+          "Die gesamte Produktion findet unter einem Dach in Dresden statt.\nAuf Karl Mayer Raschel-, Jacquardtronic®- und Textronic®-Maschinen fertigen wir hochwertige Spitzen, elastische Stoffe und technische Textilien mit über 140 Jahren Textilexpertise.\u00a0",
+        ),
+      },
+      {
+        id: "dyeing & finishing",
+        nav: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
+        title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
+        text: t(
+          "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes.\nWe use jet dyeing technology, reducing water consumption by up to 70% compared to conventional dyeing methods.\nWe also provide finishing tailored to your intended application.\nHydrophilic | Hydrophobic | Antistatic | Flame Retardant | Soft Finish | Stiff Finish\n\nContract dyeing and finishing services available on request.",
+          "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 70% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\u00a0\nHydrophil | Hydrophob | Antistatisch | Flammhemmend | Weichausrüstung | Steifausrüstung\nLohnfärberei und -ausrüstung auf Anfrage.",
+        ),
+      },
+      {
+        id: "functional and medical textiles",
+        nav: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
+        title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
+        text: t(
+          "We develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments and post-surgical products,\u00a0delivering consistent quality, comfort and reliable performance.",
+          "Wir entwickeln funktionale Kettengewirke für technische und medizinische Anwendungen. Unsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit.",
+        ),
+      },
+    ],
+    [t, processSteps],
+  );
 
   const [activeIdx, setActiveIdx] = useState(0);
   const [mobileOpenIdx, setMobileOpenIdx] = useState(-1);
@@ -156,13 +174,9 @@ const Services = () => {
             const [intro, customIntro] = s.text.split("\n\n\n\n");
             return (
               <>
-                {intro.split('\n').map((line, li, array) => (
+                {intro.split("\n").map((line, li, array) => (
                   <div key={`collections-intro-${lang}-${li}`}>
-                    {line ? (
-                      <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p>
-                    ) : (
-                      <div className="h-4" />
-                    )}
+                    {line ? <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p> : <div className="h-4" />}
                   </div>
                 ))}
                 <h3
@@ -178,13 +192,9 @@ const Services = () => {
                 >
                   {t("Custom Designs", "MASSGESCHNEIDERTE DESIGNS")}
                 </h3>
-                {customIntro?.split('\n').map((line, li, array) => (
+                {customIntro?.split("\n").map((line, li, array) => (
                   <div key={`collections-custom-${lang}-${li}`}>
-                    {line ? (
-                      <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p>
-                    ) : (
-                      <div className="h-4" />
-                    )}
+                    {line ? <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p> : <div className="h-4" />}
                   </div>
                 ))}
                 <div className="pb-8 mb-8 border-b border-primary/15 max-w-none mt-8">
@@ -242,7 +252,7 @@ const Services = () => {
         </>
       ) : s.id === "custom-designs" ? (
         <>
-          {s.text.split('\n').map((line, li) => (
+          {s.text.split("\n").map((line, li) => (
             <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
               {line}
             </p>
@@ -263,11 +273,14 @@ const Services = () => {
         </>
       ) : s.id === "dyeing-finishing" ? (
         <>
-          {s.text.split('\n').slice(0, -1).map((line, li) => (
-            <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-              {line}
-            </p>
-          ))}
+          {s.text
+            .split("\n")
+            .slice(0, -1)
+            .map((line, li) => (
+              <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+                {line}
+              </p>
+            ))}
           <p
             className="mt-8"
             style={{
@@ -279,11 +292,11 @@ const Services = () => {
               color: "hsl(var(--primary))",
             }}
           >
-            {s.text.split('\n').slice(-1)[0]}
+            {s.text.split("\n").slice(-1)[0]}
           </p>
         </>
       ) : (
-        s.text.split('\n').map((line, li) => (
+        s.text.split("\n").map((line, li) => (
           <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
             {line}
           </p>
@@ -341,10 +354,13 @@ const Services = () => {
   return (
     <EditorialLayout title={t("Our Production", "Unsere Produktion")} heroCompact>
       <SEO
-        title={t("Our Production — Lace, Bespoke Designs & Finishing", "Unsere Produktion — Spitzen, Maßanfertigungen & Veredelung")}
+        title={t(
+          "Our Production — Lace, Bespoke Designs & Finishing",
+          "Unsere Produktion — Spitzen, Maßanfertigungen & Veredelung",
+        )}
         description={t(
           "Seasonal lace collections, bespoke designs, in-house dyeing and finishing, and functional or medical textiles — engineered in Germany.",
-          "Saisonale Spitzenkollektionen, maßgeschneiderte Entwürfe, hauseigenes Färben und Veredeln sowie funktionale und medizinische Textilien — entwickelt in Deutschland."
+          "Saisonale Spitzenkollektionen, maßgeschneiderte Entwürfe, hauseigenes Färben und Veredeln sowie funktionale und medizinische Textilien — entwickelt in Deutschland.",
         )}
         path="/services"
       />
@@ -402,7 +418,9 @@ const Services = () => {
                     key={s.id}
                     id={s.id}
                     data-idx={i}
-                    ref={(el) => { sectionsRef.current[i] = el; }}
+                    ref={(el) => {
+                      sectionsRef.current[i] = el;
+                    }}
                     className="border-b border-primary/15"
                     style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
                   >
@@ -469,7 +487,9 @@ const Services = () => {
                   key={s.id}
                   id={s.id}
                   data-idx={i}
-                  ref={(el) => { sectionsRef.current[i] = el; }}
+                  ref={(el) => {
+                    sectionsRef.current[i] = el;
+                  }}
                   className={`${s.id === "collections" || s.process ? "max-w-4xl" : "max-w-2xl"} py-16 md:py-24 first:pt-0 last:pb-0`}
                   style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
                 >
