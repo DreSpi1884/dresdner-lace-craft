@@ -44,7 +44,7 @@ const Services = () => {
   const processSteps = useMemo(() => [
     { step: "01", title: t("CONSULTATION", "BERATUNG"), desc: t("We discuss your project and requirements.", "Wir besprechen Ihre Anforderungen.") },
     { step: "02", title: t("Plan", "PLANUNG"), desc: t("We develop the right solution for your project.", "Wir entwickeln eine Lösung, die exakt zu Ihrem Projekt passt.") },
-    { step: "03", title: t("PRODUCTION", "PRODUKTION"), desc: t("Your order is produced to certified standards.", "Ihre Bestellung wird nachhaltig produziert.") },
+    { step: "03", title: t("PRODUCTION", "PRODUKTION"), desc: t("Your order is produced to certified standards.", "Ihre Bestellung wird nachhaltig zertifiziert produziert.") },
     { step: "04", title: t("Delivery", "Lieferung"), desc: t("We deliver reliably and on schedule.", "Wir liefern zuverlässig nach Ihrem Zeitplan.") },
   ], [t]);
 
