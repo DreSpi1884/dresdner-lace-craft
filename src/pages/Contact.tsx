@@ -26,7 +26,7 @@ const Contact = () => {
               <p className="editorial-body text-muted-foreground mb-6">
                 {t(
                   "Have a specific project or want to learn more about us?\nWe respond within one business day.",
-                  "Haben Sie ein konkretes Projekt oder möchten Sie mehr über uns erfahren?\nWir antworten innerhalb eines Werktages."
+                  "Haben Sie ein konkretes Projekt, oder möchten Sie mehr über uns erfahren?\nWir antworten innerhalb eines Werktages."
                 )}
               </p>
               <hr className="border-border mb-6" />
