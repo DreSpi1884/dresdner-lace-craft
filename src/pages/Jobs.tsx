@@ -14,7 +14,7 @@ const Jobs = () => {
 
   return (
     <EditorialLayout
-      title={<>{t("Join the future of", "Gestalten Sie die Zukunft")} <br />{t("textile innovation.", "textiler Innovation.")}</>}
+      title={<>{t("The people behind", "Die Menschen")} <br />{t("every thread", "hinter jedem Faden")}</>}
       titleClassName="editorial-heading-lg"
       heroCompact
       heroClassName="h-[160px] md:h-[200px]"
@@ -32,8 +32,8 @@ const Jobs = () => {
         <div className="editorial-container text-center">
           <p className="editorial-body text-muted-foreground max-w-2xl mx-auto whitespace-pre-line">
             {t(
-              "At Dresdner Spitzen, we value skilled hands and fresh ideas equally.\nJoin a team where tradition meets innovation, in one of Germany's most beautiful cities.",
-              "Bei Dresdner Spitzen schätzen wir handwerkliches Können und frische Ideen gleichermaßen.\nWerden Sie Teil eines Teams, in dem Tradition auf Innovation trifft – in einer der schönsten Städte Deutschlands."
+              "We believe that great textiles are made by great people. That's why we rely on team spirit, mutual respect and the opportunity to grow together.\nJoin a team where tradition meets innovation in one of Germany's most beautiful cities.",
+              "Wir glauben, dass großartige Textilien von großartigen Menschen gemacht werden. Deshalb setzen wir auf Teamgeist, gegenseitigen Respekt und die Möglichkeit, gemeinsam zu wachsen.\nWerden Sie Teil eines Teams, in dem Tradition auf Innovation trifft in einer der schönsten Städte Deutschlands."
             )}
           </p>
         </div>
