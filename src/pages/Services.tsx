@@ -260,7 +260,7 @@ const Services = () => {
               color: "hsl(var(--primary))",
             }}
           >
-            {t("Contract manufacturing available on request.", "Konfektionsfertigung auf Anfrage.")}
+            {t("Contract manufacturing available on request.", "LOHNFERTIGUNG AUF ANFRAGE.")}
           </p>
         </>
       ) : (
