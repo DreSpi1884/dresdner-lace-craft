@@ -81,7 +81,7 @@ const Services = () => {
       title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
       text: t(
         "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes.\nWe use jet dyeing technology, reducing water consumption by up to 80% compared to conventional dyeing methods.\nWe also provide finishing tailored to your intended application.",
-        "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 80% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\u00a0\nHydrophil | Hydrophob | Antistatisch | Flammhemmend | Weichausrüstung | Steifausrüstung\nLohnfärberei und Lohnveredelung auf Anfrage."
+        "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 70% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\u00a0\nHydrophil | Hydrophob | Antistatisch | Flammhemmend | Weichausrüstung | Steifausrüstung\nLohnfärberei und Lohnveredelung auf Anfrage."
       ),
     },
     {
