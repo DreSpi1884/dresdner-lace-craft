@@ -52,10 +52,7 @@ const BeforeAfterSlider = ({
   }, [dragging, updateFromClientX]);
 
   return (
-    <div
-      ref={containerRef}
-      className={`relative w-full aspect-[4/3] overflow-hidden select-none ${className}`}
-    >
+    <div ref={containerRef} className={`relative w-full aspect-[4/3] overflow-hidden select-none ${className}`}>
       {/* After (base) */}
       <img
         src={afterImage}
@@ -99,7 +96,7 @@ const BeforeAfterSlider = ({
           setDragging(true);
         }}
         onTouchStart={() => setDragging(true)}
-        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-background border border-foreground/20 shadow-md flex items-center justify-center cursor-ew-resize"
+        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-14 h-14 md:w-10 md:h-10 rounded-full bg-background border border-foreground/20 shadow-md flex items-center justify-center cursor-ew-resize"
         style={{ left: `${position}%` }}
       >
         <ChevronLeft size={14} className="text-foreground" />
