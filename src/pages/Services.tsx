@@ -229,15 +229,6 @@ const Services = () => {
                     ))}
                   </div>
                 </div>
-                {customIntro?.split('\n').map((line, li, array) => (
-                  <div key={`collections-custom-${lang}-${li}`}>
-                    {line ? (
-                      <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p>
-                    ) : (
-                      <div className="h-4" />
-                    )}
-                  </div>
-                ))}
               </>
             );
           })()}
