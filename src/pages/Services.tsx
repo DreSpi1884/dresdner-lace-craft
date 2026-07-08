@@ -162,7 +162,7 @@ const Services = () => {
     setMobileOpenIdx((prev) => (prev === idx ? -1 : idx));
   };
 
-  const renderBody = (s: ServiceItem) => (
+  const renderBody = (s: ServiceItem & { tags?: string[] }) => (
     <div
       style={{
         fontFamily: "'Jost', sans-serif",
@@ -275,29 +275,26 @@ const Services = () => {
             {t("Contract manufacturing available on request.", "LOHNFERTIGUNG AUF ANFRAGE.")}
           </p>
         </>
-      ) : s.id === "dyeing-finishing" ? (
+      ) : s.id === "dyeing & finishing" ? (
         <>
-          {s.text
-            .split("\n")
-            .slice(0, -1)
-            .map((line, li) => (
-              <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-                {line}
-              </p>
-            ))}
-          <p
-            className="mt-8"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "12px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: "hsl(var(--primary))",
-            }}
-          >
-            {s.text.split("\n").slice(-1)[0]}
-          </p>
+          {s.text.split("\n").map((line, li) => (
+            <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+              {line}
+            </p>
+          ))}
+
+          {s.tags && Array.isArray(s.tags) && (
+            <div className="flex flex-wrap gap-2 mt-6">
+              {s.tags.map((tag: string, index: number) => (
+                <span
+                  key={index}
+                  className="inline-block bg-white text-[#002060] border border-[#002060] uppercase tracking-[1.5px] px-[14px] py-[6px] rounded-[2px] text-[10px] font-semibold"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </>
       ) : (
         s.text.split("\n").map((line, li) => (
