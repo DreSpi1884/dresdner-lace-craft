@@ -33,7 +33,7 @@ const Jobs = () => {
           <p className="editorial-body text-muted-foreground max-w-2xl mx-auto whitespace-pre-line">
             {t(
               "We believe that great textiles are made by great people. That's why we rely on team spirit, mutual respect and the opportunity to grow together.\n\nJoin a team where tradition meets innovation in one of Germany's most beautiful cities.",
-              "Wir glauben, dass großartige Textilien von großartigen Menschen gemacht werden. Deshalb setzen wir auf Teamgeist, gegenseitigen Respekt und die Möglichkeit, gemeinsam zu wachsen.\nWerden Sie Teil eines Teams, in dem Tradition auf Innovation trifft in einer der schönsten Städte Deutschlands."
+              "Wir glauben, dass großartige Textilien von großartigen Menschen gemacht werden. Deshalb setzen wir auf Teamgeist, gegenseitigen Respekt und die Möglichkeit, gemeinsam zu wachsen.\nWerden Sie Teil eines Teams, in dem Tradition auf Innovation trifft."
             )}
           </p>
         </div>
