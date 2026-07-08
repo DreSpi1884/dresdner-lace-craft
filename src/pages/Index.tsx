@@ -113,8 +113,8 @@ const Index = () => {
               {
                 title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
                 desc: t(
-                  "We develop warp-knitted fabrics for medical and technical use.\u00a0\nOur elastic textiles are used in compression garments, post-surgical care, and lymphatic therapy.",
-                  "Wir entwickeln Kettengewirke für medizinische und technische Anwendungen.\u00a0\nUnsere elastischen Textilien kommen in Kompressionsbekleidung, postoperativer Versorgung und Lymphtherapie zum Einsatz."
+                  "We develop warp-knitted fabrics for medical and technical use.",
+                  "Wir entwickeln Kettengewirke für medizinische und technische Anwendungen.\n"
                 ),
                 image: serviceFunctional.url,
                 anchor: "functional-treatments",
