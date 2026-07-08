@@ -275,7 +275,6 @@ const HistoryTimeline = () => {
               style={{
                 width: RIBBON_WIDTH,
                 height: revealed,
-                transition: "height 120ms linear",
               }}
             >
               <svg
