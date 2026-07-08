@@ -364,9 +364,9 @@ const Services = () => {
         )}
         path="/services"
       />
-      <section className="w-full pt-12 md:pt-16 pb-24 lg:pb-28">
-        <div className="lg:grid lg:grid-cols-[25%_75%]">
-          <aside className="hidden lg:block px-[60px]">
+  <section className="w-full">
+    <div className="lg:grid lg:grid-cols-[260px_1fr]">
+      <aside className="hidden lg:block border-r border-border/40">
             <nav
               aria-label={t("Services navigation", "Leistungsnavigation")}
               className="sticky flex flex-col gap-8"
@@ -408,7 +408,7 @@ const Services = () => {
             </nav>
           </aside>
 
-          <div className="min-w-0 px-6 lg:px-[60px]">
+          <div className="min-w-0">
             {/* Mobile accordion (below lg breakpoint) */}
             <div className="lg:hidden">
               {services.map((s, i) => {
@@ -490,9 +490,12 @@ const Services = () => {
                   ref={(el) => {
                     sectionsRef.current[i] = el;
                   }}
-                  className={`${s.id === "collections" || s.process ? "max-w-4xl" : "max-w-2xl"} py-16 md:py-24 first:pt-0 last:pb-0`}
+                 className="grid grid-cols-[50%_50%] items-stretch min-h-[700px]"
                   style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
                 >
+                  
+            <div className="flex flex-col justify-center max-w-xl py-20 pr-20">
+
                   <p
                     className="mb-5"
                     style={{
@@ -518,7 +521,11 @@ const Services = () => {
                   </h2>
                   {renderBody(s)}
                   {renderProcess(s)}
-                </article>
+                  </div>
+<div className="h-[700px] bg-muted flex items-center justify-center text-muted-foreground">
+  Image
+</div>
+</article>
               ))}
             </div>
           </div>
