@@ -372,7 +372,7 @@ const Services = () => {
   className="sticky z-30 hidden border-b border-primary/10 bg-background/95 backdrop-blur lg:block"
   style={{ top: `${NAV_OFFSET}px` }}
 >
-  <div className="mx-auto flex max-w-7xl items-center justify-center gap-12 px-8">
+  <div className="flex items-center gap-12 px-[60px]">
     {services.map((s, i) => {
       const active = activeIdx === i;
 
@@ -493,7 +493,7 @@ const Services = () => {
               className="grid grid-cols-2 border-b border-primary/10"
               style={{ scrollMarginTop: `${NAV_OFFSET + 88}px` }}
             >
-              <div className="flex min-h-[760px] items-center justify-center px-16 py-20 xl:px-24">
+              <div className="flex min-h-[760px] items-center px-[60px] py-20">
                 <div className="w-full max-w-[620px]">
                   <p
                     className="mb-5"
