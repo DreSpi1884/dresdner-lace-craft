@@ -490,11 +490,11 @@ const Services = () => {
                   ref={(el) => {
                     sectionsRef.current[i] = el;
                   }}
-                 className="grid grid-cols-[50%_50%] items-stretch min-h-[700px]"
+                 className="grid grid-cols-[minmax(520px,1fr)_minmax(520px,1fr)] items-stretch py-24"
                   style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
                 >
                   
-            <div className="flex flex-col justify-center max-w-xl py-20 pr-20">
+            <div className="flex flex-col justify-center max-w-xl px-16 xl:px-24">
 
                   <p
                     className="mb-5"
@@ -522,8 +522,10 @@ const Services = () => {
                   {renderBody(s)}
                   {renderProcess(s)}
                   </div>
-<div className="h-[700px] bg-muted flex items-center justify-center text-muted-foreground">
-  Image
+<div className="relative h-[700px]">
+    <div className="absolute inset-0 -right-[100vw] bg-muted flex items-center justify-center text-muted-foreground">
+        Image
+    </div>
 </div>
 </article>
               ))}
