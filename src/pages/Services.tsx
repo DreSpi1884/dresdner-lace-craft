@@ -367,46 +367,46 @@ const Services = () => {
 
       <section className="w-full">
         {/* Desktop navigation */}
-        <nav
-          aria-label={t("Services navigation", "Leistungsnavigation")}
-          className="sticky z-30 hidden border-y border-primary/10 bg-background/95 backdrop-blur lg:block"
-          style={{ top: `${NAV_OFFSET}px` }}
-        >
-          <div className="grid grid-cols-4">
-            {services.map((s, i) => {
-              const active = activeIdx === i;
+<nav
+  aria-label={t("Services navigation", "Leistungsnavigation")}
+  className="sticky z-30 hidden border-b border-primary/10 bg-background/95 backdrop-blur lg:block"
+  style={{ top: `${NAV_OFFSET}px` }}
+>
+  <div className="mx-auto flex max-w-7xl items-center justify-center gap-12 px-8">
+    {services.map((s, i) => {
+      const active = activeIdx === i;
 
-              return (
-                <button
-                  key={s.id}
-                  type="button"
-                  onClick={() => scrollTo(i)}
-                  className="relative px-8 py-5 text-center transition-colors"
-                  style={{
-                    fontFamily: "'Jost', sans-serif",
-                    fontSize: "12px",
-                    letterSpacing: "2px",
-                    textTransform: "uppercase",
-                    fontWeight: active ? 600 : 400,
-                    color: active
-                      ? "hsl(var(--primary))"
-                      : "hsl(var(--muted-foreground) / 0.65)",
-                  }}
-                >
-                  {s.nav}
-                  <span
-                    aria-hidden="true"
-                    className="absolute bottom-0 left-1/2 h-px -translate-x-1/2 transition-all duration-300"
-                    style={{
-                      width: active ? "48px" : "0px",
-                      background: "hsl(var(--primary))",
-                    }}
-                  />
-                </button>
-              );
-            })}
-          </div>
-        </nav>
+      return (
+        <button
+          key={s.id}
+          type="button"
+          onClick={() => scrollTo(i)}
+          className="relative py-5 transition-colors"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontSize: "12px",
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            fontWeight: active ? 600 : 400,
+            color: active
+              ? "hsl(var(--primary))"
+              : "hsl(var(--muted-foreground) / 0.65)",
+          }}
+        >
+          {s.nav}
+          <span
+            aria-hidden="true"
+            className="absolute bottom-0 left-0 h-px transition-all duration-300"
+            style={{
+              width: active ? "100%" : "0%",
+              background: "hsl(var(--primary))",
+            }}
+          />
+        </button>
+      );
+    })}
+  </div>
+</nav>
 
         {/* Mobile accordion */}
         <div className="lg:hidden px-6 pb-20 pt-8">
