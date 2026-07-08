@@ -181,8 +181,8 @@ const Index = () => {
                 </p>
                 <p>
                   {t(
-                    "From our facility in Dresden, we unite advanced manufacturing with decades of experience to serve our clients of every scale.",
-                    "Von unserem Standort in Dresden aus verbinden wir moderne Fertigung mit jahrzehntelanger Erfahrung, um Kunden jeder Größenordnung zu bedienen."
+                    "\n",
+                    "\n"
                   )}
                 </p>
               </div>
