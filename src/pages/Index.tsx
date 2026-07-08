@@ -168,7 +168,7 @@ const Index = () => {
             </div>
 
             <div>
-              <p className="editorial-label text-primary mb-4">{t("140 YEARS OF EXPERIENCE", "140 JAHRE ERFAHRUNG")}</p>
+              <p className="editorial-label text-primary mb-4">{t("140 YEARS OF EXPERIENCE", "1884 GEGRÜNDET")}</p>
               <h2 className="editorial-heading-lg text-foreground mb-6">
                 {t("Our Story", "Unsere Geschichte")}
               </h2>
@@ -176,7 +176,7 @@ const Index = () => {
                 <p>
                   {t(
                     "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
-                    "Mehr als 140 Jahre Geschichte erzählen von Wandel, neuen Ideen und Anpassungsfähigkeit. Was geblieben ist, ist unser Anspruch an hochwertige Textilien."
+                    "Mehr als 140 Jahre Geschichte erzählen von Wandel und Innovationsgeist.\nGeblieben ist unser Anspruch an hochwertige Textilien."
                   )}
                 </p>
                 <p>
