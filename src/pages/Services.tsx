@@ -164,7 +164,7 @@ const Services = () => {
         fontFamily: "'Jost', sans-serif",
         fontSize: "15px",
         lineHeight: 1.65,
-        maxWidth: "560px",
+        maxWidth: "720px",
         color: "hsl(var(--muted-foreground))",
       }}
     >
@@ -494,7 +494,7 @@ const Services = () => {
               style={{ scrollMarginTop: `${NAV_OFFSET + 88}px` }}
             >
               <div className="flex min-h-[760px] items-start px-[60px] pt-20 pb-20">
-                <div className="w-full max-w-[620px]">
+                <div className="w-full max-w-[780px]">
                  
                   <h2
                     className="mb-6 leading-[1.1]"
