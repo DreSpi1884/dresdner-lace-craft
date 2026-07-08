@@ -81,7 +81,7 @@ const Services = () => {
       title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
       text: t(
         "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes. We also provide finishing tailored to your intended application.\nhydrophilic | hydrophobic\u00a0 | antistatic | flame retardant | softening | stiffening",
-        "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung. Darüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen: schmutz- und ölabweisend, hydrophil, hydrophob, antistatisch, weichmachend, flammhemmend und versteifend. Lohnfärberei und Lohnveredelung auf Anfrage verfügbar."
+        "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 80% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen: schmutz- und ölabweisend, hydrophil, hydrophob, antistatisch, weichmachend, flammhemmend und versteifend. Lohnfärberei und Lohnveredelung auf Anfrage verfügbar."
       ),
     },
     {
