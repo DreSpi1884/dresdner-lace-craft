@@ -45,7 +45,7 @@ const Services = () => {
     { step: "01", title: t("CONSULTATION", "BERATUNG"), desc: t("We discuss your requirements.", "Wir besprechen Ihre Anforderungen.") },
     { step: "02", title: t("Plan", "PLANUNG"), desc: t("We develop the perfect solution for your project.", "Wir entwickeln eine Lösung, die exakt zu Ihrem Projekt passt.") },
     { step: "03", title: t("PRODUCTION", "PRODUKTION"), desc: t("Your order is produced sustainably.", "Ihre Bestellung wird nachhaltig produziert.") },
-    { step: "04", title: t("Delivery", "Lieferung"), desc: t("We deliver reliably to your schedule", "Wir liefern zuverlässig nach Ihrem Zeitplan") },
+    { step: "04", title: t("Delivery", "Lieferung"), desc: t("We deliver reliably to your schedule.", "Wir liefern zuverlässig nach Ihrem Zeitplan.") },
   ], [t]);
 
   type ServiceItem = {
