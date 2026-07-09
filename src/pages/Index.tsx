@@ -208,17 +208,15 @@ const Index = () => {
 
       {/* JOBS PREVIEW */}
       <EditorialSection className="bg-card">
-        <div className="editorial-container editorial-section text-center">
+        <div className="editorial-container text-center py-10 md:py-20">
           <p className="editorial-label text-primary mb-4">{t("", "")}</p>
-          <h2 className="editorial-heading-lg text-foreground mb-6">
+          <h2 className="editorial-heading-lg text-foreground text-[2rem] sm:text-[2.4rem] md:text-6xl leading-[1.1] mb-4">
             {t("Join our team", "Werden Sie Teil unseres Teams")}
           </h2>
-          <p className="editorial-body text-muted-foreground max-w-xl mx-auto mb-10">
-            {t("", "")}
           </p>
           <Link
             to="/jobs"
-            className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-8 py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300"
+            className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-7 py-3 md:px-8 md:py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300"
           >
             {t("Learn more.", "Mehr erfahren.")} <ArrowRight size={16} />
           </Link>
