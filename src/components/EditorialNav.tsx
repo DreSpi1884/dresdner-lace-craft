@@ -327,9 +327,16 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
                   setIsOpen(false);
                 }
               }}
-              className={`editorial-heading-sm w-full flex items-center justify-between ${
+              className={`w-full flex items-center justify-between text-background/80 ${
                 location.pathname === item.path ? "text-background" : "text-background/80"
               }`}
+              style={{
+              fontFamily: "'Jost', sans-serif",
+              fontSize: "13px",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              fontWeight: 500,
+            }}
             >
               <span>{item.label}</span>
               {hasDropdown && (
@@ -342,8 +349,8 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
 
             {hasDropdown && (
               <div
-                className={`overflow-hidden transition-all duration-500 ease-out ${
-                  open ? "max-h-80 opacity-100 mt-3" : "max-h-0 opacity-0 mt-0"
+                className={`overflow-hidden transition-[max-height,opacity,padding] duration-300 ease-out ${
+                  open ? "max-h-[260px] opacity-100 pt-3" : "max-h-0 opacity-0 pt-0"
                 }`}
               >
                 <div className="ml-4 flex flex-col gap-2">
@@ -356,8 +363,13 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
                         key={key}
                         to={to}
                         onClick={() => setIsOpen(false)}
-                        className="editorial-body-sm text-background/55 hover:text-background transition-colors pl-2"
-                      >
+                        className="text-background/55 hover:text-background transition-colors pl-2"
+                        style={{
+                          fontFamily: "'Jost', sans-serif",
+                          fontSize: "14px",
+                          lineHeight: 1.8,
+                       }}
+                       >
                         {s.label}
                       </Link>
                     );
