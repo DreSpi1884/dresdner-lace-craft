@@ -131,7 +131,12 @@ const EditorialNav = () => {
       }`}
     >
       <nav className="flex items-center justify-between h-20 md:h-24 pl-2 md:pl-4 pr-4 md:pr-8">
-        <Link to="/" className="flex items-center gap-1 text-background">
+        <Link 
+          to="/"
+           className={`flex items-center gap-1 text-background ${
+            isHome && !scrolled ? "pointer-events-none" : ""
+          }`}
+        >
           <img
             ref={logoRef}
             src={logo.url}
