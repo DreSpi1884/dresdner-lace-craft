@@ -6,114 +6,157 @@ type Entry = {
   text: string;
 };
 
+const RIBBON_WIDTH = 56;
+const TILE_HEIGHT = 96;
 
-// Ribbon geometry
-const RIBBON_WIDTH = 44; // px, narrow realistic lace ribbon
-const ROLL_HEIGHT = 56; // px, cylinder thickness
-const CAP_EXTRA = 9; // px, thin end caps that stick out past the lace on each side
-const ROLL_WIDTH = RIBBON_WIDTH + CAP_EXTRA * 2; // roll only as wide as the lace + caps
-const TILE_HEIGHT = 80; // px, one repeat of the lace pattern
-const INITIAL_REVEAL = 34; // px, short lace piece pre-visible between the caps at load
-const STICKY_TOP = 96; // px, where the roll pins in the viewport as you scroll
+const LaceBand = ({ className = "" }: { className?: string }) => (
+  <svg
+    width={RIBBON_WIDTH}
+    height="100%"
+    viewBox={`0 0 ${RIBBON_WIDTH} 1200`}
+    preserveAspectRatio="none"
+    className={`block text-primary ${className}`}
+    aria-hidden="true"
+  >
+    <defs>
+      <pattern
+        id="staticLaceTile"
+        x="0"
+        y="0"
+        width={RIBBON_WIDTH}
+        height={TILE_HEIGHT}
+        patternUnits="userSpaceOnUse"
+      >
+        {/* Scalloped edges */}
+        <path
+          d="M 5 0 A 4 12 0 0 1 5 24 A 4 12 0 0 0 5 48 A 4 12 0 0 1 5 72 A 4 12 0 0 0 5 96"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+          strokeLinecap="round"
+          opacity="0.75"
+        />
+        <path
+          d={`M ${RIBBON_WIDTH - 5} 0 A 4 12 0 0 0 ${RIBBON_WIDTH - 5} 24 A 4 12 0 0 1 ${RIBBON_WIDTH - 5} 48 A 4 12 0 0 0 ${RIBBON_WIDTH - 5} 72 A 4 12 0 0 1 ${RIBBON_WIDTH - 5} 96`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+          strokeLinecap="round"
+          opacity="0.75"
+        />
 
+        {/* Mesh */}
+        <g stroke="currentColor" strokeWidth="0.45" opacity="0.45" fill="none">
+          <path d={`M 9 0 L ${RIBBON_WIDTH - 9} 48 L 9 96`} />
+          <path d={`M ${RIBBON_WIDTH - 9} 0 L 9 48 L ${RIBBON_WIDTH - 9} 96`} />
+          <path d={`M 9 24 L ${RIBBON_WIDTH - 9} 72`} />
+          <path d={`M ${RIBBON_WIDTH - 9} 24 L 9 72`} />
+        </g>
 
+        {/* Center thread */}
+        <line
+          x1={RIBBON_WIDTH / 2}
+          y1="0"
+          x2={RIBBON_WIDTH / 2}
+          y2={TILE_HEIGHT}
+          stroke="currentColor"
+          strokeWidth="0.6"
+          opacity="0.55"
+        />
+
+        {/* Eyelets */}
+        <g stroke="currentColor" strokeWidth="0.6" fill="hsl(var(--background))" opacity="0.8">
+          <circle cx={RIBBON_WIDTH / 2} cy="0" r="2" />
+          <circle cx={RIBBON_WIDTH / 2} cy="48" r="2" />
+          <circle cx={RIBBON_WIDTH / 2} cy="96" r="2" />
+        </g>
+
+        {/* Floral motif */}
+        <g
+          transform={`translate(${RIBBON_WIDTH / 2} 48)`}
+          stroke="currentColor"
+          strokeWidth="0.6"
+          fill="none"
+          opacity="0.7"
+        >
+          <path d="M 0 -11 C 5 -7 5 -2 0 0 C -5 -2 -5 -7 0 -11 Z" />
+          <path d="M 0 11 C 5 7 5 2 0 0 C -5 2 -5 7 0 11 Z" />
+          <path d="M -11 0 C -7 -4 -2 -4 0 0 C -2 4 -7 4 -11 0 Z" />
+          <path d="M 11 0 C 7 -4 2 -4 0 0 C 2 4 7 4 11 0 Z" />
+        </g>
+      </pattern>
+    </defs>
+
+    <rect x="0" y="0" width={RIBBON_WIDTH} height="1200" fill="url(#staticLaceTile)" />
+  </svg>
+);
 
 const HistoryTimeline = () => {
   const { t } = useLang();
-  const ENTRIES: Entry[] = useMemo(() => [
-    {
-      year: "1884",
-      text: t(
-        "Our story began in 1884, when Georg Marwitz and Carl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur. At a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden.",
-        "Unsere Geschichte beginnt 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen. Zu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
-      ),
-    },
-    {
-      year: "1900",
-      text: t(
-        "As demand for our lace and textiles increased, so did our ambitions. We expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad. Even through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide.",
-        "Mit wachsender Nachfrage wachsen auch unsere Ambitionen. Wir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland.\nAuch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
-      ),
-    },
-    {
-      year: "1945",
-      text: t(
-        "After the Second World War, every machine in our factory was dismantled. Starting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees. Within a year, textile manufacturing had resumed. This resilience became known as the Dregusgeist and continues to shape our company today.",
-        "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert. Mit leeren Händen bauen wir unsere Produktion mit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden wieder auf. Innerhalb eines Jahres läuft die Textilproduktion wieder. Diese Widerstandskraft wird als Dregusgeist bekannt und prägt unser Unternehmen bis heute."
-      ),
-    },
-    {
-      year: "1970",
-      text: t(
-        "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany. In 1982, we became the first company in the world to operate electronically controlled Raschel machines, setting new standards in textile manufacturing.",
-        "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland.\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt, und setzen damit neue Maßstäbe in der Textilherstellung."
-      ),
-    },
-    {
-      year: "1995",
-      text: t(
-        "Following German reunification, we reinvented our business. Under the leadership of Manfred and Sascha Schröder, we modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace, warp-knitted fabrics and technical textiles for international markets.",
-        "Nach der Wiedervereinigung erfinden wir unser Unternehmen neu. Unter der Leitung von Manfred und Sascha Schröder modernisieren wir unsere Anlagen und erweitern unsere Kompetenzen. Aus dem traditionellen Spitzenhersteller wird ein Produzent von Premium-Spitzen, Kettengewirken und technischen Textilien für internationale Märkte."
-      ),
-    },
-    {
-      year: t("Today", "Heute"),
-      text: t(
-        "Today, Dresdner Spitzen is an international manufacturer of premium lace, warp-knitted fabrics and technical textiles. From Dresden, we combine over 140 years of craftsmanship with modern manufacturing technology, serving customers in fashion, lingerie, industry and medical applications worldwide.",
-        "Heute steht Dresdner Spitzen als internationaler Partner für Premium-Spitzen, Kettengewirke und technische Textilien. Von unserem Dresdner Standort aus verbinden wir über 140 Jahre Handwerkskunst mit moderner Fertigungstechnologie und beliefern Kunden aus Mode, Industrie und Medizin weltweit."
-      ),
-    },
-  ], [t]);
 
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const entriesAreaRef = useRef<HTMLDivElement>(null);
-  const [unrollProgress, setUnrollProgress] = useState(0); // 0..1 across the timeline scroll
-  const [viewportH, setViewportH] = useState(typeof window !== "undefined" ? window.innerHeight : 800);
+  const ENTRIES: Entry[] = useMemo(
+    () => [
+      {
+        year: "1884",
+        text: t(
+          "Our story began in 1884, when Georg Marwitz and Carl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur. At a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden.",
+          "Unsere Geschichte beginnt 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen. Zu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
+        ),
+      },
+      {
+        year: "1900",
+        text: t(
+          "As demand for our lace and textiles increased, so did our ambitions. We expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad. Even through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide.",
+          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen. Wir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland.\nAuch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
+        ),
+      },
+      {
+        year: "1945",
+        text: t(
+          "After the Second World War, every machine in our factory was dismantled. Starting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees. Within a year, textile manufacturing had resumed. This resilience became known as the Dregusgeist and continues to shape our company today.",
+          "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert. Mit leeren Händen bauen wir unsere Produktion mit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden wieder auf. Innerhalb eines Jahres läuft die Textilproduktion wieder. Diese Widerstandskraft wird als Dregusgeist bekannt und prägt unser Unternehmen bis heute."
+        ),
+      },
+      {
+        year: "1970",
+        text: t(
+          "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany. In 1982, we became the first company in the world to operate electronically controlled Raschel machines, setting new standards in textile manufacturing.",
+          "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland.\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt, und setzen damit neue Maßstäbe in der Textilherstellung."
+        ),
+      },
+      {
+        year: "1995",
+        text: t(
+          "Following German reunification, we reinvented our business. Under the leadership of Manfred and Sascha Schröder, we modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace, warp-knitted fabrics and technical textiles for international markets.",
+          "Nach der Wiedervereinigung erfinden wir unser Unternehmen neu. Unter der Leitung von Manfred und Sascha Schröder modernisieren wir unsere Anlagen und erweitern unsere Kompetenzen. Aus dem traditionellen Spitzenhersteller wird ein Produzent von Premium-Spitzen, Kettengewirken und technischen Textilien für internationale Märkte."
+        ),
+      },
+      {
+        year: t("Today", "Heute"),
+        text: t(
+          "Today, Dresdner Spitzen is an international manufacturer of premium lace, warp-knitted fabrics and technical textiles. From Dresden, we combine over 140 years of craftsmanship with modern manufacturing technology, serving customers in fashion, lingerie, industry and medical applications worldwide.",
+          "Heute steht Dresdner Spitzen als internationaler Partner für Premium-Spitzen, Kettengewirke und technische Textilien. Von unserem Dresdner Standort aus verbinden wir über 140 Jahre Handwerkskunst mit moderner Fertigungstechnologie und beliefern Kunden aus Mode, Industrie und Medizin weltweit."
+        ),
+      },
+    ],
+    [t]
+  );
+
   const [visible, setVisible] = useState<boolean[]>(() => ENTRIES.map(() => false));
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    let rafId = 0;
-    let ticking = false;
-    const compute = () => {
-      ticking = false;
-      const timeline = timelineRef.current;
-      if (!timeline) return;
-      const vh = window.innerHeight;
-      setViewportH(vh);
-      const rect = timeline.getBoundingClientRect();
-      // Unroll begins when timeline top passes the sticky offset,
-      // completes when the bottom leaves the viewport.
-      const start = STICKY_TOP;
-      const total = Math.max(1, rect.height - (vh - STICKY_TOP));
-      const scrolled = Math.max(0, start - rect.top);
-      const p = Math.max(0, Math.min(1, scrolled / total));
-      setUnrollProgress(p);
-    };
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      rafId = requestAnimationFrame(compute);
-    };
-    compute();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [laceOffset, setLaceOffset] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          const idx = Number((e.target as HTMLElement).dataset.idx);
-          if (e.isIntersecting) {
+      (items) => {
+        items.forEach((item) => {
+          const idx = Number((item.target as HTMLElement).dataset.idx);
+
+          if (item.isIntersecting) {
             setVisible((prev) => {
               if (prev[idx]) return prev;
+
               const next = [...prev];
               next[idx] = true;
               return next;
@@ -121,301 +164,191 @@ const HistoryTimeline = () => {
           }
         });
       },
-      { threshold: 0.25, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.2, rootMargin: "0px 0px -12% 0px" }
     );
+
+    useEffect(() => {
+  let rafId = 0;
+
+  const updateLace = () => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const rect = section.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    const progress = Math.max(
+      0,
+      Math.min(1, (vh - rect.top) / (rect.height + vh))
+    );
+
+    setLaceOffset(progress * -260);
+  };
+
+  const onScroll = () => {
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(updateLace);
+  };
+
+  updateLace();
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+
+  return () => {
+    cancelAnimationFrame(rafId);
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+  };
+}, []);
+
     entryRefs.current.forEach((el) => el && observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
-  // Max ribbon length while sticky — fills most of the viewport below the roll
-  const maxRibbon = Math.max(INITIAL_REVEAL + 80, viewportH - STICKY_TOP - ROLL_HEIGHT - 80);
-  const revealed = INITIAL_REVEAL + unrollProgress * (maxRibbon - INITIAL_REVEAL);
-  // Rotation: full turn per TILE_HEIGHT of unrolled ribbon (natural feel)
-  const rotation = (revealed / TILE_HEIGHT) * 360;
-
-
-
   return (
     <section
-      ref={sectionRef}
-      className="relative bg-background text-primary w-full pt-10 md:pt-16 pb-16 md:pb-20"
+  ref={sectionRef}
+  className="relative overflow-hidden bg-background text-primary w-full py-16 md:py-24"
+>
+{/* Desktop moving lace band */}
+<div
+  className="pointer-events-none absolute inset-y-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
+  style={{ width: RIBBON_WIDTH }}
+>
+  <div
+    className="sticky top-28 h-[70vh] overflow-hidden opacity-[0.22]"
+    style={{
+      maskImage:
+        "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+      WebkitMaskImage:
+        "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+    }}
+  >
+    <div
+      className="h-[140%] w-full"
+      style={{
+        transform: `translateY(${laceOffset}px)`,
+        transition: "transform 80ms linear",
+      }}
     >
-      {/* Timeline column: sticky roll + unrolling ribbon overlays the entries */}
-      <div ref={timelineRef} className="relative w-full px-6 md:px-20 lg:px-24 xl:px-28">
-        <div
-          className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 z-10 hidden md:block"
-          style={{ width: ROLL_WIDTH }}
-          aria-hidden="true"
-        >
-          <div
-            className="flex flex-col items-center"
-            style={{ position: "sticky", top: STICKY_TOP }}
-          >
-            {/* Roll */}
-            <div style={{ width: ROLL_WIDTH, height: ROLL_HEIGHT }}>
-              <svg
-                width={ROLL_WIDTH}
-                height={ROLL_HEIGHT}
-                viewBox={`0 0 ${ROLL_WIDTH} ${ROLL_HEIGHT}`}
-                className="text-primary block overflow-visible"
-              >
+      <LaceBand className="h-full w-full" />
+    </div>
+  </div>
+</div>
 
-            <defs>
-              {/* Cylindrical shading for the wound-lace body */}
-              <linearGradient id="rollShade" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="hsl(var(--muted))" stopOpacity="1" />
-                <stop offset="45%" stopColor="hsl(var(--background))" stopOpacity="1" />
-                <stop offset="100%" stopColor="hsl(var(--muted))" stopOpacity="1" />
-              </linearGradient>
-              {/* Wound-thread stripes that rotate to imply spin */}
-              <pattern
-                id="woundThread"
-                x="0"
-                y="0"
-                width="6"
-                height={ROLL_HEIGHT}
-                patternUnits="userSpaceOnUse"
-                patternTransform={`rotate(${rotation * 0.15})`}
-              >
-                <rect width="6" height={ROLL_HEIGHT} fill="transparent" />
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2={ROLL_HEIGHT}
-                  stroke="currentColor"
-                  strokeWidth="0.35"
-                  opacity="0.35"
-                />
-              </pattern>
-              {/* Thin end-cap flange gradient */}
-              <linearGradient id="capFlange" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="hsl(var(--muted))" />
-                <stop offset="50%" stopColor="hsl(var(--foreground))" stopOpacity="0.55" />
-                <stop offset="100%" stopColor="hsl(var(--muted))" />
-              </linearGradient>
-            </defs>
+      {/* Mobile lace hint */}
+      <div
+        className="pointer-events-none absolute left-0 top-0 z-0 h-32 w-full opacity-[0.12] lg:hidden"
+        style={{
+          maskImage: "linear-gradient(to bottom, black 0%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, transparent 100%)",
+        }}
+      >
+        <div className="flex h-full justify-center">
+          <LaceBand className="h-full rotate-90 scale-[2.2]" />
+        </div>
+      </div>
 
-            {/* Wound-lace body — only as wide as the ribbon */}
-            <rect
-              x={CAP_EXTRA}
-              y="0"
-              width={RIBBON_WIDTH}
-              height={ROLL_HEIGHT}
-              fill="url(#rollShade)"
-            />
-            <rect
-              x={CAP_EXTRA}
-              y="0"
-              width={RIBBON_WIDTH}
-              height={ROLL_HEIGHT}
-              fill="url(#woundThread)"
-            />
-
-            {/* Left end cap (thin flange sticking out past the lace) */}
-            <ellipse
-              cx={CAP_EXTRA / 2}
-              cy={ROLL_HEIGHT / 2}
-              rx={CAP_EXTRA / 2}
-              ry={ROLL_HEIGHT / 2 + 3}
-              fill="url(#capFlange)"
-              stroke="currentColor"
-              strokeWidth="0.6"
-            />
-            {/* Right end cap */}
-            <ellipse
-              cx={ROLL_WIDTH - CAP_EXTRA / 2}
-              cy={ROLL_HEIGHT / 2}
-              rx={CAP_EXTRA / 2}
-              ry={ROLL_HEIGHT / 2 + 3}
-              fill="url(#capFlange)"
-              stroke="currentColor"
-              strokeWidth="0.6"
-            />
-
-            {/* Cap spin markers — tiny centered dots that rotate with the roll */}
-            <g
-              transform={`translate(${CAP_EXTRA / 2} ${ROLL_HEIGHT / 2}) rotate(${rotation})`}
-              opacity="0.65"
-            >
-              <circle r="1.5" fill="currentColor" />
-            </g>
-            <g
-              transform={`translate(${ROLL_WIDTH - CAP_EXTRA / 2} ${ROLL_HEIGHT / 2}) rotate(${-rotation})`}
-              opacity="0.65"
-            >
-              <circle r="1.5" fill="currentColor" />
-            </g>
-
-            {/* Top and bottom edge highlights to sell cylindricality */}
-            <line
-              x1={CAP_EXTRA}
-              y1="0.5"
-              x2={ROLL_WIDTH - CAP_EXTRA}
-              y2="0.5"
-              stroke="currentColor"
-              strokeWidth="0.5"
-              opacity="0.4"
-            />
-            <line
-              x1={CAP_EXTRA}
-              y1={ROLL_HEIGHT - 0.5}
-              x2={ROLL_WIDTH - CAP_EXTRA}
-              y2={ROLL_HEIGHT - 0.5}
-              stroke="currentColor"
-              strokeWidth="0.5"
-              opacity="0.4"
-            />
-              </svg>
-            </div>
-
-            {/* Ribbon — grows downward from the underside of the roll */}
-            <div
-              className="overflow-hidden"
-              style={{
-                width: RIBBON_WIDTH,
-                height: revealed,
-              }}
-            >
-              <svg
-                width={RIBBON_WIDTH}
-                height={maxRibbon}
-                viewBox={`0 0 ${RIBBON_WIDTH} ${maxRibbon}`}
-                preserveAspectRatio="xMidYMin"
-                className="text-primary block"
-              >
-                <defs>
-                  <pattern
-                    id="laceTileHoriz"
-                    x="0"
-                    y="0"
-                    width={RIBBON_WIDTH}
-                    height={TILE_HEIGHT}
-                    patternUnits="userSpaceOnUse"
-                  >
-                    {/* Scalloped edges */}
-                    <path
-                      d={`M 4 0 A 3 10 0 0 1 4 20 A 3 10 0 0 0 4 40 A 3 10 0 0 1 4 60 A 3 10 0 0 0 4 80`}
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="0.9"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d={`M ${RIBBON_WIDTH - 4} 0 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 20 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 40 A 3 10 0 0 0 ${RIBBON_WIDTH - 4} 60 A 3 10 0 0 1 ${RIBBON_WIDTH - 4} 80`}
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="0.9"
-                      strokeLinecap="round"
-                    />
-                    {/* Diamond mesh */}
-                    <g stroke="currentColor" strokeWidth="0.35" opacity="0.55" fill="none">
-                      <path d={`M 8 0 L ${RIBBON_WIDTH - 8} 40 L 8 80`} />
-                      <path d={`M ${RIBBON_WIDTH - 8} 0 L 8 40 L ${RIBBON_WIDTH - 8} 80`} />
-                    </g>
-                    {/* Central thread */}
-                    <line
-                      x1={RIBBON_WIDTH / 2}
-                      y1="0"
-                      x2={RIBBON_WIDTH / 2}
-                      y2="80"
-                      stroke="currentColor"
-                      strokeWidth="0.5"
-                      opacity="0.7"
-                    />
-                    {/* Eyelets */}
-                    <g stroke="currentColor" strokeWidth="0.5" fill="hsl(var(--background))">
-                      <circle cx={RIBBON_WIDTH / 2} cy="0" r="1.6" />
-                      <circle cx={RIBBON_WIDTH / 2} cy="40" r="1.6" />
-                      <circle cx={RIBBON_WIDTH / 2} cy="80" r="1.6" />
-                    </g>
-                    {/* Small floral motif */}
-                    <g
-                      transform={`translate(${RIBBON_WIDTH / 2} 40)`}
-                      stroke="currentColor"
-                      strokeWidth="0.45"
-                      fill="none"
-                    >
-                      <path d="M 0 -8 C 4 -5 4 -1 0 0 C -4 -1 -4 -5 0 -8 Z" />
-                      <path d="M 0 8 C 4 5 4 1 0 0 C -4 1 -4 5 0 8 Z" />
-                      <path d="M -8 0 C -5 -3 -1 -3 0 0 C -1 3 -5 3 -8 0 Z" />
-                      <path d="M 8 0 C 5 -3 1 -3 0 0 C 1 3 5 3 8 0 Z" />
-                    </g>
-                  </pattern>
-                </defs>
-                <rect
-                  x="0"
-                  y="0"
-                  width={RIBBON_WIDTH}
-                  height={maxRibbon}
-                  fill="url(#laceTileHoriz)"
-                />
-              </svg>
-            </div>
+      <div className="relative z-10 px-6 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-[1500px]">
+          <div className="mb-16 md:mb-24 max-w-[900px]">
+            <h2 className="editorial-heading-lg text-foreground mb-6">
+              {t("Our History", "Unsere Geschichte")}
+            </h2>
+            <p className="editorial-body text-muted-foreground max-w-[720px]">
+              {t(
+                "More than 140 years of textile experience: from lace manufacturing in Dresden to modern warp-knitted and functional textiles.",
+                "Mehr als 140 Jahre textile Erfahrung: von der Spitzenherstellung in Dresden bis zu modernen Kettengewirken und funktionalen Textilien."
+              )}
+            </p>
           </div>
-        </div>
 
-        {/* Entries area — flows normally under the sticky roll + ribbon */}
-        <div
-          ref={entriesAreaRef}
-          className="relative"
-          style={{ paddingTop: ROLL_HEIGHT + INITIAL_REVEAL + 24 }}
-        >
+          <div className="space-y-20 md:space-y-28 lg:space-y-36">
+            {ENTRIES.map((entry, i) => {
+              const isLeft = i % 2 === 0;
+              const isVisible = visible[i];
 
-        <div className="relative">
-          {ENTRIES.map((entry, i) => {
-            const isLeft = i % 2 === 0;
-            const isVisible = visible[i];
-            return (
-              <div
-                key={entry.year}
-                ref={(el) => (entryRefs.current[i] = el)}
-                data-idx={i}
-                className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center py-20 md:py-28"
-              >
-                {/* Image side */}
-                <div
-                  className={`${isLeft ? "md:order-1 md:pr-16 md:items-end" : "md:order-2 md:pl-16 md:items-start"} flex flex-col transition-all duration-700 ease-out`}
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible
-                      ? "translateX(0)"
-                      : `translateX(${isLeft ? "-40px" : "40px"})`,
+              return (
+                <article
+                  key={entry.year}
+                  ref={(el) => {
+                    entryRefs.current[i] = el;
                   }}
+                  data-idx={i}
+                  className="relative grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)] lg:gap-10 xl:gap-16 items-center"
                 >
-                  <div className="w-full max-w-sm aspect-[4/3] bg-muted border border-border flex items-center justify-center text-muted-foreground/40 editorial-label">
-                    {t("Image", "Bild")} {i + 1}
-                  </div>
-                </div>
-
-                {/* Text side */}
-                <div
-                  className={`${isLeft ? "md:order-2 md:text-left md:pl-16 md:items-start" : "md:order-1 md:text-right md:pr-16 md:items-end"} flex flex-col gap-6 transition-all duration-700 ease-out delay-150`}
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible
-                      ? "translateX(0)"
-                      : `translateX(${isLeft ? "40px" : "-40px"})`,
-                  }}
-                >
+                  {/* Text */}
                   <div
-                    className="font-serif leading-none text-foreground"
-                    style={{ fontSize: "clamp(4rem, 9vw, 8rem)", letterSpacing: "-0.02em" }}
+                    className={`${isLeft ? "lg:col-start-1 lg:text-right" : "lg:col-start-3 lg:text-left"} transition-all duration-700 ease-out`}
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? "translateY(0)" : "translateY(24px)",
+                    }}
                   >
-                    {entry.year}
+                    <div
+                      className="font-serif leading-none text-foreground mb-6"
+                      style={{
+                        fontSize: "clamp(4rem, 9vw, 8rem)",
+                        letterSpacing: "-0.04em",
+                      }}
+                    >
+                      {entry.year}
+                    </div>
+
+                    <p
+                      className={`editorial-body text-muted-foreground whitespace-pre-line ${
+                        isLeft ? "lg:ml-auto" : ""
+                      } max-w-[620px]`}
+                    >
+                      {entry.text}
+                    </p>
                   </div>
-                  <p className="editorial-body text-muted-foreground max-w-md">
-                    {entry.text}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+
+                  {/* Center marker */}
+                  <div className="relative hidden lg:flex justify-center lg:col-start-2">
+                    <div className="h-3 w-3 rounded-full bg-primary shadow-[0_0_0_12px_hsl(var(--background))]" />
+                  </div>
+
+                  {/* Image / placeholder */}
+                  <div
+                    className={`${isLeft ? "lg:col-start-3" : "lg:col-start-1 lg:row-start-1"} transition-all duration-700 ease-out delay-150`}
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? "translateY(0)" : "translateY(24px)",
+                    }}
+                  >
+                    <div className="aspect-[4/3] lg:aspect-[5/4] w-full overflow-hidden border border-border bg-muted/30 flex items-center justify-center">
+                      <span className="editorial-label text-muted-foreground/40">
+                        {t("Image", "Bild")} {i + 1}
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="pt-24 md:pt-32 text-center">
+            <div className="mx-auto mb-10 h-24 w-14 opacity-[0.22]">
+              <LaceBand className="h-full w-full" />
+            </div>
+
+            <h2 className="editorial-heading-lg text-foreground mb-6">
+              {t("Tradition meets textile innovation", "Tradition trifft textile Innovation")}
+            </h2>
+
+            <p className="editorial-body text-muted-foreground max-w-[760px] mx-auto">
+              {t(
+                "Our history continues in every new development, every production step and every textile solution we create in Dresden.",
+                "Unsere Geschichte setzt sich fort – in jeder neuen Entwicklung, jedem Produktionsschritt und jeder textilen Lösung, die wir in Dresden schaffen."
+              )}
+            </p>
+          </div>
         </div>
       </div>
     </section>
-
   );
 };
 
