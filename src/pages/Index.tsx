@@ -209,9 +209,14 @@ const Index = () => {
     {/* JOBS PREVIEW */}
     <EditorialSection className="bg-card">
       <div className="editorial-container text-center py-10 md:py-20">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif leading-[1.1] text-foreground mb-4">
-          {t("Join our team", "Werden Sie Teil unseres Teams")}
-        </h2>
+      <h2
+        className="font-serif text-foreground leading-[1.1] mb-4"
+        style={{
+          fontSize: "clamp(1.8rem, 5vw, 3rem)",
+        }}
+      >
+        {t("Join our team", "Werden Sie Teil unseres Teams")}
+      </h2>
     
         <Link
           to="/jobs"
