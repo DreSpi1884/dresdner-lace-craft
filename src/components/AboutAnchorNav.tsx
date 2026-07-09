@@ -6,12 +6,14 @@ const NAV_HEIGHT = 96;
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
-  const sections = useMemo(() => [
+  const sections = useMemo(
+  () => [
     { id: "history", label: t("History", "Geschichte") },
     { id: "sustainability", label: t("Sustainability", "Nachhaltigkeit") },
     { id: "values", label: t("Values", "Werte") },
-    { id: "production", label: t("Production", "Produktion") },
-  ], [t]);
+  ],
+  [t]
+);
 
   const [activeId, setActiveId] = useState<string>(sections[0].id);
   const clickActiveRef = useRef<string | null>(null);
@@ -57,36 +59,44 @@ const AboutAnchorNav = () => {
   };
 
   return (
-    <nav className="sticky top-20 md:top-24 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="editorial-container">
-        <ul className="flex items-center gap-6 md:gap-10 py-4 md:py-5 overflow-x-auto no-scrollbar">
-          {sections.map(({ id, label }) => {
-            const active = activeId === id;
-            return (
-              <li key={id} className="shrink-0">
-                <a
-                  href={`#${id}`}
-                  onClick={(e) => handleClick(e, id)}
-                  className={cn(
-                    "editorial-label relative block transition-colors duration-300",
-                    active ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  {label}
-                  {active && (
-                    <span
-                      aria-hidden="true"
-                      className="absolute -bottom-4 md:-bottom-5 left-0 right-0 h-px bg-primary"
-                    />
-                  )}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </nav>
-  );
+  <nav className="sticky top-20 md:top-24 z-40 bg-background/95 backdrop-blur border-b border-primary/10">
+    <div className="flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
+      {sections.map(({ id, label }) => {
+        const active = activeId === id;
+
+        return (
+          <a
+            key={id}
+            href={`#${id}`}
+            onClick={(e) => handleClick(e, id)}
+            className="relative shrink-0 py-5 transition-colors"
+            style={{
+              fontFamily: "'Jost', sans-serif",
+              fontSize: "12px",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              fontWeight: active ? 600 : 400,
+              color: active
+                ? "hsl(var(--primary))"
+                : "hsl(var(--muted-foreground) / 0.65)",
+            }}
+          >
+            {label}
+
+            <span
+              aria-hidden="true"
+              className="absolute bottom-0 left-0 h-px transition-all duration-300"
+              style={{
+                width: active ? "100%" : "0%",
+                background: "hsl(var(--primary))",
+              }}
+            />
+          </a>
+        );
+      })}
+    </div>
+  </nav>
+);
 };
 
 export default AboutAnchorNav;
