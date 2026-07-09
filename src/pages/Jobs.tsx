@@ -68,7 +68,7 @@ const Jobs = () => {
 
             <div className="mt-20 border-t border-border pt-10">
               <h3 className="editorial-heading-sm text-foreground mb-4">
-                {t("Interested in joining our team?", "Interesse, Teil unseres Teams zu werden?")}
+                {t("Interest?", "Interesse?")}
               </h3>
 
               <div className="editorial-body-sm text-muted-foreground space-y-4 mb-8">
