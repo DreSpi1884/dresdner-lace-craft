@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
+import { useMemo, type ReactNode } from "react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
@@ -26,7 +25,6 @@ const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onC
 };
 
 // Fixed header height (h-20 mobile / h-24 desktop)
-const NAV_OFFSET = 96;
 
 const Services = () => {
   const { t, lang } = useLang();
@@ -114,50 +112,7 @@ const Services = () => {
     [t, processSteps],
   );
 
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [mobileOpenIdx, setMobileOpenIdx] = useState(-1);
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
-  useEffect(() => {
-    let ticking = false;
-    const compute = () => {
-      ticking = false;
-      const activationY = NAV_OFFSET + (window.innerHeight - NAV_OFFSET) * 0.35;
-      let current = 0;
-      for (let i = 0; i < sectionsRef.current.length; i++) {
-        const el = sectionsRef.current[i];
-        if (!el) continue;
-        const top = el.getBoundingClientRect().top;
-        if (top <= activationY) current = i;
-        else break;
-      }
-      setActiveIdx((prev) => (prev === current ? prev : current));
-    };
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(compute);
-    };
-    compute();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
-  const scrollTo = (idx: number) => {
-    const el = sectionsRef.current[idx];
-    if (!el) return;
-    setMobileOpenIdx(idx);
-    const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET - 24;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
-
-  const toggleMobile = (idx: number) => {
-    setMobileOpenIdx((prev) => (prev === idx ? -1 : idx));
-  };
 
   const renderBody = (s: ServiceItem) => (
     <div
@@ -251,7 +206,7 @@ const Services = () => {
             />
           </p>
         </>
-      ) : s.id === "raw-materials-production" ? (
+      ) : s.id === "raw-material-production" ? (
         <>
           {s.text.split("\n").map((line, li) => (
             <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
@@ -366,178 +321,61 @@ const Services = () => {
         path="/services"
       />
 
-      <section className="w-full">
-        {/* Desktop navigation */}
-<nav
-  aria-label={t("Services navigation", "Leistungsnavigation")}
-  className="sticky z-30 hidden border-b border-primary/10 bg-background/95 backdrop-blur lg:block"
-  style={{ top: `${NAV_OFFSET}px` }}
->
-  <div className="flex items-center gap-12 px-[60px]">
-    {services.map((s, i) => {
-      const active = activeIdx === i;
+<ProductionAnchorNav />
 
-      return (
-        <button
-          key={s.id}
-          type="button"
-          onClick={() => scrollTo(i)}
-          className="relative py-5 transition-colors"
-          style={{
-            fontFamily: "'Jost', sans-serif",
-            fontSize: "12px",
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            fontWeight: active ? 600 : 400,
-            color: active
-              ? "hsl(var(--primary))"
-              : "hsl(var(--muted-foreground) / 0.65)",
-          }}
-        >
-          {s.nav}
-          <span
-            aria-hidden="true"
-            className="absolute bottom-0 left-0 h-px transition-all duration-300"
-            style={{
-              width: active ? "100%" : "0%",
-              background: "hsl(var(--primary))",
-            }}
-          />
-        </button>
-      );
-    })}
-  </div>
-</nav>
-
-        {/* Mobile accordion */}
-        <div className="lg:hidden px-6 pb-20 pt-8">
-          {services.map((s, i) => {
-            const open = mobileOpenIdx === i;
-
-            return (
-              <article
-                key={s.id}
-                id={s.id}
-                data-idx={i}
-                className="border-b border-primary/15"
-                style={{ scrollMarginTop: `${NAV_OFFSET + 24}px` }}
-              >
-                <button
-                  type="button"
-                  onClick={() => toggleMobile(i)}
-                  aria-expanded={open}
-                  className="flex w-full items-center justify-between py-6 text-left"
-                >
-                  <span className="flex items-baseline gap-4">
-                    <span
-                      style={{
-                        fontFamily: "'Jost', sans-serif",
-                        fontSize: "10px",
-                        letterSpacing: "2px",
-                        textTransform: "uppercase",
-                        color: "hsl(var(--muted-foreground) / 0.7)",
-                      }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-
-                    <span
-                      className="leading-[1.1]"
-                      style={{
-                        fontFamily: "'Bodoni Moda', serif",
-                        fontSize: "clamp(24px, 6vw, 32px)",
-                        color: "hsl(var(--primary))",
-                        fontWeight: 500,
-                      }}
-                    >
-                      {s.title}
-                    </span>
-                  </span>
-
-                  <ChevronDown
-                    size={20}
-                    className="ml-4 shrink-0 transition-transform duration-300"
-                    style={{
-                      color: "hsl(var(--primary))",
-                      transform: open ? "rotate(180deg)" : "rotate(0deg)",
-                    }}
-                  />
-                </button>
-
-                <div
-                  className="overflow-hidden transition-all duration-300 ease-out"
-                  style={{
-                    maxHeight: open ? "2200px" : "0px",
-                    opacity: open ? 1 : 0,
-                  }}
-                >
-                  <div className="pb-8 pr-4">
-                    {renderBody(s)}
-                    {renderProcess(s)}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* Desktop split sections */}
-        <div className="hidden lg:block">
-          {services.map((s, i) => (
-            <article
-              key={s.id}
-              id={s.id}
-              data-idx={i}
-              ref={(el) => {
-                sectionsRef.current[i] = el;
+<section className="w-full">
+  <div>
+    {services.map((s, i) => (
+      <article
+        key={s.id}
+        id={s.id}
+        data-idx={i}
+        className="grid grid-cols-1 lg:grid-cols-2 border-b border-primary/10 scroll-mt-36"
+      >
+        <div className="flex min-h-[auto] lg:min-h-[760px] items-start px-6 md:px-10 lg:pl-[40px] lg:pr-8 py-14 md:py-20">
+          <div className="w-full max-w-none">
+            <h2
+              className="mb-10 md:mb-16 lg:mb-20 leading-[1.1]"
+              style={{
+                fontFamily: "'Bodoni Moda', serif",
+                fontSize: "clamp(32px, 4vw, 48px)",
+                color: "hsl(var(--primary))",
+                fontWeight: 500,
               }}
-              className="grid grid-cols-2 border-b border-primary/10"
-              style={{ scrollMarginTop: `${NAV_OFFSET + 88}px` }}
             >
-              <div className="flex min-h-[760px] items-start pl-[40px] pr-8 pt-20 pb-20">
-                <div className="w-full max-w-none">
-                 
-                  <h2
-                    className="mb-20 leading-[1.1]"
-                    style={{
-                      fontFamily: "'Bodoni Moda', serif",
-                      fontSize: "clamp(34px, 4vw, 48px)",
-                      color: "hsl(var(--primary))",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {s.title}
-                  </h2>
+              {s.title}
+            </h2>
 
-                  {renderBody(s)}
-                  {renderProcess(s)}
-                </div>
-              </div>
-
-              <div className="min-h-[760px] bg-muted">
-                <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
-                  <span
-                    className="relative text-center"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontSize: "11px",
-                      letterSpacing: "2px",
-                      textTransform: "uppercase",
-                      color: "hsl(var(--muted-foreground) / 0.6)",
-                    }}
-                  >
-                    {t("Image placeholder", "Bildplatzhalter")}{" "}
-                    {String(i + 1).padStart(2, "0")}
-                    <br />
-                    {s.title}
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
+            {renderBody(s)}
+            {renderProcess(s)}
+          </div>
         </div>
-      </section>
+
+        <div className="min-h-[360px] lg:min-h-[760px] bg-muted">
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
+            <span
+              className="relative text-center"
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "hsl(var(--muted-foreground) / 0.6)",
+              }}
+            >
+              {t("Image placeholder", "Bildplatzhalter")}{" "}
+              {String(i + 1).padStart(2, "0")}
+              <br />
+              {s.title}
+            </span>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+      
     </EditorialLayout>
   );
   };
