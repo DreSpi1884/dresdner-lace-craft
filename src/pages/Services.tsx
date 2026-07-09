@@ -342,54 +342,103 @@ useEffect(() => {
 <ProductionAnchorNav />
 
 <section className="w-full">
-  {services.map((s, i) => (
-    <article
-      key={s.id}
-      id={s.id}
-      data-idx={i}
-      className="grid grid-cols-1 lg:grid-cols-2 border-b border-primary/10 scroll-mt-36"
-    >
-      <div className="flex min-h-[auto] lg:min-h-[760px] items-start px-6 md:px-10 lg:pl-[48px] lg:pr-10 py-16 md:py-20">
-        <div className="w-full max-w-none">
-          <h2
-            className="mb-10 md:mb-14 lg:mb-16 leading-[1.1]"
-            style={{
-              fontFamily: "'Bodoni Moda', serif",
-              fontSize: "clamp(30px, 4vw, 46px)",
-              color: "hsl(var(--primary))",
-              fontWeight: 500,
-            }}
-          >
-            {s.title}
-          </h2>
+  {services.map((s, i) => {
+    const isOpen = mobileOpenId === s.id;
 
-          {renderBody(s)}
-          {renderProcess(s)}
-        </div>
-      </div>
-
-      <div className="hidden lg:block min-h-[760px] bg-muted">
-        <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
-          <span
-            className="relative text-center"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "11px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              color: "hsl(var(--muted-foreground) / 0.6)",
-            }}
+    return (
+      <article
+        key={s.id}
+        id={s.id}
+        data-idx={i}
+        className="border-b border-primary/10 scroll-mt-36"
+      >
+        {/* Mobile accordion section */}
+        <div className="lg:hidden px-6">
+          <button
+            type="button"
+            onClick={() =>
+              setMobileOpenId((current) => (current === s.id ? null : s.id))
+            }
+            aria-expanded={isOpen}
+            className="flex w-full items-center justify-between py-6 text-left"
           >
-            {t("Image placeholder", "Bildplatzhalter")}{" "}
-            {String(i + 1).padStart(2, "0")}
-            <br />
-            {s.title}
-          </span>
+            <span
+              className="leading-[1.1]"
+              style={{
+                fontFamily: "'Bodoni Moda', serif",
+                fontSize: "clamp(28px, 7vw, 38px)",
+                color: "hsl(var(--primary))",
+                fontWeight: 500,
+              }}
+            >
+              {s.title}
+            </span>
+
+            <ChevronDown
+              className={`ml-4 h-5 w-5 shrink-0 transition-transform duration-300 ${
+                isOpen ? "rotate-180" : ""
+              }`}
+              style={{ color: "hsl(var(--primary))" }}
+            />
+          </button>
+
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-out ${
+              isOpen ? "max-h-[2400px] opacity-100 pb-10" : "max-h-0 opacity-0 pb-0"
+            }`}
+          >
+            <div className="pt-2">
+              {renderBody(s)}
+              {renderProcess(s)}
+            </div>
+          </div>
         </div>
-      </div>
-    </article>
-  ))}
+
+        {/* Desktop split section */}
+        <div className="hidden lg:grid lg:grid-cols-2">
+          <div className="flex min-h-[760px] items-start lg:pl-[48px] lg:pr-10 py-20">
+            <div className="w-full max-w-none">
+              <h2
+                className="mb-16 leading-[1.1]"
+                style={{
+                  fontFamily: "'Bodoni Moda', serif",
+                  fontSize: "clamp(30px, 4vw, 46px)",
+                  color: "hsl(var(--primary))",
+                  fontWeight: 500,
+                }}
+              >
+                {s.title}
+              </h2>
+
+              {renderBody(s)}
+              {renderProcess(s)}
+            </div>
+          </div>
+
+          <div className="min-h-[760px] bg-muted">
+            <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
+              <span
+                className="relative text-center"
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: "11px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  color: "hsl(var(--muted-foreground) / 0.6)",
+                }}
+              >
+                {t("Image placeholder", "Bildplatzhalter")}{" "}
+                {String(i + 1).padStart(2, "0")}
+                <br />
+                {s.title}
+              </span>
+            </div>
+          </div>
+        </div>
+      </article>
+    );
+  })}
 </section>
       
     </EditorialLayout>
