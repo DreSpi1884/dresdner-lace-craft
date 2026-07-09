@@ -294,14 +294,14 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
           className="md:hidden text-background p-2 drop-shadow-md"
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
+          {isOpen ? <X size={24} strokeWidth={1.75} /> : <Menu size={20} />}
         </button>
       </nav>
 
 {/* Mobile menu */}
 {isOpen && (
   <div className="md:hidden bg-foreground/95 backdrop-blur-sm animate-fade-in">
-    <div className="editorial-container py-8 flex flex-col gap-6">
+    <div className="editorial-container py-8 flex flex-col gap-7">
       {navItems.map((item) => {
         const hasDropdown =
           item.key === "services" || item.key === "about" || item.key === "contact";
@@ -315,16 +315,25 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
 
         return (
           <div key={item.path}>
-            <Link
-              to={item.path}
-              onClick={() => setIsOpen(false)}
-              className={`editorial-heading-sm inline-flex items-center gap-2 ${
-                location.pathname === item.path ? "text-background" : "text-background/80"
+          <button
+            type="button"
+            onClick={() =>
+              setMobileOpenSection(open ? null : item.key)
+            }
+            className={`editorial-heading-sm inline-flex items-center gap-2 ${
+              location.pathname === item.path
+                ? "text-background"
+                : "text-background/80"
+            }`}
+          >
+            {item.label}
+            <ChevronDown
+              size={18}
+              className={`transition-transform duration-300 ${
+                open ? "rotate-180" : ""
               }`}
-            >
-              {item.label}
-              {hasDropdown && <ChevronDown size={16} />}
-            </Link>
+            />
+          </button>
 
             {hasDropdown && (
               <div className="mt-3 ml-4 flex flex-col gap-2">
@@ -337,7 +346,7 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
                       key={key}
                       to={to}
                       onClick={() => setIsOpen(false)}
-                      className="editorial-body-sm text-background/60 hover:text-background transition-colors"
+                      className="editorial-body-sm text-background/55 hover:text-background transition-colors pl-2"
                     >
                       {s.label}
                     </Link>
