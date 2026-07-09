@@ -1,19 +1,20 @@
 import { useEffect, useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const ProductionAnchorNav = () => {
+const AboutAnchorNav = () => {
   const { t } = useLang();
+  const location = useLocation();
 
-  const [activeSection, setActiveSection] = useState("design");
+  const [activeSection, setActiveSection] = useState("history");
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const sections = useMemo(
     () => [
-      { id: "design", label: t("Design", "Design") },
-      { id: "raw-material-production", label: t("Raw material production", "Rohwarenproduktion") },
-      { id: "dyeing-finishing", label: t("Dyeing & finishing", "Färbung & Ausrüstung") },
-      { id: "functional-textiles", label: t("Functional & medical textiles", "Funktions- & Medizintextilien") },
+      { id: "history", label: t("History", "Geschichte") },
+      { id: "sustainability", label: t("Sustainability", "Nachhaltigkeit") },
+      { id: "values", label: t("Values", "Werte") },
     ],
     [t]
   );
@@ -25,39 +26,41 @@ const ProductionAnchorNav = () => {
     setActiveSection(id);
     setOpenSection(id);
 
-    const offset = 180;
+    const offset = 140;
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
-    window.scrollTo({ top, behavior: "smooth" });
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
+
     window.history.replaceState(null, "", `#${id}`);
   };
 
   useEffect(() => {
-    const openFromHash = () => {
-      const hash = window.location.hash.replace("#", "");
-      const isValidHash = sections.some((section) => section.id === hash);
+    const hash = location.hash.replace("#", "");
+    const isValidHash = sections.some((section) => section.id === hash);
 
-      if (!isValidHash) return;
+    if (!isValidHash) return;
 
-      window.setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (!element) return;
+    const timer = window.setTimeout(() => {
+      const element = document.getElementById(hash);
+      if (!element) return;
 
-        setActiveSection(hash);
-        setOpenSection(hash);
+      setActiveSection(hash);
+      setOpenSection(hash);
 
-        const offset = 180;
-        const top = element.getBoundingClientRect().top + window.scrollY - offset;
+      const offset = 140;
+      const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
-        window.scrollTo({ top, behavior: "smooth" });
-      }, 100);
-    };
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }, 80);
 
-    openFromHash();
-    window.addEventListener("hashchange", openFromHash);
-
-    return () => window.removeEventListener("hashchange", openFromHash);
-  }, [sections]);
+    return () => window.clearTimeout(timer);
+  }, [location.hash, sections]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -129,7 +132,7 @@ const ProductionAnchorNav = () => {
             key={section.id}
             type="button"
             onClick={() => scrollToSection(section.id)}
-            className={`relative py-5 editorial-label tracking-[0.22em] transition-colors whitespace-nowrap ${
+            className={`relative py-5 editorial-label tracking-[0.22em] transition-colors ${
               activeSection === section.id
                 ? "text-primary"
                 : "text-primary/45 hover:text-primary"
@@ -147,4 +150,4 @@ const ProductionAnchorNav = () => {
   );
 };
 
-export default ProductionAnchorNav;
+export default AboutAnchorNav;
