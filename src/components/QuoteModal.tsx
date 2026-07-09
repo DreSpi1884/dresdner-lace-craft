@@ -32,6 +32,7 @@ const initialForm = {
   name: "",
   company: "",
   email: "",
+  message: "",
 };
 
 export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
@@ -63,7 +64,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updateForm = (
-    key: "widths" | "name" | "company" | "email",
+    key: "widths" | "name" | "company" | "email" | "message",
     value: string,
   ) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -317,6 +318,13 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                       onChange={(e) => updateForm("email", e.target.value)}
                       placeholder={t("Email address", "E-Mail-Adresse")}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+                    />
+                    <textarea
+                      value={form.message}
+                      onChange={(e) => updateForm("message", e.target.value)}
+                      placeholder={t("Your message (optional)", "Ihre Nachricht (optional)")}
+                      rows={5}
+                      className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors resize-none"
                     />
                   </div>
                   <button
