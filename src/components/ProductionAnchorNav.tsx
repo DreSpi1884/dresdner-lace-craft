@@ -92,19 +92,8 @@ const ProductionAnchorNav = () => {
   }, [sections]);
 
   return (
-    <nav className="sticky top-20 md:top-24 z-40 bg-background/95 backdrop-blur border-b border-primary/10">
+    <nav className="sticky top-24 z-40 hidden lg:block bg-background/95 backdrop-blur border-b border-primary/10">
 
-      {/* Mobile navigation */}
-<div className="lg:hidden px-6">
-  <button
-    type="button"
-    className="flex w-full items-center justify-between py-4 text-left editorial-label tracking-[0.22em] text-primary"
-  >
-    <span>
-      {sections.find((section) => section.id === activeSection)?.label || sections[0].label}
-    </span>
-  </button>
-</div>
 
       {/* Desktop navigation */}
       <div className="hidden lg:flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
