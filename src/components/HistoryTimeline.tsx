@@ -7,7 +7,7 @@ type Entry = {
   text: string;
 };
 
-const BAND_WIDTH = 88;
+const BAND_WIDTH = 160;
 
 const HistoryTimeline = () => {
   const { t } = useLang();
@@ -105,7 +105,7 @@ useEffect(() => {
       Math.min(1, (vh - rect.top) / (rect.height + vh))
     );
 
-    setLaceOffset(progress * 620);
+    setLaceOffset(progress * 900);
   };
 
   const onScroll = () => {
@@ -156,19 +156,21 @@ useEffect(() => {
         src={laceNavy}
         alt=""
         aria-hidden="true"
-        className="block w-full h-auto object-contain"
+        className="block h-auto max-w-none mx-auto"
+        style={{ width: "120px" }}
+      />
+      <img
+        src={laceNavy}
+        alt=""
+        className="block h-auto max-w-none mx-auto"
+        style={{ width: "120px" }}
       />
       <img
         src={laceNavy}
         alt=""
         aria-hidden="true"
-        className="block w-full h-auto object-contain"
-      />
-      <img
-        src={laceNavy}
-        alt=""
-        aria-hidden="true"
-        className="block w-full h-auto object-contain"
+        className="block h-auto max-w-none mx-auto"
+        style={{ width: "120px" }}
       />
     </div>
   </div>
@@ -220,23 +222,6 @@ useEffect(() => {
               </article>
             );
           })}
-        </div>
-
-        <div className="pt-24 md:pt-32 text-center">
-          <div
-            className="mx-auto mb-10 h-28 w-[88px] opacity-60"
-            style={{
-              backgroundImage: `url(${laceNavy})`,
-              backgroundRepeat: "repeat-y",
-              backgroundSize: "88px auto",
-              backgroundPosition: "center top",
-              maskImage:
-                "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
-            }}
-          />
-
         </div>
       </div>
     </div>
