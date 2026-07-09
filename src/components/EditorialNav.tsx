@@ -134,9 +134,9 @@ const EditorialNav = () => {
       <nav className="flex items-center justify-between h-20 md:h-24 pl-2 md:pl-4 pr-4 md:pr-8">
         <Link 
           to="/"
-           className={`flex items-center gap-1 text-background ${
-            isHome && !scrolled ? "pointer-events-none" : ""
-          }`}
+        className={`flex items-center gap-1 text-background transition-opacity ${
+          isOpen ? "opacity-0 pointer-events-none" : ""
+        } ${isHome && !scrolled ? "pointer-events-none" : ""}`}
         >
           <img
             ref={logoRef}
@@ -313,47 +313,56 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
             : item.key === "about"
             ? aboutSections
             : contactSections;
-            const open = mobileOpenSection === item.key;
-    
+
+        const open = mobileOpenSection === item.key;
+
         return (
           <div key={item.path}>
-          <button
-            type="button"
-            onClick={() =>
-              setMobileOpenSection(open ? null : item.key)
-            }
-            className={`editorial-heading-sm inline-flex items-center gap-2 ${
-              location.pathname === item.path
-                ? "text-background"
-                : "text-background/80"
-            }`}
-          >
-            {item.label}
-            <ChevronDown
-              size={18}
-              className={`transition-transform duration-300 ${
-                open ? "rotate-180" : ""
+            <button
+              type="button"
+              onClick={() => {
+                if (hasDropdown) {
+                  setMobileOpenSection(open ? null : item.key);
+                } else {
+                  setIsOpen(false);
+                }
+              }}
+              className={`editorial-heading-sm w-full flex items-center justify-between ${
+                location.pathname === item.path ? "text-background" : "text-background/80"
               }`}
-            />
-          </button>
+            >
+              <span>{item.label}</span>
+              {hasDropdown && (
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+                />
+              )}
+            </button>
 
             {hasDropdown && (
-              <div className="mt-3 ml-4 flex flex-col gap-2">
-                {sections.map((s) => {
-                  const to = "hash" in s ? `${item.path}${s.hash}` : s.path;
-                  const key = "hash" in s ? s.hash : s.path;
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-out ${
+                  open ? "max-h-80 opacity-100 mt-3" : "max-h-0 opacity-0 mt-0"
+                }`}
+              >
+                <div className="ml-4 flex flex-col gap-2">
+                  {sections.map((s) => {
+                    const to = "hash" in s ? `${item.path}${s.hash}` : s.path;
+                    const key = "hash" in s ? s.hash : s.path;
 
-                  return (
-                    <Link
-                      key={key}
-                      to={to}
-                      onClick={() => setIsOpen(false)}
-                      className="editorial-body-sm text-background/55 hover:text-background transition-colors pl-2"
-                    >
-                      {s.label}
-                    </Link>
-                  );
-                })}
+                    return (
+                      <Link
+                        key={key}
+                        to={to}
+                        onClick={() => setIsOpen(false)}
+                        className="editorial-body-sm text-background/55 hover:text-background transition-colors pl-2"
+                      >
+                        {s.label}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>
@@ -384,23 +393,11 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
           </button>
         ))}
 
-        <a
-          href="https://www.instagram.com/dresdnerspitzen"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="ml-auto text-background"
-        >
+        <a href="https://www.instagram.com/dresdnerspitzen" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="ml-auto text-background">
           <Instagram size={20} />
         </a>
 
-        <a
-          href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="text-background"
-        >
+        <a href="https://www.linkedin.com/company/dresdner-spitzen-gmbh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-background">
           <Linkedin size={20} />
         </a>
       </div>
