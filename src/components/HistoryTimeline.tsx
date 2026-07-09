@@ -7,7 +7,7 @@ type Entry = {
   text: string;
 };
 
-const BAND_WIDTH = 72;
+const BAND_WIDTH = 88;
 
 const HistoryTimeline = () => {
   const { t } = useLang();
@@ -105,7 +105,7 @@ useEffect(() => {
       Math.min(1, (vh - rect.top) / (rect.height + vh))
     );
 
-    setLaceOffset(progress * -260);
+    setLaceOffset(progress * 620);
   };
 
   const onScroll = () => {
@@ -139,22 +139,38 @@ useEffect(() => {
     className="sticky top-24 h-[calc(100vh-6rem)] overflow-hidden"
     style={{
       maskImage:
-        "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+        "linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
       WebkitMaskImage:
-        "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
-      opacity: 0.75,
+        "linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
+      opacity: 0.9,
     }}
   >
-    <img
-      src={laceNavy}
-      alt=""
-      aria-hidden="true"
-      className="h-[115%] w-full object-cover"
+    <div
+      className="absolute left-0 top-0 w-full"
       style={{
-        transform: `translateY(${laceOffset * 0.18}px)`,
+        transform: `translateY(${-laceOffset}px)`,
         transition: "transform 80ms linear",
       }}
-    />
+    >
+      <img
+        src={laceNavy}
+        alt=""
+        aria-hidden="true"
+        className="block w-full h-auto object-contain"
+      />
+      <img
+        src={laceNavy}
+        alt=""
+        aria-hidden="true"
+        className="block w-full h-auto object-contain"
+      />
+      <img
+        src={laceNavy}
+        alt=""
+        aria-hidden="true"
+        className="block w-full h-auto object-contain"
+      />
+    </div>
   </div>
 </div>
     
@@ -201,29 +217,6 @@ useEffect(() => {
                   </p>
                 </div>
 
-                {/* Center marker */}
-                <div className="relative hidden lg:flex justify-center lg:col-start-2">
-                  <div className="h-3 w-3 rounded-full bg-primary shadow-[0_0_0_12px_hsl(var(--background))]" />
-                </div>
-
-                {/* Image / placeholder */}
-                <div
-                  className={`${
-                    isLeft
-                      ? "lg:col-start-3"
-                      : "lg:col-start-1 lg:row-start-1"
-                  } transition-all duration-700 ease-out delay-150`}
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                  }}
-                >
-                  <div className="aspect-[4/3] lg:aspect-[5/4] w-full overflow-hidden border border-border bg-muted/30 flex items-center justify-center">
-                    <span className="editorial-label text-muted-foreground/40">
-                      {t("Image", "Bild")} {i + 1}
-                    </span>
-                  </div>
-                </div>
               </article>
             );
           })}
