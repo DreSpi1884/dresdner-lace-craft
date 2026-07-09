@@ -39,7 +39,6 @@ const EditorialNav = () => {
     { label: t("HISTORY", "GESCHICHTE"), hash: "#history" },
     { label: t("VALUES", "WERTE"), hash: "#values" },
     { label: t("SUSTAINABILITY", "NACHHALTIGKEIT"), hash: "#sustainability" },
-    { label: t("PRODUCTION", "PRODUKTION"), hash: "#production" },
   ];
   const serviceSections = [
   { label: t("DESIGN", "DESIGN"), hash: "#design" },
