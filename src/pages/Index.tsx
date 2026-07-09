@@ -212,12 +212,13 @@ const Index = () => {
         <h2 className="font-serif text-foreground text-2xl md:text-3xl lg:text-4xl leading-[1.15] mb-4">
           {t("Join our team", "Werden Sie Teil unseres Teams")}</h2>
     
-        <Link
-          to="/jobs"
-          className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-7 py-3 md:px-8 md:py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300"
-        >
-          {t("Learn more.", "Mehr erfahren.")} <ArrowRight size={16} />
-        </Link>
+      <Link
+        to="/jobs"
+        className="group inline-flex items-center gap-3 editorial-body-sm font-medium text-foreground hover:text-primary transition-colors"
+      >
+        {t("Learn more.", "Mehr erfahren.")}
+        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </Link>
       </div>
     </EditorialSection>
     </EditorialLayout>
