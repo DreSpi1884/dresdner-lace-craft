@@ -14,7 +14,7 @@ const Jobs = () => {
 
   return (
     <EditorialLayout
-      title={t("Join our team", "Gestalten Sie mit")}
+      title={t("Careers", "Karriere")}
       titleClassName="editorial-heading-lg"
       heroCompact
       heroClassName="h-[160px] md:h-[200px]"
