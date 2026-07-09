@@ -14,10 +14,10 @@ const Jobs = () => {
 
   return (
     <EditorialLayout
-      title={t("Careers", "Karriere")}
-      titleClassName="editorial-heading-lg"
-      heroCompact
-      heroClassName="h-[160px] md:h-[200px]"
+    title={t("Careers", "Karriere")}
+    titleClassName="editorial-heading-lg"
+    heroCompact
+    heroClassName="h-[160px] md:h-[200px]"
     >
       <SEO
         title={t("Careers", "Karriere")}
@@ -32,7 +32,7 @@ const Jobs = () => {
 <EditorialSection className="py-16 md:py-20">
   <div className="editorial-container">
     <div className="max-w-3xl">
-      <p className="editorial-body text-muted-foreground whitespace-pre-line">
+      <p className="editorial-body text-muted-foreground max-w-3xl whitespace-pre-line"
         {t(
           "We believe that great textiles are made by great people. That's why we value team spirit, mutual respect and the opportunity to grow together.\n\nJoin a team where tradition meets innovation.",
           "Wir glauben, dass großartige Textilien von großartigen Menschen gemacht werden. Deshalb setzen wir auf Teamgeist, gegenseitigen Respekt und die Möglichkeit, gemeinsam zu wachsen.\n\nWerden Sie Teil eines Teams, in dem Tradition auf Innovation trifft."
@@ -68,7 +68,7 @@ const Jobs = () => {
         <div>
           {apprenticeships.map((title) => (
             <div key={title} className="border-t border-border py-8">
-              <h2 className="editorial-heading-sm text-foreground">{title}</h2>
+              <p className="editorial-body text-foreground font-medium"></p>
             </div>
           ))}
           <div className="border-t border-border" />
