@@ -61,7 +61,7 @@ const EditorialFooter = () => {
   </Link>
 
   <div className="mt-4">
-  <div className="w-16 h-px bg-background/20 mb-4" />
+  <div className="w-12 h-px bg-background/20 mb-4" />
     
     <button
       type="button"
