@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
+import laceNavy from "@/assets/lace_navy.png";
 
 type Entry = {
   year: string;
@@ -212,45 +213,36 @@ useEffect(() => {
   ref={sectionRef}
   className="relative overflow-hidden bg-background text-primary w-full py-16 md:py-24"
 >
-{/* Desktop moving lace band */}
+
+    {/* Desktop moving lace band */}
 <div
   className="pointer-events-none absolute inset-y-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
-  style={{ width: RIBBON_WIDTH }}
+  style={{ width: `${BAND_WIDTH}px` }}
 >
   <div
-    className="sticky top-28 h-[70vh] overflow-hidden opacity-[0.22]"
+    className="sticky top-24 h-[78vh] overflow-hidden"
     style={{
       maskImage:
-        "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+        "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
       WebkitMaskImage:
-        "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+        "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+      opacity: 0.9,
     }}
   >
     <div
-      className="h-[140%] w-full"
+      className="w-full"
       style={{
-        transform: `translateY(${laceOffset}px)`,
-        transition: "transform 80ms linear",
+        height: "140%",
+        backgroundImage: `url(${laceNavy})`,
+        backgroundRepeat: "repeat-y",
+        backgroundPosition: `center ${laceOffset}px`,
+        backgroundSize: `${BAND_WIDTH}px auto`,
+        transition: "background-position 80ms linear",
       }}
-    >
-      <LaceBand className="h-full w-full" />
-    </div>
+    />
   </div>
 </div>
-
-      {/* Mobile lace hint */}
-      <div
-        className="pointer-events-none absolute left-0 top-0 z-0 h-32 w-full opacity-[0.12] lg:hidden"
-        style={{
-          maskImage: "linear-gradient(to bottom, black 0%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 0%, transparent 100%)",
-        }}
-      >
-        <div className="flex h-full justify-center">
-          <LaceBand className="h-full rotate-90 scale-[2.2]" />
-        </div>
-      </div>
-
+      
 
 
           <div className="space-y-20 md:space-y-28 lg:space-y-36">
@@ -265,7 +257,7 @@ useEffect(() => {
                     entryRefs.current[i] = el;
                   }}
                   data-idx={i}
-                  className="relative grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)] lg:gap-10 xl:gap-16 items-center"
+                  className="relative grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.15fr)_90px_minmax(0,1.15fr)] lg:gap-10 xl:gap-16 items-center"
                 >
                   {/* Text */}
                   <div
@@ -278,7 +270,7 @@ useEffect(() => {
                     <div
                       className="font-serif leading-none text-foreground mb-6"
                     style={{
-                      fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)",
+                      fontSize: "clamp(2.8rem, 5.5vw, 5.2rem)",
                       letterSpacing: "-0.04em",
                     }}
                     >
