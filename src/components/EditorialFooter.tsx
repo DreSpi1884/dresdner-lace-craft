@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
 
@@ -25,12 +25,52 @@ const EditorialFooter = () => {
           <div>
             <p className="editorial-label text-background/40 mb-6">{t("Navigation", "Navigation")}</p>
             <div className="flex flex-col gap-3">
-              <Link to="/" className="editorial-body-sm text-background/70 hover:text-background transition-colors">{t("Home", "Startseite")}</Link>
-              <Link to="/about" className="editorial-body-sm text-background/70 hover:text-background transition-colors">{t("About", "Über uns")}</Link>
-              <button type="button" onClick={openQuote} className="text-left editorial-body-sm text-background/70 hover:text-background transition-colors">{t("Request a Quote", "Angebot anfragen")}</button>
-              <Link to="/jobs" className="editorial-body-sm text-background/70 hover:text-background transition-colors">{t("Careers", "Karriere")}</Link>
-              <Link to="/contact" className="editorial-body-sm text-background/70 hover:text-background transition-colors">{t("Contact", "Kontakt")}</Link>
-            </div>
+  <Link
+    to="/"
+    className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+  >
+    {t("Home", "Startseite")}
+  </Link>
+
+  <Link
+    to="/services"
+    className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+  >
+    {t("Production", "Produktion")}
+  </Link>
+
+  <Link
+    to="/about"
+    className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+  >
+    {t("About", "Über uns")}
+  </Link>
+
+  <Link
+    to="/contact"
+    className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+  >
+    {t("Contact", "Kontakt")}
+  </Link>
+
+  <Link
+    to="/jobs"
+    className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+  >
+    {t("Careers", "Karriere")}
+  </Link>
+
+  <div className="border-t border-background/20 pt-3 mt-1">
+    <button
+      type="button"
+      onClick={openQuote}
+      className="inline-flex items-center gap-2 editorial-body-sm text-background hover:text-background/70 transition-colors"
+    >
+      {t("Enquiry", "Anfrage")}
+      <ArrowRight size={14} />
+    </button>
+  </div>
+</div>
           </div>
 
           {/* Contact */}
