@@ -60,10 +60,10 @@ const EditorialFooter = () => {
     {t("Careers", "Karriere")}
   </Link>
 
-  <div className="mt-2">
-  <div className="w-16 h-px bg-background/20 mb-2" />
-    
-    <button
+  <div className="mt-1 flex flex-col items-start gap-1">
+    <div className="w-16 h-px bg-background/20" />
+
+     <button
       type="button"
       onClick={openQuote}
       className="inline-flex items-center gap-2 editorial-body-sm text-background hover:text-background/70 transition-colors"
