@@ -209,9 +209,9 @@ const Index = () => {
       {/* JOBS PREVIEW */}
       <EditorialSection className="bg-card">
         <div className="editorial-container editorial-section text-center">
-          <p className="editorial-label text-primary mb-4">{t("Careers", "Karriere")}</p>
+          <p className="editorial-label text-primary mb-4">{t("", "")}</p>
           <h2 className="editorial-heading-lg text-foreground mb-6">
-            {t("Join our team in Dresden", "Werden Sie Teil unseres Teams in Dresden")}
+            {t("Join our team", "Werden Sie Teil unseres Teams")}
           </h2>
           <p className="editorial-body text-muted-foreground max-w-xl mx-auto mb-10">
             {t(
