@@ -166,41 +166,45 @@ const Index = () => {
         </div>
       </EditorialSection>
 
-      {/* HERITAGE + INNOVATION */}
-      <section className="py-16 md:py-20">
-        <div className="editorial-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="w-full mx-auto lg:max-w-none">
-              <BeforeAfterSlider
-                beforeImage={heritageThen.url}
-                afterImage={heritageNow.url}
-                beforeAlt="Historic Dresdner Spitzen weaving hall"
-                afterAlt="Modern Dresdner Spitzen production facility"
-              />
-            </div>
+{/* HERITAGE + INNOVATION */}
+<section className="py-16 md:py-20 overflow-hidden">
+  <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
+    <div className="w-full">
+      <BeforeAfterSlider
+        beforeImage={heritageThen.url}
+        afterImage={heritageNow.url}
+        beforeAlt="Historic Dresdner Spitzen weaving hall"
+        afterAlt="Modern Dresdner Spitzen production facility"
+      />
+    </div>
 
-            <div>
-              <p className="editorial-label text-primary mb-4">{t("140 YEARS OF EXPERIENCE", "1884 GEGRÜNDET")}</p>
-              <h2 className="editorial-heading-lg text-foreground mb-6">{t("Our Story", "Unsere Geschichte")}</h2>
-              <div className="space-y-4 editorial-body text-muted-foreground">
-                <p>
-                  {t(
-                    "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
-                    "Mehr als 140 Jahre Geschichte erzählen von Wandel und Innovationsgeist. Geblieben ist unsere Leidenschaft und unser Anspruch an hochwertige Textilien.",
-                  )}
-                </p>
-                <p>{t("\n", "\n")}</p>
-              </div>
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300"
-              >
-                {t("From 1884 to today", "von 1884 bis heute")} <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="px-6 md:px-[60px] lg:px-[80px]">
+      <p className="editorial-label text-primary mb-4">
+        {t("140 YEARS OF EXPERIENCE", "1884 GEGRÜNDET")}
+      </p>
+
+      <h2 className="editorial-heading-lg text-foreground mb-6">
+        {t("Our Story", "Unsere Geschichte")}
+      </h2>
+
+      <div className="space-y-4 editorial-body text-muted-foreground max-w-2xl">
+        <p>
+          {t(
+            "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
+            "Mehr als 140 Jahre Geschichte erzählen von Wandel und Innovationsgeist. Geblieben ist unsere Leidenschaft und unser Anspruch an hochwertige Textilien.",
+          )}
+        </p>
+      </div>
+
+      <Link
+        to="/about"
+        className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300"
+      >
+        {t("From 1884 to today", "von 1884 bis heute")} <ArrowRight size={16} />
+      </Link>
+    </div>
+  </div>
+</section>
 
       {/* JOBS PREVIEW */}
       <EditorialSection className="bg-card">
