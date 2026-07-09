@@ -124,129 +124,147 @@ useEffect(() => {
     window.removeEventListener("resize", onScroll);
   };
 }, []);
-  
+
   return (
-    <section
-  ref={sectionRef}
-  className="relative overflow-hidden bg-background text-primary w-full py-16 md:py-24"
->
-
-    {/* Desktop moving lace band */}
-<div
-  className="pointer-events-none absolute inset-y-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
-  style={{ width: `${BAND_WIDTH}px` }}
->
-  <div
-    className="sticky top-24 h-[78vh] overflow-hidden"
-    style={{
-      maskImage:
-        "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-      WebkitMaskImage:
-        "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-      opacity: 0.9,
-    }}
+  <section
+    ref={sectionRef}
+    className="relative overflow-hidden bg-background text-primary w-full py-16 md:py-24"
   >
+    {/* Desktop moving lace band */}
     <div
-      className="w-full"
-      style={{
-        height: "140%",
-        backgroundImage: `url(${laceNavy})`,
-        backgroundRepeat: "repeat-y",
-        backgroundPosition: `center ${laceOffset}px`,
-        backgroundSize: `${BAND_WIDTH}px auto`,
-        transition: "background-position 80ms linear",
-      }}
-    />
-  </div>
-</div>
-      
+      className="pointer-events-none absolute inset-y-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
+      style={{ width: `${BAND_WIDTH}px` }}
+    >
+      <div
+        className="sticky top-24 h-[78vh] overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
+          opacity: 0.85,
+        }}
+      >
+        <div
+          className="w-full"
+          style={{
+            height: "150%",
+            backgroundImage: `url(${laceNavy})`,
+            backgroundRepeat: "repeat-y",
+            backgroundPosition: `center ${laceOffset}px`,
+            backgroundSize: `${BAND_WIDTH}px auto`,
+            transition: "background-position 80ms linear",
+          }}
+        />
+      </div>
+    </div>
 
+    <div className="relative z-10 px-6 md:px-12 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-[1680px]">
+        <div className="space-y-20 md:space-y-28 lg:space-y-36">
+          {ENTRIES.map((entry, i) => {
+            const isLeft = i % 2 === 0;
+            const isVisible = visible[i];
 
-          <div className="space-y-20 md:space-y-28 lg:space-y-36">
-            {ENTRIES.map((entry, i) => {
-              const isLeft = i % 2 === 0;
-              const isVisible = visible[i];
-
-              return (
-                <article
-                  key={entry.year}
-                  ref={(el) => {
-                    entryRefs.current[i] = el;
+            return (
+              <article
+                key={entry.year}
+                ref={(el) => {
+                  entryRefs.current[i] = el;
+                }}
+                data-idx={i}
+                className="relative grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.2fr)_110px_minmax(0,1.2fr)] lg:gap-10 xl:gap-16 items-center"
+              >
+                {/* Text */}
+                <div
+                  className={`${
+                    isLeft
+                      ? "lg:col-start-1 lg:text-right"
+                      : "lg:col-start-3 lg:text-left"
+                  } transition-all duration-700 ease-out`}
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? "translateY(0)" : "translateY(24px)",
                   }}
-                  data-idx={i}
-                  className="relative grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.15fr)_90px_minmax(0,1.15fr)] lg:gap-10 xl:gap-16 items-center"
                 >
-                  {/* Text */}
                   <div
-                    className={`${isLeft ? "lg:col-start-1 lg:text-right" : "lg:col-start-3 lg:text-left"} transition-all duration-700 ease-out`}
+                    className="font-serif leading-none text-foreground mb-6"
                     style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                    }}
-                  >
-                    <div
-                      className="font-serif leading-none text-foreground mb-6"
-                    style={{
-                      fontSize: "clamp(2.8rem, 5.5vw, 5.2rem)",
+                      fontSize: "clamp(2.6rem, 5vw, 5rem)",
                       letterSpacing: "-0.04em",
                     }}
-                    >
-                      {entry.year}
-                    </div>
-
-                    <p
-                      className={`editorial-body text-muted-foreground whitespace-pre-line ${
-                        isLeft ? "lg:ml-auto" : ""
-                      } max-w-[760px]`}
-                    >
-                      {entry.text}
-                    </p>
-                  </div>
-
-                  {/* Center marker */}
-                  <div className="relative hidden lg:flex justify-center lg:col-start-2">
-                    <div className="h-3 w-3 rounded-full bg-primary shadow-[0_0_0_12px_hsl(var(--background))]" />
-                  </div>
-
-                  {/* Image / placeholder */}
-                  <div
-                    className={`${isLeft ? "lg:col-start-3" : "lg:col-start-1 lg:row-start-1"} transition-all duration-700 ease-out delay-150`}
-                    style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                    }}
                   >
-                    <div className="aspect-[4/3] lg:aspect-[5/4] w-full overflow-hidden border border-border bg-muted/30 flex items-center justify-center">
-                      <span className="editorial-label text-muted-foreground/40">
-                        {t("Image", "Bild")} {i + 1}
-                      </span>
-                    </div>
+                    {entry.year}
                   </div>
-                </article>
-              );
-            })}
-          </div>
 
-          <div className="pt-24 md:pt-32 text-center">
-            <div className="mx-auto mb-10 h-24 w-14 opacity-[0.22]">
-              <LaceBand className="h-full w-full" />
-            </div>
+                  <p
+                    className={`editorial-body text-muted-foreground whitespace-pre-line ${
+                      isLeft ? "lg:ml-auto" : ""
+                    } max-w-[820px]`}
+                  >
+                    {entry.text}
+                  </p>
+                </div>
 
-            <h2 className="editorial-heading-lg text-foreground mb-6">
-              {t("Tradition meets textile innovation", "Tradition trifft textile Innovation")}
-            </h2>
+                {/* Center marker */}
+                <div className="relative hidden lg:flex justify-center lg:col-start-2">
+                  <div className="h-3 w-3 rounded-full bg-primary shadow-[0_0_0_12px_hsl(var(--background))]" />
+                </div>
 
-            <p className="editorial-body text-muted-foreground max-w-[760px] mx-auto">
-              {t(
-                "Our history continues in every new development, every production step and every textile solution we create in Dresden.",
-                "Unsere Geschichte setzt sich fort – in jeder neuen Entwicklung, jedem Produktionsschritt und jeder textilen Lösung, die wir in Dresden schaffen."
-              )}
-            </p>
-          </div>
+                {/* Image / placeholder */}
+                <div
+                  className={`${
+                    isLeft
+                      ? "lg:col-start-3"
+                      : "lg:col-start-1 lg:row-start-1"
+                  } transition-all duration-700 ease-out delay-150`}
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? "translateY(0)" : "translateY(24px)",
+                  }}
+                >
+                  <div className="aspect-[4/3] lg:aspect-[5/4] w-full overflow-hidden border border-border bg-muted/30 flex items-center justify-center">
+                    <span className="editorial-label text-muted-foreground/40">
+                      {t("Image", "Bild")} {i + 1}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="pt-24 md:pt-32 text-center">
+          <div
+            className="mx-auto mb-10 h-28 w-[88px] opacity-60"
+            style={{
+              backgroundImage: `url(${laceNavy})`,
+              backgroundRepeat: "repeat-y",
+              backgroundSize: "88px auto",
+              backgroundPosition: "center top",
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+            }}
+          />
+
+          <h2 className="editorial-heading-lg text-foreground mb-6">
+            {t("Tradition meets textile innovation", "Tradition trifft textile Innovation")}
+          </h2>
+
+          <p className="editorial-body text-muted-foreground max-w-[760px] mx-auto">
+            {t(
+              "Our history continues in every new development, every production step and every textile solution we create in Dresden.",
+              "Unsere Geschichte setzt sich fort – in jeder neuen Entwicklung, jedem Produktionsschritt und jeder textilen Lösung, die wir in Dresden schaffen."
+            )}
+          </p>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
+
 };
 
 export default HistoryTimeline;
