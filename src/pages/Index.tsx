@@ -220,7 +220,7 @@ const Index = () => {
             to="/jobs"
             className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-8 py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300"
           >
-            {t("Learn more about careers with us", "Mehr über Karriere bei uns erfahren.")} <ArrowRight size={16} />
+            {t("Learn more.", "Mehr erfahren.")} <ArrowRight size={16} />
           </Link>
         </div>
       </EditorialSection>
