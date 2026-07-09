@@ -180,7 +180,7 @@ const Index = () => {
 
     <div className="px-6 md:px-[60px] lg:px-[80px]">
       <p className="editorial-label text-primary mb-4">
-        {t("140 YEARS OF EXPERIENCE", "1884 GEGRÜNDET")}
+        {t("", "")}
       </p>
 
       <h2 className="editorial-heading-lg text-foreground mb-6">
