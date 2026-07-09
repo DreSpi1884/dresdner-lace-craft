@@ -23,10 +23,10 @@ const Contact = () => {
               <h1 className="editorial-heading-lg mb-4">
                 {t("Contact", "Kontakt")}
               </h1>
-              <p className="editorial-body text-muted-foreground mb-6">
+              <p className="editorial-body text-muted-foreground mb-6 whitespace-pre-line">
                 {t(
-                  "Do you have a specific project, or would you like to find out more about us? We respond within one business day.",
-                  "Sie haben ein konkretes Projekt, oder möchten mehr über uns erfahren? Wir antworten innerhalb eines Werktages."
+                  "Do you have a specific project, or would you like to find out more about us?\nWe respond within one business day.",
+                  "Sie haben ein konkretes Projekt, oder möchten mehr über uns erfahren?\nWir antworten innerhalb eines Werktages."
                 )}
               </p>
               <hr className="border-border mb-6" />
