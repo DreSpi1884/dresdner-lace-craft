@@ -194,8 +194,8 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                   </h3>
                   <p className="editorial-body-sm text-muted-foreground">
                     {t(
-                      "Please specify the desired widths in mm or cm, or skip.",
-                      "Bitte geben Sie die gewünschten Breiten in mm oder cm an, oder überspringen Sie diesen Schritt."
+                      "Please specify the desired widths in mm or cm.",
+                      "Bitte geben Sie die gewünschten Breiten in mm oder cm an."
                     )}
                   </p>
                   <input
