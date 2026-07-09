@@ -41,6 +41,12 @@ const EditorialNav = () => {
     { label: t("SUSTAINABILITY", "NACHHALTIGKEIT"), hash: "#sustainability" },
     { label: t("PRODUCTION", "PRODUKTION"), hash: "#production" },
   ];
+  const serviceSections = [
+  { label: t("DESIGN", "DESIGN"), hash: "#design" },
+  { label: t("RAW MATERIAL PRODUCTION", "ROHWARENPRODUKTION"), hash: "#raw-material-production" },
+  { label: t("DYEING & FINISHING", "FÄRBUNG & AUSRÜSTUNG"), hash: "#dyeing-finishing" },
+  { label: t("FUNCTIONAL & MEDICAL TEXTILES", "FUNKTIONS- UND MEDIZINTEXTILIEN"), hash: "#functional-textiles" },
+];
 
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -157,8 +163,13 @@ const EditorialNav = () => {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            if (item.key === "about" || item.key === "contact") {
-              const sections = item.key === "about" ? aboutSections : contactSections;
+            if (item.key === "about" || item.key === "contact" || item.key === "services") {
+              cconst sections =
+  item.key === "about"
+    ? aboutSections
+    : item.key === "services"
+    ? serviceSections
+    : contactSections;
               return (
                 <div key={item.path} className="relative group">
                   <Link
@@ -173,13 +184,26 @@ const EditorialNav = () => {
                   <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                     <div className="bg-foreground border border-background/10 min-w-[200px] py-2">
                       {sections.map((s) => {
-                        const to = "hash" in s ? `/about${s.hash}` : s.path;
+                        const base =
+  item.key === "services"
+    ? "/services"
+    : "/about";
+
+const to = "hash" in s ? `${base}${s.hash}` : s.path;
                         const key = "hash" in s ? s.hash : s.path;
                         return (
                           <Link
                             key={key}
                             to={to}
-                            onClick={"hash" in s ? (e) => handleAboutAnchor(e, s.hash) : undefined}
+                            onClick={
+  "hash" in s
+    ? (e) => {
+        if (item.key === "about") {
+          handleAboutAnchor(e, s.hash);
+        }
+      }
+    : undefined
+}
                             className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
                           >
                             {s.label}
