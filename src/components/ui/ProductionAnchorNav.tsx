@@ -1,11 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
 const ProductionAnchorNav = () => {
   const { t } = useLang();
-  const location = useLocation();
 
   const [activeSection, setActiveSection] = useState("design");
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -13,18 +11,9 @@ const ProductionAnchorNav = () => {
   const sections = useMemo(
     () => [
       { id: "design", label: t("Design", "Design") },
-      {
-        id: "raw-material-production",
-        label: t("Raw material production", "Rohwarenproduktion"),
-      },
-      {
-        id: "dyeing-finishing",
-        label: t("Dyeing & finishing", "Färbung & Ausrüstung"),
-      },
-      {
-        id: "functional-textiles",
-        label: t("Functional & medical textiles", "Funktions- & Medizintextilien"),
-      },
+      { id: "raw-material-production", label: t("Raw material production", "Rohwarenproduktion") },
+      { id: "dyeing-finishing", label: t("Dyeing & finishing", "Färbung & Ausrüstung") },
+      { id: "functional-textiles", label: t("Functional & medical textiles", "Funktions- & Medizintextilien") },
     ],
     [t]
   );
@@ -39,38 +28,36 @@ const ProductionAnchorNav = () => {
     const offset = 180;
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
-    window.scrollTo({
-      top,
-      behavior: "smooth",
-    });
-
+    window.scrollTo({ top, behavior: "smooth" });
     window.history.replaceState(null, "", `#${id}`);
   };
 
   useEffect(() => {
-    const hash = location.hash.replace("#", "");
-    const isValidHash = sections.some((section) => section.id === hash);
+    const openFromHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      const isValidHash = sections.some((section) => section.id === hash);
 
-    if (!isValidHash) return;
+      if (!isValidHash) return;
 
-    const timer = window.setTimeout(() => {
-      const element = document.getElementById(hash);
-      if (!element) return;
+      window.setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (!element) return;
 
-      setActiveSection(hash);
-      setOpenSection(hash);
+        setActiveSection(hash);
+        setOpenSection(hash);
 
-      const offset = 180;
-      const top = element.getBoundingClientRect().top + window.scrollY - offset;
+        const offset = 180;
+        const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
-      window.scrollTo({
-        top,
-        behavior: "smooth",
-      });
-    }, 80);
+        window.scrollTo({ top, behavior: "smooth" });
+      }, 100);
+    };
 
-    return () => window.clearTimeout(timer);
-  }, [location.hash, sections]);
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, [sections]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
