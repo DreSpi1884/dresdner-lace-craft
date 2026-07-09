@@ -1,4 +1,5 @@
-import { useMemo, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { ChevronDown } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
@@ -112,7 +113,24 @@ const Services = () => {
     [t, processSteps],
   );
 
+const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
 
+useEffect(() => {
+  const hash = window.location.hash.replace("#", "");
+  const exists = services.some((service) => service.id === hash);
+
+  if (exists) {
+    setMobileOpenId(hash);
+
+    window.setTimeout(() => {
+      const element = document.getElementById(hash);
+      if (!element) return;
+
+      const top = element.getBoundingClientRect().top + window.scrollY - 140;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 100);
+  }
+}, [services]);
 
   const renderBody = (s: ServiceItem) => (
     <div
