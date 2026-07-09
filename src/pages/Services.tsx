@@ -324,56 +324,54 @@ const Services = () => {
 <ProductionAnchorNav />
 
 <section className="w-full">
-  <div>
-    {services.map((s, i) => (
-      <article
-        key={s.id}
-        id={s.id}
-        data-idx={i}
-        className="grid grid-cols-1 lg:grid-cols-2 border-b border-primary/10 scroll-mt-36"
-      >
-        <div className="flex min-h-[auto] lg:min-h-[760px] items-start px-6 md:px-10 lg:pl-[40px] lg:pr-8 py-14 md:py-20">
-          <div className="w-full max-w-none">
-            <h2
-              className="mb-10 md:mb-16 lg:mb-20 leading-[1.1]"
-              style={{
-                fontFamily: "'Bodoni Moda', serif",
-                fontSize: "clamp(32px, 4vw, 48px)",
-                color: "hsl(var(--primary))",
-                fontWeight: 500,
-              }}
-            >
-              {s.title}
-            </h2>
+  {services.map((s, i) => (
+    <article
+      key={s.id}
+      id={s.id}
+      data-idx={i}
+      className="grid grid-cols-1 lg:grid-cols-2 border-b border-primary/10 scroll-mt-36"
+    >
+      <div className="flex min-h-[auto] lg:min-h-[760px] items-start px-6 md:px-10 lg:pl-[48px] lg:pr-10 py-16 md:py-20">
+        <div className="w-full max-w-none">
+          <h2
+            className="mb-10 md:mb-14 lg:mb-16 leading-[1.1]"
+            style={{
+              fontFamily: "'Bodoni Moda', serif",
+              fontSize: "clamp(30px, 4vw, 46px)",
+              color: "hsl(var(--primary))",
+              fontWeight: 500,
+            }}
+          >
+            {s.title}
+          </h2>
 
-            {renderBody(s)}
-            {renderProcess(s)}
-          </div>
+          {renderBody(s)}
+          {renderProcess(s)}
         </div>
+      </div>
 
-        <div className="min-h-[360px] lg:min-h-[760px] bg-muted">
-          <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
-            <span
-              className="relative text-center"
-              style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "11px",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "hsl(var(--muted-foreground) / 0.6)",
-              }}
-            >
-              {t("Image placeholder", "Bildplatzhalter")}{" "}
-              {String(i + 1).padStart(2, "0")}
-              <br />
-              {s.title}
-            </span>
-          </div>
+      <div className="hidden lg:block min-h-[760px] bg-muted">
+        <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
+          <span
+            className="relative text-center"
+            style={{
+              fontFamily: "'Jost', sans-serif",
+              fontSize: "11px",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              color: "hsl(var(--muted-foreground) / 0.6)",
+            }}
+          >
+            {t("Image placeholder", "Bildplatzhalter")}{" "}
+            {String(i + 1).padStart(2, "0")}
+            <br />
+            {s.title}
+          </span>
         </div>
-      </article>
-    ))}
-  </div>
+      </div>
+    </article>
+  ))}
 </section>
       
     </EditorialLayout>
