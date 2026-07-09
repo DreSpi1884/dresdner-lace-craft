@@ -1,16 +1,34 @@
-import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import EditorialSection from "@/components/EditorialSection";
 import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
-import productionImage from "@/assets/production-detail.jpg";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
 
 const About = () => {
   const { open: openQuote } = useQuoteModal();
   const { t } = useLang();
+  const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
+
+  useEffect(() => {
+  const hash = window.location.hash.replace("#");
+  const validIds = ["history", "sustainability", "values"];
+
+  if (validIds.includes(hash)) {
+    setMobileOpenId(hash);
+
+    window.setTimeout(() => {
+      const element = document.getElementById(hash);
+      if (!element) return;
+
+      const top = element.getBoundingClientRect().top + window.scrollY - 140;
+      window.scrollTo({ top, behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
   return (
     <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
       <SEO
