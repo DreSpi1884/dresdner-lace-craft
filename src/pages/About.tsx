@@ -76,42 +76,7 @@ const About = () => {
         </div>
       </EditorialSection>
 
-      <section id="production" className="editorial-section scroll-mt-32">
-        <div className="editorial-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <p className="editorial-label text-primary mb-4">{t("Production", "Produktion")}</p>
-              <h2 className="editorial-heading-lg text-foreground mb-6">
-                {t("Modern Machinery, Timeless Standards", "Moderne Technik, zeitlose Standards")}
-              </h2>
-              <div className="editorial-body text-muted-foreground mb-8 space-y-4">
-                <p>
-                  {t(
-                    "Our production combines advanced Karl Mayer warp knitting technology with more than 140 years of textile expertise.",
-                    "Unsere Produktion vereint moderne Karl-Mayer-Kettenwirktechnik mit über 140 Jahren textiler Erfahrung."
-                  )}
-                </p>
-                <p>
-                  {t(
-                    "We manufacture premium lace, warp-knitted fabrics, elastic textiles and technical fabrics using modern Raschel, Jacquardtronic® and Textronic® machines.",
-                    "Wir fertigen Premium-Spitzen, Kettengewirke, elastische Textilien und technische Gewebe auf modernen Raschel-, Jacquardtronic®- und Textronic®-Maschinen."
-                  )}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={openQuote}
-                className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors duration-300">
-                {t("Request a Quote", "Angebot anfragen")} <ArrowRight size={16} />
-              </button>
-            </div>
-            <img
-              src={productionImage}
-              alt="Lace production machinery at Dresdner Spitzen facility"
-              className="w-full h-[400px] object-cover" />
-          </div>
-        </div>
-      </section>
+     
     </EditorialLayout>);
 };
 
