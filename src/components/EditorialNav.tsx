@@ -298,80 +298,104 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
         </button>
       </nav>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-foreground/95 backdrop-blur-sm animate-fade-in">
-          <div className="editorial-container py-8 flex flex-col gap-6">
-            {navItems.map((item) => (
-              <div key={item.path}>
-                <Link
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`editorial-heading-sm ${
-                    location.pathname === item.path ? "text-background" : "text-background/80"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-                {item.key === "contact" && (
-                  <div className="mt-2 ml-4 flex flex-col gap-2">
-                    {contactSections.map((s) => (
-                      <Link
-                        key={s.path}
-                        to={s.path}
-                        onClick={() => setIsOpen(false)}
-                        className="editorial-body-sm text-background/70 hover:text-background transition-colors"
-                      >
-                        {s.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <button
-              type="button"
-              onClick={() => {
-                setIsOpen(false);
-                openQuote();
-              }}
-              className="editorial-body cta-lace border border-background text-background px-5 py-3 text-center mt-2"
-            >
-              {t("ENQUIRY", "ANFRAGE")}
-            </button>
-            <div className="flex gap-4 pt-2">
-              {languages.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => setLang(l.code)}
-                  className={`editorial-body-sm ${lang === l.code ? "text-background" : "text-background/60"}`}
-                >
-                  {l.label}
-                </button>
-              ))}
+{/* Mobile menu */}
+{isOpen && (
+  <div className="md:hidden bg-foreground/95 backdrop-blur-sm animate-fade-in">
+    <div className="editorial-container py-8 flex flex-col gap-6">
+      {navItems.map((item) => {
+        const hasDropdown =
+          item.key === "services" || item.key === "about" || item.key === "contact";
 
-              <a
-                href="https://www.instagram.com/dresdnerspitzen"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="ml-auto text-background"
-              >
-                <Instagram size={20} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-background"
-              >
-                <Linkedin size={20} />
-              </a>
-            </div>
+        const sections =
+          item.key === "services"
+            ? serviceSections
+            : item.key === "about"
+            ? aboutSections
+            : contactSections;
+
+        return (
+          <div key={item.path}>
+            <Link
+              to={item.path}
+              onClick={() => setIsOpen(false)}
+              className={`editorial-heading-sm inline-flex items-center gap-2 ${
+                location.pathname === item.path ? "text-background" : "text-background/80"
+              }`}
+            >
+              {item.label}
+              {hasDropdown && <ChevronDown size={16} />}
+            </Link>
+
+            {hasDropdown && (
+              <div className="mt-3 ml-4 flex flex-col gap-2">
+                {sections.map((s) => {
+                  const to = "hash" in s ? `${item.path}${s.hash}` : s.path;
+                  const key = "hash" in s ? s.hash : s.path;
+
+                  return (
+                    <Link
+                      key={key}
+                      to={to}
+                      onClick={() => setIsOpen(false)}
+                      className="editorial-body-sm text-background/60 hover:text-background transition-colors"
+                    >
+                      {s.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        );
+      })}
+
+      <button
+        type="button"
+        onClick={() => {
+          setIsOpen(false);
+          openQuote();
+        }}
+        className="editorial-body cta-lace border border-background text-background px-5 py-3 text-center mt-2"
+      >
+        {t("ENQUIRY", "ANFRAGE")}
+      </button>
+
+      <div className="flex gap-4 pt-2">
+        {languages.map((l) => (
+          <button
+            key={l.code}
+            onClick={() => setLang(l.code)}
+            className={`editorial-body-sm ${
+              lang === l.code ? "text-background" : "text-background/60"
+            }`}
+          >
+            {l.label}
+          </button>
+        ))}
+
+        <a
+          href="https://www.instagram.com/dresdnerspitzen"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="ml-auto text-background"
+        >
+          <Instagram size={20} />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="text-background"
+        >
+          <Linkedin size={20} />
+        </a>
+      </div>
+    </div>
+  </div>
+)}
     </header>
   );
 };
