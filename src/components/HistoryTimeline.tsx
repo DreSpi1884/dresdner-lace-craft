@@ -142,32 +142,37 @@ const HistoryTimeline = () => {
     [t]
   );
 
-  const [visible, setVisible] = useState<boolean[]>(() => ENTRIES.map(() => false));
-  const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [laceOffset, setLaceOffset] = useState(0);
+const [visible, setVisible] = useState<boolean[]>(() => ENTRIES.map(() => false));
+const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
+const sectionRef = useRef<HTMLElement | null>(null);
+const [laceOffset, setLaceOffset] = useState(0);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (items) => {
-        items.forEach((item) => {
-          const idx = Number((item.target as HTMLElement).dataset.idx);
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (items) => {
+      items.forEach((item) => {
+        const idx = Number((item.target as HTMLElement).dataset.idx);
 
-          if (item.isIntersecting) {
-            setVisible((prev) => {
-              if (prev[idx]) return prev;
+        if (item.isIntersecting) {
+          setVisible((prev) => {
+            if (prev[idx]) return prev;
 
-              const next = [...prev];
-              next[idx] = true;
-              return next;
-            });
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -12% 0px" }
-    );
+            const next = [...prev];
+            next[idx] = true;
+            return next;
+          });
+        }
+      });
+    },
+    { threshold: 0.2, rootMargin: "0px 0px -12% 0px" }
+  );
 
-    useEffect(() => {
+  entryRefs.current.forEach((el) => el && observer.observe(el));
+
+  return () => observer.disconnect();
+}, []);
+
+useEffect(() => {
   let rafId = 0;
 
   const updateLace = () => {
@@ -201,12 +206,7 @@ const HistoryTimeline = () => {
     window.removeEventListener("resize", onScroll);
   };
 }, []);
-
-    entryRefs.current.forEach((el) => el && observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
+  
   return (
     <section
   ref={sectionRef}
