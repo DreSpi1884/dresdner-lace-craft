@@ -60,7 +60,9 @@ const EditorialFooter = () => {
     {t("Careers", "Karriere")}
   </Link>
 
-  <div className="border-t border-background/20 pt-3 mt-1">
+  <div className="pt-3 mt-1">
+  <div className="w-16 border-t border-background/20 mb-3" />
+    
     <button
       type="button"
       onClick={openQuote}
