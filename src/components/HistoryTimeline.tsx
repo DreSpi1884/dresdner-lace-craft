@@ -251,19 +251,7 @@ useEffect(() => {
         </div>
       </div>
 
-      <div className="relative z-10 px-6 md:px-12 lg:px-20">
-        <div className="mx-auto max-w-[1500px]">
-          <div className="mb-16 md:mb-24 max-w-[900px]">
-            <h2 className="editorial-heading-lg text-foreground mb-6">
-              {t("Our History", "Unsere Geschichte")}
-            </h2>
-            <p className="editorial-body text-muted-foreground max-w-[720px]">
-              {t(
-                "More than 140 years of textile experience: from lace manufacturing in Dresden to modern warp-knitted and functional textiles.",
-                "Mehr als 140 Jahre textile Erfahrung: von der Spitzenherstellung in Dresden bis zu modernen Kettengewirken und funktionalen Textilien."
-              )}
-            </p>
-          </div>
+
 
           <div className="space-y-20 md:space-y-28 lg:space-y-36">
             {ENTRIES.map((entry, i) => {
@@ -289,10 +277,10 @@ useEffect(() => {
                   >
                     <div
                       className="font-serif leading-none text-foreground mb-6"
-                      style={{
-                        fontSize: "clamp(4rem, 9vw, 8rem)",
-                        letterSpacing: "-0.04em",
-                      }}
+                    style={{
+                      fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)",
+                      letterSpacing: "-0.04em",
+                    }}
                     >
                       {entry.year}
                     </div>
@@ -300,7 +288,7 @@ useEffect(() => {
                     <p
                       className={`editorial-body text-muted-foreground whitespace-pre-line ${
                         isLeft ? "lg:ml-auto" : ""
-                      } max-w-[620px]`}
+                      } max-w-[760px]`}
                     >
                       {entry.text}
                     </p>
