@@ -249,16 +249,6 @@ useEffect(() => {
             }}
           />
 
-          <h2 className="editorial-heading-lg text-foreground mb-6">
-            {t("Tradition meets textile innovation", "Tradition trifft textile Innovation")}
-          </h2>
-
-          <p className="editorial-body text-muted-foreground max-w-[760px] mx-auto">
-            {t(
-              "Our history continues in every new development, every production step and every textile solution we create in Dresden.",
-              "Unsere Geschichte setzt sich fort – in jeder neuen Entwicklung, jedem Produktionsschritt und jeder textilen Lösung, die wir in Dresden schaffen."
-            )}
-          </p>
         </div>
       </div>
     </div>
