@@ -60,8 +60,8 @@ const EditorialFooter = () => {
     {t("Careers", "Karriere")}
   </Link>
 
-  <div className="mt-4">
-  <div className="w-8 h-px bg-background/20 mb-4" />
+  <div className="mt-2">
+  <div className="w-16 h-px bg-background/20 mb-2" />
     
     <button
       type="button"
