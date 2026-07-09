@@ -36,7 +36,7 @@ const ProductionAnchorNav = () => {
     setActiveSection(id);
     setOpenSection(id);
 
-    const offset = 140;
+    const offset = 180;
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
     window.scrollTo({
@@ -60,7 +60,7 @@ const ProductionAnchorNav = () => {
       setActiveSection(hash);
       setOpenSection(hash);
 
-      const offset = 140;
+      const offset = 180;
       const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
       window.scrollTo({
