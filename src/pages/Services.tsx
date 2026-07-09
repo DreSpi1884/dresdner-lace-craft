@@ -162,8 +162,8 @@ const Services = () => {
     <div
       style={{
         fontFamily: "'Jost', sans-serif",
-        fontSize: "15px",
-        lineHeight: 1.65,
+        fontSize: "clamp(15px, 1vw, 18px)",
+        lineHeight: 1.75,
         maxWidth: "900px",
         color: "hsl(var(--muted-foreground))",
       }}
