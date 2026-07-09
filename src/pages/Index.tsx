@@ -214,16 +214,13 @@ const Index = () => {
             {t("Join our team", "Werden Sie Teil unseres Teams")}
           </h2>
           <p className="editorial-body text-muted-foreground max-w-xl mx-auto mb-10">
-            {t(
-              "We are always looking for skilled and passionate people to join our team. Discover current opportunities and become part of our story.",
-              "Wir suchen stets qualifizierte und engagierte Menschen für unser Team. Entdecken Sie aktuelle Stellen und werden Sie Teil unserer Geschichte.",
-            )}
+            {t("", "")}
           </p>
           <Link
             to="/jobs"
             className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-8 py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300"
           >
-            {t("View Open Positions", "Offene Stellen ansehen")} <ArrowRight size={16} />
+            {t("Learn more about careers with us", "Mehr über Karriere bei uns erfahren.")} <ArrowRight size={16} />
           </Link>
         </div>
       </EditorialSection>
