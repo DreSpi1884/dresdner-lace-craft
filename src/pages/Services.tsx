@@ -4,6 +4,7 @@ import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
+import ProductionAnchorNav from "@/components/ProductionAnchorNav";
 
 // Inline link helper that turns a specific word in a paragraph into a button.
 const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onClick: () => void }): ReactNode => {
