@@ -1,11 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
+  const location = useLocation();
+
   const [activeSection, setActiveSection] = useState("history");
-  const [isOpen, setIsOpen] = useState(false);
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
   const sections = useMemo(
     () => [
@@ -16,15 +19,12 @@ const AboutAnchorNav = () => {
     [t]
   );
 
-  const currentSection =
-    sections.find((section) => section.id === activeSection) || sections[0];
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (!element) return;
 
-    setIsOpen(false);
     setActiveSection(id);
+    setOpenSection(id);
 
     const offset = 140;
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
@@ -38,17 +38,42 @@ const AboutAnchorNav = () => {
   };
 
   useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    const isValidHash = sections.some((section) => section.id === hash);
+
+    if (!isValidHash) return;
+
+    const timer = window.setTimeout(() => {
+      const element = document.getElementById(hash);
+      if (!element) return;
+
+      setActiveSection(hash);
+      setOpenSection(hash);
+
+      const offset = 140;
+      const top = element.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }, 80);
+
+    return () => window.clearTimeout(timer);
+  }, [location.hash, sections]);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.find((entry) => entry.isIntersecting);
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
 
-        if (visible) {
-          setActiveSection(visible.target.id);
+        if (visibleEntries.length > 0) {
+          setActiveSection(visibleEntries[0].target.id);
         }
       },
       {
-        threshold: 0.25,
-        rootMargin: "-25% 0px -60% 0px",
+        threshold: 0.2,
+        rootMargin: "-20% 0px -65% 0px",
       }
     );
 
@@ -62,46 +87,42 @@ const AboutAnchorNav = () => {
 
   return (
     <nav className="sticky top-20 md:top-24 z-40 bg-background/95 backdrop-blur border-b border-primary/10">
-      {/* Mobile accordion */}
-      <div className="lg:hidden px-6">
-        <button
-          type="button"
-          onClick={() => setIsOpen((prev) => !prev)}
-          className="flex w-full items-center justify-between py-4 text-left text-primary"
-        >
-          <span className="editorial-label tracking-[0.22em]">
-            {currentSection.label}
-          </span>
+      {/* Mobile accordion navigation */}
+      <div className="lg:hidden border-t border-border">
+        {sections.map((section) => {
+          const isOpen = openSection === section.id;
+          const isActive = activeSection === section.id;
 
-          <ChevronDown
-            className={`h-4 w-4 transition-transform duration-300 ${
-              isOpen ? "rotate-180" : ""
-            }`}
-          />
-        </button>
-
-        <div
-          className={`overflow-hidden transition-all duration-300 ease-out ${
-            isOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0 pb-0"
-          }`}
-        >
-          <div className="space-y-3 border-t border-border pt-4">
-            {sections.map((section) => (
+          return (
+            <div key={section.id} className="border-b border-border">
               <button
-                key={section.id}
                 type="button"
                 onClick={() => scrollToSection(section.id)}
-                className={`block w-full text-left editorial-label tracking-[0.22em] transition-colors ${
-                  activeSection === section.id
-                    ? "text-primary"
-                    : "text-primary/45 hover:text-primary"
+                className={`flex w-full items-center justify-between px-6 py-4 text-left editorial-label tracking-[0.22em] transition-colors ${
+                  isActive ? "text-primary" : "text-primary/45 hover:text-primary"
                 }`}
               >
-                {section.label}
+                <span>{section.label}</span>
+
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-            ))}
-          </div>
-        </div>
+
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-out ${
+                  isOpen ? "max-h-16 opacity-100 pb-4" : "max-h-0 opacity-0 pb-0"
+                }`}
+              >
+                <div className="px-6">
+                  <div className="h-px w-full bg-primary/30" />
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* Desktop navigation */}
