@@ -497,7 +497,7 @@ const Services = () => {
                 <div className="w-full max-w-none">
                  
                   <h2
-                    className="mb-6 leading-[1.1]"
+                    className="mb-10 leading-[1.1]"
                     style={{
                       fontFamily: "'Bodoni Moda', serif",
                       fontSize: "clamp(34px, 4vw, 48px)",
