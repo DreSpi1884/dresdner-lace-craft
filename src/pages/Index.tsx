@@ -209,11 +209,12 @@ const Index = () => {
       {/* JOBS PREVIEW */}
       <EditorialSection className="bg-card">
         <div className="editorial-container text-center py-10 md:py-20">
-          <p className="editorial-label text-primary mb-4">{t("", "")}</p>
-          <h2 className="editorial-heading-lg text-foreground text-[2rem] sm:text-[2.4rem] md:text-6xl leading-[1.1] mb-4">
+          <h2
+            className="font-serif text-foreground leading-[1.1] tracking-[-0.02em] mb-4"
+            style={{ fontSize: "clamp(2rem, 6vw, 3.75rem)" }}
+          >
             {t("Join our team", "Werden Sie Teil unseres Teams")}
           </h2>
-          </p>
           <Link
             to="/jobs"
             className="inline-flex items-center gap-2 cta-lace border border-border text-foreground px-7 py-3 md:px-8 md:py-4 editorial-body-sm font-medium hover:bg-secondary transition-colors duration-300"
