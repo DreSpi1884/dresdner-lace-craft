@@ -48,6 +48,7 @@ const EditorialNav = () => {
 ];
 
   const [isOpen, setIsOpen] = useState(false);
+  const [mobileOpenSection, setMobileOpenSection] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { open: openQuote } = useQuoteModal();
@@ -312,7 +313,8 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
             : item.key === "about"
             ? aboutSections
             : contactSections;
-
+            const open = mobileOpenSection === item.key;
+    
         return (
           <div key={item.path}>
           <button
