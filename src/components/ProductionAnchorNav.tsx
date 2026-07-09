@@ -11,9 +11,18 @@ const ProductionAnchorNav = () => {
   const sections = useMemo(
     () => [
       { id: "design", label: t("Design", "Design") },
-      { id: "raw-material-production", label: t("Raw material production", "Rohwarenproduktion") },
-      { id: "dyeing-finishing", label: t("Dyeing & finishing", "Färbung & Ausrüstung") },
-      { id: "functional-textiles", label: t("Functional & medical textiles", "Funktions- & Medizintextilien") },
+      {
+        id: "raw-material-production",
+        label: t("Raw material production", "Rohwarenproduktion"),
+      },
+      {
+        id: "dyeing-finishing",
+        label: t("Dyeing & finishing", "Färbung & Ausrüstung"),
+      },
+      {
+        id: "functional-textiles",
+        label: t("Functional & medical textiles", "Funktions- & Medizintextilien"),
+      },
     ],
     [t]
   );
