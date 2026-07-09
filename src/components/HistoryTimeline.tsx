@@ -7,7 +7,7 @@ type Entry = {
   text: string;
 };
 
-const BAND_WIDTH = 88;
+const BAND_WIDTH = 72;
 
 const HistoryTimeline = () => {
   const { t } = useLang();
@@ -128,40 +128,39 @@ useEffect(() => {
   return (
   <section
     ref={sectionRef}
-    className="relative overflow-hidden bg-background text-primary w-full py-16 md:py-24"
+    className="relative overflow-hidden bg-background text-primary w-full py-10 md:py-16"
   >
-    {/* Desktop moving lace band */}
-    <div
-      className="pointer-events-none absolute inset-y-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
-      style={{ width: `${BAND_WIDTH}px` }}
-    >
-      <div
-        className="sticky top-24 h-[78vh] overflow-hidden"
-        style={{
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
-          opacity: 0.85,
-        }}
-      >
-        <div
-          className="w-full"
-          style={{
-            height: "150%",
-            backgroundImage: `url(${laceNavy})`,
-            backgroundRepeat: "repeat-y",
-            backgroundPosition: `center ${laceOffset}px`,
-            backgroundSize: `${BAND_WIDTH}px auto`,
-            transition: "background-position 80ms linear",
-          }}
-        />
-      </div>
-    </div>
-
-    <div className="relative z-10 px-6 md:px-12 lg:px-16 xl:px-20">
-      <div className="mx-auto w-full max-w-[1680px]">
-        <div className="space-y-20 md:space-y-28 lg:space-y-36">
+{/* Desktop moving lace band */}
+<div
+  className="pointer-events-none absolute inset-y-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
+  style={{ width: `${BAND_WIDTH}px` }}
+>
+  <div
+    className="sticky top-24 h-[calc(100vh-6rem)] overflow-hidden"
+    style={{
+      maskImage:
+        "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+      WebkitMaskImage:
+        "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+      opacity: 0.75,
+    }}
+  >
+    <img
+      src={laceNavy}
+      alt=""
+      aria-hidden="true"
+      className="h-[115%] w-full object-cover"
+      style={{
+        transform: `translateY(${laceOffset * 0.18}px)`,
+        transition: "transform 80ms linear",
+      }}
+    />
+  </div>
+</div>
+    
+    <div className="relative z-10 px-6 md:px-10 lg:px-12 xl:px-16">
+      <div className="mx-auto w-full max-w-[1800px]">
+        <div className="space-y-16 md:space-y-24 lg:space-y-28">
           {ENTRIES.map((entry, i) => {
             const isLeft = i % 2 === 0;
             const isVisible = visible[i];
@@ -173,15 +172,15 @@ useEffect(() => {
                   entryRefs.current[i] = el;
                 }}
                 data-idx={i}
-                className="relative grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.2fr)_110px_minmax(0,1.2fr)] lg:gap-10 xl:gap-16 items-center"
+                className="relative grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_90px_minmax(0,1fr)] lg:gap-12 xl:gap-20 items-center min-h-[62vh]"
               >
                 {/* Text */}
                 <div
-                  className={`${
-                    isLeft
-                      ? "lg:col-start-1 lg:text-right"
-                      : "lg:col-start-3 lg:text-left"
-                  } transition-all duration-700 ease-out`}
+                className={`${
+                  isLeft
+                    ? "lg:col-start-1"
+                    : "lg:col-start-3"
+                } text-left transition-all duration-700 ease-out`}
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -197,11 +196,7 @@ useEffect(() => {
                     {entry.year}
                   </div>
 
-                  <p
-                    className={`editorial-body text-muted-foreground whitespace-pre-line ${
-                      isLeft ? "lg:ml-auto" : ""
-                    } max-w-[820px]`}
-                  >
+                  <p className="editorial-body text-muted-foreground whitespace-pre-line max-w-[900px]">
                     {entry.text}
                   </p>
                 </div>
