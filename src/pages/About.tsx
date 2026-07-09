@@ -26,18 +26,18 @@ const About = () => {
         <HistoryTimeline />
       </div>
 
-      <section id="sustainability" className="editorial-section scroll-mt-32">
-        <div className="editorial-container">
+      <section id="sustainability" className="-section scroll-mt-32">
+        <div className="-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
-              <h2 className="editorial-heading-lg text-foreground mb-4">
+              <h2 className="-heading-lg text-foreground mb-4">
                 {t("Sustainability", "Nachhaltigkeit")}
               </h2>
-              <p className="editorial-label text-primary mb-8">
+              <p className="-label text-primary mb-8">
                 {t("", "")}
               </p>
             </div>
-            <div className="space-y-6 editorial-body text-muted-foreground">
+            <div className="space-y-8 text-lg md:text-xl leading-[2] text-muted-foreground">
               <p>
                 {t(
                   "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS). These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes. We generate part of our electricity through our own solar power systems on our production site in Dresden.",
@@ -68,8 +68,8 @@ const About = () => {
               { title: t("Reliability", "Zuverlässigkeit"), desc: t("A trusted partner from development to delivery.", "Ein verlässlicher Partner von der Entwicklung bis zur Lieferung.") },
             ].map((item) =>
               <div key={item.title} className="border-t border-border pt-6">
-                <h3 className="editorial-heading-sm text-foreground mb-3">{item.title}</h3>
-                <p className="editorial-body-sm text-muted-foreground">{item.desc}</p>
+                <h3 className="editorial-heading-sm text-foreground mb-4">{item.title}</h3>
+                <p className="text-base md:text-lg leading-[1.9] text-muted-foreground">{item.desc}</p>
               </div>
             )}
           </div>
