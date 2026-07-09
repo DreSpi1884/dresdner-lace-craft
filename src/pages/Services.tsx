@@ -352,7 +352,7 @@ const Services = () => {
     );
 
     return (
-    <EditorialLayout title={t("Services", "Leistungen")} heroCompact>
+    <EditorialLayout title={t("Production", "Produktion")} heroCompact>
       <SEO
         title={t(
           "Services — Lace, Production & Finishing",
