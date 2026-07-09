@@ -34,7 +34,7 @@ const About = () => {
                 {t("Sustainability", "Nachhaltigkeit")}
               </h2>
               <p className="editorial-label text-primary mb-8">
-                {t("RESPONSIBLE PRODUCTION AT EVERY STAGE", "VERANTWORTUNG IN JEDEM PRODUKTIONSSCHRITT")}
+                {t("", "")}
               </p>
             </div>
             <div className="space-y-6 editorial-body text-muted-foreground">
