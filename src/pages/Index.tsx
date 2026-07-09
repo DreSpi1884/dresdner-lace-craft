@@ -209,7 +209,8 @@ const Index = () => {
     {/* JOBS PREVIEW */}
     <EditorialSection className="bg-card">
       <div className="editorial-container text-center py-10 md:py-20">
-        <h2 className="editorial-heading-lg text-foreground mb-4">{t("Join our team", "Werden Sie Teil unseres Teams")}</h2>
+        <h2 className="font-serif text-foreground text-2xl md:text-3xl lg:text-4xl leading-[1.15] mb-4">
+          {t("Join our team", "Werden Sie Teil unseres Teams")}</h2>
     
         <Link
           to="/jobs"
