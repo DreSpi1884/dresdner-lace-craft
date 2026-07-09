@@ -169,8 +169,8 @@ const Index = () => {
 {/* HERITAGE + INNOVATION */}
 <section className="py-16 md:py-20 overflow-hidden">
   <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-    <div className="w-full">
-      <BeforeAfterSlider
+  <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden">
+    <BeforeAfterSlider
         beforeImage={heritageThen.url}
         afterImage={heritageNow.url}
         beforeAlt="Historic Dresdner Spitzen weaving hall"
