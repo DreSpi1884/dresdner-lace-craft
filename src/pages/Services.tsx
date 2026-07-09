@@ -352,6 +352,9 @@ useEffect(() => {
         data-idx={i}
         className="border-b border-primary/10 scroll-mt-36"
       >
+
+
+        
         {/* Mobile accordion section */}
         <div className="lg:hidden px-6">
           <button
@@ -362,20 +365,12 @@ useEffect(() => {
             aria-expanded={isOpen}
             className="flex w-full items-center justify-between py-6 text-left"
           >
-            <span
-              className="leading-[1.1]"
-              style={{
-                fontFamily: "'Bodoni Moda', serif",
-                fontSize: "clamp(28px, 7vw, 38px)",
-                color: "hsl(var(--primary))",
-                fontWeight: 500,
-              }}
-            >
-              {s.title}
+            <span className="editorial-label tracking-[0.22em] text-primary">
+              {s.nav}
             </span>
 
             <ChevronDown
-              className={`ml-4 h-5 w-5 shrink-0 transition-transform duration-300 ${
+              className={`ml-4 h-5 w-5 shrink-0 transition-transform duration-150 ${
                 isOpen ? "rotate-180" : ""
               }`}
               style={{ color: "hsl(var(--primary))" }}
@@ -384,7 +379,7 @@ useEffect(() => {
 
           <div
             className={`overflow-hidden transition-all duration-300 ease-out ${
-              isOpen ? "max-h-[2400px] opacity-100 pb-10" : "max-h-0 opacity-0 pb-0"
+              isOpen ? "max-h-[1200px] opacity-100 pb-10" : "max-h-0 opacity-0 pb-0"
             }`}
           >
             <div className="pt-2">
