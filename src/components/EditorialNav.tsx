@@ -164,7 +164,7 @@ const EditorialNav = () => {
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
             if (item.key === "about" || item.key === "contact" || item.key === "services") {
-              cconst sections =
+              const sections =
   item.key === "about"
     ? aboutSections
     : item.key === "services"
