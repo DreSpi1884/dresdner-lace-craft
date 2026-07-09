@@ -93,43 +93,18 @@ const ProductionAnchorNav = () => {
 
   return (
     <nav className="sticky top-20 md:top-24 z-40 bg-background/95 backdrop-blur border-b border-primary/10">
-      {/* Mobile accordion navigation */}
-      <div className="lg:hidden border-t border-border">
-        {sections.map((section) => {
-          const isOpen = openSection === section.id;
-          const isActive = activeSection === section.id;
 
-          return (
-            <div key={section.id} className="border-b border-border">
-              <button
-                type="button"
-                onClick={() => scrollToSection(section.id)}
-                className={`flex w-full items-center justify-between px-6 py-4 text-left editorial-label tracking-[0.22em] transition-colors ${
-                  isActive ? "text-primary" : "text-primary/45 hover:text-primary"
-                }`}
-              >
-                <span>{section.label}</span>
-
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-300 ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-out ${
-                  isOpen ? "max-h-16 opacity-100 pb-4" : "max-h-0 opacity-0 pb-0"
-                }`}
-              >
-                <div className="px-6">
-                  <div className="h-px w-full bg-primary/30" />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      {/* Mobile navigation */}
+<div className="lg:hidden px-6">
+  <button
+    type="button"
+    className="flex w-full items-center justify-between py-4 text-left editorial-label tracking-[0.22em] text-primary"
+  >
+    <span>
+      {sections.find((section) => section.id === activeSection)?.label || sections[0].label}
+    </span>
+  </button>
+</div>
 
       {/* Desktop navigation */}
       <div className="hidden lg:flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
