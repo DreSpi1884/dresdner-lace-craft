@@ -8,7 +8,7 @@ const EditorialFooter = () => {
   const { t, lang, setLang } = useLang();
   return (
     <footer data-no-reveal className="bg-foreground text-background">
-      <div className="editorial-container py-16 md:py-24">
+      <div className="editorial-container py-10 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           {/* Brand */}
           <div>
@@ -22,7 +22,7 @@ const EditorialFooter = () => {
           </div>
 
           {/* Navigation */}
-          <div>
+          <div className="hidden md:block">
             <p className="editorial-label text-background/40 mb-6">{t("Navigation", "Navigation")}</p>
             <div className="flex flex-col gap-3">
   <Link
