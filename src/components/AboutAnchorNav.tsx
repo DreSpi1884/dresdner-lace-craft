@@ -1,102 +1,132 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { useEffect, useMemo, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { useLang } from "@/i18n/LanguageContext";
-
-const NAV_HEIGHT = 96;
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
-  const sections = useMemo(
-  () => [
-    { id: "history", label: t("History", "Geschichte") },
-    { id: "sustainability", label: t("Sustainability", "Nachhaltigkeit") },
-    { id: "values", label: t("Values", "Werte") },
-  ],
-  [t]
-);
+  const [activeSection, setActiveSection] = useState("history");
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [activeId, setActiveId] = useState<string>(sections[0].id);
-  const clickActiveRef = useRef<string | null>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const sections = useMemo(
+    () => [
+      { id: "history", label: t("History", "Geschichte") },
+      { id: "sustainability", label: t("Sustainability", "Nachhaltigkeit") },
+      { id: "values", label: t("Values", "Werte") },
+    ],
+    [t]
+  );
+
+  const currentSection =
+    sections.find((section) => section.id === activeSection) || sections[0];
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    setIsOpen(false);
+    setActiveSection(id);
+
+    const offset = 140;
+    const top = element.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
+
+    window.history.replaceState(null, "", `#${id}`);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (clickActiveRef.current) return;
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) {
-          setActiveId(visible[0].target.id);
+        const visible = entries.find((entry) => entry.isIntersecting);
+
+        if (visible) {
+          setActiveSection(visible.target.id);
         }
       },
-      { rootMargin: "-35% 0px -40% 0px", threshold: 0 }
+      {
+        threshold: 0.25,
+        rootMargin: "-25% 0px -60% 0px",
+      }
     );
 
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
     });
 
     return () => observer.disconnect();
   }, [sections]);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    setActiveId(id);
-    clickActiveRef.current = id;
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      clickActiveRef.current = null;
-    }, 800);
-
-    const navOffset = NAV_HEIGHT + 24;
-    const y = el.getBoundingClientRect().top + window.scrollY - navOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
-
   return (
-  <nav className="sticky top-20 md:top-24 z-40 bg-background/95 backdrop-blur border-b border-primary/10">
-    <div className="flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
-      {sections.map(({ id, label }) => {
-        const active = activeId === id;
+    <nav className="sticky top-20 md:top-24 z-40 bg-background/95 backdrop-blur border-b border-primary/10">
+      {/* Mobile accordion */}
+      <div className="lg:hidden px-6">
+        <button
+          type="button"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="flex w-full items-center justify-between py-4 text-left text-primary"
+        >
+          <span className="editorial-label tracking-[0.22em]">
+            {currentSection.label}
+          </span>
 
-        return (
-          <a
-            key={id}
-            href={`#${id}`}
-            onClick={(e) => handleClick(e, id)}
-            className="relative shrink-0 py-5 transition-colors"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "12px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              fontWeight: active ? 600 : 400,
-              color: active
-                ? "hsl(var(--primary))"
-                : "hsl(var(--muted-foreground) / 0.65)",
-            }}
+          <ChevronDown
+            className={`h-4 w-4 transition-transform duration-300 ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-out ${
+            isOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0 pb-0"
+          }`}
+        >
+          <div className="space-y-3 border-t border-border pt-4">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                type="button"
+                onClick={() => scrollToSection(section.id)}
+                className={`block w-full text-left editorial-label tracking-[0.22em] transition-colors ${
+                  activeSection === section.id
+                    ? "text-primary"
+                    : "text-primary/45 hover:text-primary"
+                }`}
+              >
+                {section.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop navigation */}
+      <div className="hidden lg:flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
+        {sections.map((section) => (
+          <button
+            key={section.id}
+            type="button"
+            onClick={() => scrollToSection(section.id)}
+            className={`relative py-5 editorial-label tracking-[0.22em] transition-colors ${
+              activeSection === section.id
+                ? "text-primary"
+                : "text-primary/45 hover:text-primary"
+            }`}
           >
-            {label}
+            {section.label}
 
-            <span
-              aria-hidden="true"
-              className="absolute bottom-0 left-0 h-px transition-all duration-300"
-              style={{
-                width: active ? "100%" : "0%",
-                background: "hsl(var(--primary))",
-              }}
-            />
-          </a>
-        );
-      })}
-    </div>
-  </nav>
-);
+            {activeSection === section.id && (
+              <span className="absolute bottom-0 left-0 h-px w-full bg-primary" />
+            )}
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
 };
 
 export default AboutAnchorNav;
