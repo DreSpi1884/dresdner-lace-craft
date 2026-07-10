@@ -131,27 +131,58 @@ const Index = () => {
                 anchor: "functional-textiles",
               },
             ].map((item) => (
-              <Link
-                key={item.title}
-                to={`/services#${item.anchor}`}
-                className="group relative overflow-hidden aspect-[3/4] cursor-pointer block"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 z-10">
-                  <h3 className="editorial-heading-sm text-background">{item.title}</h3>
-                </div>
-                <div className="absolute inset-0 bg-foreground/85 flex items-center p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
-                  <div>
-                    <h3 className="editorial-heading-sm text-background mb-3">{item.title}</h3>
-                    <p className="editorial-body-sm text-background/80 whitespace-pre-line">{item.desc}</p>
-                  </div>
-                </div>
-              </Link>
+<Link
+  key={item.title}
+  to={`/services#${item.anchor}`}
+  className="group block"
+>
+  {/* Mobile version */}
+  <div className="lg:hidden">
+    <div className="relative aspect-[16/10] overflow-hidden">
+      <img
+        src={item.image}
+        alt={item.title}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+
+      <h3
+        className="absolute bottom-4 left-5 right-5 font-serif text-background whitespace-nowrap text-[clamp(18px,5vw,24px)] leading-none"
+        style={{
+          textShadow: "0 2px 10px rgba(0,0,0,0.55)",
+        }}
+      >
+        {item.title}
+      </h3>
+    </div>
+
+    <div className="px-6 pt-4 pb-9">
+      <p className="editorial-body-sm text-muted-foreground whitespace-pre-line leading-[1.8]">
+        {item.desc}
+      </p>
+    </div>
+  </div>
+
+  {/* Desktop version */}
+  <div className="hidden lg:block relative overflow-hidden aspect-[3/4] cursor-pointer">
+    <img
+      src={item.image}
+      alt={item.title}
+      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
+    <div className="absolute inset-x-0 bottom-0 p-6 z-10">
+      <h3 className="editorial-heading-sm text-background">{item.title}</h3>
+    </div>
+    <div className="absolute inset-0 bg-foreground/85 flex items-center p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
+      <div>
+        <h3 className="editorial-heading-sm text-background mb-3">{item.title}</h3>
+        <p className="editorial-body-sm text-background/80 whitespace-pre-line">
+          {item.desc}
+        </p>
+      </div>
+    </div>
+  </div>
+</Link>
             ))}
           </div>
 
