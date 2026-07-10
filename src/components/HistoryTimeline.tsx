@@ -6,8 +6,8 @@ type Entry = {
   text: string;
 };
 
-const RIBBON_WIDTH = 130;
-const TILE_HEIGHT = 180;
+const RIBBON_WIDTH = 64;
+const TILE_HEIGHT = 150;
 
 const LaceTile = ({ y }: { y: number }) => (
   <g
@@ -17,46 +17,40 @@ const LaceTile = ({ y }: { y: number }) => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    {/* soft outer edges */}
+    {/* soft playful outer loops */}
     <path
-      d="M 24 0 C 8 18, 8 42, 24 60 C 40 78, 40 102, 24 120 C 8 138, 8 162, 24 180"
-      strokeWidth="1.5"
-      opacity="0.75"
+      d="M 12 0 C 3 18, 3 32, 12 50 C 21 68, 21 82, 12 100 C 3 118, 3 132, 12 150"
+      strokeWidth="1"
+      opacity="0.55"
     />
     <path
-      d="M 106 0 C 122 18, 122 42, 106 60 C 90 78, 90 102, 106 120 C 122 138, 122 162, 106 180"
-      strokeWidth="1.5"
-      opacity="0.75"
-    />
-
-    {/* flowing inner lace lines */}
-    <path
-      d="M 44 0 C 72 28, 72 32, 44 60 C 16 88, 16 92, 44 120 C 72 148, 72 152, 44 180"
-      strokeWidth="0.9"
-      opacity="0.42"
-    />
-    <path
-      d="M 86 0 C 58 28, 58 32, 86 60 C 114 88, 114 92, 86 120 C 58 148, 58 152, 86 180"
-      strokeWidth="0.9"
-      opacity="0.42"
+      d="M 52 0 C 61 18, 61 32, 52 50 C 43 68, 43 82, 52 100 C 61 118, 61 132, 52 150"
+      strokeWidth="1"
+      opacity="0.55"
     />
 
-    {/* rounded floral motifs */}
-    {[45, 135].map((cy) => (
-      <g key={cy} opacity="0.72">
-        <ellipse cx="65" cy={cy} rx="16" ry="22" strokeWidth="1.1" />
-        <ellipse cx="65" cy={cy} rx="7" ry="10" strokeWidth="0.8" opacity="0.7" />
-        <ellipse cx="45" cy={cy} rx="7" ry="11" strokeWidth="0.8" />
-        <ellipse cx="85" cy={cy} rx="7" ry="11" strokeWidth="0.8" />
-        <circle cx="65" cy={cy} r="2.2" fill="currentColor" stroke="none" />
+    {/* delicate centre vine */}
+    <path
+      d="M 32 0 C 24 18, 40 32, 32 50 C 24 68, 40 82, 32 100 C 24 118, 40 132, 32 150"
+      strokeWidth="0.75"
+      opacity="0.45"
+    />
+
+    {/* small floral motifs */}
+    {[38, 112].map((cy) => (
+      <g key={cy} opacity="0.7">
+        <ellipse cx="32" cy={cy} rx="8" ry="13" strokeWidth="0.9" />
+        <ellipse cx="22" cy={cy} rx="4" ry="7" strokeWidth="0.75" />
+        <ellipse cx="42" cy={cy} rx="4" ry="7" strokeWidth="0.75" />
+        <circle cx="32" cy={cy} r="1.4" fill="currentColor" stroke="none" />
       </g>
     ))}
 
-    {/* small round eyelets, no grid */}
-    {[30, 75, 105, 150].map((cy) => (
-      <g key={cy} opacity="0.48">
-        <circle cx="34" cy={cy} r="2.1" />
-        <circle cx="96" cy={cy} r="2.1" />
+    {/* tiny eyelets */}
+    {[20, 55, 95, 130].map((cy) => (
+      <g key={cy} opacity="0.45">
+        <circle cx="18" cy={cy} r="1.3" />
+        <circle cx="46" cy={cy} r="1.3" />
       </g>
     ))}
   </g>
@@ -177,7 +171,7 @@ const HistoryTimeline = () => {
       const vh = window.innerHeight;
 
       const progress = Math.max(0, Math.min(1, (vh - rect.top) / (rect.height + vh)));
-      setLaceOffset(progress * 1600);
+      setLaceOffset(window.scrollY * 0.55);
     };
 
     const onScroll = () => {
@@ -207,12 +201,12 @@ const HistoryTimeline = () => {
     style={{ width: `${RIBBON_WIDTH}px` }}
   >
     <div
-      className="sticky top-24 h-[calc(100vh-6rem)] overflow-hidden opacity-80"
+      className="sticky top-1/2 h-[68vh] -translate-y-1/2 overflow-hidden opacity-55"
       style={{
         maskImage:
-          "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+          "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
         WebkitMaskImage:
-          "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+          "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
       }}
     >
       <LaceRibbon offset={laceOffset} />
