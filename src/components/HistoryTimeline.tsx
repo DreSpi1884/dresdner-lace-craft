@@ -145,9 +145,9 @@ const HistoryTimeline = () => {
             backgroundPosition: `center ${laceOffset}px`,
             backgroundSize: `${RIBBON_WIDTH}px auto`,
             maskImage:
-              "linear-gradient(to bottom, transparent 0%, black 40%, black 45%, transparent 55%)",
+              "linear-gradient(to bottom, transparent 0%, black 60%, black 30%, transparent 55%)",
             WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, black 40%, black 45%, transparent 55%)",
+              "linear-gradient(to bottom, transparent 0%, black 60%, black 30%, transparent 55%)",
           }}
         />
       </div>
