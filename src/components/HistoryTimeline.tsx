@@ -91,15 +91,15 @@ const HistoryTimeline = () => {
       {
         year: "1884",
         text: t(
-          "Our story began in 1884, when Georg Marwitz and Carl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur. At a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden.",
-          "Unsere Geschichte beginnt 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen. Zu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
+          "Our story began in 1884, when Georg Marwitz and\u00a0\nCarl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\n\nAt a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden.",
+          "Unsere Geschichte beginnt 1884, als Georg Marwitz und\u00a0\nCarl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen.\u00a0\n\nZu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
         ),
       },
       {
         year: "1900",
         text: t(
-          "As demand for our lace and textiles increased, so did our ambitions. We expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad. Even through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide.",
-          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen. Wir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland. Auch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
+          "As demand for our lace and textiles increased, so did our ambitions.\u00a0\n\nWe expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad.\u00a0\n\nEven through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide.",
+          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen.\u00a0\n\nWir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland.\u00a0\n\nAuch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
         ),
       },
       {
