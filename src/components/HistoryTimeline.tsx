@@ -112,22 +112,22 @@ const HistoryTimeline = () => {
       {
         year: "1970",
         text: t(
-          "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany. In 1982, we became the first company in the world to operate electronically controlled Raschel machines.",
-          "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland. 1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt."
+          "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany.\u00a0\n1982, we became the first company in the world to operate electronically controlled Raschel machines.",
+          "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland.\u00a0\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt."
         ),
       },
       {
         year: "1995",
         text: t(
-          "Following German reunification, we reinvented our business. We modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace, warp-knitted fabrics and technical textiles for international markets.",
-          "Nach der Wiedervereinigung erfinden wir unser Unternehmen neu. Wir modernisieren unsere Anlagen, erweitern unsere Kompetenzen und entwickeln uns vom traditionellen Spitzenhersteller zu einem Produzenten von Premium-Spitzen, Kettengewirken und technischen Textilien für internationale Märkte."
+          "Following German reunification, we reinvented our business.\u00a0\n\nWe modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace for international markets.",
+          "Nach der Wiedervereinigung erfinden wir unser Unternehmen neu.\u00a0\n\nWir modernisieren unsere Anlagen, erweitern unsere Kompetenzen und entwickeln uns vom traditionellen Spitzenhersteller zu einem Produzenten von Premium-Spitzen für internationale Märkte."
         ),
       },
       {
         year: t("Today", "Heute"),
         text: t(
-         "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day. In Dresden, we create not only lace, but also warp-knitted fabrics and functional textiles for fashion, industry and medical applications, combining over 140 years of experience with modern technology, care and curiosity.",
-        "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen. In Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettengewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen. Dabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie, Sorgfalt und Neugier."
+          "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day. In Dresden, we create not only lace, but also warp-knitted fabrics and functional textiles for fashion, industry and medical applications.\u00a0\nDabei verbinden wir over 140 years of experience with modern technology, care and curiosity.",
+          "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen. In Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettengewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen.\u00a0\nDabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie, Sorgfalt und Neugier."
         ),
       },
     ],
