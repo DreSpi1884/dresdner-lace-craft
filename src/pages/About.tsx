@@ -13,8 +13,38 @@ const About = () => {
   const { t } = useLang();
   const location = useLocation();
   const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
+const scrollMobileSectionToTop = (id: string) => {
+  const element = document.getElementById(`mobile-${id}`);
+  if (!element) return;
 
- useEffect(() => {
+  const offset = 88;
+  const top = element.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({
+    top,
+    behavior: "auto",
+  });
+};
+
+const openMobileSection = (id: string) => {
+  if (mobileOpenId === id) {
+    flushSync(() => {
+      setMobileOpenId(null);
+    });
+
+    window.history.replaceState(null, "", location.pathname);
+    return;
+  }
+
+  flushSync(() => {
+    setMobileOpenId(id);
+  });
+
+  window.history.replaceState(null, "", `#${id}`);
+  scrollMobileSectionToTop(id);
+};
+
+useLayoutEffect(() => {
   const hash = location.hash.replace("#", "");
   const validIds = ["history", "sustainability", "values"];
 
@@ -27,14 +57,15 @@ const About = () => {
     const element = document.getElementById(targetId);
     if (!element) return;
 
-    const top = element.getBoundingClientRect().top + window.scrollY - 100;
+    const offset = window.innerWidth < 1024 ? 88 : 100;
+    const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
     window.scrollTo({
       top,
       behavior: "auto",
     });
   });
-}, [location.hash]);  
+}, [location.hash]);
   
   return (
     <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
@@ -48,7 +79,7 @@ const About = () => {
       />
       <AboutAnchorNav />
     
-      {/* Mobile accordion */}
+{/* Mobile accordion */}
 <section className="lg:hidden border-t border-primary/10">
   {[
     { id: "history", label: t("History", "Geschichte") },
@@ -65,9 +96,7 @@ const About = () => {
       >
         <button
           type="button"
-          onClick={() =>
-            setMobileOpenId((current) => (current === section.id ? null : section.id))
-          }
+          onClick={() => openMobileSection(section.id)}
           aria-expanded={isOpen}
           className="flex w-full items-center justify-between px-6 py-6 text-left"
         >
@@ -82,12 +111,8 @@ const About = () => {
           />
         </button>
 
-            <div
-              className={`overflow-hidden transition-[opacity,padding] duration-150 ease-out ${
-             isOpen ? "max-h-none opacity-100 pb-10" : "max-h-0 opacity-0 pb-0"
-              }`}
-            >
-          <div className="px-6 pt-2">
+        {isOpen && (
+          <div className="px-6 pt-2 pb-10">
             {section.id === "history" && <HistoryTimeline />}
 
             {section.id === "sustainability" && (
@@ -104,15 +129,35 @@ const About = () => {
             {section.id === "values" && (
               <div className="grid grid-cols-1 gap-10">
                 {[
-                  { title: t("Tradition", "Tradition"), desc: t("More than 140 years of textile craftsmanship.", "Über 140 Jahre textiles Handwerk.") },
-                  { title: t("Innovation", "Innovation"), desc: t("Driven by new ideas and modern manufacturing.", "Angetrieben von neuen Ideen und moderner Fertigung.") },
-                  { title: t("Quality", "Qualität"), desc: t("Strict quality standards throughout the entire production.", "Strenge Qualitätsstandards entlang der gesamten Produktion.") },
-                  { title: t("Precision", "Präzision"), desc: t("Meticulous attention to detail in every product.", "Höchste Sorgfalt im Detail bei jedem Produkt.") },
-                  { title: t("Flexibility", "Flexibilität"), desc: t("Tailored solutions for every project.", "Maßgeschneiderte Lösungen für jedes Projekt.") },
-                  { title: t("Reliability", "Zuverlässigkeit"), desc: t("A trusted partner from development to delivery.", "Ein verlässlicher Partner von der Entwicklung bis zur Lieferung.") },
+                  {
+                    title: t("Tradition", "Tradition"),
+                    desc: t("More than 140 years of textile craftsmanship.", "Über 140 Jahre textiles Handwerk."),
+                  },
+                  {
+                    title: t("Innovation", "Innovation"),
+                    desc: t("Driven by new ideas and modern manufacturing.", "Angetrieben von neuen Ideen und moderner Fertigung."),
+                  },
+                  {
+                    title: t("Quality", "Qualität"),
+                    desc: t("Strict quality standards throughout the entire production.", "Strenge Qualitätsstandards entlang der gesamten Produktion."),
+                  },
+                  {
+                    title: t("Precision", "Präzision"),
+                    desc: t("Meticulous attention to detail in every product.", "Höchste Sorgfalt im Detail bei jedem Produkt."),
+                  },
+                  {
+                    title: t("Flexibility", "Flexibilität"),
+                    desc: t("Tailored solutions for every project.", "Maßgeschneiderte Lösungen für jedes Projekt."),
+                  },
+                  {
+                    title: t("Reliability", "Zuverlässigkeit"),
+                    desc: t("A trusted partner from development to delivery.", "Ein verlässlicher Partner von der Entwicklung bis zur Lieferung."),
+                  },
                 ].map((item) => (
                   <div key={item.title} className="border-t border-border pt-6">
-                    <h3 className="editorial-heading-sm text-foreground mb-4">{item.title}</h3>
+                    <h3 className="editorial-heading-sm text-foreground mb-4">
+                      {item.title}
+                    </h3>
                     <p className="text-base md:text-lg leading-[1.9] text-muted-foreground">
                       {item.desc}
                     </p>
@@ -121,38 +166,11 @@ const About = () => {
               </div>
             )}
           </div>
-        </div>
+        )}
       </article>
     );
   })}
 </section>
-      
-     <div id="history" className="hidden lg:block scroll-mt-32">
-        <HistoryTimeline />
-      </div>
-
-      <section id="sustainability" className="hidden lg:block editorial-section scroll-mt-32">
-        <div className="editorial-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-            <div>
-              <h2 className="editorial-heading-lg text-foreground mb-4">
-                {t("Sustainability", "Nachhaltigkeit")}
-              </h2>
-              <p className="editorial-label text-primary mb-8">
-                {t("", "")}
-              </p>
-            </div>
-            <div className="space-y-8 text-lg md:text-xl leading-[2] text-muted-foreground">
-              <p className="whitespace-pre-line">
-                {t(
-                  "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\u00a0\n\nThese certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.\u00a0\n\nWe generate part of our electricity through our own solar power systems on our production site in Dresden.",
-                  "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\u00a0\n\nDiese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse.\u00a0\n\nEinen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
-                )}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
         <div className="editorial-container editorial-section">
