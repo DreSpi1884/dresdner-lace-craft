@@ -7,10 +7,10 @@ import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
 import ProductionAnchorNav from "@/components/ProductionAnchorNav";
-import designImg1 from "@/assets/design-1.jpg";
-import designImg2 from "@/assets/design-2.jpg";
-import designImg3 from "@/assets/design-3.jpg";
-import designImg4 from "@/assets/design-4.jpg";
+import designImg1 from "@/assets/design-1.jpg?url";
+import designImg2 from "@/assets/design-2.jpg?url";
+import designImg3 from "@/assets/design-3.jpg?url";
+import designImg4 from "@/assets/design-4.jpg?url";
 
 // Inline link helper that turns a specific word in a paragraph into a button.
 const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onClick: () => void }): ReactNode => {
