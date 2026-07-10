@@ -49,29 +49,30 @@ useEffect(() => {
   }
 }, [sections]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-        if (window.innerWidth < 1024) return;
-      (entries) => {
-        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+useEffect(() => {
+  if (window.innerWidth < 1024) return;
 
-        if (visibleEntries.length > 0) {
-          setActiveSection(visibleEntries[0].target.id);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "-20% 0px -65% 0px",
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+
+      if (visibleEntries.length > 0) {
+        setActiveSection(visibleEntries[0].target.id);
       }
-    );
+    },
+    {
+      threshold: 0.2,
+      rootMargin: "-20% 0px -65% 0px",
+    }
+  );
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element) observer.observe(element);
-    });
+  sections.forEach((section) => {
+    const element = document.getElementById(section.id);
+    if (element) observer.observe(element);
+  });
 
-    return () => observer.disconnect();
-  }, [sections]);
+  return () => observer.disconnect();
+}, [sections]);
 
   return (
     <nav className="sticky top-24 z-40 hidden lg:block bg-background/95 backdrop-blur border-b border-primary/10">
