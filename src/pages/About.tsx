@@ -11,7 +11,20 @@ import { useLang } from "@/i18n/LanguageContext";
 import grsLogo from "@/assets/GRS.jpg?url";
 import oekoTexLogo from "@/assets/oeko-tex.png?url";
 
-const SustainabilityLogos = ({ className = "" }: { className?: string })
+const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
+  <div className={`flex flex-row items-center gap-3 md:gap-5 ${className}`}>
+    <img
+      src={grsLogo}
+      alt="Global Recycled Standard certified by Control Union"
+      className="w-[118px] md:w-[190px] lg:w-[220px] bg-white object-contain"
+    />
+    <img
+      src={oekoTexLogo}
+      alt="OEKO-TEX STeP certification"
+      className="w-[138px] md:w-[230px] lg:w-[260px] bg-white object-contain"
+    />
+  </div>
+);
 
 const About = () => {
   const { t } = useLang();
