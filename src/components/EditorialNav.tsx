@@ -11,11 +11,11 @@ const languages: { code: Lang; label: string }[] = [
 ];
 
 const getHeroScale = (width: number) => {
-  if (width < 640) return 1.6;
-  if (width < 768) return 2.25;
-  if (width < 1024) return 2.5;
-  if (width < 1280) return 3;
-  if (width < 1536) return 3.5;
+  if (width < 640) return 2.15;
+  if (width < 768) return 2.45;
+  if (width < 1024) return 2.75;
+  if (width < 1280) return 3.15;
+  if (width < 1536) return 3.65;
   return 4.5;
 };
 
@@ -93,15 +93,14 @@ const aboutSections = [
         setProgress(1);
         return;
       }
-      const heroCx = window.innerWidth / 2;
-      const heroCy = window.innerHeight * 0.42;
-      const dx = heroCx - nc.cx;
-      const dy = heroCy - nc.cy;
-      setLogoStyle({
-        transform: `translate(${dx}px, ${dy}px) scale(${getHeroScale(window.innerWidth)})`,
-        transformOrigin: "center center",
-      });
-      setProgress(0);
+    setLogoStyle({
+    position: "fixed",
+    left: "50%",
+    top: "42vh",
+    transform: `translate(-50%, -50%) scale(${getHeroScale(window.innerWidth)})`,
+    transformOrigin: "center center",
+  });
+  setProgress(0);
     };
     measure();
     const onScroll = () => updateLogo();
