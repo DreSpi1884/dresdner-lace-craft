@@ -344,15 +344,11 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
 
         return (
           <div key={item.path}>
-            <button
-              type="button"
-              onClick={() => {
-                if (hasDropdown) {
-                  setMobileOpenSection(open ? null : item.key);
-                } else {
-                  setIsOpen(false);
-                }
-              }}
+          <button
+            type="button"
+            onClick={() => {
+              setMobileOpenSection(open ? null : item.key);
+          }}           
               className={`w-full flex items-center justify-between text-background/80 ${
                 location.pathname === item.path ? "text-background" : "text-background/80"
               }`}
