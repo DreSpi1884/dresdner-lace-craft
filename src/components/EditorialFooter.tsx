@@ -88,7 +88,7 @@ const EditorialFooter = () => {
 {/* Contact */}
 <div>
   {/* Mobile compact contact */}
-  <div className="md:hidden">
+  <div className="md:hidden text-center">
     <a
       className="editorial-body-sm text-background/70 hover:text-background transition-colors"
       href="mailto:sales@dresdnerspitzen.com"
@@ -96,7 +96,7 @@ const EditorialFooter = () => {
       sales@dresdnerspitzen.com
     </a>
 
-    <div className="mt-5 flex items-center justify-between">
+    <div className="mt-5 flex items-center justify-center gap-8">
       <div className="flex items-center gap-4">
         <button
           onClick={() => setLang("de")}
@@ -202,11 +202,11 @@ const EditorialFooter = () => {
 </div>
         </div>
 
-        <div className="mt-6 md:mt-16 pt-4 md:pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-4">
+      <div className="mt-6 md:mt-16 pt-4 md:pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left">
           <p className="editorial-body-sm text-background/40">
             © {new Date().getFullYear()} Dresdner Spitzen. {t("All rights reserved.", "Alle Rechte vorbehalten.")}
           </p>
-          <div className="flex gap-6">
+          <div className="flex justify-center gap-4 md:gap-6">
             <Link to="/imprint" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">{t("Imprint", "Impressum")}</Link>
             <Link to="/privacy" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">{t("Privacy", "Datenschutz")}</Link>
           </div>
