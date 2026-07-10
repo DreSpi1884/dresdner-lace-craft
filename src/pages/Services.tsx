@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useLayoutEffect, useMemo, useState, type ReactNode } from "react";
+import { useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
@@ -30,6 +31,7 @@ const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onC
 const Services = () => {
   const { t, lang } = useLang();
   const { open: openQuote } = useQuoteModal();
+  const location = useLocation();
 
   const processSteps = useMemo(
     () => [
@@ -113,24 +115,14 @@ const Services = () => {
     [t, processSteps],
   );
 
-const [mobileOpenId, setMobileOpenId] = useState<string | null>("design");
+const [mobileOpenId, setMobileOpenId] = useState<string>("design");
 
-useEffect(() => {
-  const hash = window.location.hash.replace("#", "");
+useLayoutEffect(() => {
+  const hash = location.hash.replace("#", "");
   const exists = services.some((service) => service.id === hash);
 
-  if (exists) {
-    setMobileOpenId(hash);
-
-    window.setTimeout(() => {
-      const element = document.getElementById(hash);
-      if (!element) return;
-
-      const top = element.getBoundingClientRect().top + window.scrollY - 140;
-      window.scrollTo({ top, behavior: "smooth" });
-    }, 100);
-  }
-}, [services]);
+  setMobileOpenId(exists ? hash : "design");
+}, [location.hash, services]);
 
   const renderBody = (s: ServiceItem) => (
     <div
@@ -359,9 +351,10 @@ useEffect(() => {
         <div className="lg:hidden px-6">
           <button
             type="button"
-            onClick={() =>
-              setMobileOpenId((current) => (current === s.id ? null : s.id))
-            }
+            onClick={() => {
+              setMobileOpenId(s.id);
+              window.history.replaceState(null, "", `#${s.id}`);
+             }}
             aria-expanded={isOpen}
             className="flex w-full items-center justify-between py-6 text-left"
           >
@@ -377,16 +370,13 @@ useEffect(() => {
             />
           </button>
 
-          <div
-            className={`overflow-hidden transition-all duration-300 ease-out ${
-              isOpen ? "max-h-[1200px] opacity-100 pb-10" : "max-h-0 opacity-0 pb-0"
-            }`}
-          >
-            <div className="pt-2">
-              {renderBody(s)}
-              {renderProcess(s)}
-            </div>
+        {isOpen && (
+          <div className="pb-10 pt-2">
+            {renderBody(s)}
+            {renderProcess(s)}
           </div>
+        )}
+          
         </div>
 
         {/* Desktop split section */}
