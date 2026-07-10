@@ -20,43 +20,43 @@ const HistoryTimeline = () => {
       {
         year: "1884",
         text: t(
-          "Our story began in 1884, when Georg Marwitz and\u00a0\nCarl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\n\nAt a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden.",
-          "Unsere Geschichte beginnt 1884, als Georg Marwitz und\u00a0\nCarl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen.\u00a0\n\nZu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
+          "Our story began in 1884, when Georg Marwitz and Carl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\nAt a time when fine lace was almost exclusively imported from England, we introduced English bobbin machines to Germany and established the foundations of modern lace manufacturing in Dresden.",
+          "Unsere Geschichte beginnt 1884, als Georg Marwitz and Carl H. Siegel founded the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\nZu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
         ),
       },
       {
         year: "1900",
         text: t(
-          "As demand for our lace and textiles increased, so did our ambitions.\u00a0\n\nWe expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad.\u00a0\n\nEven through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide.",
-          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen.\u00a0\n\nWir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland.\u00a0\n\nAuch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
+          "As demand for our lace and textiles increased, so did our ambitions.\u00a0\nWe expanded our textile production to a larger site in Dresden-Dobritz, invested in new manufacturing facilities and opened factories abroad. Even through wars, inflation and economic uncertainty, we continued to produce and export textiles worldwide.",
+          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen.\u00a0\nWir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland. Auch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
         ),
       },
       {
         year: "1945",
         text: t(
-          "After the Second World War, every machine in our factory was dismantled.\u00a0\n\nStarting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees.\u00a0\nWithin a year, textile manufacturing had resumed.",
+          "After the Second World War, every machine in our factory was dismantled.\u00a0\nStarting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees.\u00a0\nWithin a year, textile manufacturing had resumed.",
           "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert.\u00a0\nMit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf.\u00a0\nInnerhalb eines Jahres läuft die Textilproduktion erneut an."
         ),
       },
       {
         year: "1970",
         text: t(
-          "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany.\u00a0\n\n1982, we became the first company in the world to operate electronically controlled Raschel machines.",
+          "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany.\u00a0\n1982, we became the first company in the world to operate electronically controlled Raschel machines.",
           "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland.\u00a0\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt."
         ),
       },
       {
         year: "1995",
         text: t(
-          "After reunification, a new chapter begins for us.\u00a0\n\nWith determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
-          "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel.\u00a0\n\nMit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
+          "After reunification, a new chapter begins for us.\u00a0\nWith determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
+          "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel.\u00a0\nMit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
         ),
       },
       {
         year: t("Today", "Heute"),
         text: t(
-          "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day.\u00a0\n\nIn Dresden, we create not only lace, but also warp-knitted fabrics and functional textiles for fashion, industry and medical applications,\u00a0\ncombining over 140 years of experience with modern technology, care and curiosity.",
-          "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen.\u00a0\n\nIn Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettengewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen.\u00a0\n\nDabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie, Sorgfalt und Neugier."
+          "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day.\u00a0\nIn Dresden, we create not only lace, but also warp-knitted fabrics and functional textiles for fashion, industry and medical applications,\u00a0\ncombining over 140 years of experience with modern technology, care and curiosity.",
+          "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen.\u00a0\nIn Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettengewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen.\u00a0\nDabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie, Sorgfalt und Neugier."
         ),
       },
     ],
