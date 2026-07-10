@@ -212,7 +212,7 @@ const HistoryTimeline = () => {
 
           {/* Mobile year on image */}
           <div
-            className="absolute bottom-5 left-6 z-10 lg:hidden font-serif leading-none text-foreground"
+            className="absolute bottom-5 left-6 z-10 lg:hidden font-serif leading-none text-background"
             style={{
               fontSize: "clamp(2.2rem, 13vw, 4rem)",
               letterSpacing: "-0.04em",
