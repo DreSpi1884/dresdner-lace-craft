@@ -88,8 +88,8 @@ const Services = () => {
         desktopImages: [designImg1, designImg2, designImg3, designImg4],
         mobileImage: designImg3,
         text: t(
-          "Twice a year we develop new lace collections inspired by international fashion trends, alongside warp-knitted fabrics for technical and medical applications.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
-          "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends, sowie Kettengewirke für technische und medizinische Anwendungen.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte elastische und unelastische Spitzen und Kettengewirke nach Ihren individuellen Anforderungen.",
+          "Twice a year we develop new lace collections inspired by international fashion trends.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
+          "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte elastische und unelastische Spitzen und Kettengewirke nach Ihren individuellen Anforderungen.",
         ),
       },
       {
