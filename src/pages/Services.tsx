@@ -353,10 +353,7 @@ useLayoutEffect(() => {
         <div className="lg:hidden px-6">
           <button
             type="button"
-            onClick={() => {
-              setMobileOpenId(s.id);
-              window.history.replaceState(null, "", `#${s.id}`);
-             }}
+            onClick={() => openMobileSection(s.id)}
             aria-expanded={isOpen}
             className="flex w-full items-center justify-between py-6 text-left"
           >
