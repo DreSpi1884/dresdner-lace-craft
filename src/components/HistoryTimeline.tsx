@@ -105,8 +105,8 @@ const HistoryTimeline = () => {
       {
         year: "1945",
         text: t(
-          "After the Second World War, every machine in our factory was dismantled. Starting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees. Within a year, textile manufacturing had resumed.",
-          "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert. Mit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf. Innerhalb eines Jahres läuft die Textilproduktion erneut an."
+          "After the Second World War, every machine in our factory was dismantled.\u00a0\nStarting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees.\u00a0\nWithin a year, textile manufacturing had resumed.",
+          "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert.\u00a0\nMit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf.\u00a0\nInnerhalb eines Jahres läuft die Textilproduktion erneut an."
         ),
       },
       {
