@@ -126,7 +126,7 @@ const HistoryTimeline = () => {
       {
         year: t("Today", "Heute"),
         text: t(
-          "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day.\u00a0\n\nIn Dresden, we create not only lace, but also warp-knitted fabrics and functional textiles for fashion, industry and medical applications.\u00a0\n\nDabei verbinden wir over 140 years of experience with modern technology, care and curiosity.",
+          "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day.\u00a0\n\nIn Dresden, we create not only lace, but also warp-knitted fabrics and functional textiles for fashion, industry and medical applications,\u00a0\ncombining over 140 years of experience with modern technology, care and curiosity.",
           "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen.\u00a0\n\nIn Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettengewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen.\u00a0\n\nDabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie, Sorgfalt und Neugier."
         ),
       },
