@@ -171,9 +171,9 @@ const HistoryTimeline = () => {
     >
       {/* Text */}
       <div
-        className={`order-2 ${
-          isLeft ? "lg:col-start-1" : "lg:col-start-3"
-        } text-left transition-all duration-700 ease-out`}
+        className={`order-2 lg:order-none ${
+  isLeft ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-3 lg:row-start-1"
+} text-left transition-all duration-700 ease-out`}
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -197,9 +197,9 @@ const HistoryTimeline = () => {
 
       {/* Image */}
       <div
-        className={`order-1 ${
-          isLeft ? "lg:col-start-3" : "lg:col-start-1 lg:row-start-1"
-        } transition-all duration-700 ease-out delay-150`}
+        className={`order-1 lg:order-none ${
+  isLeft ? "lg:col-start-3 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"
+} transition-all duration-700 ease-out delay-150`}
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? "translateY(0)" : "translateY(24px)",
