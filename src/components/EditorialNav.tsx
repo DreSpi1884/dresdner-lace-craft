@@ -48,7 +48,6 @@ const aboutSections = [
 ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [mobileOpenSection, setMobileOpenSection] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { open: openQuote } = useQuoteModal();
@@ -298,13 +297,12 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
           {isOpen ? <X size={24} strokeWidth={1.75} /> : <Menu size={20} />}
         </button>
       </nav>
-
 {/* Mobile menu */}
 {isOpen && (
   <div className="md:hidden bg-foreground/95 backdrop-blur-sm animate-fade-in">
     <div className="editorial-container py-8 flex flex-col gap-7">
       {navItems.map((item) => {
-        const hasDropdown =
+        const hasSections =
           item.key === "services" || item.key === "about" || item.key === "contact";
 
         const sections =
@@ -312,21 +310,17 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
             ? serviceSections
             : item.key === "about"
             ? aboutSections
-            : contactSections;
+            : item.key === "contact"
+            ? contactSections
+            : [];
 
-
-        const open = mobileOpenSection === item.key;
-
-        if (!hasDropdown) {
+        if (!hasSections) {
           return (
             <Link
               key={item.path}
               to={item.path}
-              onClick={() => {
-                setIsOpen(false);
-                setMobileOpenSection(null);
-              }}
-              className={`w-full flex items-center justify-between text-background/80 ${
+              onClick={() => setIsOpen(false)}
+              className={`w-full text-background/80 ${
                 location.pathname === item.path ? "text-background" : "text-background/80"
               }`}
               style={{
@@ -337,67 +331,52 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
                 fontWeight: 500,
               }}
             >
-              <span>{item.label}</span>
+              {item.label}
             </Link>
           );
         }
 
         return (
-  <div key={item.path}>
-    <button
-      type="button"
-      onClick={() => {
-        setMobileOpenSection(open ? null : item.key);
-      }}
-      className={`w-full flex items-center justify-between text-background/80 ${
-        location.pathname === item.path ? "text-background" : "text-background/80"
-      }`}
-      style={{
-        fontFamily: "'Jost', sans-serif",
-        fontSize: "13px",
-        letterSpacing: "2px",
-        textTransform: "uppercase",
-        fontWeight: 500,
-      }}
-    >
-      <span>{item.label}</span>
-      <ChevronDown
-        size={18}
-        className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-      />
-    </button>
+          <div key={item.path} className="flex flex-col gap-3">
+            <Link
+              to={item.path}
+              onClick={() => setIsOpen(false)}
+              className={`w-full text-background/80 ${
+                location.pathname === item.path ? "text-background" : "text-background/80"
+              }`}
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "13px",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                fontWeight: 500,
+              }}
+            >
+              {item.label}
+            </Link>
 
+            <div className="ml-4 flex flex-col gap-2">
+              {sections.map((s) => {
+                const to = "hash" in s ? `${item.path}${s.hash}` : s.path;
+                const key = "hash" in s ? s.hash : s.path;
 
-            {hasDropdown && (
-              <div
-                className={`overflow-hidden transition-[max-height,opacity,padding] duration-300 ease-out ${
-                  open ? "max-h-[260px] opacity-100 pt-3" : "max-h-0 opacity-0 pt-0"
-                }`}
-              >
-                <div className="ml-4 flex flex-col gap-2">
-                  {sections.map((s) => {
-                    const to = "hash" in s ? `${item.path}${s.hash}` : s.path;
-                    const key = "hash" in s ? s.hash : s.path;
-
-                    return (
-                      <Link
-                        key={key}
-                        to={to}
-                        onClick={() => setIsOpen(false)}
-                        className="text-background/55 hover:text-background transition-colors pl-2"
-                        style={{
-                          fontFamily: "'Jost', sans-serif",
-                          fontSize: "14px",
-                          lineHeight: 1.8,
-                       }}
-                       >
-                        {s.label}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+                return (
+                  <Link
+                    key={key}
+                    to={to}
+                    onClick={() => setIsOpen(false)}
+                    className="text-background/55 hover:text-background transition-colors pl-2"
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "14px",
+                      lineHeight: 1.8,
+                    }}
+                  >
+                    {s.label}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         );
       })}
@@ -426,17 +405,30 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
           </button>
         ))}
 
-        <a href="https://www.instagram.com/dresdnerspitzen" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="ml-auto text-background">
+        <a
+          href="https://www.instagram.com/dresdnerspitzen"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="ml-auto text-background"
+        >
           <Instagram size={20} />
         </a>
 
-        <a href="https://www.linkedin.com/company/dresdner-spitzen-gmbh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-background">
+        <a
+          href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="text-background"
+        >
           <Linkedin size={20} />
         </a>
       </div>
     </div>
   </div>
 )}
+
     </header>
   );
 };
