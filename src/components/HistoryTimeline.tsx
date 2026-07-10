@@ -190,7 +190,7 @@ const HistoryTimeline = () => {
           {entry.year}
         </div>
 
-        <p className="text-lg md:text-xl leading-[2.15] text-muted-foreground whitespace-pre-line max-w-[920px]">
+        <p className="text-lg md:text-xl leading-[2] text-muted-foreground whitespace-pre-line max-w-[920px]">
           {entry.text}
         </p>
       </div>
