@@ -241,21 +241,6 @@ const Index = () => {
   </div>
 </section>
       
-    {/* JOBS PREVIEW */}
-    <EditorialSection className="bg-card">
-      <div className="editorial-container text-center py-10 md:py-20">
-        <h2 className="font-serif text-foreground text-2xl md:text-3xl lg:text-4xl leading-[1.15] mb-4">
-          {t("Join our team", "Werden Sie Teil unseres Teams")}</h2>
-    
-      <Link
-        to="/jobs"
-        className="group inline-flex items-center gap-3 editorial-body-sm font-medium text-foreground hover:text-primary transition-colors"
-      >
-        {t("Learn more.", "Mehr erfahren.")}
-        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-      </Link>
-      </div>
-    </EditorialSection>
     </EditorialLayout>
   );
 };
