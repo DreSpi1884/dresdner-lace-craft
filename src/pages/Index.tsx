@@ -92,7 +92,7 @@ const Index = () => {
             <h2 className="editorial-heading-lg text-foreground mb-4">{t("Our Services", "Unsere Leistungen")}</h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 w-full">
             {[
               {
                 title: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
@@ -101,7 +101,7 @@ const Index = () => {
                   "Zweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden.",
                 ),
                 image: serviceLaceCollections.url,
-                anchor: "collections",
+                anchor: "design",
               },
               {
                 title: t("Bespoke Designs", "Maßgeschneiderte Designs"),
@@ -110,7 +110,7 @@ const Index = () => {
                   "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
                 ),
                 image: serviceCollections.url,
-                anchor: "custom-designs",
+                anchor: "design",
               },
               {
                 title: t("Dyeing and Finishing", "Färben & Ausrüsten"),
@@ -128,7 +128,7 @@ const Index = () => {
                   "Wir entwickeln Kettengewirke für medizinische und technische Anwendungen.\n",
                 ),
                 image: serviceFunctional.url,
-                anchor: "functional-treatments",
+                anchor: "functional-textiles",
               },
             ].map((item) => (
               <Link
