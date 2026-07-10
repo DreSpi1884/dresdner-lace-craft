@@ -11,12 +11,12 @@ const languages: { code: Lang; label: string }[] = [
 ];
 
 const getHeroScale = (width: number) => {
-  if (width < 640) return 2.15;
-  if (width < 768) return 2.45;
-  if (width < 1024) return 2.75;
-  if (width < 1280) return 3.15;
-  if (width < 1536) return 3.65;
-  return 4.5;
+  if (width < 640) return 2.8;
+  if (width < 768) return 3.1;
+  if (width < 1024) return 3.35;
+  if (width < 1280) return 3.6;
+  if (width < 1536) return 4.1;
+  return 5;
 };
 
 
@@ -149,9 +149,9 @@ const aboutSections = [
               ...logoStyle,
             }}
           />
-          <span
-            className="font-serif text-sm md:text-base tracking-wide text-background drop-shadow-md -ml-1"
-            style={{
+<span
+  className="font-serif text-lg md:text-2xl lg:text-3xl tracking-wide text-background drop-shadow-md -ml-1"
+  style={{
               opacity: isHome ? progress : 1,
               transition: isHome && !scrolled
                 ? "none"
