@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
+import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
