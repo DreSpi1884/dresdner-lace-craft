@@ -75,11 +75,11 @@ useEffect(() => {
           />
         </button>
 
-        <div
-          className={`overflow-hidden transition-[max-height,opacity,padding] duration-150 ease-out ${
-            isOpen ? "max-h-[2600px] opacity-100 pb-10" : "max-h-0 opacity-0 pb-0"
-          }`}
-        >
+            <div
+              className={`overflow-hidden transition-[opacity,padding] duration-150 ease-out ${
+             isOpen ? "max-h-none opacity-100 pb-10" : "max-h-0 opacity-0 pb-0"
+              }`}
+            >
           <div className="px-6 pt-2">
             {section.id === "history" && <HistoryTimeline />}
 
