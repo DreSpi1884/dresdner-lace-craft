@@ -132,7 +132,7 @@ const HistoryTimeline = () => {
       <div
         className="pointer-events-none absolute top-0 left-0 right-0 z-0 hidden lg:block"
         aria-hidden="true"
-        style={{ height: "calc(100% + 30vh)" }}
+        style={{ height: "calc(100% + 35vh)" }}
       >
         <div
           className="sticky left-1/2 -translate-x-1/2"
