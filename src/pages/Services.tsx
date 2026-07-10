@@ -113,7 +113,7 @@ const Services = () => {
     [t, processSteps],
   );
 
-const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
+const [mobileOpenId, setMobileOpenId] = useState<string | null>("design");
 
 useEffect(() => {
   const hash = window.location.hash.replace("#", "");
