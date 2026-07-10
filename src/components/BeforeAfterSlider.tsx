@@ -34,14 +34,18 @@ const BeforeAfterSlider = ({
 
   useEffect(() => {
     if (!dragging) return;
-    const onMove = (e: MouseEvent | TouchEvent) => {
-      const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-      updateFromClientX(clientX);
-    };
+const onMove = (e: MouseEvent | TouchEvent) => {
+  if ("touches" in e) {
+    e.preventDefault();
+  }
+
+  const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+  updateFromClientX(clientX);
+};
     const onUp = () => setDragging(false);
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseup", onUp);
-    window.addEventListener("touchmove", onMove);
+    window.addEventListener("touchmove", onMove, { passive: false });
     window.addEventListener("touchend", onUp);
     return () => {
       window.removeEventListener("mousemove", onMove);
@@ -89,14 +93,17 @@ const BeforeAfterSlider = ({
         style={{ left: `${position}%` }}
       />
       <button
-        type="button"
-        aria-label="Drag to compare"
-        onMouseDown={(e) => {
-          e.preventDefault();
-          setDragging(true);
-        }}
-        onTouchStart={() => setDragging(true)}
-        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-14 h-14 md:w-10 md:h-10 rounded-full bg-background border border-foreground/20 shadow-md flex items-center justify-center cursor-ew-resize"
+  type="button"
+  aria-label="Drag to compare"
+  onMouseDown={(e) => {
+    e.preventDefault();
+    setDragging(true);
+  }}
+  onTouchStart={(e) => {
+    e.preventDefault();
+    setDragging(true);
+  }}
+  className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-14 h-14 md:w-10 md:h-10 rounded-full bg-background border border-foreground/20 shadow-md flex items-center justify-center cursor-ew-resize touch-none"
         style={{ left: `${position}%` }}
       >
         <ChevronLeft size={14} className="text-foreground" />
