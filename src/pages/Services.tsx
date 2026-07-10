@@ -435,7 +435,7 @@ requestAnimationFrame(() => {
         </div>
 
         {/* Desktop split section */}
-        <<div data-no-reveal className="hidden lg:grid lg:grid-cols-2">
+        <div data-no-reveal className="hidden lg:grid lg:grid-cols-2">
           <div className="flex min-h-[760px] items-start lg:pl-[48px] lg:pr-10 py-20">
             <div className="w-full max-w-none">
               <h2
