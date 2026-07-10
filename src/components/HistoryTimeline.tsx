@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
-import laceAsset from "@/assets/lace_tile_vertikal.png.asset.json";
+import laceAsset from "@/assets/lace_tile_vertikal.png";
 
 type Entry = {
   year: string;
@@ -139,7 +139,7 @@ const HistoryTimeline = () => {
             top: 0,
             height: "100vh",
             width: `${RIBBON_WIDTH}px`,
-            backgroundImage: `url(${laceAsset.url})`,
+            backgroundImage: `url(${laceAsset})`,
             backgroundRepeat: "repeat-y",
             backgroundPosition: `center ${laceOffset}px`,
             backgroundSize: `${RIBBON_WIDTH}px auto`,
