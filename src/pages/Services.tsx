@@ -1,7 +1,6 @@
 import { useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
@@ -125,6 +124,25 @@ useLayoutEffect(() => {
 
   setMobileOpenId(exists ? hash : "design");
 }, [location.hash, services]);
+
+  const scrollMobileSectionToTop = (id: string) => {
+  const element = document.getElementById(id);
+  if (!element) return;
+
+  element.scrollIntoView({
+    block: "start",
+    behavior: "auto",
+  });
+};
+
+const openMobileSection = (id: string) => {
+  flushSync(() => {
+    setMobileOpenId(id);
+  });
+
+  window.history.replaceState(null, "", `#${id}`);
+  scrollMobileSectionToTop(id);
+};
 
   const renderBody = (s: ServiceItem) => (
     <div
