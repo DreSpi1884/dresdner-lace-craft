@@ -130,8 +130,9 @@ const HistoryTimeline = () => {
     >
       {/* lace ribbon — sticky, seamless vertical tile with strong top/bottom fade */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 hidden lg:block"
+        className="pointer-events-none absolute top-0 left-0 right-0 z-0 hidden lg:block"
         aria-hidden="true"
+        style={{ height: "calc(100% + 100vh)" }}
       >
         <div
           className="sticky left-1/2 -translate-x-1/2"
@@ -144,9 +145,9 @@ const HistoryTimeline = () => {
             backgroundPosition: `center ${laceOffset}px`,
             backgroundSize: `${RIBBON_WIDTH}px auto`,
             maskImage:
-              "linear-gradient(to bottom, transparent 0%, black 15%, black 35%, transparent 55%)",
+              "linear-gradient(to bottom, transparent 0%, black 20%, black 45%, transparent 60%)",
             WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, black 15%, black 35%, transparent 55%)",
+              "linear-gradient(to bottom, transparent 0%, black 20%, black 45%, transparent 60%)",
           }}
         />
       </div>
