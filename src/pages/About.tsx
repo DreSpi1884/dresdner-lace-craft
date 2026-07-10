@@ -8,6 +8,23 @@ import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
+import grsLogo from "@/assets/GRS.jpg?url";
+import oekoTexLogo from "@/assets/oeko-tex.png?url";
+
+const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
+  <div className={`flex flex-col gap-4 ${className}`}>
+    <img
+      src={grsLogo}
+      alt="Global Recycled Standard certified by Control Union"
+      className="w-full max-w-[220px] bg-white object-contain"
+    />
+    <img
+      src={oekoTexLogo}
+      alt="OEKO-TEX STeP certification"
+      className="w-full max-w-[260px] bg-white object-contain"
+    />
+  </div>
+);
 
 const About = () => {
   const { t } = useLang();
@@ -105,15 +122,31 @@ useLayoutEffect(() => {
             {section.id === "history" && <HistoryTimeline />}
 
             {section.id === "sustainability" && (
-              <div className="space-y-8 text-lg md:text-xl leading-[2] text-muted-foreground">
-                <p className="whitespace-pre-line">
-                  {t(
-                    "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\u00a0\n\nThese certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.\u00a0\n\nWe generate part of our electricity through our own solar power systems on our production site in Dresden.",
-                    "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\u00a0\n\nDiese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse.\u00a0\n\nEinen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
-                  )}
-                </p>
-              </div>
-            )}
+  <div className="space-y-8 text-lg md:text-xl leading-[2] text-muted-foreground">
+    <p>
+      {t(
+        "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
+        "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
+      )}
+    </p>
+
+    <SustainabilityLogos className="my-8" />
+
+    <p>
+      {t(
+        "These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
+        "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
+      )}
+    </p>
+
+    <p>
+      {t(
+        "We generate part of our electricity through our own solar power systems on our production site in Dresden.",
+        "Einen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
+      )}
+    </p>
+  </div>
+)}
 
             {section.id === "values" && (
               <div className="grid grid-cols-1 gap-10">
@@ -169,10 +202,12 @@ useLayoutEffect(() => {
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
-              <h2 className="editorial-heading-lg text-foreground mb-4">
-                {t("Sustainability", "Nachhaltigkeit")}
-              </h2>
-            </div>
+  <h2 className="editorial-heading-lg text-foreground mb-8">
+    {t("Sustainability", "Nachhaltigkeit")}
+  </h2>
+
+  <SustainabilityLogos />
+</div>
 
             <div className="space-y-8 text-lg md:text-xl leading-[2] text-muted-foreground">
               <p className="whitespace-pre-line">
