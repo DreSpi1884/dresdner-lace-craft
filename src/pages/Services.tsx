@@ -134,7 +134,7 @@ const scrollMobileSectionToTop = (id: string) => {
 
   window.scrollTo({
     top,
-    behavior: "instant" as ScrollBehavior,
+    behavior: "auto" as ScrollBehavior,
   });
 };
 
