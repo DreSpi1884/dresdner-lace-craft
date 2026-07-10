@@ -40,8 +40,11 @@ const openMobileSection = (id: string) => {
     setMobileOpenId(id);
   });
 
-  window.history.replaceState(null, "", `#${id}`);
+window.history.replaceState(null, "", `#${id}`);
+
+requestAnimationFrame(() => {
   scrollMobileSectionToTop(id);
+});
 };
 
 useLayoutEffect(() => {
@@ -51,20 +54,6 @@ useLayoutEffect(() => {
   if (!validIds.includes(hash)) return;
 
   setMobileOpenId(hash);
-
-  requestAnimationFrame(() => {
-    const targetId = window.innerWidth < 1024 ? `mobile-${hash}` : hash;
-    const element = document.getElementById(targetId);
-    if (!element) return;
-
-    const offset = window.innerWidth < 1024 ? 88 : 100;
-    const top = element.getBoundingClientRect().top + window.scrollY - offset;
-
-    window.scrollTo({
-      top,
-      behavior: "auto",
-    });
-  });
 }, [location.hash]);
   
   return (
