@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import EditorialSection from "@/components/EditorialSection";
@@ -8,26 +9,31 @@ import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 
 const About = () => {
-   const { t } = useLang();
+  const { t } = useLang();
+  const location = useLocation();
   const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
 
-useEffect(() => {
-  const hash = window.location.hash.replace("#", "");
+ useEffect(() => {
+  const hash = location.hash.replace("#", "");
   const validIds = ["history", "sustainability", "values"];
 
   if (!validIds.includes(hash)) return;
 
   setMobileOpenId(hash);
 
-  window.setTimeout(() => {
+  requestAnimationFrame(() => {
     const targetId = window.innerWidth < 1024 ? `mobile-${hash}` : hash;
     const element = document.getElementById(targetId);
     if (!element) return;
 
-    const top = element.getBoundingClientRect().top + window.scrollY - 140;
-    window.scrollTo({ top, behavior: "smooth" });
-  }, 120);
-}, []);
+    const top = element.getBoundingClientRect().top + window.scrollY - 100;
+
+    window.scrollTo({
+      top,
+      behavior: "auto",
+    });
+  });
+}, [location.hash]);  
   
   return (
     <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
