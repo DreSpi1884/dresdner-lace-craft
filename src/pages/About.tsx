@@ -5,37 +5,37 @@ import EditorialSection from "@/components/EditorialSection";
 import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
-import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
 
 const About = () => {
-  const { open: openQuote } = useQuoteModal();
-  const { t } = useLang();
+   const { t } = useLang();
   const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
 
-  useEffect(() => {
-  const hash = window.location.hash.replace("#");
+useEffect(() => {
+  const hash = window.location.hash.replace("#", "");
   const validIds = ["history", "sustainability", "values"];
 
-  if (validIds.includes(hash)) {
-    setMobileOpenId(hash);
+  if (!validIds.includes(hash)) return;
 
-    window.setTimeout(() => {
-      const element = document.getElementById(hash);
-      if (!element) return;
+  setMobileOpenId(hash);
 
-      const top = element.getBoundingClientRect().top + window.scrollY - 140;
-      window.scrollTo({ top, behavior: "smooth" });
-      }, 100);
-    }
-  }, []);
+  window.setTimeout(() => {
+    const targetId = window.innerWidth < 1024 ? `mobile-${hash}` : hash;
+    const element = document.getElementById(targetId);
+    if (!element) return;
+
+    const top = element.getBoundingClientRect().top + window.scrollY - 140;
+    window.scrollTo({ top, behavior: "smooth" });
+  }, 120);
+}, []);
+  
   return (
     <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
       <SEO
         title={t("About Us — 140 Years of German Textile Craft", "Über uns — 140 Jahre deutsche Textilkunst")}
         description={t(
-          "Since 1882, Dresdner Spitzen has shaped textile manufacturing in Germany with tradition, innovation and sustainable production.",
-          "Seit 1882 prägt Dresdner Spitzen die Textilherstellung in Deutschland mit Tradition, Innovation und nachhaltiger Produktion."
+          "Since 1884, Dresdner Spitzen has shaped textile manufacturing in Germany with tradition, innovation and sustainable production.",
+          "Seit 1884 prägt Dresdner Spitzen die Textilherstellung in Deutschland mit Tradition, Innovation und nachhaltiger Produktion."
         )}
         path="/about"
       />
@@ -51,7 +51,11 @@ const About = () => {
     const isOpen = mobileOpenId === section.id;
 
     return (
-      <article key={section.id} id={section.id} className="border-b border-primary/10 scroll-mt-36">
+      <article
+        key={section.id}
+        id={`mobile-${section.id}`}
+        className="border-b border-primary/10 scroll-mt-36"
+      >
         <button
           type="button"
           onClick={() =>
@@ -116,18 +120,18 @@ const About = () => {
   })}
 </section>
       
-      <div id="history-desktop" className="hidden lg:block scroll-mt-32">
+     <div id="history" className="hidden lg:block scroll-mt-32">
         <HistoryTimeline />
       </div>
 
-      <section id="sustainability-desktop" className="hidden lg:block editorial-section scroll-mt-32">
-        <div className="-container">
+      <section id="sustainability" className="hidden lg:block editorial-section scroll-mt-32">
+        <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
-              <h2 className="-heading-lg text-foreground mb-4">
+              <h2 className="editorial-heading-lg text-foreground mb-4">
                 {t("Sustainability", "Nachhaltigkeit")}
               </h2>
-              <p className="-label text-primary mb-8">
+              <p className="editorial-label text-primary mb-8">
                 {t("", "")}
               </p>
             </div>
@@ -143,7 +147,7 @@ const About = () => {
         </div>
       </section>
 
-      <EditorialSection id="values-desktop" className="hidden lg:block bg-card scroll-mt-32">
+      <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
         <div className="editorial-container editorial-section">
           <h2 className="editorial-heading-lg text-foreground mb-4 text-center">
             {t("Our Values", "Unsere Werte")}
