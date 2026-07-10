@@ -205,46 +205,50 @@ requestAnimationFrame(() => {
                     {line ? <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p> : <div className="h-4" />}
                   </div>
                 ))}
-                <div className="pb-8 mb-8 border-b border-primary/15 max-w-none mt-8">
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
+                <div className="pb-6 mb-6 border-b border-primary/15 max-w-none mt-6">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-4 lg:gap-8">
                     {processSteps.map((item) => (
-                      <div key={item.step} className="group flex flex-col">
-                        <span
-                          className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
-                          style={{
-                            fontFamily: "'Bodoni Moda', serif",
-                            fontSize: "30px",
-                            lineHeight: 1,
-                            color: "hsl(var(--primary))",
-                          }}
-                        >
-                          {item.step}
-                        </span>
-                        <h3
-                          className="mb-3"
-                          style={{
-                            fontFamily: "'Jost', sans-serif",
-                            fontSize: "15px",
-                            letterSpacing: "0.5px",
-                            textTransform: "uppercase",
-                            fontWeight: 600,
-                            color: "hsl(var(--primary))",
-                          }}
-                        >
-                          {item.title}
-                        </h3>
-                        <p
-                          style={{
-                            fontFamily: "'Jost', sans-serif",
-                            fontSize: "13px",
-                            lineHeight: 1.6,
-                            color: "hsl(var(--muted-foreground) / 0.9)",
-                          }}
-                        >
-                          {item.desc}
-                        </p>
-                      </div>
-                    ))}
+  <div key={item.step} className="group">
+    <div className="mb-2 flex items-baseline gap-3">
+      <span
+        className="italic opacity-40 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          fontFamily: "'Bodoni Moda', serif",
+          fontSize: "24px",
+          lineHeight: 1,
+          color: "hsl(var(--primary))",
+        }}
+      >
+        {item.step}
+      </span>
+
+      <h3
+        style={{
+          fontFamily: "'Jost', sans-serif",
+          fontSize: "14px",
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          fontWeight: 600,
+          color: "hsl(var(--primary))",
+        }}
+      >
+        {item.title}
+      </h3>
+    </div>
+
+    <p
+      className="pl-[42px] md:pl-0"
+      style={{
+        fontFamily: "'Jost', sans-serif",
+        fontSize: "13px",
+        lineHeight: 1.55,
+        color: "hsl(var(--muted-foreground) / 0.9)",
+      }}
+    >
+      {item.desc}
+    </p>
+  </div>
+))}
                   </div>
                 </div>
               </>
