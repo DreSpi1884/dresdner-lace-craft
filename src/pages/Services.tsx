@@ -414,10 +414,11 @@ requestAnimationFrame(() => {
               {s.id === "design" && s.mobileImage && (
                 <div data-no-reveal className="-mx-6 mb-8">
                   <img
-                    src={s.mobileImage}
-                    alt={s.title}
-                    className="block w-full aspect-[4/5] object-cover"
-                  />
+  data-no-reveal
+  src={s.mobileImage}
+  alt={s.title}
+  className="block w-full aspect-[4/5] object-cover"
+/>
                 </div>
               )}
           
