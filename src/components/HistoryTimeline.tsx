@@ -103,11 +103,8 @@ const HistoryTimeline = () => {
       if (!section) return;
 
       const rect = section.getBoundingClientRect();
-      const vh = window.innerHeight;
-
-      // Ribbon unravels from the top of the section down to the current viewport bottom.
-      const revealed = Math.max(0, Math.min(rect.height, vh - rect.top));
-      setLaceOffset(revealed);
+      // Shift the seamless tile so the ribbon appears to scroll with the page.
+      setLaceOffset(-rect.top);
     };
 
     const onScroll = () => {
@@ -129,25 +126,30 @@ const HistoryTimeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-background text-primary w-full py-12 md:py-16 lg:py-20"
+      className="relative bg-background text-primary w-full py-12 md:py-16 lg:py-20"
     >
-      {/* lace ribbon — unravels down from the top of the timeline */}
+      {/* lace ribbon — sticky, seamless vertical tile with strong top/bottom fade */}
       <div
-        className="pointer-events-none absolute top-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
-        style={{
-          width: `${RIBBON_WIDTH}px`,
-          height: `${laceOffset}px`,
-          backgroundImage: `url(${laceAsset.url})`,
-          backgroundRepeat: "repeat-y",
-          backgroundPosition: "top center",
-          backgroundSize: `${RIBBON_WIDTH}px auto`,
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, black 6%, black 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, black 6%, black 100%)",
-        }}
+        className="pointer-events-none absolute inset-0 z-0 hidden lg:block"
         aria-hidden="true"
-      />
+      >
+        <div
+          className="sticky left-1/2 -translate-x-1/2"
+          style={{
+            top: 0,
+            height: "100vh",
+            width: `${RIBBON_WIDTH}px`,
+            backgroundImage: `url(${laceAsset.url})`,
+            backgroundRepeat: "repeat-y",
+            backgroundPosition: `center ${laceOffset}px`,
+            backgroundSize: `${RIBBON_WIDTH}px auto`,
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+          }}
+        />
+      </div>
 
 
       <div className="relative z-10 px-6 md:px-10 lg:px-12 xl:px-16">
