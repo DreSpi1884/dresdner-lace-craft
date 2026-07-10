@@ -126,8 +126,8 @@ const HistoryTimeline = () => {
       {
         year: t("Today", "Heute"),
         text: t(
-          "Today, Dresdner Spitzen combines more than 140 years of craftsmanship with modern manufacturing technology, serving customers in fashion, lingerie, industry and medical applications worldwide.",
-          "Heute verbindet Dresdner Spitzen mehr als 140 Jahre Handwerkskunst mit moderner Fertigungstechnologie und beliefert Kunden aus Mode, Industrie und Medizin weltweit."
+         "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day. In Dresden, we create not only lace, but also warp-knitted fabrics and functional textiles for fashion, industry and medical applications, combining over 140 years of experience with modern technology, care and curiosity.",
+        "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen. In Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettengewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen. Dabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie, Sorgfalt und Neugier."
         ),
       },
     ],
