@@ -69,13 +69,14 @@ const Services = () => {
     ],
     [t],
   );
-
   type ServiceItem = {
     id: string;
     nav: string;
     title: string;
     text: string;
     process?: typeof processSteps;
+    desktopImages?: string[];
+    mobileImage?: string;
   };
 
   const services = useMemo(
@@ -84,6 +85,8 @@ const Services = () => {
         id: "design",
         nav: t("Design", "Design"),
         title: t("Design", "Design"),
+        desktopImages: [designImg1, designImg2, designImg3, designImg4],
+        mobileImage: designImg3,
         text: t(
           "Twice a year we develop new lace collections inspired by international fashion trends, alongside warp-knitted fabrics for technical and medical applications.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
           "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends, sowie Kettengewirke für technische und medizinische Anwendungen.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte elastische und unelastische Spitzen und Kettengewirke nach Ihren individuellen Anforderungen.",
@@ -406,12 +409,22 @@ requestAnimationFrame(() => {
             />
           </button>
 
-        {isOpen && (
-          <div className="pb-10 pt-2">
-            {renderBody(s)}
-            {renderProcess(s)}
-          </div>
-        )}
+          {isOpen && (
+            <div className="pb-10 pt-2">
+              {s.id === "design" && s.mobileImage && (
+                <div className="-mx-6 mb-8">
+                  <img
+                    src={s.mobileImage}
+                    alt={s.title}
+                    className="block w-full aspect-[4/5] object-cover"
+                  />
+                </div>
+              )}
+          
+              {renderBody(s)}
+              {renderProcess(s)}
+            </div>
+          )}
           
         </div>
 
@@ -436,26 +449,40 @@ requestAnimationFrame(() => {
             </div>
           </div>
 
-          <div className="min-h-[760px] bg-muted">
-            <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
-              <span
-                className="relative text-center"
-                style={{
-                  fontFamily: "'Jost', sans-serif",
-                  fontSize: "11px",
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
-                  color: "hsl(var(--muted-foreground) / 0.6)",
-                }}
-              >
-                {t("Image placeholder", "Bildplatzhalter")}{" "}
-                {String(i + 1).padStart(2, "0")}
-                <br />
-                {s.title}
-              </span>
-            </div>
-          </div>
+<div className="min-h-[760px] bg-muted">
+  {s.id === "design" && s.desktopImages ? (
+    <div className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0">
+      {s.desktopImages.map((img, idx) => (
+        <div key={idx} className="relative overflow-hidden">
+          <img
+            src={img}
+            alt={`${s.title} ${idx + 1}`}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      ))}
+    </div>
+  ) : (
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
+      <span
+        className="relative text-center"
+        style={{
+          fontFamily: "'Jost', sans-serif",
+          fontSize: "11px",
+          letterSpacing: "2px",
+          textTransform: "uppercase",
+          color: "hsl(var(--muted-foreground) / 0.6)",
+        }}
+      >
+        {t("Image placeholder", "Bildplatzhalter")}{" "}
+        {String(i + 1).padStart(2, "0")}
+        <br />
+        {s.title}
+      </span>
+    </div>
+  )}
+</div>
         </div>
       </article>
     );
