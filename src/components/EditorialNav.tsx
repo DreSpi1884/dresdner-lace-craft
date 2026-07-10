@@ -343,31 +343,30 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
         }
 
         return (
-          <div key={item.path}>
-          <button
-            type="button"
-            onClick={() => {
-              setMobileOpenSection(open ? null : item.key);
-          }}           
-              className={`w-full flex items-center justify-between text-background/80 ${
-                location.pathname === item.path ? "text-background" : "text-background/80"
-              }`}
-              style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "13px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              fontWeight: 500,
-            }}
-            >
-              <span>{item.label}</span>
-              {hasDropdown && (
-                <ChevronDown
-                  size={18}
-                  className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-                />
-              )}
-            </button>
+  <div key={item.path}>
+    <button
+      type="button"
+      onClick={() => {
+        setMobileOpenSection(open ? null : item.key);
+      }}
+      className={`w-full flex items-center justify-between text-background/80 ${
+        location.pathname === item.path ? "text-background" : "text-background/80"
+      }`}
+      style={{
+        fontFamily: "'Jost', sans-serif",
+        fontSize: "13px",
+        letterSpacing: "2px",
+        textTransform: "uppercase",
+        fontWeight: 500,
+      }}
+    >
+      <span>{item.label}</span>
+      <ChevronDown
+        size={18}
+        className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+      />
+    </button>
+
 
             {hasDropdown && (
               <div
