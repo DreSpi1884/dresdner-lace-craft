@@ -8,18 +8,28 @@ const EditorialFooter = () => {
   const { t, lang, setLang } = useLang();
   return (
     <footer data-no-reveal className="bg-foreground text-background">
-      <div className="editorial-container py-10 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-          {/* Brand */}
-          <div>
-            <h3 className="font-serif text-2xl mb-4">Dresdner Spitzen</h3>
-            <p className="editorial-body-sm text-background/60 max-w-xs whitespace-pre-line">
-              {t(
-                "Tradition meets Textile Innovation. Since 1884.\n\nYour partner for high-quality lace, warp-knitted fabrics and functional textiles, developed and produced in Dresden.",
-                "Tradition trifft Textile Innovation. Seit 1884.\n\nIhr Partner für hochwertige Spitzen, Kettengewirke und funktionale Textilien, entwickelt und produziert in Dresden."
-              )}
-            </p>
-          </div>
+      <div className="editorial-container py-6 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-16">
+{/* Brand */}
+<div className="text-center md:text-left">
+  <h3 className="font-serif text-xl md:text-2xl mb-2 md:mb-4">
+    Dresdner Spitzen
+  </h3>
+
+  <p className="editorial-body-sm text-background/60 max-w-xs mx-auto md:mx-0">
+    {t(
+      "Tradition meets Textile Innovation. Since 1884.",
+      "Tradition trifft Textile Innovation. Seit 1884."
+    )}
+  </p>
+
+  <p className="hidden md:block editorial-body-sm text-background/60 max-w-xs whitespace-pre-line mt-4">
+    {t(
+      "Your partner for high-quality lace, warp-knitted fabrics and functional textiles, developed and produced in Dresden.",
+      "Ihr Partner für hochwertige Spitzen, Kettengewirke und funktionale Textilien, entwickelt und produziert in Dresden."
+    )}
+  </p>
+</div>
 
           {/* Navigation */}
           <div className="hidden md:block">
@@ -75,51 +85,124 @@ const EditorialFooter = () => {
 </div>
           </div>
 
-          {/* Contact */}
-          <div>
-            <p className="editorial-label text-background/40 mb-6">{t("Contact", "Kontakt")}</p>
-            <div className="flex flex-col gap-3 editorial-body-sm text-background/70">
-              <p>{t("Dresden, Germany", "Dresden, Deutschland")}</p>
-              <a className="hover:text-background transition-colors" href="mailto:sales@dresdnerspitzen.com">
-                sales@dresdnerspitzen.com
-              </a>
-              <a href="https://www.instagram.com/dresdnerspitzen"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="inline-flex items-center gap-2 hover:text-background transition-colors"
-              onClick={(e) => {e.preventDefault();window.open("https://www.instagram.com/dresdnerspitzen", "_blank", "noopener,noreferrer");}}>
-                
-                <Instagram size={16} /> Instagram
-              </a>
-              <a href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="inline-flex items-center gap-2 hover:text-background transition-colors"
-              onClick={(e) => {e.preventDefault();window.open("https://www.linkedin.com/company/dresdner-spitzen-gmbh", "_blank", "noopener,noreferrer");}}>
-                <Linkedin size={16} /> LinkedIn
-              </a>
-            </div>
-            <div className="mt-8 flex gap-4">
-              <button
-                onClick={() => setLang("de")}
-                className={`editorial-label transition-colors ${lang === "de" ? "text-background" : "text-background/60 hover:text-background"}`}
-                aria-pressed={lang === "de"}
-              >
-                DE
-              </button>
-              <span className="text-background/30">|</span>
-              <button
-                onClick={() => setLang("en")}
-                className={`editorial-label transition-colors ${lang === "en" ? "text-background" : "text-background/60 hover:text-background"}`}
-                aria-pressed={lang === "en"}
-              >
-                EN
-              </button>
-            </div>
-          </div>
+{/* Contact */}
+<div>
+  {/* Mobile compact contact */}
+  <div className="md:hidden">
+    <a
+      className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+      href="mailto:sales@dresdnerspitzen.com"
+    >
+      sales@dresdnerspitzen.com
+    </a>
+
+    <div className="mt-5 flex items-center justify-between">
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => setLang("de")}
+          className={`editorial-label transition-colors ${
+            lang === "de" ? "text-background" : "text-background/60 hover:text-background"
+          }`}
+          aria-pressed={lang === "de"}
+        >
+          DE
+        </button>
+
+        <span className="text-background/30">|</span>
+
+        <button
+          onClick={() => setLang("en")}
+          className={`editorial-label transition-colors ${
+            lang === "en" ? "text-background" : "text-background/60 hover:text-background"
+          }`}
+          aria-pressed={lang === "en"}
+        >
+          EN
+        </button>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <a
+          href="https://www.instagram.com/dresdnerspitzen"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="Instagram"
+          className="text-background/70 hover:text-background transition-colors"
+        >
+          <Instagram size={18} />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="LinkedIn"
+          className="text-background/70 hover:text-background transition-colors"
+        >
+          <Linkedin size={18} />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {/* Desktop contact */}
+  <div className="hidden md:block">
+    <p className="editorial-label text-background/40 mb-6">{t("Contact", "Kontakt")}</p>
+
+    <div className="flex flex-col gap-3 editorial-body-sm text-background/70">
+      <p>{t("Dresden, Germany", "Dresden, Deutschland")}</p>
+
+      <a className="hover:text-background transition-colors" href="mailto:sales@dresdnerspitzen.com">
+        sales@dresdnerspitzen.com
+      </a>
+
+      <a
+        href="https://www.instagram.com/dresdnerspitzen"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        className="inline-flex items-center gap-2 hover:text-background transition-colors"
+      >
+        <Instagram size={16} /> Instagram
+      </a>
+
+      <a
+        href="https://www.linkedin.com/company/dresdner-spitzen-gmbh"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        className="inline-flex items-center gap-2 hover:text-background transition-colors"
+      >
+        <Linkedin size={16} /> LinkedIn
+      </a>
+    </div>
+
+    <div className="mt-8 flex gap-4">
+      <button
+        onClick={() => setLang("de")}
+        className={`editorial-label transition-colors ${
+          lang === "de" ? "text-background" : "text-background/60 hover:text-background"
+        }`}
+        aria-pressed={lang === "de"}
+      >
+        DE
+      </button>
+
+      <span className="text-background/30">|</span>
+
+      <button
+        onClick={() => setLang("en")}
+        className={`editorial-label transition-colors ${
+          lang === "en" ? "text-background" : "text-background/60 hover:text-background"
+        }`}
+        aria-pressed={lang === "en"}
+      >
+        EN
+      </button>
+    </div>
+  </div>
+</div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-6 md:mt-16 pt-4 md:pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-4">
           <p className="editorial-body-sm text-background/40">
             © {new Date().getFullYear()} Dresdner Spitzen. {t("All rights reserved.", "Alle Rechte vorbehalten.")}
           </p>
