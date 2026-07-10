@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { ChevronDown } from "lucide-react";
 import { useLang } from "@/i18n/LanguageContext";
 
 const ProductionAnchorNav = () => {
   const { t } = useLang();
 
   const [activeSection, setActiveSection] = useState("design");
-  const [openSection, setOpenSection] = useState<string | null>(null);
 
   const sections = useMemo(
     () => [
@@ -32,8 +30,7 @@ const ProductionAnchorNav = () => {
     if (!element) return;
 
     setActiveSection(id);
-    setOpenSection(id);
-
+ 
     const offset = 180;
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
@@ -41,35 +38,20 @@ const ProductionAnchorNav = () => {
     window.history.replaceState(null, "", `#${id}`);
   };
 
-  useEffect(() => {
-    const openFromHash = () => {
-      const hash = window.location.hash.replace("#", "");
-      const isValidHash = sections.some((section) => section.id === hash);
+useEffect(() => {
+  if (window.innerWidth < 1024) return;
 
-      if (!isValidHash) return;
+  const hash = window.location.hash.replace("#", "");
+  const isValidHash = sections.some((section) => section.id === hash);
 
-      window.setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (!element) return;
-
-        setActiveSection(hash);
-        setOpenSection(hash);
-
-        const offset = 180;
-        const top = element.getBoundingClientRect().top + window.scrollY - offset;
-
-        window.scrollTo({ top, behavior: "smooth" });
-      }, 100);
-    };
-
-    openFromHash();
-    window.addEventListener("hashchange", openFromHash);
-
-    return () => window.removeEventListener("hashchange", openFromHash);
-  }, [sections]);
+  if (isValidHash) {
+    setActiveSection(hash);
+  }
+}, [sections]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
+        if (window.innerWidth < 1024) return;
       (entries) => {
         const visibleEntries = entries.filter((entry) => entry.isIntersecting);
 
