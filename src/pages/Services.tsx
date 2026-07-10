@@ -116,13 +116,13 @@ const Services = () => {
     [t, processSteps],
   );
 
-const [mobileOpenId, setMobileOpenId] = useState<string>("design");
+const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
 
 useLayoutEffect(() => {
   const hash = location.hash.replace("#", "");
   const exists = services.some((service) => service.id === hash);
 
-  setMobileOpenId(exists ? hash : "design");
+  setMobileOpenId(exists ? hash : null);
 }, [location.hash, services]);
 
 const scrollMobileSectionToTop = (id: string) => {
@@ -139,6 +139,15 @@ const scrollMobileSectionToTop = (id: string) => {
 };
 
 const openMobileSection = (id: string) => {
+  if (mobileOpenId === id) {
+    flushSync(() => {
+      setMobileOpenId(null);
+    });
+
+    window.history.replaceState(null, "", location.pathname);
+    return;
+  }
+
   flushSync(() => {
     setMobileOpenId(id);
   });
