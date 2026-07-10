@@ -105,8 +105,9 @@ const HistoryTimeline = () => {
       const rect = section.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      const progress = Math.max(0, Math.min(1, (vh - rect.top) / (rect.height + vh)));
-      setLaceOffset(window.scrollY * 0.55);
+      // Ribbon unravels from the top of the section down to the current viewport bottom.
+      const revealed = Math.max(0, Math.min(rect.height, vh - rect.top));
+      setLaceOffset(revealed);
     };
 
     const onScroll = () => {
@@ -130,23 +131,24 @@ const HistoryTimeline = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-background text-primary w-full py-12 md:py-16 lg:py-20"
     >
-  {/* moving lace band desktop */}
-  <div
-    className="pointer-events-none absolute inset-y-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
-    style={{ width: `${RIBBON_WIDTH}px` }}
-  >
-    <div
-      className="sticky top-1/2 h-[68vh] -translate-y-1/2 overflow-hidden opacity-55"
-      style={{
-        maskImage:
-          "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
-        WebkitMaskImage:
-          "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
-      }}
-    >
-      <LaceRibbon offset={laceOffset} />
-    </div>
-  </div>
+      {/* lace ribbon — unravels down from the top of the timeline */}
+      <div
+        className="pointer-events-none absolute top-0 left-1/2 z-0 hidden -translate-x-1/2 lg:block"
+        style={{
+          width: `${RIBBON_WIDTH}px`,
+          height: `${laceOffset}px`,
+          backgroundImage: `url(${laceAsset.url})`,
+          backgroundRepeat: "repeat-y",
+          backgroundPosition: "top center",
+          backgroundSize: `${RIBBON_WIDTH}px auto`,
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 6%, black 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 6%, black 100%)",
+        }}
+        aria-hidden="true"
+      />
+
 
       <div className="relative z-10 px-6 md:px-10 lg:px-12 xl:px-16">
         <div className="mx-auto w-full max-w-[1800px]">
