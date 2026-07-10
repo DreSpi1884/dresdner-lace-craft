@@ -105,14 +105,14 @@ const HistoryTimeline = () => {
       {
         year: "1945",
         text: t(
-          "After the Second World War, every machine in our factory was dismantled.\u00a0\nStarting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees.\u00a0\nWithin a year, textile manufacturing had resumed.",
+          "After the Second World War, every machine in our factory was dismantled.\u00a0\n\nStarting almost from nothing, we rebuilt our production with borrowed equipment, determination and the commitment of our employees.\u00a0\nWithin a year, textile manufacturing had resumed.",
           "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert.\u00a0\nMit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf.\u00a0\nInnerhalb eines Jahres läuft die Textilproduktion erneut an."
         ),
       },
       {
         year: "1970",
         text: t(
-          "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany.\u00a0\n1982, we became the first company in the world to operate electronically controlled Raschel machines.",
+          "The introduction of warp knitting technology transformed our production and established us as one of the leading lace manufacturers in East Germany.\u00a0\n\n1982, we became the first company in the world to operate electronically controlled Raschel machines.",
           "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland.\u00a0\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt."
         ),
       },
