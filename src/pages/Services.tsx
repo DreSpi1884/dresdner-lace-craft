@@ -125,13 +125,16 @@ useLayoutEffect(() => {
   setMobileOpenId(exists ? hash : "design");
 }, [location.hash, services]);
 
-  const scrollMobileSectionToTop = (id: string) => {
+const scrollMobileSectionToTop = (id: string) => {
   const element = document.getElementById(id);
   if (!element) return;
 
-  element.scrollIntoView({
-    block: "start",
-    behavior: "auto",
+  const offset = 88;
+  const top = element.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({
+    top,
+    behavior: "instant" as ScrollBehavior,
   });
 };
 
