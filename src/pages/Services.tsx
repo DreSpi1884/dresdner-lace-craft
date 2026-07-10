@@ -452,15 +452,22 @@ requestAnimationFrame(() => {
 
 <div data-no-reveal className="min-h-[760px] bg-muted">
   {s.id === "design" && s.desktopImages ? (
-    <div className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0">
+    <div
+      data-no-reveal
+      className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
+    >
       {s.desktopImages.map((img, idx) => (
-        <div key={idx} className="relative overflow-hidden">
+        <div
+          key={idx}
+          data-no-reveal
+          className="relative overflow-hidden"
+        >
           <img
-  data-no-reveal
-  src={img}
-  alt={`${s.title} ${idx + 1}`}
-  className="absolute inset-0 h-full w-full object-cover"
-/>
+            data-no-reveal
+            src={img}
+            alt={`${s.title} ${idx + 1}`}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         </div>
       ))}
     </div>
