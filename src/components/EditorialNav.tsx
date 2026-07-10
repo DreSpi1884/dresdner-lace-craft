@@ -314,7 +314,33 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
             ? aboutSections
             : contactSections;
 
+
         const open = mobileOpenSection === item.key;
+
+        if (!hasDropdown) {
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              onClick={() => {
+                setIsOpen(false);
+                setMobileOpenSection(null);
+              }}
+              className={`w-full flex items-center justify-between text-background/80 ${
+                location.pathname === item.path ? "text-background" : "text-background/80"
+              }`}
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "13px",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                fontWeight: 500,
+              }}
+            >
+              <span>{item.label}</span>
+            </Link>
+          );
+        }
 
         return (
           <div key={item.path}>
