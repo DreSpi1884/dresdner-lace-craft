@@ -119,8 +119,8 @@ const HistoryTimeline = () => {
       {
         year: "1995",
         text: t(
-          "Following German reunification, we reinvented our business.\u00a0\n\nWe modernised our facilities, expanded our capabilities and evolved from a traditional lace manufacturer into a producer of premium lace for international markets.",
-          "Nach der Wiedervereinigung erfinden wir unser Unternehmen neu.\u00a0\n\nWir modernisieren unsere Anlagen, erweitern unsere Kompetenzen und entwickeln uns vom traditionellen Spitzenhersteller zu einem Produzenten von Premium-Spitzen für internationale Märkte."
+          "After reunification, a new chapter begins for us.\u00a0\nWith determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
+          "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel.\u00a0\nMit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
         ),
       },
       {
