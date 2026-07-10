@@ -412,7 +412,7 @@ requestAnimationFrame(() => {
           {isOpen && (
             <div className="pb-10 pt-2">
               {s.id === "design" && s.mobileImage && (
-                <div className="-mx-6 mb-8">
+                <div data-no-reveal className="-mx-6 mb-8">
                   <img
                     src={s.mobileImage}
                     alt={s.title}
@@ -449,16 +449,17 @@ requestAnimationFrame(() => {
             </div>
           </div>
 
-<div className="min-h-[760px] bg-muted">
+<div data-no-reveal className="min-h-[760px] bg-muted">
   {s.id === "design" && s.desktopImages ? (
     <div className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0">
       {s.desktopImages.map((img, idx) => (
         <div key={idx} className="relative overflow-hidden">
           <img
-            src={img}
-            alt={`${s.title} ${idx + 1}`}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+  data-no-reveal
+  src={img}
+  alt={`${s.title} ${idx + 1}`}
+  className="absolute inset-0 h-full w-full object-cover"
+/>
         </div>
       ))}
     </div>
