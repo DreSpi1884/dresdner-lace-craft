@@ -136,31 +136,35 @@ const Index = () => {
   to={`/services#${item.anchor}`}
   className="group block"
 >
-  {/* Mobile version */}
-  <div className="lg:hidden">
-    <div className="relative aspect-[16/10] overflow-hidden">
-      <img
-        src={item.image}
-        alt={item.title}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+{/* Mobile version */}
+<div className="lg:hidden relative aspect-[4/5] overflow-hidden">
+  <img
+    src={item.image}
+    alt={item.title}
+    className="absolute inset-0 h-full w-full object-cover"
+  />
 
-      <h3
-        className="absolute bottom-4 left-5 right-5 font-serif text-background whitespace-nowrap text-[clamp(18px,5vw,24px)] leading-none"
-        style={{
-          textShadow: "0 2px 10px rgba(0,0,0,0.55)",
-        }}
-      >
-        {item.title}
-      </h3>
-    </div>
+  <div className="absolute inset-x-0 bottom-0 p-6">
+    <h3
+      className="font-serif text-background whitespace-nowrap text-[clamp(23px,6.2vw,32px)] leading-none mb-4"
+      style={{
+        textShadow: "0 2px 12px rgba(0,0,0,0.75)",
+      }}
+    >
+      {item.title}
+    </h3>
 
-    <div className="px-6 pt-4 pb-9">
-      <p className="editorial-body-sm text-muted-foreground whitespace-pre-line leading-[1.8]">
-        {item.desc}
-      </p>
-    </div>
+    <p
+      className="text-background whitespace-pre-line text-[15px] leading-[1.65]"
+      style={{
+        fontFamily: "'Jost', sans-serif",
+        textShadow: "0 2px 10px rgba(0,0,0,0.8)",
+      }}
+    >
+      {item.desc}
+    </p>
   </div>
+</div>
 
   {/* Desktop version */}
   <div className="hidden lg:block relative overflow-hidden aspect-[3/4] cursor-pointer">
