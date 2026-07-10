@@ -223,8 +223,6 @@ const HistoryTimeline = () => {
         </div>
       </div>
     </article>
-  );
-})}
               );
             })}
           </div>
