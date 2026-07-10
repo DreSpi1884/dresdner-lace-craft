@@ -153,7 +153,7 @@ const HistoryTimeline = () => {
       </div>
 
 
-      <div className="relative z-10 px-6 md:px-10 lg:px-12 xl:px-16">
+      <div className="relative z-10 px-3 md:px-8 lg:px-12 xl:px-16">
         <div className="mx-auto w-full max-w-[1800px]">
           <div className="space-y-16 md:space-y-24 lg:space-y-28">
             {entries.map((entry, i) => {
