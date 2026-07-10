@@ -41,7 +41,7 @@ const Index = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-foreground/30" />
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] py-[clamp(2rem,5vh,5rem)] w-full">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] pt-[24vh] py-[clamp(2rem,5vh,5rem)] w-full">
           <div
             className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]"
             style={{ width: "clamp(96px, 12.5vw, 240px)" }}
