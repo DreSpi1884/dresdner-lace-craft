@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
-import laceAsset from "@/assets/lace_navy_clean.png.asset.json";
+import laceAsset from "@/assets/lace_tile_vertikal.png.asset.json";
 
 type Entry = {
   year: string;
@@ -104,7 +104,7 @@ const HistoryTimeline = () => {
 
       const rect = section.getBoundingClientRect();
       // Shift the seamless tile so the ribbon appears to scroll with the page.
-      setLaceOffset(-rect.top);
+      setLaceOffset(rect.top);
     };
 
     const onScroll = () => {
@@ -144,9 +144,9 @@ const HistoryTimeline = () => {
             backgroundPosition: `center ${laceOffset}px`,
             backgroundSize: `${RIBBON_WIDTH}px auto`,
             maskImage:
-              "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+              "linear-gradient(to bottom, transparent 0%, black 15%, black 35%, transparent 55%)",
             WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+              "linear-gradient(to bottom, transparent 0%, black 15%, black 35%, transparent 55%)",
           }}
         />
       </div>
