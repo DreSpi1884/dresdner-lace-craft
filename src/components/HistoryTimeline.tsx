@@ -157,54 +157,74 @@ const HistoryTimeline = () => {
         <div className="mx-auto w-full max-w-[1800px]">
           <div className="space-y-16 md:space-y-24 lg:space-y-28">
             {entries.map((entry, i) => {
-              const isLeft = i % 2 === 0;
-              const isVisible = visible[i] ?? false;
+  const isLeft = i % 2 === 0;
+  const isVisible = visible[i] ?? false;
 
-              return (
-                <article
-                  key={entry.year}
-                  ref={(el) => {
-                    entryRefs.current[i] = el;
-                  }}
-                  data-idx={i}
-                  className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_110px_minmax(0,1fr)] lg:gap-12 xl:gap-20 items-center min-h-[56vh]"
-                >
-                  <div
-                    className={`${isLeft ? "lg:col-start-1" : "lg:col-start-3"} text-left transition-all duration-700 ease-out`}
-                    style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                    }}
-                  >
-                    <div
-                      className="font-serif leading-none text-foreground mb-8 md:mb-10"
-                      style={{
-                        fontSize: "clamp(2.2rem, 4vw, 4rem)",
-                        letterSpacing: "-0.04em",
-                      }}
-                    >
-                      {entry.year}
-                    </div>
+  return (
+    <article
+      key={entry.year}
+      ref={(el) => {
+        entryRefs.current[i] = el;
+      }}
+      data-idx={i}
+      className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_110px_minmax(0,1fr)] lg:gap-12 xl:gap-20 items-center lg:min-h-[56vh]"
+    >
+      {/* Text */}
+      <div
+        className={`order-2 ${
+          isLeft ? "lg:col-start-1" : "lg:col-start-3"
+        } text-left transition-all duration-700 ease-out`}
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "translateY(0)" : "translateY(24px)",
+        }}
+      >
+        {/* Desktop year */}
+        <div
+          className="hidden lg:block font-serif leading-none text-foreground mb-8 md:mb-10"
+          style={{
+            fontSize: "clamp(2.2rem, 4vw, 4rem)",
+            letterSpacing: "-0.04em",
+          }}
+        >
+          {entry.year}
+        </div>
 
-                    <p className="text-lg md:text-xl leading-[2.15] text-muted-foreground whitespace-pre-line max-w-[920px]">
-                      {entry.text}
-                    </p>
-                  </div>
+        <p className="text-lg md:text-xl leading-[2.15] text-muted-foreground whitespace-pre-line max-w-[920px]">
+          {entry.text}
+        </p>
+      </div>
 
-                  <div
-                    className={`${isLeft ? "lg:col-start-3" : "lg:col-start-1 lg:row-start-1"} transition-all duration-700 ease-out delay-150`}
-                    style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                    }}
-                  >
-                    <div className="aspect-[4/3] w-full overflow-hidden border border-border bg-muted/20 flex items-center justify-center">
-                      <span className="editorial-label text-muted-foreground/45">
-                        {t("Image", "Bild")} {i + 1}
-                      </span>
-                    </div>
-                  </div>
-                </article>
+      {/* Image */}
+      <div
+        className={`order-1 ${
+          isLeft ? "lg:col-start-3" : "lg:col-start-1 lg:row-start-1"
+        } transition-all duration-700 ease-out delay-150`}
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "translateY(0)" : "translateY(24px)",
+        }}
+      >
+        <div className="relative left-1/2 aspect-[4/3] w-screen -translate-x-1/2 overflow-hidden border-y border-border bg-muted/20 flex items-center justify-center lg:left-auto lg:w-full lg:translate-x-0 lg:border">
+          <span className="editorial-label text-muted-foreground/45">
+            {t("Image", "Bild")} {i + 1}
+          </span>
+
+          {/* Mobile year on image */}
+          <div
+            className="absolute bottom-5 left-6 z-10 lg:hidden font-serif leading-none text-foreground"
+            style={{
+              fontSize: "clamp(2.2rem, 13vw, 4rem)",
+              letterSpacing: "-0.04em",
+            }}
+          >
+            {entry.year}
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+})}
               );
             })}
           </div>
