@@ -49,13 +49,13 @@ const Index = () => {
           />
           <h1
             className="font-serif text-background leading-[1.1] tracking-[-0.01em] pb-2 [text-wrap:balance]"
-            style={{ fontSize: "clamp(28px, 4vw, 64px)" }}
+            style={{ fontSize: "clamp(36px, 8vw, 64px)" }}
           >
             {t("The Art of Textiles", "The Art of Textiles")}
           </h1>
           <p
             className="editorial-label text-background/90 tracking-[0.3em] mt-[clamp(0.5rem,1.5vh,1rem)]"
-            style={{ fontSize: "clamp(11px, 1.3vw, 18px)" }}
+            style={{ fontSize: "clamp(13px, 2vw, 18px)" }}
           >
             MADE IN GERMANY
           </p>
