@@ -11,9 +11,9 @@ const languages: { code: Lang; label: string }[] = [
 ];
 
 const getHeroScale = (width: number) => {
-  if (width < 640) return 2.8;
-  if (width < 768) return 3.1;
-  if (width < 1024) return 3.35;
+  if (width < 640) return 3.45;
+  if (width < 768) return 3.7;
+  if (width < 1024) return 3.9;
   if (width < 1280) return 3.6;
   if (width < 1536) return 4.1;
   return 5;
