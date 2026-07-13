@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Factory, PenTool, BadgeCheck, Truck } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import EditorialSection from "@/components/EditorialSection";
@@ -63,27 +63,48 @@ const Index = () => {
       </section>
 
       {/* KEYWORDS BANNER */}
-      <section className="w-full bg-background border-b border-border py-5 md:py-6">
-        <div className="editorial-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/30">
-            {[
-              t("IN-HOUSE PRODUCTION", "INTEGRIERTE PRODUKTION"),
-              t("TAILORED DESIGNS", "MASSGESCHNEIDERTE DESIGNS"),
-              t("CERTIFIED SUSTAINABLE PRODUCTION", "ZERTIFIZIERTE NACHHALTIGKEIT"),
-              t("JUST-IN-TIME DELIVERY", "JUST-IN-TIME-LIEFERUNG"),
-            ].map((text) => (
-              <div key={text} className="flex items-center justify-center px-3 md:px-6 py-2 md:py-0 min-h-[3rem]">
-                <span
-                  className="editorial-label text-primary text-center leading-tight"
-                  style={{ fontSize: "clamp(9px, 1vw, 13px)" }}
-                >
-                  {text}
-                </span>
-              </div>
-            ))}
-          </div>
+<section className="w-full bg-background border-b border-border py-5 md:py-6">
+  <div className="editorial-container">
+    <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/30">
+      {[
+        {
+          text: t("IN-HOUSE PRODUCTION", "INTEGRIERTE PRODUKTION"),
+          icon: Factory,
+        },
+        {
+          text: t("TAILORED DESIGNS", "MASSGESCHNEIDERTE DESIGNS"),
+          icon: PenTool,
+        },
+        {
+          text: t("CERTIFIED SUSTAINABLE PRODUCTION", "ZERTIFIZIERTE NACHHALTIGKEIT"),
+          icon: BadgeCheck,
+        },
+        {
+          text: t("JUST-IN-TIME DELIVERY", "JUST-IN-TIME-LIEFERUNG"),
+          icon: Truck,
+        },
+      ].map(({ text, icon: Icon }) => (
+        <div
+          key={text}
+          className="flex min-h-[4rem] items-center justify-center gap-3 px-3 py-3 text-left md:min-h-[3rem] md:px-6 md:py-0 md:text-center"
+        >
+          <Icon
+            className="h-5 w-5 shrink-0 text-primary md:hidden"
+            strokeWidth={1.5}
+            aria-hidden="true"
+          />
+
+          <span
+            className="editorial-label text-primary leading-tight"
+            style={{ fontSize: "clamp(9px, 1vw, 13px)" }}
+          >
+            {text}
+          </span>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* OUR SERVICES */}
       <EditorialSection className="bg-background text-foreground">
