@@ -82,13 +82,6 @@ const EditorialFooter = () => {
     {t("Contact", "Kontakt")}
   </Link>
 
-  <Link
-    to="/jobs"
-    className="editorial-body-sm text-background/70 hover:text-background transition-colors"
-  >
-    {t("Careers", "Karriere")}
-  </Link>
-
   <div className="mt-1 flex flex-col items-start gap-1">
     <div className="w-16 h-px bg-background/20" />
 

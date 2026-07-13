@@ -30,11 +30,6 @@ const EditorialNav = () => {
     { key: "contact", label: t("CONTACT", "KONTAKT"), path: "/contact" },
   ];
 
-  const contactSections = [
-    { label: t("CONTACT", "KONTAKT"), path: "/contact" },
-    { label: t("CAREERS", "KARRIERE"), path: "/jobs" },
-  ];
-
 const aboutSections = [
   { label: t("HISTORY", "GESCHICHTE"), hash: "#history" },
   { label: t("SUSTAINABILITY", "NACHHALTIGKEIT"), hash: "#sustainability" },
@@ -166,13 +161,11 @@ const aboutSections = [
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            if (item.key === "about" || item.key === "contact" || item.key === "services") {
+            if (item.key === "about" || item.key === "services") {
               const sections =
   item.key === "about"
     ? aboutSections
-    : item.key === "services"
-    ? serviceSections
-    : contactSections;
+    : serviceSections;
               return (
                 <div key={item.path} className="relative group">
                   <Link
@@ -192,20 +185,18 @@ const aboutSections = [
     ? "/services"
     : "/about";
 
-const to = "hash" in s ? `${base}${s.hash}` : s.path;
-                        const key = "hash" in s ? s.hash : s.path;
+const to = `${base}${s.hash}`;
+                        const key = s.hash;
                         return (
                           <Link
                             key={key}
                             to={to}
                             onClick={
-  "hash" in s
-    ? (e) => {
-        if (item.key === "about") {
-          handleAboutAnchor(e, s.hash);
-        }
-      }
-    : undefined
+  (e) => {
+    if (item.key === "about") {
+      handleAboutAnchor(e, s.hash);
+    }
+  }
 }
                             className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
                           >
@@ -302,16 +293,12 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
     <div className="editorial-container py-8 flex flex-col gap-7">
       {navItems.map((item) => {
         const hasSections =
-          item.key === "services" || item.key === "about" || item.key === "contact";
+          item.key === "services" || item.key === "about";
 
         const sections =
           item.key === "services"
             ? serviceSections
-            : item.key === "about"
-            ? aboutSections
-            : item.key === "contact"
-            ? contactSections
-            : [];
+            : aboutSections;
 
         if (!hasSections) {
           return (
@@ -356,8 +343,8 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
 
             <div className="ml-4 flex flex-col gap-2">
               {sections.map((s) => {
-                const to = "hash" in s ? `${item.path}${s.hash}` : s.path;
-                const key = "hash" in s ? s.hash : s.path;
+                const to = `${item.path}${s.hash}`;
+                const key = s.hash;
 
                 return (
                   <Link
