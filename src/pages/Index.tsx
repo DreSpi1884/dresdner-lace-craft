@@ -213,7 +213,7 @@ const Index = () => {
       />
     </div>
 
-    <div className="px-6 md:px-[60px] lg:px-[80px] text-center flex flex-col items-center">
+    <div className="px-6 pt-10 md:px-[60px] md:pt-12 lg:px-[80px] lg:pt-0 text-center flex flex-col items-center">
   <h2 className="editorial-heading-lg text-foreground mb-6">
     {t("Our Story", "Unsere Geschichte")}
   </h2>
