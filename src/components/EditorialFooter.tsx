@@ -10,7 +10,7 @@ const FooterCertificationLogos = () => (
     <img
       src={grsLogo}
       alt="Global Recycled Standard"
-      className="w-[72px] md:w-[88px] bg-white object-contain"
+      className="w-[72px] md:w-[88px] object-contain"
     />
     <img
       src={oekoTexLogo}
@@ -108,7 +108,7 @@ const EditorialFooter = () => {
 <div>
   {/* Mobile compact contact */}
 <div className="md:hidden text-center">
-  <div className="mt-5 flex items-center justify-center gap-8">
+  <div className="mt-4 flex items-center justify-center gap-8">
       <div className="flex items-center gap-4">
         <button
           onClick={() => setLang("de")}
