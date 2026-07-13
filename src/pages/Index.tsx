@@ -4,7 +4,6 @@ import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import EditorialSection from "@/components/EditorialSection";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
-import logoWhite from "@/assets/dresdner-spitzen-logo-weiss.png?url";
 
 import serviceCollections from "@/assets/service-collections.jpg.asset.json";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
@@ -43,10 +42,10 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-foreground/30" />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] pt-[24vh] py-[clamp(2rem,5vh,5rem)] w-full">
-          <img
-            src={logoWhite}
-            alt="Dresdner Spitzen"
-            className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] w-[clamp(96px,12.5vw,240px)] object-contain"
+          <div
+            className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]"
+            style={{ width: "clamp(96px, 12.5vw, 240px)" }}
+            aria-hidden="true"
           />
           <h1
             className="font-serif text-background leading-[1.1] tracking-[-0.01em] pb-2 [text-wrap:balance]"
