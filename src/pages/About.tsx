@@ -153,6 +153,13 @@ useLayoutEffect(() => {
         "Einen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
       )}
     </p>
+
+    <p>
+      {t(
+        "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
+        "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
+      )}
+    </p>
   </div>
 )}
 
@@ -220,8 +227,8 @@ useLayoutEffect(() => {
             <div className="space-y-8 text-lg md:text-xl leading-[2] text-muted-foreground">
               <p className="whitespace-pre-line">
                 {t(
-                  "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\u00a0\n\nThese certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.\u00a0\n\nWe generate part of our electricity through our own solar power systems on our production site in Dresden.",
-                  "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\u00a0\n\nDiese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse.\u00a0\n\nEinen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
+                  "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\u00a0\n\nThese certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.\u00a0\n\nWe generate part of our electricity through our own solar power systems on our production site in Dresden.\n\nFor our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
+                  "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\u00a0\n\nDiese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse.\u00a0\n\nEinen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden.\n\nFür unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
                 )}
               </p>
             </div>
