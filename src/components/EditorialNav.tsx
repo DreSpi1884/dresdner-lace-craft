@@ -161,13 +161,11 @@ const aboutSections = [
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            if (item.key === "about" || item.key === "contact" || item.key === "services") {
+            if (item.key === "about" || item.key === "services") {
               const sections =
   item.key === "about"
     ? aboutSections
-    : item.key === "services"
-    ? serviceSections
-    : contactSections;
+    : serviceSections;
               return (
                 <div key={item.path} className="relative group">
                   <Link
@@ -297,16 +295,12 @@ const to = "hash" in s ? `${base}${s.hash}` : s.path;
     <div className="editorial-container py-8 flex flex-col gap-7">
       {navItems.map((item) => {
         const hasSections =
-          item.key === "services" || item.key === "about" || item.key === "contact";
+          item.key === "services" || item.key === "about";
 
         const sections =
           item.key === "services"
             ? serviceSections
-            : item.key === "about"
-            ? aboutSections
-            : item.key === "contact"
-            ? contactSections
-            : [];
+            : aboutSections;
 
         if (!hasSections) {
           return (
