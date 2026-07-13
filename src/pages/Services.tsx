@@ -17,6 +17,10 @@ import dyeingImg3 from "@/assets/farbkarte-gruen.png?url";
 import dyeingImg4 from "@/assets/farbkarte-rot.png?url";
 import rawMaterialImg1 from "@/assets/maschine-neu.png?url";
 import rawMaterialImg2 from "@/assets/rohware-hand.png?url";
+import functionalImg1 from "@/assets/wirkstoff-1.jpg?url";
+import functionalImg2 from "@/assets/wirkstoff-2.jpg?url";
+import functionalImg3 from "@/assets/wirkstoff-3.jpg?url";
+import functionalImg4 from "@/assets/wirkstoff-4.jpg?url";
 
 
 // Inline link helper that turns a specific word in a paragraph into a button.
@@ -132,6 +136,8 @@ const Services = () => {
         id: "functional-textiles",
         nav: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
         title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
+        desktopImages: [functionalImg1, functionalImg2, functionalImg3, functionalImg4],
+        mobileImage: functionalImg1,
         text: t(
           "We develop functional warp-knitted fabrics for technical and medical applications.\u00a0\n\nOur textiles are used in compression garments and post-surgical products,\u00a0delivering consistent quality, comfort and reliable performance.",
           "Wir entwickeln funktionale Kettengewirke für technische und medizinische Anwendungen. Unsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit.",
