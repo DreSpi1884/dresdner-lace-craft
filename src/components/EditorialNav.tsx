@@ -30,11 +30,6 @@ const EditorialNav = () => {
     { key: "contact", label: t("CONTACT", "KONTAKT"), path: "/contact" },
   ];
 
-  const contactSections = [
-    { label: t("CONTACT", "KONTAKT"), path: "/contact" },
-    { label: t("CAREERS", "KARRIERE"), path: "/jobs" },
-  ];
-
 const aboutSections = [
   { label: t("HISTORY", "GESCHICHTE"), hash: "#history" },
   { label: t("SUSTAINABILITY", "NACHHALTIGKEIT"), hash: "#sustainability" },
