@@ -127,7 +127,7 @@ const Services = () => {
         nav: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
         title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
         text: t(
-          "We develop functional warp-knitted fabrics for technical and medical applications. Our textiles are used in compression garments and post-surgical products,\u00a0delivering consistent quality, comfort and reliable performance.",
+          "We develop functional warp-knitted fabrics for technical and medical applications.\u00a0\n\nOur textiles are used in compression garments and post-surgical products,\u00a0delivering consistent quality, comfort and reliable performance.",
           "Wir entwickeln funktionale Kettengewirke für technische und medizinische Anwendungen. Unsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit.",
         ),
       },
