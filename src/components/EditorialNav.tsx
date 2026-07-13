@@ -136,7 +136,7 @@ const aboutSections = [
             ref={logoRef}
             src={logoWhite}
             alt="Dresdner Spitzen logo"
-            className="h-16 md:h-20 w-auto pointer-events-none relative z-50"
+            className="h-16 md:h-20 w-auto pointer-events-none relative z-50 object-contain"
             style={{
               transition: isHome && !scrolled
                 ? "none"
@@ -145,17 +145,7 @@ const aboutSections = [
               ...logoStyle,
             }}
           />
-<span
-  className="font-serif text-base md:text-xl lg:text-2xl tracking-wide text-background drop-shadow-md"
-  style={{
-              opacity: isHome ? progress : 1,
-              transition: isHome && !scrolled
-                ? "none"
-                : "opacity 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-            }}
-          >
-            Dresdner Spitzen
-          </span>
+          <span className="sr-only">Dresdner Spitzen</span>
         </Link>
 
 
