@@ -11,10 +11,11 @@ import designImg1 from "@/assets/design-1.jpg?url";
 import designImg2 from "@/assets/design-2.jpg?url";
 import designImg3 from "@/assets/design-3.jpg?url";
 import designImg4 from "@/assets/design-4.jpg?url";
-import dyeingImg1 from "@/assets/farbkarte-blau.jpg?url";
-import dyeingImg2 from "@/assets/farbkarte-gruen.png?url";
-import dyeingImg3 from "@/assets/farbkarte-rot.png?url";
-import dyeingImg4 from "@/assets/faerberei.png?url";
+import dyeingImg1 from "@/assets/faerberei.png?url";
+import dyeingImg2 from "@/assets/farbkarte-blau.jpg?url";
+import dyeingImg3 from "@/assets/farbkarte-gruen.png?url";
+import dyeingImg4 from "@/assets/farbkarte-rot.png?url";
+
 
 // Inline link helper that turns a specific word in a paragraph into a button.
 const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onClick: () => void }): ReactNode => {
