@@ -2,6 +2,23 @@ import { Link } from "react-router-dom";
 import { Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
+import grsLogo from "@/assets/GRS_freigestellt.jpg?url";
+import oekoTexLogo from "@/assets/oeko-tex.png?url";
+
+const FooterCertificationLogos = () => (
+  <div className="mt-4 flex items-center justify-center gap-3 md:justify-start">
+    <img
+      src={grsLogo}
+      alt="Global Recycled Standard"
+      className="w-[72px] md:w-[88px] bg-white object-contain"
+    />
+    <img
+      src={oekoTexLogo}
+      alt="OEKO-TEX STeP"
+      className="w-[86px] md:w-[104px] bg-white object-contain"
+    />
+  </div>
+);
 
 const EditorialFooter = () => {
   const { open: openQuote } = useQuoteModal();
@@ -22,6 +39,8 @@ const EditorialFooter = () => {
       "Tradition trifft Textile Innovation. Seit 1884."
     )}
   </p>
+
+  <FooterCertificationLogos />
 
   <p className="hidden md:block editorial-body-sm text-background/60 max-w-xs whitespace-pre-line mt-4">
     {t(
