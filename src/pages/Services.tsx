@@ -173,171 +173,174 @@ requestAnimationFrame(() => {
 };
 
   const renderBody = (s: ServiceItem) => (
-    <div
-      style={{
-        fontFamily: "'Jost', sans-serif",
-        fontSize: "clamp(15px, 1vw, 18px)",
-        lineHeight: 1.75,
-        maxWidth: "900px",
-        color: "hsl(var(--muted-foreground))",
-      }}
-    >
-      {s.id === "design" && s.mobileImage && (
   <div
-    data-no-reveal
-    className="-mx-6 mb-8"
     style={{
-      opacity: 1,
-      transform: "none",
-      transition: "none",
-      animation: "none",
+      fontFamily: "'Jost', sans-serif",
+      fontSize: "clamp(15px, 1vw, 18px)",
+      lineHeight: 1.75,
+      maxWidth: "900px",
+      color: "hsl(var(--muted-foreground))",
     }}
   >
-    <img
-      data-no-reveal
-      src={s.mobileImage}
-      alt={s.title}
-      loading="eager"
-      decoding="sync"
-      className="block w-full aspect-[4/5] object-cover"
-      style={{
-        opacity: 1,
-        transform: "none",
-        transition: "none",
-        animation: "none",
-      }}
-    />
-  </div>
-)}
-                <h3
-                  className="mt-8 mb-6"
-                  style={{
-                    fontFamily: "'Jost', sans-serif",
-                    fontSize: "12px",
-                    letterSpacing: "2px",
-                    textTransform: "uppercase",
-                    fontWeight: 600,
-                    color: "hsl(var(--primary))",
-                  }}
-                >
-                  {t("Custom Designs", "MASSGESCHNEIDERTE DESIGNS")}
-                </h3>
-                {customIntro?.split("\n").map((line, li, array) => (
-                  <div key={`collections-custom-${lang}-${li}`}>
-                    {line ? <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p> : <div className="h-4" />}
-                  </div>
-                ))}
-                <div className="pb-6 mb-6 border-b border-primary/15 max-w-none mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-4 lg:gap-8">
-                    {processSteps.map((item) => (
-  <div key={item.step} className="group">
-    <div className="mb-2 flex items-baseline gap-3">
-      <span
-        className="italic opacity-40 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          fontFamily: "'Bodoni Moda', serif",
-          fontSize: "24px",
-          lineHeight: 1,
-          color: "hsl(var(--primary))",
-        }}
-      >
-        {item.step}
-      </span>
+    {s.id === "design" ? (
+      <>
+        {(() => {
+          const [intro, customIntro] = s.text.split("\n\n\n\n");
 
-      <h3
-        style={{
-          fontFamily: "'Jost', sans-serif",
-          fontSize: "14px",
-          letterSpacing: "0.5px",
-          textTransform: "uppercase",
-          fontWeight: 600,
-          color: "hsl(var(--primary))",
-        }}
-      >
-        {item.title}
-      </h3>
-    </div>
-
-    <p
-      className="pl-[42px] md:pl-0"
-      style={{
-        fontFamily: "'Jost', sans-serif",
-        fontSize: "13px",
-        lineHeight: 1.55,
-        color: "hsl(var(--muted-foreground) / 0.9)",
-      }}
-    >
-      {item.desc}
-    </p>
-  </div>
-))}
-                  </div>
+          return (
+            <>
+              {intro.split("\n").map((line, li, array) => (
+                <div key={`collections-intro-${lang}-${li}`}>
+                  {line ? (
+                    <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>
+                      {line}
+                    </p>
+                  ) : (
+                    <div className="h-4" />
+                  )}
                 </div>
-              </>
-            );
-          })()}
-          <p className="mt-8">
-            <TextWithLink
-              text={t("Samples are available on request.", "Muster sind auf Anfrage erhältlich.")}
-              link={lang === "de" ? "Anfrage" : "request"}
-              onClick={openQuote}
-            />
+              ))}
+
+              <h3
+                className="mt-8 mb-6"
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: "12px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                {t("Custom Designs", "MASSGESCHNEIDERTE DESIGNS")}
+              </h3>
+
+              {customIntro?.split("\n").map((line, li, array) => (
+                <div key={`collections-custom-${lang}-${li}`}>
+                  {line ? (
+                    <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>
+                      {line}
+                    </p>
+                  ) : (
+                    <div className="h-4" />
+                  )}
+                </div>
+              ))}
+
+              <div className="pb-6 mb-6 border-b border-primary/15 max-w-none mt-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-4 lg:gap-8">
+                  {processSteps.map((item) => (
+                    <div key={item.step} className="group">
+                      <div className="mb-2 flex items-baseline gap-3">
+                        <span
+                          className="italic opacity-40 transition-opacity duration-300 group-hover:opacity-100"
+                          style={{
+                            fontFamily: "'Bodoni Moda', serif",
+                            fontSize: "24px",
+                            lineHeight: 1,
+                            color: "hsl(var(--primary))",
+                          }}
+                        >
+                          {item.step}
+                        </span>
+
+                        <h3
+                          style={{
+                            fontFamily: "'Jost', sans-serif",
+                            fontSize: "14px",
+                            letterSpacing: "0.5px",
+                            textTransform: "uppercase",
+                            fontWeight: 600,
+                            color: "hsl(var(--primary))",
+                          }}
+                        >
+                          {item.title}
+                        </h3>
+                      </div>
+
+                      <p
+                        className="pl-[42px] md:pl-0"
+                        style={{
+                          fontFamily: "'Jost', sans-serif",
+                          fontSize: "13px",
+                          lineHeight: 1.55,
+                          color: "hsl(var(--muted-foreground) / 0.9)",
+                        }}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          );
+        })()}
+
+        <p className="mt-8">
+          <TextWithLink
+            text={t("Samples are available on request.", "Muster sind auf Anfrage erhältlich.")}
+            link={lang === "de" ? "Anfrage" : "request"}
+            onClick={openQuote}
+          />
+        </p>
+      </>
+    ) : s.id === "raw-material-production" ? (
+      <>
+        {s.text.split("\n").map((line, li) => (
+          <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+            {line}
           </p>
-        </>
-      ) : s.id === "raw-material-production" ? (
-        <>
-          {s.text.split("\n").map((line, li) => (
+        ))}
+
+        <p
+          className="mt-8"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontSize: "12px",
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            fontWeight: 600,
+            color: "hsl(var(--primary))",
+          }}
+        >
+          {t("Contract manufacturing available on request.", "LOHNFERTIGUNG AUF ANFRAGE.")}
+        </p>
+      </>
+    ) : s.id === "dyeing-finishing" ? (
+      <>
+        {s.text
+          .split("\n")
+          .slice(0, -1)
+          .map((line, li) => (
             <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
               {line}
             </p>
           ))}
-          <p
-            className="mt-8"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "12px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: "hsl(var(--primary))",
-            }}
-          >
-            {t("Contract manufacturing available on request.", "LOHNFERTIGUNG AUF ANFRAGE.")}
-          </p>
-        </>
-      ) : s.id === "dyeing-finishing" ? (
-        <>
-          {s.text
-            .split("\n")
-            .slice(0, -1)
-            .map((line, li) => (
-              <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-                {line}
-              </p>
-            ))}
-          <p
-            className="mt-8"
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "12px",
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: "hsl(var(--primary))",
-            }}
-          >
-            {s.text.split("\n").slice(-1)[0]}
-          </p>
-        </>
-      ) : (
-        s.text.split("\n").map((line, li) => (
-          <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-            {line}
-          </p>
-        ))
-      )}
-    </div>
-  );
+
+        <p
+          className="mt-8"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontSize: "12px",
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            fontWeight: 600,
+            color: "hsl(var(--primary))",
+          }}
+        >
+          {s.text.split("\n").slice(-1)[0]}
+        </p>
+      </>
+    ) : (
+      s.text.split("\n").map((line, li) => (
+        <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+          {line}
+        </p>
+      ))
+    )}
+  </div>
+);
 
   const renderProcess = (s: ServiceItem) =>
     s.process && (
