@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
-import grsLogo from "@/assets/GRS_freigestellt.png?url";
+import grsLogo from "@/assets/GRS_weiss.png?url";
 import oekoTexLogo from "@/assets/oeko-tex.png?url";
 
 const FooterCertificationLogos = () => (
