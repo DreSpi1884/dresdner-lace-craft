@@ -438,49 +438,48 @@ requestAnimationFrame(() => {
             />
           </button>
 
-          {isOpen && (
-  <div
-  data-no-reveal
-  hidden={!isOpen}
-  className="pb-10 pt-2"
-  style={{
-    opacity: 1,
-    transform: "none",
-    transition: "none",
-    animation: "none",
-  }}
->
-  {s.id === "design" && s.mobileImage && (
-    <div
-      data-no-reveal
-      className="-mx-6 mb-8"
-      style={{
-        opacity: 1,
-        transform: "none",
-        transition: "none",
-        animation: "none",
-      }}
-    >
-      <img
-        data-no-reveal
-        src={s.mobileImage}
-        alt={s.title}
-        loading="eager"
-        decoding="sync"
-        className="block w-full aspect-[4/5] object-cover"
-        style={{
-          opacity: 1,
-          transform: "none",
-          transition: "none",
-          animation: "none",
-        }}
-      />
-    </div>
-  )}
-
-  {renderBody(s)}
-  {renderProcess(s)}
-</div>
+         <div
+          data-no-reveal
+          hidden={!isOpen}
+          className="pb-10 pt-2"
+          style={{
+            opacity: 1,
+            transform: "none",
+            transition: "none",
+            animation: "none",
+          }}
+        >
+          {s.id === "design" && s.mobileImage && (
+            <div
+              data-no-reveal
+              className="-mx-6 mb-8"
+              style={{
+                opacity: 1,
+                transform: "none",
+                transition: "none",
+                animation: "none",
+              }}
+            >
+              <img
+                data-no-reveal
+                src={s.mobileImage}
+                alt={s.title}
+                loading="eager"
+                decoding="sync"
+                className="block w-full aspect-[4/5] object-cover"
+                style={{
+                  opacity: 1,
+                  transform: "none",
+                  transition: "none",
+                  animation: "none",
+                }}
+              />
+            </div>
+          )}
+        
+          {renderBody(s)}
+          {renderProcess(s)}
+        </div>
           
         </div>
 
