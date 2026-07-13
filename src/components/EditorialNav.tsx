@@ -3,7 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang, type Lang } from "@/i18n/LanguageContext";
-import logoWhite from "@/assets/dresdner-spitzen-logo-weiss.png?url";
+import logoAsset from "@/assets/dresdner-spitzen-logo-weiss.png.asset.json";
+const logoWhite = logoAsset.url;
 
 const languages: { code: Lang; label: string }[] = [
   { code: "en", label: "EN" },
@@ -11,12 +12,12 @@ const languages: { code: Lang; label: string }[] = [
 ];
 
 const getHeroScale = (width: number) => {
-  if (width < 640) return 4.4;
-  if (width < 768) return 4.6;
-  if (width < 1024) return 4.8;
-  if (width < 1280) return 4.4;
-  if (width < 1536) return 5;
-  return 5.8;
+  if (width < 640) return 2.8;
+  if (width < 768) return 3.0;
+  if (width < 1024) return 3.2;
+  if (width < 1280) return 3.0;
+  if (width < 1536) return 3.4;
+  return 3.8;
 };
 
 
@@ -135,7 +136,7 @@ const aboutSections = [
             ref={logoRef}
             src={logoWhite}
             alt="Dresdner Spitzen logo"
-            className="h-16 md:h-20 w-auto pointer-events-none relative z-50"
+            className="h-16 md:h-20 w-auto pointer-events-none relative z-50 object-contain"
             style={{
               transition: isHome && !scrolled
                 ? "none"
@@ -144,17 +145,7 @@ const aboutSections = [
               ...logoStyle,
             }}
           />
-<span
-  className="font-serif text-base md:text-xl lg:text-2xl tracking-wide text-background drop-shadow-md"
-  style={{
-              opacity: isHome ? progress : 1,
-              transition: isHome && !scrolled
-                ? "none"
-                : "opacity 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-            }}
-          >
-            Dresdner Spitzen
-          </span>
+          <span className="sr-only">Dresdner Spitzen</span>
         </Link>
 
 
