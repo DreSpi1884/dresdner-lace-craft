@@ -213,31 +213,27 @@ const Index = () => {
       />
     </div>
 
-    <div className="px-6 md:px-[60px] lg:px-[80px]">
-      <p className="editorial-label text-primary mb-4">
-        {t("", "")}
-      </p>
+    <div className="px-6 md:px-[60px] lg:px-[80px] text-center flex flex-col items-center">
+  <h2 className="editorial-heading-lg text-foreground mb-6">
+    {t("Our Story", "Unsere Geschichte")}
+  </h2>
 
-      <h2 className="editorial-heading-lg text-foreground mb-6">
-        {t("Our Story", "Unsere Geschichte")}
-      </h2>
+  <div className="space-y-4 editorial-body text-muted-foreground max-w-2xl mx-auto">
+    <p>
+      {t(
+        "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
+        "Mehr als 140 Jahre Geschichte erzählen von Wandel und Innovationsgeist. Geblieben ist unsere Leidenschaft und unser Anspruch an hochwertige Textilien.",
+      )}
+    </p>
+  </div>
 
-      <div className="space-y-4 editorial-body text-muted-foreground max-w-2xl">
-        <p>
-          {t(
-            "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
-            "Mehr als 140 Jahre Geschichte erzählen von Wandel und Innovationsgeist. Geblieben ist unsere Leidenschaft und unser Anspruch an hochwertige Textilien.",
-          )}
-        </p>
-      </div>
-
-      <Link
-        to="/about"
-        className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300"
-      >
-        {t("From 1884 to today", "von 1884 bis heute")} <ArrowRight size={16} />
-      </Link>
-    </div>
+  <Link
+    to="/about"
+    className="inline-flex items-center justify-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300"
+  >
+    {t("From 1884 to today", "Von 1884 bis heute")} <ArrowRight size={16} />
+  </Link>
+</div>
   </div>
 </section>
       
