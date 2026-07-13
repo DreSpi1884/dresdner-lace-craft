@@ -15,6 +15,8 @@ import dyeingImg1 from "@/assets/faerberei.png?url";
 import dyeingImg2 from "@/assets/farbkarte-blau.jpg?url";
 import dyeingImg3 from "@/assets/farbkarte-gruen.png?url";
 import dyeingImg4 from "@/assets/farbkarte-rot.png?url";
+import rawMaterialImg1 from "@/assets/maschine-neu.png?url";
+import rawMaterialImg2 from "@/assets/rohware-hand.png?url";
 
 
 // Inline link helper that turns a specific word in a paragraph into a button.
@@ -108,6 +110,8 @@ const Services = () => {
         id: "raw-material-production",
         nav: t("Raw Material Production", "Rohwarenproduktion"),
         title: t("Raw Material Production", "Rohwarenproduktion"),
+        desktopImages: [rawMaterialImg1, rawMaterialImg2],
+        mobileImage: rawMaterialImg1,
         text: t(
           "All production processes takes place under one roof in Dresden, Germany.\nOn Karl Mayer Raschel, Jacquardtronic® and Textronic® machines, we manufacture premium lace, elastic fabrics and technical textiles with over 140 years of textile expertise.",
           "Die gesamte Produktion findet unter einem Dach in Dresden statt.\nAuf Karl Mayer Raschel-, Jacquardtronic®- und Textronic®-Maschinen fertigen wir hochwertige Spitzen, elastische Stoffe und technische Textilien mit über 140 Jahren Textilexpertise.\u00a0",
