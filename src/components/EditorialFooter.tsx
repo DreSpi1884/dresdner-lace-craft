@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
-import grsLogo from "@/assets/GRS_weiss.png?url";
+import grsLogo from "@/assets/GRS_freigestellt.png?url";
 import oekoTexLogo from "@/assets/oeko-tex.png?url";
 
 const FooterCertificationLogos = () => (
@@ -10,12 +10,12 @@ const FooterCertificationLogos = () => (
     <img
       src={grsLogo}
       alt="Global Recycled Standard"
-      className="w-[72px] md:w-[88px] object-contain"
+      className="w-[72px] md:w-[88px] bg-white object-contain"
     />
     <img
       src={oekoTexLogo}
       alt="OEKO-TEX STeP"
-      className="w-[86px] md:w-[104px] bg-white object-contain"
+      className="w-[86px] md:w-[104px] object-contain"
     />
   </div>
 );
