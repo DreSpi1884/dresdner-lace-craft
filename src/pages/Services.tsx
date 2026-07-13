@@ -11,6 +11,10 @@ import designImg1 from "@/assets/design-1.jpg?url";
 import designImg2 from "@/assets/design-2.jpg?url";
 import designImg3 from "@/assets/design-3.jpg?url";
 import designImg4 from "@/assets/design-4.jpg?url";
+import dyeingImg1 from "@/assets/farbkarte-blau.jpg?url";
+import dyeingImg2 from "@/assets/farbkarte-gruen.png?url";
+import dyeingImg3 from "@/assets/farbkarte-rot.png?url";
+import dyeingImg4 from "@/assets/faerberei.png?url";
 
 // Inline link helper that turns a specific word in a paragraph into a button.
 const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onClick: () => void }): ReactNode => {
@@ -76,14 +80,14 @@ const Services = () => {
     [t],
   );
   type ServiceItem = {
-    id: string;
-    nav: string;
-    title: string;
-    text: string;
-    process?: typeof processSteps;
-    desktopImages?: string[];
-    mobileImage?: string;
-  };
+  id: string;
+  nav: string;
+  title: string;
+  text: string;
+  process?: typeof processSteps;
+  desktopImages?: string[];
+  mobileImage?: string;
+};
 
   const services = useMemo(
     (): ServiceItem[] => [
@@ -111,6 +115,8 @@ const Services = () => {
         id: "dyeing-finishing",
         nav: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
         title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
+        desktopImages: [dyeingImg1, dyeingImg2, dyeingImg3, dyeingImg4],
+        mobileImage: dyeingImg1,
         text: t(
           "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes.\nWe use jet dyeing technology, reducing water consumption by up to 70% compared to conventional dyeing methods.\nWe also provide finishing tailored to your intended application.\nHydrophilic | Hydrophobic | Antistatic | Flame Retardant | Soft Finish | Stiff Finish\n\nContract dyeing and finishing services available on request.",
           "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 70% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\u00a0\nHydrophil | Hydrophob | Antistatisch | Flammhemmend | Weichausrüstung | Steifausrüstung\nLohnfärberei und -ausrüstung auf Anfrage.",
@@ -515,6 +521,15 @@ requestAnimationFrame(() => {
           />
         </div>
       ))}
+    </div>
+  ) : s.desktopImage ? (
+    <div data-no-reveal className="relative h-full min-h-[760px] overflow-hidden">
+      <img
+        data-no-reveal
+        src={s.desktopImage}
+        alt={s.title}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
     </div>
   ) : (
     <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
