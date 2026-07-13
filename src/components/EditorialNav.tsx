@@ -11,12 +11,12 @@ const languages: { code: Lang; label: string }[] = [
 ];
 
 const getHeroScale = (width: number) => {
-  if (width < 640) return 3.45;
-  if (width < 768) return 3.7;
-  if (width < 1024) return 3.9;
-  if (width < 1280) return 3.6;
-  if (width < 1536) return 4.1;
-  return 5;
+  if (width < 640) return 4.4;
+  if (width < 768) return 4.6;
+  if (width < 1024) return 4.8;
+  if (width < 1280) return 4.4;
+  if (width < 1536) return 5;
+  return 5.8;
 };
 
 
@@ -91,7 +91,7 @@ const aboutSections = [
     setLogoStyle({
     position: "fixed",
     left: "50%",
-    top: "42vh",
+    top: "45vh",
     transform: `translate(-50%, -50%) scale(${getHeroScale(window.innerWidth)})`,
     transformOrigin: "center center",
   });
