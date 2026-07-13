@@ -1,9 +1,9 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
-import logo from "@/assets/logo-white.png.asset.json";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang, type Lang } from "@/i18n/LanguageContext";
+import logoWhite from "@/assets/dresdner-spitzen-logo-weiss.png?url";
 
 const languages: { code: Lang; label: string }[] = [
   { code: "en", label: "EN" },
@@ -138,7 +138,7 @@ const aboutSections = [
         >
           <img
             ref={logoRef}
-            src={logo.url}
+            src={logoWhite}
             alt="Dresdner Spitzen logo"
             className="h-16 md:h-20 w-auto pointer-events-none relative z-50"
             style={{
