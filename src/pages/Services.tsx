@@ -387,7 +387,6 @@ requestAnimationFrame(() => {
       <article
       key={s.id}
       id={s.id}
-      data-idx={i}
       data-no-reveal
       className="border-b border-primary/10 scroll-mt-36"
       >
@@ -415,15 +414,20 @@ requestAnimationFrame(() => {
           </button>
 
           {isOpen && (
-            <div className="pb-10 pt-2">
+  <div
+    data-no-reveal
+    className="pb-10 pt-2 opacity-100 translate-y-0 transform-none transition-none duration-0"
+  >
               {s.id === "design" && s.mobileImage && (
                 <div data-no-reveal className="-mx-6 mb-8">
                   <img
-  data-no-reveal
-  src={s.mobileImage}
-  alt={s.title}
-  className="block w-full aspect-[4/5] object-cover"
-/>
+                    data-no-reveal
+                    src={s.mobileImage}
+                    alt={s.title}
+                    loading="eager"
+                    decoding="sync"
+                    className="block w-full aspect-[4/5] object-cover opacity-100 translate-y-0 transform-none transition-none duration-0"
+                  />
                 </div>
               )}
           
