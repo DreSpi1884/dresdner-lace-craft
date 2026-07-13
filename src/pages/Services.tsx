@@ -417,71 +417,62 @@ requestAnimationFrame(() => {
       >
 
 
-        
-        {/* Mobile accordion section */}
-        <div data-no-reveal className="lg:hidden px-6">
-          <button
-            type="button"
-            onClick={() => openMobileSection(s.id)}
-            aria-expanded={isOpen}
-            className="flex w-full items-center justify-between py-6 text-left"
-          >
-            <span className="editorial-label tracking-[0.22em] text-primary">
-              {s.nav}
-            </span>
+{/* Mobile accordion section */}
+<div data-no-reveal className="lg:hidden px-6">
+  <button
+    type="button"
+    onClick={() => openMobileSection(s.id)}
+    aria-expanded={isOpen}
+    className="flex w-full items-center justify-between py-6 text-left"
+  >
+    <span className="editorial-label tracking-[0.22em] text-primary">
+      {s.nav}
+    </span>
 
-            <ChevronDown
-              className={`ml-4 h-5 w-5 shrink-0 transition-transform duration-150 ${
-                isOpen ? "rotate-180" : ""
-              }`}
-              style={{ color: "hsl(var(--primary))" }}
-            />
-          </button>
+    <ChevronDown
+      className={`ml-4 h-5 w-5 shrink-0 transition-transform duration-150 ${
+        isOpen ? "rotate-180" : ""
+      }`}
+      style={{ color: "hsl(var(--primary))" }}
+    />
+  </button>
 
-         <div
-          data-no-reveal
-          hidden={!isOpen}
-          className="pb-10 pt-2"
-          style={{
-            opacity: 1,
-            transform: "none",
-            transition: "none",
-            animation: "none",
-          }}
-        >
-          {s.id === "design" && s.mobileImage && (
-            <div
-              data-no-reveal
-              className="-mx-6 mb-8"
-              style={{
-                opacity: 1,
-                transform: "none",
-                transition: "none",
-                animation: "none",
-              }}
-            >
-              <img
-                data-no-reveal
-                src={s.mobileImage}
-                alt={s.title}
-                loading="eager"
-                decoding="sync"
-                className="block w-full aspect-[4/5] object-cover"
-                style={{
-                  opacity: 1,
-                  transform: "none",
-                  transition: "none",
-                  animation: "none",
-                }}
-              />
-            </div>
-          )}
-        
-          {renderBody(s)}
-          {renderProcess(s)}
-        </div>
-          
-        </div>
+  {s.mobileImage && (
+    <div
+      data-no-reveal
+      className="-mx-6 mb-8"
+      style={{
+        opacity: 1,
+        transform: "none",
+        transition: "none",
+        animation: "none",
+      }}
+    >
+      <img
+        data-no-reveal
+        src={s.mobileImage}
+        alt={s.title}
+        loading="eager"
+        decoding="sync"
+        className="block w-full aspect-[4/5] object-cover"
+        style={{
+          opacity: 1,
+          transform: "none",
+          transition: "none",
+          animation: "none",
+        }}
+      />
+    </div>
+  )}
+
+  <div
+    hidden={!isOpen}
+    className="pb-10 pt-2"
+  >
+    {renderBody(s)}
+    {renderProcess(s)}
+  </div>
+</div>
 
         {/* Desktop split section */}
         <div data-no-reveal className="hidden lg:grid lg:grid-cols-2">
