@@ -508,17 +508,13 @@ requestAnimationFrame(() => {
           </div>
 
 <div data-no-reveal className="min-h-[760px] bg-muted">
-  {s.desktopImages ? (
+  {s.id === "design" && s.desktopImages ? (
     <div
       data-no-reveal
       className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
     >
       {s.desktopImages.map((img, idx) => (
-        <div
-          key={idx}
-          data-no-reveal
-          className="relative overflow-hidden"
-        >
+        <div key={idx} data-no-reveal className="relative overflow-hidden">
           <img
             data-no-reveal
             src={img}
@@ -528,14 +524,21 @@ requestAnimationFrame(() => {
         </div>
       ))}
     </div>
-  ) : s.desktopImage ? (
-    <div data-no-reveal className="relative h-full min-h-[760px] overflow-hidden">
-      <img
-        data-no-reveal
-        src={s.desktopImage}
-        alt={s.title}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+  ) : s.id === "raw-material-production" && s.desktopImages ? (
+    <div
+      data-no-reveal
+      className="grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
+    >
+      {s.desktopImages.map((img, idx) => (
+        <div key={idx} data-no-reveal className="relative overflow-hidden">
+          <img
+            data-no-reveal
+            src={img}
+            alt={`${s.title} ${idx + 1}`}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      ))}
     </div>
   ) : (
     <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
