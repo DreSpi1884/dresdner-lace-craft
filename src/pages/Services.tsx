@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
@@ -37,6 +37,12 @@ const Services = () => {
   const { t, lang } = useLang();
   const { open: openQuote } = useQuoteModal();
   const location = useLocation();
+  useEffect(() => {
+  [designImg1, designImg2, designImg3, designImg4].forEach((src) => {
+    const image = new Image();
+    image.src = src;
+  });
+}, []);
 
   const processSteps = useMemo(
     () => [
@@ -176,17 +182,33 @@ requestAnimationFrame(() => {
         color: "hsl(var(--muted-foreground))",
       }}
     >
-      {s.id === "design" ? (
-        <>
-          {(() => {
-            const [intro, customIntro] = s.text.split("\n\n\n\n");
-            return (
-              <>
-                {intro.split("\n").map((line, li, array) => (
-                  <div key={`collections-intro-${lang}-${li}`}>
-                    {line ? <p className={li > 0 && array[li - 1] ? "mt-3" : ""}>{line}</p> : <div className="h-4" />}
-                  </div>
-                ))}
+      {s.id === "design" && s.mobileImage && (
+  <div
+    data-no-reveal
+    className="-mx-6 mb-8"
+    style={{
+      opacity: 1,
+      transform: "none",
+      transition: "none",
+      animation: "none",
+    }}
+  >
+    <img
+      data-no-reveal
+      src={s.mobileImage}
+      alt={s.title}
+      loading="eager"
+      decoding="sync"
+      className="block w-full aspect-[4/5] object-cover"
+      style={{
+        opacity: 1,
+        transform: "none",
+        transition: "none",
+        animation: "none",
+      }}
+    />
+  </div>
+)}
                 <h3
                   className="mt-8 mb-6"
                   style={{
