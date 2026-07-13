@@ -122,7 +122,7 @@ const Services = () => {
         nav: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
         title: t("Dyeing & Finishing", "Färbung & Ausrüstung"),
         desktopImages: [dyeingImg1, dyeingImg2, dyeingImg3, dyeingImg4],
-        mobileImage: dyeingImg1,
+        mobileImage: dyeingImg2,
         text: t(
           "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes.\nWe use jet dyeing technology, reducing water consumption by up to 70% compared to conventional dyeing methods.\nWe also provide finishing tailored to your intended application.\nHydrophilic | Hydrophobic | Antistatic | Flame Retardant | Soft Finish | Stiff Finish\n\nContract dyeing and finishing services available on request.",
           "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 70% Wasser sparen im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\u00a0\nHydrophil | Hydrophob | Antistatisch | Flammhemmend | Weichausrüstung | Steifausrüstung\nLohnfärberei und -ausrüstung auf Anfrage.",
