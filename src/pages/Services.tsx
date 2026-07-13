@@ -507,11 +507,11 @@ requestAnimationFrame(() => {
             </div>
           </div>
 
-<div data-no-reveal className="min-h-[760px] bg-muted">
-  {s.id === "design" && s.desktopImages ? (
+            <div data-no-reveal className="min-h-[760px] bg-muted">
+  {s.id === "raw-material-production" && s.desktopImages ? (
     <div
       data-no-reveal
-      className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
+      className="grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
     >
       {s.desktopImages.map((img, idx) => (
         <div key={idx} data-no-reveal className="relative overflow-hidden">
@@ -524,10 +524,10 @@ requestAnimationFrame(() => {
         </div>
       ))}
     </div>
-  ) : s.id === "raw-material-production" && s.desktopImages ? (
+  ) : s.desktopImages ? (
     <div
       data-no-reveal
-      className="grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
+      className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
     >
       {s.desktopImages.map((img, idx) => (
         <div key={idx} data-no-reveal className="relative overflow-hidden">
@@ -561,6 +561,7 @@ requestAnimationFrame(() => {
     </div>
   )}
 </div>
+
         </div>
       </article>
     );
