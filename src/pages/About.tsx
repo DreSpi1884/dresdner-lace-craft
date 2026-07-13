@@ -8,7 +8,7 @@ import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
-import grsLogo from "@/assets/GRS.jpg?url";
+import grsLogo from "@/assets/GRS-freigestellt.jpg?url";
 import oekoTexLogo from "@/assets/oeko-tex.png?url";
 
 const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
