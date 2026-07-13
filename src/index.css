@@ -290,3 +290,12 @@ footer nav a:hover::after {
   }
 }
 
+[data-no-reveal],
+[data-no-reveal] *,
+[data-no-reveal] img {
+  opacity: 1 !important;
+  transform: none !important;
+  translate: none !important;
+  transition: none !important;
+  animation: none !important;
+}
