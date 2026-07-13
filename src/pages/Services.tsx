@@ -440,26 +440,47 @@ requestAnimationFrame(() => {
 
           {isOpen && (
   <div
-    data-no-reveal
-    className="pb-10 pt-2 opacity-100 translate-y-0 transform-none transition-none duration-0"
-  >
-              {s.id === "design" && s.mobileImage && (
-                <div data-no-reveal className="-mx-6 mb-8">
-                  <img
-                    data-no-reveal
-                    src={s.mobileImage}
-                    alt={s.title}
-                    loading="eager"
-                    decoding="sync"
-                    className="block w-full aspect-[4/5] object-cover opacity-100 translate-y-0 transform-none transition-none duration-0"
-                  />
-                </div>
-              )}
-          
-              {renderBody(s)}
-              {renderProcess(s)}
-            </div>
-          )}
+  data-no-reveal
+  hidden={!isOpen}
+  className="pb-10 pt-2"
+  style={{
+    opacity: 1,
+    transform: "none",
+    transition: "none",
+    animation: "none",
+  }}
+>
+  {s.id === "design" && s.mobileImage && (
+    <div
+      data-no-reveal
+      className="-mx-6 mb-8"
+      style={{
+        opacity: 1,
+        transform: "none",
+        transition: "none",
+        animation: "none",
+      }}
+    >
+      <img
+        data-no-reveal
+        src={s.mobileImage}
+        alt={s.title}
+        loading="eager"
+        decoding="sync"
+        className="block w-full aspect-[4/5] object-cover"
+        style={{
+          opacity: 1,
+          transform: "none",
+          transition: "none",
+          animation: "none",
+        }}
+      />
+    </div>
+  )}
+
+  {renderBody(s)}
+  {renderProcess(s)}
+</div>
           
         </div>
 
