@@ -12,12 +12,12 @@ const languages: { code: Lang; label: string }[] = [
 ];
 
 const getHeroScale = (width: number) => {
-  if (width < 640) return 5.5;
-  if (width < 768) return 6.5;
-  if (width < 1024) return 7.5;
-  if (width < 1280) return 7.5;
-  if (width < 1536) return 8.5;
-  return 9.5;
+  if (width < 640) return 5.6;
+  if (width < 768) return 5.8;
+  if (width < 1024) return 6;
+  if (width < 1280) return 5.4;
+  if (width < 1536) return 6.2;
+  return 7;
 };
 
 
@@ -136,7 +136,7 @@ const aboutSections = [
             ref={logoRef}
             src={logoWhite}
             alt="Dresdner Spitzen logo"
-            className="h-16 md:h-20 w-auto pointer-events-none relative z-50 object-contain"
+            className="h-28 md:h-32 w-auto pointer-events-none relative z-50 object-contain"
             style={{
               transition: isHome && !scrolled
                 ? "none"
