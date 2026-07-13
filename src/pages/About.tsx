@@ -10,18 +10,26 @@ import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 import grsLogo from "@/assets/GRS_freigestellt.png?url";
 import oekoTexLogo from "@/assets/oeko-tex.png?url";
+import umweltallianzLogo from "@/assets/Umweltallianz Sachsen.png?url";
 
 const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
   <div className={`flex flex-row items-center gap-3 md:gap-5 ${className}`}>
     <img
       src={grsLogo}
       alt="Global Recycled Standard certified by Control Union"
-      className="w-[118px] md:w-[190px] lg:w-[220px] bg-white object-contain"
+      className="w-[86px] md:w-[170px] lg:w-[205px] bg-white object-contain"
     />
+
     <img
       src={oekoTexLogo}
       alt="OEKO-TEX STeP certification"
-      className="w-[138px] md:w-[230px] lg:w-[260px] bg-white object-contain"
+      className="w-[100px] md:w-[205px] lg:w-[240px] bg-white object-contain"
+    />
+
+    <img
+      src={umweltallianzLogo}
+      alt="Umwelt- und Klimaallianz Sachsen"
+      className="w-[58px] md:w-[110px] lg:w-[130px] object-contain"
     />
   </div>
 );
