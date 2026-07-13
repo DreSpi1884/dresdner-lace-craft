@@ -80,14 +80,15 @@ const Services = () => {
     [t],
   );
   type ServiceItem = {
-  id: string;
-  nav: string;
-  title: string;
-  text: string;
-  process?: typeof processSteps;
-  desktopImages?: string[];
-  mobileImage?: string;
-};
+    id: string;
+    nav: string;
+    title: string;
+    text: string;
+    process?: typeof processSteps;
+    desktopImages?: string[];
+    desktopImage?: string;
+    mobileImage?: string;
+  };
 
   const services = useMemo(
     (): ServiceItem[] => [
