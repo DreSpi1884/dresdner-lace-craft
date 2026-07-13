@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, ArrowRight } from "lucide-react";
+import { Instagram, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
 import grsLogo from "@/assets/GRS_freigestellt.png?url";
@@ -107,15 +107,8 @@ const EditorialFooter = () => {
 {/* Contact */}
 <div>
   {/* Mobile compact contact */}
-  <div className="md:hidden text-center">
-    <a
-      className="editorial-body-sm text-background/70 hover:text-background transition-colors"
-      href="mailto:sales@dresdnerspitzen.com"
-    >
-      sales@dresdnerspitzen.com
-    </a>
-
-    <div className="mt-5 flex items-center justify-center gap-8">
+<div className="md:hidden text-center">
+  <div className="mt-5 flex items-center justify-center gap-8">
       <div className="flex items-center gap-4">
         <button
           onClick={() => setLang("de")}
@@ -141,8 +134,16 @@ const EditorialFooter = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <a
-          href="https://www.instagram.com/dresdnerspitzen"
+  <a
+    href="mailto:sales@dresdnerspitzen.com"
+    aria-label="Email"
+    className="text-background/70 hover:text-background transition-colors"
+  >
+    <Mail size={18} />
+  </a>
+
+  <a
+    href="https://www.instagram.com/dresdnerspitzen/"
           target="_blank"
           rel="noopener noreferrer nofollow"
           aria-label="Instagram"
