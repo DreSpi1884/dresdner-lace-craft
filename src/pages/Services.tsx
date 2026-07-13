@@ -454,7 +454,7 @@ requestAnimationFrame(() => {
         alt={s.title}
         loading="eager"
         decoding="sync"
-        className="block w-full aspect-[16/7] object-cover"
+        className="block w-full aspect-[4/3] object-cover"
         style={{
           opacity: 1,
           transform: "none",
