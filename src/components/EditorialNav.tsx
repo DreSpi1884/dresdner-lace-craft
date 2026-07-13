@@ -132,7 +132,7 @@ const aboutSections = [
       <nav className="flex items-center justify-between h-20 md:h-24 pl-2 md:pl-4 pr-4 md:pr-8">
         <Link 
           to="/"
-        className={`flex items-center gap-1 text-background transition-opacity ${
+        className={`flex items-center gap-2 md:gap-3 text-background transition-opacity ${
           isOpen ? "opacity-0 pointer-events-none" : ""
         } ${isHome && !scrolled ? "pointer-events-none" : ""}`}
         >
@@ -150,7 +150,7 @@ const aboutSections = [
             }}
           />
 <span
-  className="font-serif text-lg md:text-2xl lg:text-3xl tracking-wide text-background drop-shadow-md -ml-1"
+  className="font-serif text-base md:text-xl lg:text-2xl tracking-wide text-background drop-shadow-md"
   style={{
               opacity: isHome ? progress : 1,
               transition: isHome && !scrolled
