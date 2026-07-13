@@ -96,7 +96,7 @@ const Index = () => {
 
           <span
             className="editorial-label text-primary leading-tight"
-            style={{ fontSize: "clamp(9px, 1vw, 13px)" }}
+            style={{ fontSize: "clamp(11px, 1vw, 15px)" }}
           >
             {text}
           </span>
