@@ -3,7 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang, type Lang } from "@/i18n/LanguageContext";
-import logoWhite from "@/assets/dresdner-spitzen-logo-weiss.png?url";
+import logoAsset from "@/assets/dresdner-spitzen-logo-weiss.png.asset.json";
+const logoWhite = logoAsset.url;
 
 const languages: { code: Lang; label: string }[] = [
   { code: "en", label: "EN" },
