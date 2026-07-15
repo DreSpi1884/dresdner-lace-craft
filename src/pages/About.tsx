@@ -12,7 +12,13 @@ import grsLogo from "@/assets/GRS_freigestellt.png?url";
 import oekoTexLogo from "@/assets/oeko-tex.png?url";
 import umweltallianzLogo from "@/assets/Umweltallianz Sachsen.png?url";
 
-const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
+const SustainabilityLogos = ({
+  className = "",
+  excludeUmweltallianz = false,
+}: {
+  className?: string;
+  excludeUmweltallianz?: boolean;
+}) => (
   <div className={`flex flex-row items-center gap-3 md:gap-5 ${className}`}>
     <img
       src={grsLogo}
@@ -26,11 +32,13 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
       className="w-[100px] md:w-[205px] lg:w-[240px] bg-white object-contain"
     />
 
-    <img
-      src={umweltallianzLogo}
-      alt="Umwelt- und Klimaallianz Sachsen"
-      className="w-[58px] md:w-[110px] lg:w-[130px] object-contain"
-    />
+    {!excludeUmweltallianz && (
+      <img
+        src={umweltallianzLogo}
+        alt="Umwelt- und Klimaallianz Sachsen"
+        className="w-[58px] md:w-[110px] lg:w-[130px] object-contain"
+      />
+    )}
   </div>
 );
 
@@ -138,7 +146,7 @@ useLayoutEffect(() => {
       )}
     </p>
 
-    <SustainabilityLogos className="my-8" />
+    <SustainabilityLogos className="my-8" excludeUmweltallianz />
 
     <p>
       {t(
@@ -146,6 +154,12 @@ useLayoutEffect(() => {
         "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
       )}
     </p>
+
+    <img
+      src={umweltallianzLogo}
+      alt="Umwelt- und Klimaallianz Sachsen"
+      className="w-[80px] md:w-[120px] object-contain"
+    />
 
     <p>{"\n"}</p>
 
