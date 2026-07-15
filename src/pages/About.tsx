@@ -54,7 +54,7 @@ const SustainabilityLogos = ({
 }) => (
   <div
     data-no-reveal
-    className={`flex w-full flex-row items-center gap-4 md:gap-5 ${className}`}
+    className={`flex w-full flex-row flex-wrap items-center justify-center gap-4 md:flex-nowrap md:gap-5 ${className}`}
   >
     <img
       data-no-reveal
