@@ -475,7 +475,7 @@ requestAnimationFrame(() => {
     data-no-reveal
     role="img"
     aria-label={s.title}
-    className="-mx-6 mb-8 aspect-[4/3] overflow-hidden bg-muted bg-cover bg-center"
+    className="-mx-6 aspect-[4/3] overflow-hidden bg-muted bg-cover bg-center"
     style={{
       backgroundImage: `url(${s.mobileImage})`,
       opacity: 1,
