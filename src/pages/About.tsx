@@ -40,7 +40,6 @@ const SolarImageCard = ({
         <p className="hidden max-w-[54ch] xl:max-w-[75ch] 2xl:max-w-[90ch] text-left text-[17px] leading-[1.65] text-background drop-shadow-md lg:block">
           {desktopText}
         </p>
-        </p>
       </>
     </figcaption>
   </figure>
@@ -130,7 +129,7 @@ useLayoutEffect(() => {
 }, [location.hash]);
   
   return (
-    <Layout title={t("About Us", "Über uns")} heroCompact>
+    <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
       <SEO
         title={t("About Us — 140 Years of German Textile Craft", "Über uns — 140 Jahre deutsche Textilkunst")}
         description={t(
@@ -162,7 +161,7 @@ useLayoutEffect(() => {
           aria-expanded={isOpen}
           className="flex w-full items-center justify-between px-6 py-6 text-left"
         >
-          <span className="-label tracking-[0.22em] text-primary">
+          <span className="editorial-label tracking-[0.22em] text-primary">
             {section.label}
           </span>
 
@@ -278,12 +277,12 @@ useLayoutEffect(() => {
         <HistoryTimeline />
       </div>
 
-      <section id="sustainability" className="hidden lg:block -section scroll-mt-32">
-  <div className="-container">
+      <section id="sustainability" className="hidden lg:block editorial-section scroll-mt-32">
+  <div className="editorial-container">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
       {/* Left column: headline + solar image */}
       <div>
-        <h2 className="-heading-lg text-foreground mb-0">
+        <h2 className="editorial-heading-lg text-foreground mb-0">
           {t("Sustainability", "Nachhaltigkeit")}
         </h2>
 
