@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
+
+const DESKTOP_SCROLL_OFFSET = 180;
 
 const ProductionAnchorNav = () => {
   const { t } = useLang();
-
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState("design");
 
   const sections = useMemo(
@@ -19,67 +22,83 @@ const ProductionAnchorNav = () => {
       },
       {
         id: "functional-textiles",
-        label: t("Functional & medical textiles", "Funktions- & Medizintextilien"),
+        label: t(
+          "Functional & medical textiles",
+          "Funktions- & Medizintextilien"
+        ),
       },
     ],
     [t]
   );
 
-  const scrollToSection = (id: string) => {
+  const getSectionTop = (id: string) => {
     const element = document.getElementById(id);
-    if (!element) return;
+    if (!element) return null;
+
+    return element.getBoundingClientRect().top + window.scrollY;
+  };
+
+  const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
+    const top = getSectionTop(id);
+    if (top === null) return;
 
     setActiveSection(id);
- 
-    const offset = 180;
-    const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
-    window.scrollTo({ top, behavior: "smooth" });
+    window.scrollTo({
+      top: top - DESKTOP_SCROLL_OFFSET,
+      behavior,
+    });
+
     window.history.replaceState(null, "", `#${id}`);
   };
 
-useEffect(() => {
-  if (window.innerWidth < 1024) return;
+  useEffect(() => {
+    if (window.innerWidth < 1024) return;
 
-  const hash = window.location.hash.replace("#", "");
-  const isValidHash = sections.some((section) => section.id === hash);
+    const hash = location.hash.replace("#", "");
+    const isValidHash = sections.some((section) => section.id === hash);
 
-  if (isValidHash) {
-    setActiveSection(hash);
-  }
-}, [sections]);
+    if (!isValidHash) return;
 
-useEffect(() => {
-  if (window.innerWidth < 1024) return;
+    const timer = window.setTimeout(() => {
+      scrollToSection(hash, "auto");
+    }, 120);
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+    return () => window.clearTimeout(timer);
+  }, [location.hash, sections]);
 
-      if (visibleEntries.length > 0) {
-        setActiveSection(visibleEntries[0].target.id);
-      }
-    },
-    {
-      threshold: 0.2,
-      rootMargin: "-20% 0px -65% 0px",
-    }
-  );
+  useEffect(() => {
+    if (window.innerWidth < 1024) return;
 
-  sections.forEach((section) => {
-    const element = document.getElementById(section.id);
-    if (element) observer.observe(element);
-  });
+    const updateActiveSection = () => {
+      const anchorLine = window.scrollY + DESKTOP_SCROLL_OFFSET + 8;
 
-  return () => observer.disconnect();
-}, [sections]);
+      let current = sections[0].id;
+
+      sections.forEach((section) => {
+        const top = getSectionTop(section.id);
+        if (top !== null && top <= anchorLine) {
+          current = section.id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    updateActiveSection();
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [sections]);
 
   return (
-    <nav className="sticky top-24 z-40 hidden lg:block bg-background/95 backdrop-blur border-b border-primary/10">
-
-
-      {/* Desktop navigation */}
-      <div className="hidden lg:flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
+    <nav className="sticky top-24 z-40 hidden bg-background/95 backdrop-blur border-b border-primary/10 lg:block">
+      <div className="flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
         {sections.map((section) => (
           <button
             key={section.id}
