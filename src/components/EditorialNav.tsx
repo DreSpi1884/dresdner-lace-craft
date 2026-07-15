@@ -99,6 +99,8 @@ const EditorialNav = () => {
   const logoRef = useRef<HTMLImageElement>(null);
   const naturalCenter = useRef<{ cx: number; cy: number } | null>(null);
   const [logoStyle, setLogoStyle] = useState<CSSProperties>({});
+  const [logoReady, setLogoReady] = useState(false);
+  const [logoTransitionEnabled, setLogoTransitionEnabled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 0);
@@ -110,74 +112,102 @@ const EditorialNav = () => {
   }, []);
 
   useLayoutEffect(() => {
-    const updateLogo = () => {
-      const nc = naturalCenter.current;
-      if (!nc) return;
+  let enableTransitionFrame: number | null = null;
 
-      const atHeroTop = isHome && window.scrollY <= 0;
+  const updateLogo = () => {
+    const nc = naturalCenter.current;
+    if (!nc) return;
 
-      if (!atHeroTop) {
-        setLogoStyle({
-          transform: "none",
-          transformOrigin: "center center",
-        });
-        return;
-      }
+    const atHeroTop = isHome && window.scrollY <= 0;
 
-      const scale = getHeroScale(window.innerWidth, window.innerHeight);
-      const targetX = window.innerWidth / 2;
-      const targetY = window.innerHeight * 0.45;
-
-      const dx = targetX - nc.cx;
-      const dy = targetY - nc.cy;
-
+    if (!atHeroTop) {
       setLogoStyle({
-        transform: `translate(${dx}px, ${dy}px) scale(${scale})`,
+        transform: "none",
         transformOrigin: "center center",
       });
-    };
+      return;
+    }
 
-    const measure = () => {
-      const img = logoRef.current;
-      if (!img) return;
+    const scale = getHeroScale(window.innerWidth, window.innerHeight);
+    const targetX = window.innerWidth / 2;
+    const targetY = window.innerHeight * 0.45;
 
-      const prevTransform = img.style.transform;
-      const prevTransition = img.style.transition;
+    const dx = targetX - nc.cx;
+    const dy = targetY - nc.cy;
 
-      img.style.transition = "none";
-      img.style.transform = "none";
+    setLogoStyle({
+      transform: `translate(${dx}px, ${dy}px) scale(${scale})`,
+      transformOrigin: "center center",
+    });
+  };
 
-      const rect = img.getBoundingClientRect();
+  const enableTransitionAfterInitialPlacement = () => {
+    if (enableTransitionFrame !== null) {
+      window.cancelAnimationFrame(enableTransitionFrame);
+    }
 
-      img.style.transform = prevTransform;
-      img.style.transition = prevTransition;
+    enableTransitionFrame = window.requestAnimationFrame(() => {
+      setLogoTransitionEnabled(true);
+    });
+  };
 
-      naturalCenter.current = {
-        cx: rect.left + rect.width / 2,
-        cy: rect.top + rect.height / 2,
-      };
-
-      updateLogo();
-    };
-
+  const measure = () => {
     const img = logoRef.current;
-    const frame = window.requestAnimationFrame(measure);
+    if (!img) return;
 
-    img?.addEventListener("load", measure);
+    const prevTransform = img.style.transform;
+    const prevTransition = img.style.transition;
 
-    const onScroll = () => updateLogo();
-    const onResize = () => measure();
+    setLogoTransitionEnabled(false);
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
+    img.style.transition = "none";
+    img.style.transform = "none";
 
-    return () => {
-      window.cancelAnimationFrame(frame);
-      img?.removeEventListener("load", measure);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
+    const rect = img.getBoundingClientRect();
+
+    img.style.transform = prevTransform;
+    img.style.transition = prevTransition;
+
+    if (rect.width === 0 || rect.height === 0) return;
+
+    naturalCenter.current = {
+      cx: rect.left + rect.width / 2,
+      cy: rect.top + rect.height / 2,
     };
-  }, [isHome]);
+
+    updateLogo();
+    setLogoReady(true);
+    enableTransitionAfterInitialPlacement();
+  };
+
+  const img = logoRef.current;
+
+  measure();
+
+  img?.addEventListener("load", measure);
+
+  const onScroll = () => {
+    setLogoTransitionEnabled(true);
+    updateLogo();
+  };
+
+  const onResize = () => {
+    measure();
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onResize);
+
+  return () => {
+    if (enableTransitionFrame !== null) {
+      window.cancelAnimationFrame(enableTransitionFrame);
+    }
+
+    img?.removeEventListener("load", measure);
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onResize);
+  };
+}, [isHome]);
 
   const handleAboutAnchor = (e: MouseEvent<HTMLAnchorElement>, hash: string) => {
     if (location.pathname === "/about") {
@@ -210,7 +240,10 @@ const EditorialNav = () => {
             alt="Dresdner Spitzen logo"
             className="h-16 md:h-20 w-auto pointer-events-none relative z-50 object-contain"
             style={{
-              transition: "transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              visibility: logoReady ? "visible" : "hidden",
+              transition: logoTransitionEnabled
+                ? "transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+                : "none",
               willChange: "transform",
               ...logoStyle,
             }}
