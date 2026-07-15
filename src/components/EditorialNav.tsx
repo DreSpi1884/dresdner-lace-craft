@@ -19,13 +19,27 @@ const languages: { code: Lang; label: string }[] = [
   { code: "de", label: "DE" },
 ];
 
-const getHeroScale = (width: number) => {
-  if (width < 640) return 3.8;
-  if (width < 768) return 4;
-  if (width < 1024) return 4.2;
-  if (width < 1280) return 3.8;
-  if (width < 1536) return 4.4;
-  return 5;
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(Math.max(value, min), max);
+
+const getHeroScale = (width: number, height: number) => {
+  const base =
+    width < 640
+      ? 3.15
+      : width < 768
+        ? 3.3
+        : width < 1024
+          ? 3.45
+          : width < 1280
+            ? 3.35
+            : width < 1536
+              ? 3.65
+              : 4;
+
+  const widthFactor = clamp(width / 1440, 0.9, 1.08);
+  const heightFactor = clamp(height / 900, 0.88, 1.06);
+
+  return base * widthFactor * heightFactor;
 };
 
 const EditorialNav = () => {
@@ -95,7 +109,7 @@ const EditorialNav = () => {
         return;
       }
 
-      const scale = getHeroScale(window.innerWidth);
+      const scale = getHeroScale(window.innerWidth, window.innerHeight);
       const targetX = window.innerWidth / 2;
       const targetY = window.innerHeight * 0.45;
 
