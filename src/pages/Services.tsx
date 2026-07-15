@@ -470,33 +470,20 @@ requestAnimationFrame(() => {
     />
   </button>
 
-  {s.mobileImage && (
+{s.mobileImage && (
   <div
     data-no-reveal
-    className="-mx-6 mb-8 relative aspect-[4/3] overflow-hidden bg-muted"
+    role="img"
+    aria-label={s.title}
+    className="-mx-6 mb-8 aspect-[4/3] overflow-hidden bg-muted bg-cover bg-center"
     style={{
+      backgroundImage: `url(${s.mobileImage})`,
       opacity: 1,
       transform: "none",
       transition: "none",
       animation: "none",
     }}
-  >
-    <img
-      data-no-reveal
-      src={s.mobileImage}
-      alt={s.title}
-      loading="eager"
-      decoding="sync"
-      fetchPriority="high"
-      className="absolute inset-0 h-full w-full object-cover"
-      style={{
-        opacity: 1,
-        transform: "none",
-        transition: "none",
-        animation: "none",
-      }}
-    />
-  </div>
+  />
 )}
 
   <div
