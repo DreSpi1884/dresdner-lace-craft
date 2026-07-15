@@ -299,7 +299,7 @@ useLayoutEffect(() => {
 
       {/* Right column: text + logos */}
       {/* Right column: text + logos */}
-      <div className="text-left text-lg leading-[1.85] text-muted-foreground lg:pt-20 xl:pt-24">
+      <div className="text-left text-lg leading-[1.85] text-muted-foreground lg:pt-24 xl:pt-28">
         <p>
           {t(
             "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
