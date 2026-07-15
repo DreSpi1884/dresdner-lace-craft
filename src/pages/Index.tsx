@@ -108,7 +108,7 @@ const Index = () => {
 
       {/* OUR SERVICES */}
       <EditorialSection className="bg-background text-foreground">
-        <div className="py-10 md:py-14 lg:py-[4.5rem]">
+        <div className="pt-10 pb-8 md:pt-14 md:pb-8 lg:pt-[4.5rem] lg:pb-8">
           <div className="editorial-container text-center mb-8 md:mb-10">
             <h2 className="editorial-heading-lg text-foreground mb-4">{t("Our Services", "Unsere Leistungen")}</h2>
           </div>
@@ -223,7 +223,7 @@ const Index = () => {
       </EditorialSection>
 
 {/* HERITAGE + INNOVATION */}
-<section className="pt-8 pb-0 md:pt-10 md:pb-0 overflow-hidden">
+<section className="pt-0 pb-16 md:pb-20 overflow-hidden">
   <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
   <div className="w-full">
     <BeforeAfterSlider
