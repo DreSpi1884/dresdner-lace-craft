@@ -49,7 +49,22 @@ const Services = () => {
   const { open: openQuote } = useQuoteModal();
   const location = useLocation();
   useEffect(() => {
-  [designImg1, designImg2, designImg3, designImg4].forEach((src) => {
+  [
+    designImg1,
+    designImg2,
+    designImg3,
+    designImg4,
+    dyeingImg1,
+    dyeingImg2,
+    dyeingImg3,
+    dyeingImg4,
+    rawMaterialImg1,
+    rawMaterialImg2,
+    functionalImg1,
+    functionalImg2,
+    functionalImg3,
+    functionalImg4,
+  ].forEach((src) => {
     const image = new Image();
     image.src = src;
   });
@@ -456,32 +471,32 @@ requestAnimationFrame(() => {
   </button>
 
   {s.mobileImage && (
-    <div
+  <div
+    data-no-reveal
+    className="-mx-6 mb-8 relative aspect-[4/3] overflow-hidden bg-muted"
+    style={{
+      opacity: 1,
+      transform: "none",
+      transition: "none",
+      animation: "none",
+    }}
+  >
+    <img
       data-no-reveal
-      className="-mx-6 mb-8"
+      src={s.mobileImage}
+      alt={s.title}
+      loading="eager"
+      decoding="sync"
+      className="absolute inset-0 h-full w-full object-cover"
       style={{
         opacity: 1,
         transform: "none",
         transition: "none",
         animation: "none",
       }}
-    >
-      <img
-        data-no-reveal
-        src={s.mobileImage}
-        alt={s.title}
-        loading="eager"
-        decoding="sync"
-        className="block w-full aspect-[4/3] object-cover"
-        style={{
-          opacity: 1,
-          transform: "none",
-          transition: "none",
-          animation: "none",
-        }}
-      />
-    </div>
-  )}
+    />
+  </div>
+)}
 
   <div
     hidden={!isOpen}
