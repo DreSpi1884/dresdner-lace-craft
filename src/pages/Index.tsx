@@ -225,14 +225,15 @@ const Index = () => {
 {/* HERITAGE + INNOVATION */}
 <section className="pt-16 pb-0 md:pt-20 md:pb-0 overflow-hidden">
   <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-  <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden">
+  <div className="w-full">
     <BeforeAfterSlider
-        beforeImage={heritageThen.url}
-        afterImage={heritageNow.url}
-        beforeAlt="Historic Dresdner Spitzen weaving hall"
-        afterAlt="Modern Dresdner Spitzen production facility"
-      />
-    </div>
+      beforeImage={heritageThen.url}
+      afterImage={heritageNow.url}
+      beforeAlt="Historic Dresdner Spitzen weaving hall"
+      afterAlt="Modern Dresdner Spitzen production facility"
+      className="aspect-[4/3] lg:aspect-[16/10]"
+    />
+  </div>
 
     <div className="px-6 pt-10 md:px-[60px] md:pt-12 lg:px-[80px] lg:pt-0 text-center flex flex-col items-center">
   <h2 className="editorial-heading-lg text-foreground mb-6">
