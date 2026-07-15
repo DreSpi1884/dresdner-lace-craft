@@ -338,8 +338,8 @@ useLayoutEffect(() => {
 </section>
 
     <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
-  <div className="editorial-container py-24 xl:py-32">
-    <div className="mx-auto max-w-4xl text-center">
+    <div className="editorial-container py-24 xl:py-32">
+    <div className="w-full text-center">
       <h2 className="editorial-heading-lg text-foreground mb-4">
         {t("Our Values", "Unsere Werte")}
       </h2>
@@ -387,7 +387,7 @@ useLayoutEffect(() => {
               {item.title}
             </h3>
 
-            <p className="mx-auto mt-6 max-w-[58ch] text-lg leading-[1.9] text-muted-foreground">
+            <p className="mt-6 w-full text-lg leading-[1.9] text-muted-foreground">
               {item.desc}
             </p>
           </div>
