@@ -23,23 +23,28 @@ const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
 const getHeroScale = (width: number, height: number) => {
-  const base =
-    width < 640
-      ? 3.15
-      : width < 768
-        ? 3.3
-        : width < 1024
-          ? 3.45
-          : width < 1280
-            ? 3.35
-            : width < 1536
-              ? 3.65
-              : 4;
+  const heightFactor =
+    height < 700 ? 0.9 :
+    height < 820 ? 0.96 :
+    1;
 
-  const widthFactor = clamp(width / 1440, 0.9, 1.08);
-  const heightFactor = clamp(height / 900, 0.88, 1.06);
+  if (width < 640) {
+    return clamp(width / 118, 2.9, 3.35) * heightFactor;
+  }
 
-  return base * widthFactor * heightFactor;
+  if (width < 1024) {
+    return clamp(width / 170, 4.05, 4.85) * heightFactor;
+  }
+
+  if (width < 1280) {
+    return clamp(width / 285, 3.8, 4.35) * heightFactor;
+  }
+
+  if (width < 1536) {
+    return clamp(width / 320, 4.05, 4.55) * heightFactor;
+  }
+
+  return clamp(width / 360, 4.5, 5.15) * heightFactor;
 };
 
 const EditorialNav = () => {
