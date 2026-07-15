@@ -195,9 +195,9 @@ useLayoutEffect(() => {
     </p>
 
     <SolarImageCard
-     mobileText={t(
-        "Part of our electricity comes from our own solar power systems.",
-        "Ein Teil unseres Stroms kommt aus eigenen Solaranlagen."
+      mobileText={t(
+        "Solar power generated directly on our production site.",
+        "Solarstrom direkt vom eigenen Produktionsstandort."
       )}
       desktopText={t(
         "We generate part of our electricity through our own solar power systems on our production site in Dresden.",
