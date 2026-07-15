@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const DESKTOP_SCROLL_OFFSET = 180;
+const DESKTOP_SCROLL_OFFSET = 165;
 
 const ProductionAnchorNav = () => {
   const { t } = useLang();
