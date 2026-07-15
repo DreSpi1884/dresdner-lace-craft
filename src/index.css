@@ -290,9 +290,9 @@ footer nav a:hover::after {
   }
 }
 
-[data-no-reveal],
-[data-no-reveal] *,
-[data-no-reveal] img {
+[data-no-reveal]:not(header),
+[data-no-reveal]:not(header) *,
+[data-no-reveal]:not(header) img {
   opacity: 1 !important;
   transform: none !important;
   translate: none !important;
