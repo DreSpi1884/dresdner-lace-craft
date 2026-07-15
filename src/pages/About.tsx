@@ -33,7 +33,7 @@ const SolarImageCard = ({
 
     <figcaption className="absolute inset-0 flex items-end bg-foreground/45 px-6 py-6 opacity-100 transition-opacity duration-500 lg:items-end lg:px-8 lg:py-7 lg:opacity-0 lg:group-hover:opacity-100">
       <>
-        <p className="mx-auto max-w-[28ch] text-left text-[15px] leading-[1.55] text-background drop-shadow-md lg:hidden">
+        <p className="max-w-[28ch] text-left text-[15px] leading-[1.55] text-background drop-shadow-md lg:hidden">
           {mobileText}
         </p>
 
@@ -221,7 +221,7 @@ useLayoutEffect(() => {
 )}
 
            {section.id === "values" && (
-  <div className="divide-y divide-primary/15">
+  <div className="divide-y divide-primary/15 text-center">
     {[
       {
         title: t("Tradition & Innovation", "Tradition & Innovation"),
@@ -259,7 +259,7 @@ useLayoutEffect(() => {
           {item.title}
         </h3>
 
-        <p className="mx-auto mt-4 text-[16px] leading-[1.8] text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-[34ch] text-[16px] leading-[1.8] text-muted-foreground">
           {item.desc}
         </p>
       </div>
@@ -337,16 +337,19 @@ useLayoutEffect(() => {
   </div>
 </section>
 
-    <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
-    <div className="editorial-container py-24 xl:py-32">
-    <div className="w-full text-center">
-      <h2 className="editorial-heading-lg text-foreground mb-4">
-        {t("Our Values", "Unsere Werte")}
-      </h2>
+    
+<EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
+  <div className="editorial-container py-24 xl:py-32">
+    <div className="grid grid-cols-[0.8fr_1.2fr] gap-20 xl:gap-28 items-start">
+      <div className="sticky top-32">
+        <h2 className="editorial-heading-lg text-foreground mb-4">
+          {t("Our Values", "Unsere Werte")}
+        </h2>
 
-      <p className="editorial-label text-primary mb-20">
-        {t("WHAT DRIVES US EVERYDAY", "WAS UNS TÄGLICH ANTREIBT")}
-      </p>
+        <p className="editorial-label text-primary">
+          {t("WHAT DRIVES US EVERYDAY", "WAS UNS TÄGLICH ANTREIBT")}
+        </p>
+      </div>
 
       <div className="divide-y divide-primary/15">
         {[
@@ -377,7 +380,7 @@ useLayoutEffect(() => {
               className="text-primary"
               style={{
                 fontFamily: "'Jost', sans-serif",
-                fontSize: "clamp(20px, 2vw, 28px)",
+                fontSize: "clamp(22px, 2vw, 30px)",
                 letterSpacing: "2px",
                 textTransform: "uppercase",
                 fontWeight: 600,
@@ -396,7 +399,6 @@ useLayoutEffect(() => {
     </div>
   </div>
 </EditorialSection>
-
      
     </EditorialLayout>);
 };
