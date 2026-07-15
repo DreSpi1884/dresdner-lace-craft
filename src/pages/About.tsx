@@ -177,8 +177,8 @@ useLayoutEffect(() => {
             {section.id === "history" && <HistoryTimeline />}
 
            {section.id === "sustainability" && (
-  <div className="space-y-8 text-center text-[17px] leading-[1.9] text-muted-foreground">
-    <p className="mx-auto max-w-[34ch]">
+  <div className="space-y-8 text-left text-[17px] leading-[1.9] text-muted-foreground">
+    <p>
       {t(
         "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
         "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
@@ -189,7 +189,7 @@ useLayoutEffect(() => {
       className="my-8 justify-center" 
     />
 
-    <p className="mx-auto max-w-[34ch]">
+    <p>
       {t(
         "These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
         "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
@@ -211,7 +211,7 @@ useLayoutEffect(() => {
       )}
     />
 
-    <p className="mx-auto max-w-[34ch]">
+    <p>
       {t(
         "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
         "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
