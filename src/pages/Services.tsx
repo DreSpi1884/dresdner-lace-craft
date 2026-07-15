@@ -487,6 +487,7 @@ requestAnimationFrame(() => {
       alt={s.title}
       loading="eager"
       decoding="sync"
+      fetchPriority="high"
       className="absolute inset-0 h-full w-full object-cover"
       style={{
         opacity: 1,
