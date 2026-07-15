@@ -452,6 +452,22 @@ requestAnimationFrame(() => {
 
 {/* Mobile accordion section */}
 <div data-no-reveal className="lg:hidden px-6">
+  {s.mobileImage && (
+    <div
+      data-no-reveal
+      role="img"
+      aria-label={s.title}
+      className="-mx-6 aspect-[4/3] overflow-hidden bg-muted bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${s.mobileImage})`,
+        opacity: 1,
+        transform: "none",
+        transition: "none",
+        animation: "none",
+      }}
+    />
+  )}
+
   <button
     type="button"
     onClick={() => openMobileSection(s.id)}
@@ -470,26 +486,7 @@ requestAnimationFrame(() => {
     />
   </button>
 
-{s.mobileImage && (
-  <div
-    data-no-reveal
-    role="img"
-    aria-label={s.title}
-    className="-mx-6 aspect-[4/3] overflow-hidden bg-muted bg-cover bg-center"
-    style={{
-      backgroundImage: `url(${s.mobileImage})`,
-      opacity: 1,
-      transform: "none",
-      transition: "none",
-      animation: "none",
-    }}
-  />
-)}
-
-  <div
-    hidden={!isOpen}
-    className="pb-10 pt-2"
-  >
+  <div hidden={!isOpen} className="pb-10 pt-0">
     {renderBody(s)}
     {renderProcess(s)}
   </div>
