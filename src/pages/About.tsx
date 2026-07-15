@@ -37,7 +37,7 @@ const SolarImageCard = ({
           {mobileText}
         </p>
 
-        <p className="hidden mx-auto max-w-[34ch] text-center text-[18px] leading-[1.7] text-background drop-shadow-md lg:block">
+        <p className="hidden max-w-[54ch] text-left text-[17px] leading-[1.65] text-background drop-shadow-md lg:block">
           {desktopText}
         </p>
       </>
@@ -303,8 +303,9 @@ useLayoutEffect(() => {
       </div>
 
       {/* Right column: text + logos */}
-      <div className="text-center text-lg md:text-xl leading-[2] text-muted-foreground">
-        <p className="mx-auto max-w-[40ch]">
+      {/* Right column: text + logos */}
+      <div className="text-left text-lg leading-[1.85] text-muted-foreground">
+        <p>
           {t(
             "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
             "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
@@ -312,11 +313,11 @@ useLayoutEffect(() => {
         </p>
 
         <SustainabilityLogos
-          className="mt-10 mb-8 justify-center md:justify-center"
+          className="mt-8 mb-6 justify-center md:justify-center"
           excludeUmweltallianz
         />
 
-        <p className="mx-auto max-w-[40ch]">
+        <p>
           {t(
             "These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
             "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
@@ -327,10 +328,10 @@ useLayoutEffect(() => {
           data-no-reveal
           src={umweltallianzLogo}
           alt="Umwelt- und Klimaallianz Sachsen"
-          className="mx-auto mt-12 w-[130px] object-contain"
+          className="mx-auto mt-9 w-[130px] object-contain"
         />
 
-        <p className="mx-auto mt-8 max-w-[40ch]">
+        <p>
           {t(
             "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
             "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
