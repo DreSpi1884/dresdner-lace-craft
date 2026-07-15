@@ -185,7 +185,9 @@ useLayoutEffect(() => {
       )}
     </p>
 
-    <SustainabilityLogos className="my-8 justify-center" excludeUmweltallianz />
+    <SustainabilityLogos 
+      className="my-8 justify-center" 
+    />
 
     <p className="mx-auto max-w-[34ch]">
       {t(
@@ -207,13 +209,6 @@ useLayoutEffect(() => {
         "Solar panels on the roof of the Dresden production site",
         "Solaranlagen auf dem Dach des Produktionsstandorts in Dresden"
       )}
-    />
-
-    <img
-      data-no-reveal
-      src={umweltallianzLogo}
-      alt="Umwelt- und Klimaallianz Sachsen"
-      className="mx-auto w-[110px] object-contain md:w-[120px]"
     />
 
     <p className="mx-auto max-w-[34ch]">
