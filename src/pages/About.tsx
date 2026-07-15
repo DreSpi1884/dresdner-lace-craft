@@ -130,7 +130,7 @@ useLayoutEffect(() => {
 }, [location.hash]);
   
   return (
-    <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
+    <Layout title={t("About Us", "Über uns")} heroCompact>
       <SEO
         title={t("About Us — 140 Years of German Textile Craft", "Über uns — 140 Jahre deutsche Textilkunst")}
         description={t(
@@ -162,7 +162,7 @@ useLayoutEffect(() => {
           aria-expanded={isOpen}
           className="flex w-full items-center justify-between px-6 py-6 text-left"
         >
-          <span className="editorial-label tracking-[0.22em] text-primary">
+          <span className="-label tracking-[0.22em] text-primary">
             {section.label}
           </span>
 
@@ -278,12 +278,12 @@ useLayoutEffect(() => {
         <HistoryTimeline />
       </div>
 
-      <section id="sustainability" className="hidden lg:block editorial-section scroll-mt-32">
-  <div className="editorial-container">
+      <section id="sustainability" className="hidden lg:block -section scroll-mt-32">
+  <div className="-container">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
       {/* Left column: headline + solar image */}
       <div>
-        <h2 className="editorial-heading-lg text-foreground mb-0">
+        <h2 className="-heading-lg text-foreground mb-0">
           {t("Sustainability", "Nachhaltigkeit")}
         </h2>
 
@@ -338,18 +338,16 @@ useLayoutEffect(() => {
   </div>
 </section>
 
-     <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
-  <div className="editorial-container editorial-section">
-    <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-16 lg:gap-24 items-start">
-      <div>
-        <h2 className="editorial-heading-lg text-foreground mb-4">
-          {t("Our Values", "Unsere Werte")}
-        </h2>
+    <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
+  <div className="editorial-container py-24 xl:py-32">
+    <div className="mx-auto max-w-4xl text-center">
+      <h2 className="editorial-heading-lg text-foreground mb-4">
+        {t("Our Values", "Unsere Werte")}
+      </h2>
 
-        <p className="editorial-label text-primary">
-          {t("WHAT DRIVES US EVERYDAY", "WAS UNS TÄGLICH ANTREIBT")}
-        </p>
-      </div>
+      <p className="editorial-label text-primary mb-20">
+        {t("WHAT DRIVES US EVERYDAY", "WAS UNS TÄGLICH ANTREIBT")}
+      </p>
 
       <div className="divide-y divide-primary/15">
         {[
@@ -375,21 +373,22 @@ useLayoutEffect(() => {
             ),
           },
         ].map((item) => (
-          <div key={item.title} className="py-10 first:pt-0 last:pb-0">
+          <div key={item.title} className="py-12 first:pt-0 last:pb-0">
             <h3
               className="text-primary"
               style={{
                 fontFamily: "'Jost', sans-serif",
-                fontSize: "13px",
+                fontSize: "clamp(20px, 2vw, 28px)",
                 letterSpacing: "2px",
                 textTransform: "uppercase",
                 fontWeight: 600,
+                lineHeight: 1.3,
               }}
             >
               {item.title}
             </h3>
 
-            <p className="mt-5 max-w-[58ch] text-lg leading-[1.9] text-muted-foreground">
+            <p className="mx-auto mt-6 max-w-[58ch] text-lg leading-[1.9] text-muted-foreground">
               {item.desc}
             </p>
           </div>
