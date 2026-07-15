@@ -250,7 +250,7 @@ useLayoutEffect(() => {
           className="text-primary"
           style={{
             fontFamily: "'Jost', sans-serif",
-            fontSize: "12px",
+            fontSize: "11px",
             letterSpacing: "1.8px",
             textTransform: "uppercase",
             fontWeight: 600,
@@ -259,7 +259,7 @@ useLayoutEffect(() => {
           {item.title}
         </h3>
 
-        <p className="mt-4 text-[16px] leading-[1.8] text-muted-foreground">
+        <p className="mx-auto mt-4 text-[16px] leading-[1.8] text-muted-foreground">
           {item.desc}
         </p>
       </div>
