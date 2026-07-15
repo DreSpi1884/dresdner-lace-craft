@@ -15,10 +15,12 @@ import solarRoofImg from "@/assets/solaranlage.jpg?url";
 
 
 const SolarImageCard = ({
-  text,
+  mobileText,
+  desktopText,
   alt,
 }: {
-  text: string;
+  mobileText: string;
+  desktopText: string;
   alt: string;
 }) => (
   <figure className="group relative -mx-6 overflow-hidden bg-muted lg:mx-0">
@@ -29,10 +31,16 @@ const SolarImageCard = ({
       className="block h-[220px] w-full object-cover sm:h-[250px] lg:h-[360px]"
     />
 
-    <figcaption className="absolute inset-0 flex items-end justify-center bg-foreground/45 px-6 py-7 opacity-100 transition-opacity duration-500 lg:opacity-0 lg:group-hover:opacity-100">
-      <p className="mx-auto max-w-[34ch] text-center text-[16px] leading-[1.7] text-background drop-shadow-md lg:text-[18px]">
-        {text}
-      </p>
+    <figcaption className="absolute inset-0 flex items-end justify-center bg-foreground/45 px-6 py-6 opacity-100 transition-opacity duration-500 lg:items-end lg:justify-center lg:px-8 lg:py-7 lg:opacity-0 lg:group-hover:opacity-100">
+      <>
+        <p className="mx-auto max-w-[24ch] text-center text-[15px] leading-[1.55] text-background drop-shadow-md lg:hidden">
+          {mobileText}
+        </p>
+
+        <p className="hidden mx-auto max-w-[34ch] text-center text-[18px] leading-[1.7] text-background drop-shadow-md lg:block">
+          {desktopText}
+        </p>
+      </>
     </figcaption>
   </figure>
 );
@@ -187,7 +195,11 @@ useLayoutEffect(() => {
     </p>
 
     <SolarImageCard
-      text={t(
+     mobileText={t(
+        "Part of our electricity comes from our own solar power systems.",
+        "Ein Teil unseres Stroms kommt aus eigenen Solaranlagen."
+      )}
+      desktopText={t(
         "We generate part of our electricity through our own solar power systems on our production site in Dresden.",
         "Einen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
       )}
