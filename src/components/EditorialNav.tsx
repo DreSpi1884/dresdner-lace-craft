@@ -20,12 +20,12 @@ const languages: { code: Lang; label: string }[] = [
 ];
 
 const getHeroScale = (width: number) => {
-  if (width < 640) return 7.2;
-  if (width < 768) return 7.5;
-  if (width < 1024) return 7.8;
-  if (width < 1280) return 7;
-  if (width < 1536) return 8;
-  return 9;
+  if (width < 640) return 3.8;
+  if (width < 768) return 4;
+  if (width < 1024) return 4.2;
+  if (width < 1280) return 3.8;
+  if (width < 1536) return 4.4;
+  return 5;
 };
 
 const EditorialNav = () => {
