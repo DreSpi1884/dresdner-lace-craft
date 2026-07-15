@@ -38,7 +38,6 @@ const SustainabilityLogos = ({
         alt="Umwelt- und Klimaallianz Sachsen"
         className="mx-auto w-[110px] md:w-[120px] object-contain"
       />
-      />
     )}
   </div>
 );
