@@ -61,14 +61,14 @@ const onMove = (e: MouseEvent | TouchEvent) => {
       <img
         src={afterImage}
         alt={afterAlt}
-        className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         draggable={false}
       />
       {/* Before (clipped from the left) */}
       <img
         src={beforeImage}
         alt={beforeAlt}
-        className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         draggable={false}
       />
