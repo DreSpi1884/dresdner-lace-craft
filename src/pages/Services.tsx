@@ -238,7 +238,7 @@ requestAnimationFrame(() => {
                 className="mt-8 mb-6"
                 style={{
                   fontFamily: "'Jost', sans-serif",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   letterSpacing: "2px",
                   textTransform: "uppercase",
                   fontWeight: 600,
