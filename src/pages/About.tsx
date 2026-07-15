@@ -11,6 +11,30 @@ import { useLang } from "@/i18n/LanguageContext";
 import grsLogo from "@/assets/GRS_freigestellt.png?url";
 import oekoTexLogo from "@/assets/oeko-tex.png?url";
 import umweltallianzLogo from "@/assets/Umweltallianz Sachsen.png?url";
+import solarRoofImg from "@/assets/solaranlage.jpg?url";
+
+
+const SolarImageCard = ({
+  text,
+  alt,
+}: {
+  text: string;
+  alt: string;
+}) => (
+  <figure className="group relative -mx-6 overflow-hidden bg-muted lg:mx-0">
+    <img
+      src={solarRoofImg}
+      alt={alt}
+      className="block h-[220px] w-full object-cover lg:h-[360px]"
+    />
+
+    <figcaption className="absolute inset-0 flex items-end bg-foreground/35 p-6 opacity-100 transition-opacity duration-500 lg:opacity-0 lg:group-hover:opacity-100">
+      <p className="max-w-[34ch] text-left text-background drop-shadow-md lg:text-lg">
+        {text}
+      </p>
+    </figcaption>
+  </figure>
+);
 
 const SustainabilityLogos = ({
   className = "",
