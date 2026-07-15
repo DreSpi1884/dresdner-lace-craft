@@ -19,24 +19,30 @@ const SustainabilityLogos = ({
   className?: string;
   excludeUmweltallianz?: boolean;
 }) => (
-  <div className={`flex flex-row items-center gap-3 md:gap-5 ${className}`}>
+  <div
+    data-no-reveal
+    className={`flex w-full flex-row items-center justify-center gap-4 md:justify-start md:gap-5 ${className}`}
+  >
     <img
+      data-no-reveal
       src={grsLogo}
       alt="Global Recycled Standard certified by Control Union"
-      className="w-[112px] md:w-[170px] lg:w-[205px] bg-white object-contain"
+      className="w-[112px] shrink-0 bg-white object-contain md:w-[170px] lg:w-[205px]"
     />
 
     <img
+      data-no-reveal
       src={oekoTexLogo}
       alt="OEKO-TEX STeP certification"
-      className="w-[132px] md:w-[205px] lg:w-[240px] bg-white object-contain"
+      className="w-[132px] shrink-0 bg-white object-contain md:w-[205px] lg:w-[240px]"
     />
 
     {!excludeUmweltallianz && (
       <img
+        data-no-reveal
         src={umweltallianzLogo}
         alt="Umwelt- und Klimaallianz Sachsen"
-        className="mx-auto w-[110px] md:w-[120px] object-contain"
+        className="w-[76px] shrink-0 object-contain md:w-[110px] lg:w-[130px]"
       />
     )}
   </div>
@@ -134,7 +140,7 @@ useLayoutEffect(() => {
         </button>
 
         {isOpen && (
-          <div className="px-6 pt-2 pb-10">
+          <div className="px-6 pt-2 pb-10 text-center">
             {section.id === "history" && <HistoryTimeline />}
 
             {section.id === "sustainability" && (
@@ -156,9 +162,10 @@ useLayoutEffect(() => {
     </p>
 
     <img
+      data-no-reveal
       src={umweltallianzLogo}
       alt="Umwelt- und Klimaallianz Sachsen"
-      className="w-[80px] md:w-[120px] object-contain"
+      className="mx-auto w-[110px] object-contain md:w-[120px]"
     />
 
     <p>{"\n"}</p>
