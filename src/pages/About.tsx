@@ -279,7 +279,7 @@ useLayoutEffect(() => {
           {t("Sustainability", "Nachhaltigkeit")}
         </h2>
 
-        <div className="lg:mt-20 xl:mt-24">
+        <div className="mt-10 xl:mt-12">
           <SolarImageCard
             mobileText={t(
               "Solar power generated directly on our production site.",
