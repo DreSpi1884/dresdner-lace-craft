@@ -54,20 +54,20 @@ const SustainabilityLogos = ({
 }) => (
   <div
     data-no-reveal
-    className={`flex w-full flex-row items-center justify-center gap-4 md:justify-start md:gap-5 ${className}`}
+    className={`flex w-full flex-row items-center justify-center gap-4 md:gap-5 ${className}`}
   >
     <img
       data-no-reveal
       src={grsLogo}
       alt="Global Recycled Standard certified by Control Union"
-      className="w-[112px] shrink-0 bg-white object-contain md:w-[170px] lg:w-[205px]"
+      className="w-[104px] shrink-0 bg-white object-contain md:w-[140px] lg:w-[145px] xl:w-[165px]"
     />
 
     <img
       data-no-reveal
       src={oekoTexLogo}
       alt="OEKO-TEX STeP certification"
-      className="w-[132px] shrink-0 bg-white object-contain md:w-[205px] lg:w-[240px]"
+      className="w-[124px] shrink-0 bg-white object-contain md:w-[165px] lg:w-[170px] xl:w-[195px]"
     />
 
     {!excludeUmweltallianz && (
@@ -75,7 +75,7 @@ const SustainabilityLogos = ({
         data-no-reveal
         src={umweltallianzLogo}
         alt="Umwelt- und Klimaallianz Sachsen"
-        className="w-[76px] shrink-0 object-contain md:w-[110px] lg:w-[130px]"
+        className="w-[70px] shrink-0 object-contain md:w-[90px] lg:w-[86px] xl:w-[100px]"
       />
     )}
   </div>
@@ -309,7 +309,6 @@ useLayoutEffect(() => {
 
         <SustainabilityLogos
           className="mt-8 mb-6 justify-center md:justify-center"
-          excludeUmweltallianz
         />
 
         <p>
@@ -319,12 +318,6 @@ useLayoutEffect(() => {
           )}
         </p>
 
-        <img
-          data-no-reveal
-          src={umweltallianzLogo}
-          alt="Umwelt- und Klimaallianz Sachsen"
-          className="mx-auto mt-9 w-[130px] object-contain"
-        />
 
         <p>
           {t(
