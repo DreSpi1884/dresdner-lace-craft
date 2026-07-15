@@ -220,7 +220,7 @@ useLayoutEffect(() => {
   </div>
 )}
 
-            {section.id === "values" && (
+           {section.id === "values" && (
   <div className="divide-y divide-primary/15">
     {[
       {
@@ -266,6 +266,12 @@ useLayoutEffect(() => {
     ))}
   </div>
 )}
+          </div>
+        )}
+      </article>
+    );
+  })}
+</section>
 
       <div id="history" className="hidden lg:block scroll-mt-32">
         <HistoryTimeline />
