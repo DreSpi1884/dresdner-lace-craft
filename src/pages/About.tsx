@@ -31,7 +31,7 @@ const SolarImageCard = ({
       className="block h-[220px] w-full object-cover sm:h-[250px] lg:h-[460px] xl:h-[520px]"
     />
 
-    <figcaption className="absolute inset-0 flex items-end bg-foreground/45 px-6 py-6 opacity-100 transition-opacity duration-500 lg:items-end lg:px-8 lg:py-7 lg:opacity-0 lg:group-hover:opacity-100">
+    <figcaption className="absolute inset-0 flex items-end bg-transparent px-6 py-6 opacity-100 transition-opacity duration-500 lg:items-end lg:bg-foreground/45 lg:px-8 lg:py-7 lg:opacity-0 lg:group-hover:opacity-100">
       <>
         <p className="max-w-[28ch] text-left text-[15px] leading-[1.55] text-background drop-shadow-md lg:hidden">
           {mobileText}
