@@ -223,7 +223,7 @@ const Index = () => {
       </EditorialSection>
 
 {/* HERITAGE + INNOVATION */}
-<section className="pt-16 pb-0 md:pt-20 md:pb-0 overflow-hidden">
+<section className="pt-8 pb-0 md:pt-10 md:pb-0 overflow-hidden">
   <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
   <div className="w-full">
     <BeforeAfterSlider
