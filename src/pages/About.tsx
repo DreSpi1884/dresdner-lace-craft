@@ -233,7 +233,7 @@ const About = () => {
                   )}
 
                   {section.id === "values" && (
-                    <div className="divide-y divide-primary/15 text-center">
+                    <div className="divide-y divide-primary/15 text-left">
                       {[
                         {
                           title: t(
@@ -271,7 +271,7 @@ const About = () => {
                             {item.title}
                           </h3>
 
-                          <p className="mx-auto mt-4 max-w-[42ch] text-[16px] leading-[1.8] text-muted-foreground">
+                          <p className="mt-4 max-w-[42ch] text-[16px] leading-[1.8] text-muted-foreground">
                             {item.desc}
                           </p>
                         </div>
