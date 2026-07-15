@@ -276,52 +276,70 @@ useLayoutEffect(() => {
       </div>
 
       <section id="sustainability" className="hidden lg:block editorial-section scroll-mt-32">
-        <div className="editorial-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-            <div>
-  <h2 className="editorial-heading-lg text-foreground mb-8">
-    {t("Sustainability", "Nachhaltigkeit")}
-  </h2>
+  <div className="editorial-container">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      {/* Left column: headline + solar image */}
+      <div>
+        <h2 className="editorial-heading-lg text-foreground mb-0">
+          {t("Sustainability", "Nachhaltigkeit")}
+        </h2>
 
-  <SustainabilityLogos />
-</div>
-
-            <div className="space-y-8 text-lg md:text-xl leading-[2] text-muted-foreground">
-  <p>
-    {t(
-      "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
-      "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
-    )}
-  </p>
-
-  <p>
-    {t(
-      "These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
-      "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
-    )}
-  </p>
-
-  <SolarImageCard
-    text={t(
-      "We generate part of our electricity through our own solar power systems on our production site in Dresden.",
-      "Einen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
-    )}
-    alt={t(
-      "Solar panels on the roof of the Dresden production site",
-      "Solaranlagen auf dem Dach des Produktionsstandorts in Dresden"
-    )}
-  />
-
-  <p>
-    {t(
-      "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
-      "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
-    )}
-  </p>
-</div>
-          </div>
+        <div className="mt-24">
+          <SolarImageCard
+            mobileText={t(
+              "Solar power generated directly on our production site.",
+              "Solarstrom direkt vom eigenen Produktionsstandort."
+            )}
+            desktopText={t(
+              "We generate part of our electricity through our own solar power systems on our production site in Dresden.",
+              "Einen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
+            )}
+            alt={t(
+              "Solar panels on the roof of the Dresden production site",
+              "Solaranlagen auf dem Dach des Produktionsstandorts in Dresden"
+            )}
+          />
         </div>
-      </section>
+      </div>
+
+      {/* Right column: text + logos */}
+      <div className="text-center text-lg md:text-xl leading-[2] text-muted-foreground">
+        <p className="mx-auto max-w-[40ch]">
+          {t(
+            "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
+            "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
+          )}
+        </p>
+
+        <SustainabilityLogos
+          className="mt-10 mb-8 justify-center md:justify-center"
+          excludeUmweltallianz
+        />
+
+        <p className="mx-auto max-w-[40ch]">
+          {t(
+            "These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
+            "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
+          )}
+        </p>
+
+        <img
+          data-no-reveal
+          src={umweltallianzLogo}
+          alt="Umwelt- und Klimaallianz Sachsen"
+          className="mx-auto mt-12 w-[130px] object-contain"
+        />
+
+        <p className="mx-auto mt-8 max-w-[40ch]">
+          {t(
+            "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
+            "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
+          )}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
         <div className="editorial-container editorial-section">
