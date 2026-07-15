@@ -23,20 +23,21 @@ const SustainabilityLogos = ({
     <img
       src={grsLogo}
       alt="Global Recycled Standard certified by Control Union"
-      className="w-[86px] md:w-[170px] lg:w-[205px] bg-white object-contain"
+      className="w-[112px] md:w-[170px] lg:w-[205px] bg-white object-contain"
     />
 
     <img
       src={oekoTexLogo}
       alt="OEKO-TEX STeP certification"
-      className="w-[100px] md:w-[205px] lg:w-[240px] bg-white object-contain"
+      className="w-[132px] md:w-[205px] lg:w-[240px] bg-white object-contain"
     />
 
     {!excludeUmweltallianz && (
       <img
         src={umweltallianzLogo}
         alt="Umwelt- und Klimaallianz Sachsen"
-        className="w-[58px] md:w-[110px] lg:w-[130px] object-contain"
+        className="mx-auto w-[110px] md:w-[120px] object-contain"
+      />
       />
     )}
   </div>
