@@ -139,13 +139,6 @@ useLayoutEffect(() => {
     </p>
 
     <p>{"\n"}</p>
-
-    <p>
-      {t(
-        "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
-        "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
-      )}
-    </p>
   </div>
 )}
 
