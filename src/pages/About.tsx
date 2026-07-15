@@ -140,7 +140,7 @@ useLayoutEffect(() => {
         </button>
 
         {isOpen && (
-          <div className="px-6 pt-2 pb-10 text-center">
+          <div className="px-6 pt-2 pb-10">
             {section.id === "history" && <HistoryTimeline />}
 
             {section.id === "sustainability" && (
