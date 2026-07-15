@@ -145,14 +145,17 @@ useLayoutEffect(() => {
 
             {section.id === "sustainability" && (
   <div className="space-y-8 text-lg md:text-xl leading-[2] text-muted-foreground">
-    <p className="whitespace-pre-line">
+    <p>
       {t(
-        "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\nWe generate part of our electricity through our own solar power systems on our production site in Dresden.",
-        "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\nEinen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
+        "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
+        "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
       )}
     </p>
 
-    <SustainabilityLogos className="my-8" excludeUmweltallianz />
+    <SustainabilityLogos
+      className="justify-center"
+      excludeUmweltallianz
+    />
 
     <p>
       {t(
@@ -161,19 +164,21 @@ useLayoutEffect(() => {
       )}
     </p>
 
-    <img
-      data-no-reveal
-      src={umweltallianzLogo}
-      alt="Umwelt- und Klimaallianz Sachsen"
-      className="mx-auto w-[110px] object-contain md:w-[120px]"
-    />
-
-    <p>{"\n"}</p>
+    <div className="-mx-6">
+      <img
+        src={solarRoofImg}
+        alt={t(
+          "Solar panels on the roof of the Dresden production site",
+          "Solaranlagen auf dem Dach des Produktionsstandorts in Dresden"
+        )}
+        className="block w-full h-[220px] object-cover"
+      />
+    </div>
 
     <p>
       {t(
-        "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
-        "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
+        "We generate part of our electricity through our own solar power systems on our production site in Dresden.",
+        "Einen Teil unseres Stroms erzeugen wir durch eigene Solaranlagen auf unserem Produktionsgelände in Dresden."
       )}
     </p>
   </div>
