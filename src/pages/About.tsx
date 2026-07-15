@@ -146,7 +146,7 @@ useLayoutEffect(() => {
       )}
     </p>
 
-    <SustainabilityLogos className="my-8" />
+    <SustainabilityLogos className="my-8" excludeUmweltallianz />
 
     <p>
       {t(
@@ -154,6 +154,12 @@ useLayoutEffect(() => {
         "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
       )}
     </p>
+
+    <img
+      src={umweltallianzLogo}
+      alt="Umwelt- und Klimaallianz Sachsen"
+      className="w-[80px] md:w-[120px] object-contain"
+    />
 
     <p>{"\n"}</p>
 
