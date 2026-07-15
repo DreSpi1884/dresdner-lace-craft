@@ -536,14 +536,20 @@ requestAnimationFrame(() => {
       className="grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
     >
       {s.desktopImages.map((img, idx) => (
-        <div key={idx} data-no-reveal className="relative overflow-hidden">
-          <img
-            data-no-reveal
-            src={img}
-            alt={`${s.title} ${idx + 1}`}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
+        <div
+          key={idx}
+          data-no-reveal
+          role="img"
+          aria-label={`${s.title} ${idx + 1}`}
+          className="overflow-hidden bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${img})`,
+            opacity: 1,
+            transform: "none",
+            transition: "none",
+            animation: "none",
+          }}
+        />
       ))}
     </div>
   ) : s.desktopImages ? (
@@ -552,14 +558,20 @@ requestAnimationFrame(() => {
       className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
     >
       {s.desktopImages.map((img, idx) => (
-        <div key={idx} data-no-reveal className="relative overflow-hidden">
-          <img
-            data-no-reveal
-            src={img}
-            alt={`${s.title} ${idx + 1}`}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
+        <div
+          key={idx}
+          data-no-reveal
+          role="img"
+          aria-label={`${s.title} ${idx + 1}`}
+          className="overflow-hidden bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${img})`,
+            opacity: 1,
+            transform: "none",
+            transition: "none",
+            animation: "none",
+          }}
+        />
       ))}
     </div>
   ) : (
