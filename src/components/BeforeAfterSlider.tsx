@@ -56,19 +56,19 @@ const onMove = (e: MouseEvent | TouchEvent) => {
   }, [dragging, updateFromClientX]);
 
   return (
-    <div ref={containerRef} className={`relative w-full aspect-[4/3] overflow-hidden select-none ${className}`}>
+    <div ref={containerRef} className={`relative w-full overflow-hidden select-none bg-muted ${className || "aspect-[4/3]"}`}>
       {/* After (base) */}
       <img
         src={afterImage}
         alt={afterAlt}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        className="absolute inset-0 w-full h-full object-contain pointer-events-none"
         draggable={false}
       />
       {/* Before (clipped from the left) */}
       <img
         src={beforeImage}
         alt={beforeAlt}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        className="absolute inset-0 w-full h-full object-contain pointer-events-none"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         draggable={false}
       />
