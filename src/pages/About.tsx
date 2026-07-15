@@ -259,7 +259,7 @@ useLayoutEffect(() => {
           {item.title}
         </h3>
 
-        <p className="mx-auto mt-4 max-w-[34ch] text-[16px] leading-[1.8] text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-[38ch] text-[16px] leading-[1.8] text-muted-foreground">
           {item.desc}
         </p>
       </div>
