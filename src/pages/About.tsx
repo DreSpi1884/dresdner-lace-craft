@@ -30,7 +30,7 @@ const SolarImageCard = ({
       className="block h-[220px] w-full object-cover sm:h-[250px] lg:h-[460px] xl:h-[520px]"
     />
 
-    <figcaption className="absolute inset-0 flex items-end bg-transparent px-4 py-5 opacity-100 transition-opacity duration-500 lg:bg-foreground/45 lg:px-6 lg:py-6 lg:opacity-0 lg:group-hover:opacity-100">
+    <figcaption className="absolute inset-0 flex items-end bg-transparent px-3 py-4 opacity-100 transition-opacity duration-500 lg:bg-foreground/45 lg:px-6 lg:py-6 lg:opacity-0 lg:group-hover:opacity-100">
       <p className="w-full max-w-none whitespace-nowrap text-left text-[13px] leading-[1.45] text-background drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] sm:text-[15px] lg:hidden">
         {mobileText}
       </p>
@@ -42,39 +42,31 @@ const SolarImageCard = ({
   </figure>
 );
 
-const SustainabilityLogos = ({
-  className = "",
-  excludeUmweltallianz = false,
-}: {
-  className?: string;
-  excludeUmweltallianz?: boolean;
-}) => (
+const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
   <div
     data-no-reveal
-    className={`flex w-full flex-row flex-wrap gap-x-4 gap-y-6 md:flex-nowrap md:gap-5 ${className}`}
+    className={`flex w-full flex-nowrap items-center justify-start gap-2.5 overflow-visible sm:gap-4 md:gap-5 ${className}`}
   >
     <img
       data-no-reveal
       src={grsLogo}
       alt="Global Recycled Standard certified by Control Union"
-      className="w-[104px] shrink-0 bg-white object-contain md:w-[140px] lg:w-[145px] xl:w-[165px]"
+      className="block w-[76px] shrink-0 bg-white object-contain sm:w-[96px] md:w-[140px] lg:w-[145px] xl:w-[165px]"
     />
 
     <img
       data-no-reveal
       src={oekoTexLogo}
       alt="OEKO-TEX STeP certification"
-      className="w-[124px] shrink-0 bg-white object-contain md:w-[165px] lg:w-[170px] xl:w-[195px]"
+      className="block w-[90px] shrink-0 bg-white object-contain sm:w-[112px] md:w-[165px] lg:w-[170px] xl:w-[195px]"
     />
 
-    {!excludeUmweltallianz && (
-      <img
-        data-no-reveal
-        src={umweltallianzLogo}
-        alt="Umwelt- und Klimaallianz Sachsen"
-        className="w-[70px] shrink-0 object-contain md:w-[90px] lg:w-[86px] xl:w-[100px]"
-      />
-    )}
+    <img
+      data-no-reveal
+      src={umweltallianzLogo}
+      alt="Umwelt- und Klimaallianz Sachsen"
+      className="block w-[50px] shrink-0 object-contain sm:w-[62px] md:w-[90px] lg:w-[86px] xl:w-[100px]"
+    />
   </div>
 );
 
@@ -187,19 +179,7 @@ const About = () => {
                         )}
                       </p>
 
-                      <div className="my-8 space-y-6">
-                        <SustainabilityLogos
-                          className="justify-center"
-                          excludeUmweltallianz
-                        />
-
-                        <img
-                          data-no-reveal
-                          src={umweltallianzLogo}
-                          alt="Umwelt- und Klimaallianz Sachsen"
-                          className="mx-auto w-[92px] object-contain"
-                        />
-                      </div>
+                      <SustainabilityLogos className="my-8" />
 
                       <p>
                         {t(
@@ -328,7 +308,7 @@ const About = () => {
                 )}
               </p>
 
-              <SustainabilityLogos className="mt-8 mb-6 justify-start" />
+              <SustainabilityLogos className="mt-8 mb-6" />
 
               <p>
                 {t(
