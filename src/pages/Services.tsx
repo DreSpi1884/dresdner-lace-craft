@@ -280,7 +280,7 @@ requestAnimationFrame(() => {
                         <h3
                           style={{
                             fontFamily: "'Jost', sans-serif",
-                            fontSize: "14px",
+                            fontSize: "16px",
                             letterSpacing: "0.5px",
                             textTransform: "uppercase",
                             fontWeight: 600,
@@ -295,7 +295,7 @@ requestAnimationFrame(() => {
                         className="pl-[42px] md:pl-0"
                         style={{
                           fontFamily: "'Jost', sans-serif",
-                          fontSize: "13px",
+                          fontSize: "15px",
                           lineHeight: 1.55,
                           color: "hsl(var(--muted-foreground) / 0.9)",
                         }}
