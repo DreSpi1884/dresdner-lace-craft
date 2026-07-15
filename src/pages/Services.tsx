@@ -119,7 +119,7 @@ const Services = () => {
         nav: t("Design", "Design"),
         title: t("Design", "Design"),
         desktopImages: [designImg1, designImg2, designImg3, designImg4],
-        mobileImage: designImg3,
+        mobileImage: designImg2,
         text: t(
           "Twice a year we develop new lace collections inspired by international fashion trends.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
           "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte elastische und unelastische Spitzen und Kettengewirke nach Ihren individuellen Anforderungen.",
