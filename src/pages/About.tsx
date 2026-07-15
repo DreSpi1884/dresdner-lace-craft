@@ -60,14 +60,14 @@ const SustainabilityLogos = ({
       data-no-reveal
       src={grsLogo}
       alt="Global Recycled Standard certified by Control Union"
-      className="w-[104px] shrink-0 bg-white object-contain md:w-[140px] lg:w-[145px] xl:w-[165px]"
+      className="w-[100px] shrink-0 bg-white object-contain md:w-[140px] lg:w-[145px] xl:w-[165px]"
     />
 
     <img
       data-no-reveal
       src={oekoTexLogo}
       alt="OEKO-TEX STeP certification"
-      className="w-[124px] shrink-0 bg-white object-contain md:w-[165px] lg:w-[170px] xl:w-[195px]"
+      className="w-[118px] shrink-0 bg-white object-contain md:w-[165px] lg:w-[170px] xl:w-[195px]"
     />
 
     {!excludeUmweltallianz && (
@@ -75,7 +75,7 @@ const SustainabilityLogos = ({
         data-no-reveal
         src={umweltallianzLogo}
         alt="Umwelt- und Klimaallianz Sachsen"
-        className="w-[70px] shrink-0 object-contain md:w-[90px] lg:w-[86px] xl:w-[100px]"
+        className="w-[60px] shrink-0 object-contain md:w-[90px] lg:w-[86px] xl:w-[100px]"
       />
     )}
   </div>
