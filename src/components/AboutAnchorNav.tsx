@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const DESKTOP_SCROLL_OFFSET = 155;
+const DESKTOP_SCROLL_OFFSET = 180;
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
@@ -22,7 +22,10 @@ const AboutAnchorNav = () => {
     const element = document.getElementById(id);
     if (!element) return null;
 
-    return element.getBoundingClientRect().top + window.scrollY;
+    const target =
+      element.querySelector<HTMLElement>("[data-scroll-target]") ?? element;
+
+    return target.getBoundingClientRect().top + window.scrollY;
   };
 
   const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
@@ -64,6 +67,7 @@ const AboutAnchorNav = () => {
 
       sections.forEach((section) => {
         const top = getSectionTop(section.id);
+
         if (top !== null && top <= anchorLine) {
           current = section.id;
         }
