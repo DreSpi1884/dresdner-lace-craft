@@ -221,46 +221,51 @@ useLayoutEffect(() => {
 )}
 
             {section.id === "values" && (
-              <div className="grid grid-cols-1 gap-10">
-                {[
-                  {
-                    title: t("Tradition", "Tradition"),
-                    desc: t("More than 140 years of textile craftsmanship.", "Über 140 Jahre textiles Handwerk."),
-                  },
-                  {
-                    title: t("Innovation", "Innovation"),
-                    desc: t("Driven by new ideas and modern manufacturing.", "Angetrieben von neuen Ideen und moderner Fertigung."),
-                  },
-                  {
-                    title: t("Quality", "Qualität"),
-                    desc: t("Strict quality standards throughout the entire production.", "Strenge Qualitätsstandards entlang der gesamten Produktion."),
-                  },
-                  {
-                    title: t("Precision", "Präzision"),
-                    desc: t("Meticulous attention to detail in every product.", "Höchste Sorgfalt im Detail bei jedem Produkt."),
-                  },
-                  {
-                    title: t("Flexibility", "Flexibilität"),
-                    desc: t("Tailored solutions for every project.", "Maßgeschneiderte Lösungen für jedes Projekt."),
-                  },
-                  {
-                    title: t("Reliability", "Zuverlässigkeit"),
-                    desc: t("A trusted partner from development to delivery.", "Ein verlässlicher Partner von der Entwicklung bis zur Lieferung."),
-                  },
-                ].map((item) => (
-                  <div key={item.title} className="border-t border-border pt-6">
-                    <h3 className="editorial-heading-sm text-foreground mb-4">
-                      {item.title}
-                    </h3>
-                    <p className="text-base md:text-lg leading-[1.9] text-muted-foreground">
-                      {item.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
+  <div className="divide-y divide-primary/15">
+    {[
+      {
+        title: t("Tradition & Innovation", "Tradition & Innovation"),
+        desc: t(
+          "We combine over 140 years of textile experience with new ideas and modern manufacturing.",
+          "Wir verbinden über 140 Jahre textile Erfahrung mit neuen Ideen und moderner Fertigung."
+        ),
+      },
+      {
+        title: t("Quality & Precision", "Qualität & Präzision"),
+        desc: t(
+          "We work with high standards, careful control and attention to detail.",
+          "Wir arbeiten mit hohen Standards, sorgfältiger Kontrolle und Liebe zum Detail."
+        ),
+      },
+      {
+        title: t("Flexibility & Reliability", "Flexibilität & Zuverlässigkeit"),
+        desc: t(
+          "We develop tailored solutions and reliably support projects through to delivery.",
+          "Wir entwickeln individuelle Lösungen und begleiten Projekte verlässlich bis zur Lieferung."
+        ),
+      },
+    ].map((item) => (
+      <div key={item.title} className="py-7 first:pt-0 last:pb-0">
+        <h3
+          className="text-primary"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontSize: "12px",
+            letterSpacing: "1.8px",
+            textTransform: "uppercase",
+            fontWeight: 600,
+          }}
+        >
+          {item.title}
+        </h3>
+
+        <p className="mt-4 text-[16px] leading-[1.8] text-muted-foreground">
+          {item.desc}
+        </p>
+      </div>
+    ))}
+  </div>
+)}
       </article>
     );
   })}
