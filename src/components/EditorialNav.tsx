@@ -24,27 +24,37 @@ const clamp = (value: number, min: number, max: number) =>
 
 const getHeroScale = (width: number, height: number) => {
   const heightFactor =
-    height < 700 ? 0.9 :
-    height < 820 ? 0.96 :
+    height < 700 ? 0.88 :
+    height < 820 ? 0.94 :
     1;
 
+  // Handy
   if (width < 640) {
-    return clamp(width / 118, 2.9, 3.35) * heightFactor;
+    return clamp(width / 120, 2.75, 3.25) * heightFactor;
   }
 
+  // kleines Tablet / großes Handy
+  if (width < 768) {
+    return clamp(width / 145, 4.35, 4.9) * heightFactor;
+  }
+
+  // Tablet Portrait
   if (width < 1024) {
-    return clamp(width / 170, 4.05, 4.85) * heightFactor;
+    return clamp(width / 145, 5.15, 5.95) * heightFactor;
   }
 
-  if (width < 1280) {
-    return clamp(width / 285, 3.8, 4.35) * heightFactor;
+  // Tablet Landscape / kleines iPad Pro
+  if (width < 1180) {
+    return clamp(width / 175, 5.35, 6.15) * heightFactor;
   }
 
+  // Laptop
   if (width < 1536) {
-    return clamp(width / 320, 4.05, 4.55) * heightFactor;
+    return clamp(width / 390, 3.25, 3.85) * heightFactor;
   }
 
-  return clamp(width / 360, 4.5, 5.15) * heightFactor;
+  // großer Desktop
+  return clamp(width / 430, 3.85, 4.6) * heightFactor;
 };
 
 const EditorialNav = () => {
