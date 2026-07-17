@@ -375,10 +375,13 @@ requestAnimationFrame(() => {
             <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
               {line}
               {li === 1 && (
-                <InfoTooltip label="Hochflotten-Färbeverfahren" />
-              )}
-            </p>
-          ))}
+  <InfoTooltip
+    label={t(
+      "Compared with high-liquor dyeing.",
+      "Im Vergleich zu Hochflotten-Färbung."
+    )}
+  />
+)}
 
         <p
           className="mt-8"
