@@ -380,8 +380,10 @@ requestAnimationFrame(() => {
       "Compared with high-liquor dyeing.",
       "Im Vergleich zu Hochflotten-Färbung."
     )}
-  />
-)}
+        />
+      )}
+    </p>
+  ))}
 
         <p
           className="mt-8"
