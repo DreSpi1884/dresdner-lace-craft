@@ -121,7 +121,7 @@ const Index = () => {
                   "Twice a year, we develop designs that combine international fashion trends with our lace expertise.",
                   "Zweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden.",
                 ),
-                image: bespokeDesignsImage,
+                image: serviceLaceCollections.url,
                 anchor: "design",
               },
               {
@@ -130,9 +130,10 @@ const Index = () => {
                   "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
                   "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
                 ),
-                image: serviceCollections.url,
+                image: bespokeDesignsImage,
                 anchor: "design",
               },
+
               {
                 title: t("Dyeing and Finishing", "Färben & Ausrüsten"),
                 desc: t(
