@@ -44,21 +44,25 @@ const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onC
 
 const InfoTooltip = ({ label }: { label: string }) => {
   const [open, setOpen] = useState(false);
+
   return (
-    <span className="relative inline-flex align-middle ml-2 group">
+    <span className="relative ml-1 inline-flex align-baseline group">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center justify-center rounded-full border border-primary/50 p-0.5 text-primary/70 hover:text-primary hover:border-primary focus:outline-none transition-colors"
+        className="inline-flex translate-y-[2px] items-center justify-center text-primary/55 hover:text-primary focus:outline-none transition-colors"
         aria-label="Information"
       >
-        <Info className="h-3.5 w-3.5" />
+        <Info className="h-3.5 w-3.5" strokeWidth={1.7} />
       </button>
+
       <span
-        className={`absolute z-50 bottom-full left-1/2 mb-2 w-max max-w-[220px] -translate-x-1/2 rounded-sm bg-primary px-3 py-2 text-xs text-background shadow-lg ${open ? "block" : "hidden group-hover:block"}`}
+        className={`absolute left-full top-1/2 z-50 ml-1.5 w-[230px] -translate-y-1/2 rounded-sm bg-primary px-3 py-2 text-[11px] leading-[1.45] text-background shadow-lg ${
+          open ? "block" : "hidden group-hover:block"
+        }`}
       >
         {label}
-        <span className="absolute left-1/2 top-full -translate-x-1/2 border-[5px] border-transparent border-t-primary" />
+        <span className="absolute right-full top-1/2 -translate-y-1/2 border-[5px] border-transparent border-r-primary" />
       </span>
     </span>
   );
