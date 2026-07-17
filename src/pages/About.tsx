@@ -278,9 +278,11 @@ const About = () => {
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <div>
-              <h2 className="editorial-heading-lg text-foreground mb-0">
-                {t("Sustainability", "Nachhaltigkeit")}
-              </h2>
+            <span id="sustainability-scroll-target" className="block h-0" aria-hidden="true" />
+            
+            <h2 className="editorial-heading-lg text-foreground mb-0">
+              {t("Sustainability", "Nachhaltigkeit")}
+            </h2>
 
               <div className="mt-10 xl:mt-12">
                 <SolarImageCard
@@ -333,6 +335,8 @@ const About = () => {
         <div className="editorial-container py-24 xl:py-32">
           <div className="grid grid-cols-[0.7fr_1.3fr] gap-16 xl:gap-24 items-start">
             <div className="sticky top-32">
+              <span id="values-scroll-target" className="block h-0" aria-hidden="true" />
+              
               <h2 className="editorial-heading-lg text-foreground mb-4">
                 {t("Our Values", "Unsere Werte")}
               </h2>
