@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Info } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
@@ -39,6 +39,28 @@ const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onC
       </button>
       {parts[1]}
     </>
+  );
+};
+
+const InfoTooltip = ({ label }: { label: string }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <span className="relative inline-flex align-middle ml-2 group">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="inline-flex items-center justify-center rounded-full border border-primary/50 p-0.5 text-primary/70 hover:text-primary hover:border-primary focus:outline-none transition-colors"
+        aria-label="Information"
+      >
+        <Info className="h-3.5 w-3.5" />
+      </button>
+      <span
+        className={`absolute z-50 bottom-full left-1/2 mb-2 w-max max-w-[220px] -translate-x-1/2 rounded-sm bg-primary px-3 py-2 text-xs text-background shadow-lg ${open ? "block" : "hidden group-hover:block"}`}
+      >
+        {label}
+        <span className="absolute left-1/2 top-full -translate-x-1/2 border-[5px] border-transparent border-t-primary" />
+      </span>
+    </span>
   );
 };
 
@@ -348,6 +370,9 @@ requestAnimationFrame(() => {
           .map((line, li) => (
             <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
               {line}
+              {li === 1 && (
+                <InfoTooltip label="Hochflotten-Färbeverfahren" />
+              )}
             </p>
           ))}
 
