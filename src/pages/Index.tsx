@@ -62,10 +62,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* KEYWORDS BANNER */}
-<section className="w-full bg-background border-b border-border py-3 md:py-6">
-  <div className="editorial-container">
-    <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/30">
+{/* KEYWORDS BANNER */}
+<section className="w-full border-b border-primary/10 bg-[hsl(var(--primary)/0.035)] py-3 md:py-5">
+  <div className="w-full px-2 sm:px-3 md:px-8 lg:px-[48px] xl:px-[60px]">
+    <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/20">
       {[
         {
           text: t("IN-HOUSE PRODUCTION", "INTEGRIERTE PRODUKTION"),
@@ -76,7 +76,10 @@ const Index = () => {
           icon: PenTool,
         },
         {
-          text: t("CERTIFIED SUSTAINABLE PRODUCTION", "ZERTIFIZIERTE NACHHALTIGKEIT"),
+          text: t(
+            "CERTIFIED SUSTAINABLE PRODUCTION",
+            "ZERTIFIZIERTE NACHHALTIGKEIT"
+          ),
           icon: BadgeCheck,
         },
         {
@@ -86,17 +89,17 @@ const Index = () => {
       ].map(({ text, icon: Icon }) => (
         <div
           key={text}
-          className="flex min-h-[4rem] items-center justify-center gap-3 px-3 py-3 text-left md:min-h-[3rem] md:px-6 md:py-0 md:text-center"
+          className="flex min-h-[3.35rem] min-w-0 items-center justify-center gap-1.5 px-1 py-2 text-center md:min-h-[3rem] md:px-3 md:py-0"
         >
           <Icon
-            className="h-5 w-5 shrink-0 text-primary md:hidden"
+            className="h-4 w-4 shrink-0 text-primary md:hidden"
             strokeWidth={1.5}
             aria-hidden="true"
           />
 
           <span
-            className="editorial-label text-primary leading-tight"
-            style={{ fontSize: "clamp(9px, 1vw, 13px)" }}
+            className="editorial-label whitespace-nowrap text-primary leading-none tracking-[0.06em] sm:tracking-[0.1em] md:tracking-[0.2em]"
+            style={{ fontSize: "clamp(7px, 1.45vw, 13px)" }}
           >
             {text}
           </span>
