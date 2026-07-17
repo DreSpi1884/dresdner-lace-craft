@@ -204,10 +204,7 @@ const About = () => {
                       />
 
                       <p>
-                        {t(
-                          "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
-                          "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
-                        )}
+                        {"\n"}
                       </p>
                     </div>
                   )}
@@ -320,10 +317,7 @@ const About = () => {
               </p>
 
               <p className="mt-8">
-                {t(
-                  "For our commitment to the environment, climate and energy efficiency, we were honored by the Umweltallianz Sachsen.",
-                  "Für unser Engagement für Umwelt, Klima und Energieeffizienz wurden wir durch die Umweltallianz Sachsen ausgezeichnet."
-                )}
+                {"\n"}
               </p>
             </div>
           </div>
