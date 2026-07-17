@@ -238,8 +238,8 @@ const About = () => {
                             "Flexibilität & Zuverlässigkeit"
                           ),
                           desc: t(
-                            "We develop tailored solutions and reliably support projects through to delivery.",
-                            "Wir entwickeln individuelle Lösungen und begleiten Projekte verlässlich bis zur Lieferung."
+                            "We develop tailored solutions and support projects from the initial idea to delivery.",
+                            "Wir entwickeln individuelle Lösungen und begleiten Projekte von der ersten Idee bis zur Lieferung."
                           ),
                         },
                       ].map((item) => (
@@ -368,8 +368,8 @@ const About = () => {
                     "Flexibilität & Zuverlässigkeit"
                   ),
                   desc: t(
-                    "We develop tailored solutions and reliably support projects through to delivery.",
-                    "Wir entwickeln individuelle Lösungen und begleiten Projekte verlässlich bis zur Lieferung."
+                    "We develop tailored solutions and support projects from the initial idea to delivery.",
+                    "Wir entwickeln individuelle Lösungen und begleiten Projekte von der ersten Idee bis zur Lieferung."
                   ),
                 },
               ].map((item) => (
