@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const DESKTOP_SCROLL_OFFSET = 100;
+const DESKTOP_SCROLL_OFFSET = 180;
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
@@ -19,11 +19,11 @@ const AboutAnchorNav = () => {
   );
 
   const getSectionTop = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return null;
-
     const target =
-      element.querySelector<HTMLElement>("[data-scroll-target]") ?? element;
+      document.getElementById(`${id}-scroll-target`) ??
+      document.getElementById(id);
+
+    if (!target) return null;
 
     return target.getBoundingClientRect().top + window.scrollY;
   };
@@ -62,7 +62,6 @@ const AboutAnchorNav = () => {
 
     const updateActiveSection = () => {
       const anchorLine = window.scrollY + DESKTOP_SCROLL_OFFSET + 8;
-
       let current = sections[0].id;
 
       sections.forEach((section) => {
