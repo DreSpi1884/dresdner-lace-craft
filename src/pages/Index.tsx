@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import EditorialSection from "@/components/EditorialSection";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
 
-import serviceCollections from "@/assets/service-collections.jpg.asset.json";
+import bespokeDesignsImage from "@/assets/bespoke-designs.jpg?url";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
 import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg.asset.json";
 import serviceFunctional from "@/assets/functional-medical-fabric.jpg.asset.json";
@@ -121,7 +121,7 @@ const Index = () => {
                   "Twice a year, we develop designs that combine international fashion trends with our lace expertise.",
                   "Zweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden.",
                 ),
-                image: serviceLaceCollections.url,
+                image: bespokeDesignsImage,
                 anchor: "design",
               },
               {
