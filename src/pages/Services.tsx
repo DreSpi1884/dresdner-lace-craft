@@ -370,6 +370,9 @@ requestAnimationFrame(() => {
           .map((line, li) => (
             <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
               {line}
+              {li === 1 && (
+                <InfoTooltip label="Hochflotten-Färbeverfahren" />
+              )}
             </p>
           ))}
 
