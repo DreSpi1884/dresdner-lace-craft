@@ -191,7 +191,7 @@ const About = () => {
                       <SolarImageCard
                         mobileText={t(
                           "Solar power from our site.",
-                          "Solarstrom vom eigenen Standort."
+                          "Solarstrom von unserem Produktionsstandort Dresden"
                         )}
                         desktopText={t(
                           "We generate part of our electricity through our own solar power systems on our production site in Dresden.",
@@ -288,7 +288,7 @@ const About = () => {
                 <SolarImageCard
                   mobileText={t(
                     "Solar power from our site.",
-                    "Solarstrom vom eigenen Standort."
+                    "Solarstrom von unserem Produktionsstandort Dresden"
                   )}
                   desktopText={t(
                     "We generate part of our electricity through our own solar power systems on our production site in Dresden.",
