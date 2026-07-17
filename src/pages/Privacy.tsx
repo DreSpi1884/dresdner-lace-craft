@@ -5,7 +5,7 @@ import { useLang } from "@/i18n/LanguageContext";
 const Privacy = () => {
   const { t } = useLang();
   return (
-    <EditorialLayout title={t("Privacy Policy", "Datenschutzerklärung")}>
+    <EditorialLayout heroAtTop={true}>
       <SEO
         title={t("Privacy Policy", "Datenschutzerklärung")}
         description={t(
@@ -14,9 +14,11 @@ const Privacy = () => {
         )}
         path="/privacy"
       />
-      <section className="editorial-section">
+      <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12">
         <div className="editorial-container max-w-3xl">
+          <h1 className="editorial-heading-xl mb-6">{t("Privacy Policy", "Datenschutzerklärung")}</h1>
           <div className="editorial-body text-muted-foreground whitespace-pre-wrap">
+
             <p>
               {t(
                 `Datenschutzerklärung nach den Vorgaben der DSGVO
