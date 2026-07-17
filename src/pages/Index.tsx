@@ -63,7 +63,7 @@ const Index = () => {
       </section>
 
       {/* KEYWORDS BANNER */}
-<section className="w-full bg-background border-b border-border py-5 md:py-6">
+<section className="w-full bg-background border-b border-border py-3 md:py-6">
   <div className="editorial-container">
     <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/30">
       {[
