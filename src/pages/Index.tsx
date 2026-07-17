@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import EditorialSection from "@/components/EditorialSection";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
 
-import bespokeDesignsImage from "@/assets/bespoke-designs.jpg?url";
+import bespokeDesignsImage from "@/assets/bespoke-designs.png?url";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
 import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg.asset.json";
 import serviceFunctional from "@/assets/functional-medical-fabric.jpg.asset.json";
