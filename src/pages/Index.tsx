@@ -137,8 +137,8 @@ const Index = () => {
               {
                 title: t("Dyeing and Finishing", "Färben & Ausrüsten"),
                 desc: t(
-                  "Our in-house dyeing facility covers the full colour spectrum in uni or bicolour.",
-                  "Unsere hauseigene Färberei deckt das gesamte Farbspektrum in Uni oder Bicolor ab.",
+                  "Our in-house dyeing facility covers the full colour spectrum in uni- and bicolour.",
+                  "Unsere hauseigene Färberei deckt das gesamte Farbspektrum in Uni- und Bicolor ab.",
                 ),
                 image: serviceDyeing.url,
                 anchor: "dyeing-finishing",
