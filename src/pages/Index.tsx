@@ -63,9 +63,9 @@ const Index = () => {
       </section>
 
 {/* KEYWORDS BANNER */}
-<section className="w-full border-b border-primary/10 bg-[hsl(var(--primary)/0.035)] py-3 md:py-5">
-  <div className="w-full px-2 sm:px-3 md:px-8 lg:px-[48px] xl:px-[60px]">
-    <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-primary/20">
+<section className="w-full border-b border-primary/10 bg-[hsl(var(--primary)/0.035)] py-0">
+  <div className="w-full">
+    <div className="grid w-full grid-cols-2 md:grid-cols-4">
       {[
         {
           text: t("IN-HOUSE PRODUCTION", "INTEGRIERTE PRODUKTION"),
@@ -86,10 +86,14 @@ const Index = () => {
           text: t("JUST-IN-TIME DELIVERY", "JUST-IN-TIME-LIEFERUNG"),
           icon: Truck,
         },
-      ].map(({ text, icon: Icon }) => (
+      ].map(({ text, icon: Icon }, index) => (
         <div
           key={text}
-          className="flex min-h-[3.35rem] min-w-0 items-center justify-center gap-1.5 px-1 py-2 text-center md:min-h-[3rem] md:px-3 md:py-0"
+          className={`flex min-h-[3.6rem] min-w-0 items-center justify-center gap-1.5 px-2 py-3 text-center md:min-h-[4.4rem] md:px-4 md:py-0 ${
+            index % 2 === 0 ? "border-r border-primary/10 md:border-r" : ""
+          } ${
+            index < 2 ? "border-b border-primary/10 md:border-b-0" : ""
+          } md:border-r md:border-primary/15 last:md:border-r-0`}
         >
           <Icon
             className="h-4 w-4 shrink-0 text-primary md:hidden"
@@ -98,8 +102,8 @@ const Index = () => {
           />
 
           <span
-            className="editorial-label whitespace-nowrap text-primary leading-none tracking-[0.06em] sm:tracking-[0.1em] md:tracking-[0.2em]"
-            style={{ fontSize: "clamp(7px, 1.45vw, 13px)" }}
+            className="editorial-label min-w-0 whitespace-nowrap text-primary leading-none tracking-[0.06em] sm:tracking-[0.1em] md:tracking-[0.13em] lg:tracking-[0.16em] xl:tracking-[0.2em]"
+            style={{ fontSize: "clamp(8px, 0.72vw, 13px)" }}
           >
             {text}
           </span>
