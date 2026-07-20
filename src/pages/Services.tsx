@@ -68,58 +68,68 @@ const InfoTooltip = ({ label }: { label: string }) => {
   );
 };
 
+const ProductionImageTile = ({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+}) => {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(false);
+  }, [src]);
+
+  return (
+    <div
+      data-no-reveal
+      className="relative h-full min-h-0 w-full overflow-hidden bg-muted"
+      style={{
+        opacity: 1,
+        transform: "none",
+        transition: "none",
+        animation: "none",
+      }}
+    >
+      <img
+        data-no-reveal
+        src={src}
+        alt={alt}
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        onLoad={(event) => {
+          const image = event.currentTarget;
+          const show = () => setReady(true);
+
+          if ("decode" in image) {
+            image.decode().then(show).catch(show);
+          } else {
+            show();
+          }
+        }}
+        onError={() => setReady(true)}
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{
+          opacity: ready ? 1 : 0,
+          transform: "none",
+          transition: "none",
+          animation: "none",
+        }}
+      />
+    </div>
+  );
+};
+
 // Fixed header height (h-20 mobile / h-24 desktop)
 
 const Services = () => {
   const { t, lang } = useLang();
   const { open: openQuote } = useQuoteModal();
   const location = useLocation();
-  const [productionImagesReady, setProductionImagesReady] = useState(false);
-useEffect(() => {
-  let active = true;
-
-  const sources = [
-    designImg1,
-    designImg2,
-    designImg3,
-    designImg4,
-    dyeingImg1,
-    dyeingImg2,
-    dyeingImg3,
-    dyeingImg4,
-    rawMaterialImg1,
-    rawMaterialImg2,
-    functionalImg1,
-    functionalImg2,
-    functionalImg3,
-    functionalImg4,
-  ];
-
-  Promise.all(
-    sources.map(
-      (src) =>
-        new Promise<void>((resolve) => {
-          const image = new Image();
-
-          const done = () => resolve();
-
-          image.onload = done;
-          image.onerror = done;
-          image.src = src;
-
-          if ("decode" in image) {
-            image.decode().then(done).catch(done);
-          }
-        })
-    )
-  ).then(() => {
-    if (active) setProductionImagesReady(true);
-  });
-
-  return () => {
-    active = false;
-  };
-}, []);
+  
 
   const processSteps = useMemo(
     () => [
@@ -512,21 +522,13 @@ requestAnimationFrame(() => {
 {/* Mobile accordion section */}
 <div data-no-reveal className="lg:hidden px-6">
 {s.mobileImage && (
-  <div
-    data-no-reveal
-    role="img"
-    aria-label={s.title}
-    className="-mx-6 aspect-[4/3] overflow-hidden bg-muted bg-cover bg-center"
-    style={{
-      backgroundImage: productionImagesReady
-        ? `url(${s.mobileImage})`
-        : "none",
-      opacity: 1,
-      transform: "none",
-      transition: "none",
-      animation: "none",
-    }}
-  />
+  <div data-no-reveal className="-mx-6 aspect-[4/3] overflow-hidden bg-muted">
+    <ProductionImageTile
+      src={s.mobileImage}
+      alt={s.title}
+      priority={i === 0}
+    />
+  </div>
 )}
 
   <button
@@ -555,102 +557,52 @@ requestAnimationFrame(() => {
 
         {/* Desktop split section */}
         <div data-no-reveal className="hidden lg:grid lg:grid-cols-2">
-          <div className="flex min-h-[760px] items-start lg:pl-[48px] lg:pr-10 py-20">
-            <div className="w-full max-w-none">
-              <h2
-                className="mb-16 leading-[1.1]"
-                style={{
-                  fontFamily: "'Bodoni Moda', serif",
-                  fontSize: "clamp(30px, 4vw, 46px)",
-                  color: "hsl(var(--primary))",
-                  fontWeight: 500,
-                }}
-              >
-                {s.title}
-              </h2>
-
-              {renderBody(s)}
-              {renderProcess(s)}
+                      <div data-no-reveal className="min-h-[760px] bg-muted">
+              {s.desktopImages ? (
+                <div
+                  data-no-reveal
+                  className={
+                    s.id === "raw-material-production"
+                      ? "grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
+                      : "grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
+                  }
+                  style={{
+                    opacity: 1,
+                    transform: "none",
+                    transition: "none",
+                    animation: "none",
+                  }}
+                >
+                  {s.desktopImages.map((img, idx) => (
+                    <ProductionImageTile
+                      key={`${s.id}-${idx}`}
+                      src={img}
+                      alt={`${s.title} ${idx + 1}`}
+                      priority={i === 0}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="relative flex h-full min-h-[760px] w-full items-center justify-center overflow-hidden bg-muted">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
+                  <span
+                    className="relative text-center"
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "11px",
+                      letterSpacing: "2px",
+                      textTransform: "uppercase",
+                      color: "hsl(var(--muted-foreground) / 0.6)",
+                    }}
+                  >
+                    {t("Image placeholder", "Bildplatzhalter")}{" "}
+                    {String(i + 1).padStart(2, "0")}
+                    <br />
+                    {s.title}
+                  </span>
+                </div>
+              )}
             </div>
-          </div>
-
-            <div data-no-reveal className="min-h-[760px] bg-muted">
-  {!productionImagesReady ? (
-    <div
-      data-no-reveal
-      className="h-full min-h-[760px] w-full bg-muted"
-      style={{
-        opacity: 1,
-        transform: "none",
-        transition: "none",
-        animation: "none",
-      }}
-    />
-  ) : s.id === "raw-material-production" && s.desktopImages ? (
-    <div
-      data-no-reveal
-      className="grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
-    >
-      {s.desktopImages.map((img, idx) => (
-        <div
-          key={idx}
-          data-no-reveal
-          role="img"
-          aria-label={`${s.title} ${idx + 1}`}
-          className="overflow-hidden bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${img})`,
-            opacity: 1,
-            transform: "none",
-            transition: "none",
-            animation: "none",
-          }}
-        />
-      ))}
-    </div>
-  ) : s.desktopImages ? (
-    <div
-      data-no-reveal
-      className="grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
-    >
-      {s.desktopImages.map((img, idx) => (
-        <div
-          key={idx}
-          data-no-reveal
-          role="img"
-          aria-label={`${s.title} ${idx + 1}`}
-          className="overflow-hidden bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${img})`,
-            opacity: 1,
-            transform: "none",
-            transition: "none",
-            animation: "none",
-          }}
-        />
-      ))}
-    </div>
-  ) : (
-    <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
-      <span
-        className="relative text-center"
-        style={{
-          fontFamily: "'Jost', sans-serif",
-          fontSize: "11px",
-          letterSpacing: "2px",
-          textTransform: "uppercase",
-          color: "hsl(var(--muted-foreground) / 0.6)",
-        }}
-      >
-        {t("Image placeholder", "Bildplatzhalter")}{" "}
-        {String(i + 1).padStart(2, "0")}
-        <br />
-        {s.title}
-      </span>
-    </div>
-  )}
-</div>
 
         </div>
       </article>
