@@ -126,7 +126,7 @@ const About = () => {
           "Unternehmen und Geschichte seit 1884"
         )}
         description={t(
-          "Learn more about Dresdner Spitzen, a textile company in Dresden with a history dating back to 1884, certified production and a clear commitment to quality.",
+          "Learn more about Dresdner Spitzen, a textile company in Dresden with a history dating back to 1884, certified production and a clear commitment to quality and sustainability.",
           "Lernen Sie Dresdner Spitzen kennen: ein Textilunternehmen aus Dresden mit Geschichte seit 1884, zertifizierter Produktion und klarem Qualitätsanspruch."
         )}
         path="/about"
