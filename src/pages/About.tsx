@@ -194,7 +194,7 @@ const About = () => {
                           "Solarstrom von unserem Produktionsstandort Dresden"
                         )}
                         desktopText={t(
-                          "We generate part of our electricity through solar power systems on our production site.",
+                          "We generate part of our electricity through our solar power systems on our production site in Dresden.",
                           "Einen Teil unseres Stroms erzeugen wir durch Solaranlagen auf unserem Produktionsgelände."
                         )}
                         alt={t(
@@ -288,7 +288,7 @@ const About = () => {
                     "Solarstrom von unserem Produktionsstandort Dresden"
                   )}
                   desktopText={t(
-                    "We generate part of our electricity through solar power systems on our production site.",
+                    "We generate part of our electricity through our solar power systems on our production site in Dresden.",
                     "Einen Teil unseres Stroms erzeugen wir durch Solaranlagen auf unserem Produktionsgelände."
                   )}
                   alt={t(
