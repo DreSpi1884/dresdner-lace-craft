@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
 const SECTION_OFFSETS: Record<string, number> = {
-  history: 160,
+  history: 155,
   sustainability: 180,
   values: 220,
 };
