@@ -30,12 +30,12 @@ const SolarImageCard = ({
       className="block h-[220px] w-full object-cover sm:h-[250px] lg:h-[460px] xl:h-[520px]"
     />
 
-    <figcaption className="absolute inset-0 flex items-end bg-transparent px-3 py-4 opacity-100 transition-opacity duration-500 lg:bg-foreground/45 lg:px-6 lg:py-6 lg:pl-[clamp(4rem,8vw,9rem)] lg:opacity-0 lg:group-hover:opacity-100">
+    <figcaption className="absolute inset-0 flex items-end bg-transparent px-3 py-4 opacity-100 transition-opacity duration-500 lg:bg-foreground/45 lg:px-6 lg:py-6 lg:opacity-0 lg:group-hover:opacity-100">
       <p className="w-full max-w-none whitespace-nowrap text-left text-[13px] leading-[1.45] text-background drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] sm:text-[15px] lg:hidden">
         {mobileText}
       </p>
 
-      <p className="hidden max-w-[48ch] text-left text-[17px] leading-[1.65] text-background drop-shadow-md lg:block">
+      <p className="hidden max-w-[46ch] text-left text-[17px] leading-[1.65] text-background drop-shadow-md lg:block">
         {desktopText}
       </p>
     </figcaption>
@@ -268,61 +268,67 @@ const About = () => {
       </div>
 
       {/* Desktop sustainability */}
-      <section
-        id="sustainability"
-        className="hidden lg:block editorial-section scroll-mt-32 overflow-hidden"
-      >
-        <div className="editorial-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <div>
-            <span id="sustainability-scroll-target" className="block h-0" aria-hidden="true" />
-            
-            <h2 className="editorial-heading-lg text-foreground mb-0">
-              {t("Sustainability", "Nachhaltigkeit")}
-            </h2>
+     <section
+  id="sustainability"
+  className="hidden lg:block editorial-section scroll-mt-32 overflow-hidden"
+>
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+    <div className="min-w-0">
+      <div className="pl-8 xl:pl-12 2xl:pl-16">
+        <span
+          id="sustainability-scroll-target"
+          className="block h-0"
+          aria-hidden="true"
+        />
 
-              <div className="mt-10 xl:mt-12 lg:-ml-[calc((100vw-100%)/2)] lg:w-[calc(100%+((100vw-100%)/2))]">
-                <SolarImageCard
-                  mobileText={t(
-                    "Solar power from our site.",
-                    "Solarstrom von unserem Produktionsstandort Dresden"
-                  )}
-                  desktopText={t(
-                    "We generate part of our electricity through our solar power systems on our production site in Dresden.",
-                    "Einen Teil unseres Stroms erzeugen wir durch Solaranlagen auf unserem Produktionsgelände."
-                  )}
-                  alt={t(
-                    "Solar panels on the roof of the Dresden production site",
-                    "Solaranlagen auf dem Dach des Produktionsstandorts in Dresden"
-                  )}
-                />
-              </div>
-            </div>
+        <h2 className="editorial-heading-lg text-foreground mb-0">
+          {t("Sustainability", "Nachhaltigkeit")}
+        </h2>
+      </div>
 
-            <div className="text-left text-lg leading-[1.85] text-muted-foreground lg:pt-32 xl:pt-36">
-              <p className="whitespace-pre-wrap">
-                {t(
-                  "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
-                  "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\n\n"
-                )}
-              </p>
+      <div className="mt-10 xl:mt-12">
+        <SolarImageCard
+          mobileText={t(
+            "Solar power from our site.",
+            "Solarstrom von unserem Produktionsstandort Dresden"
+          )}
+          desktopText={t(
+            "We generate part of our electricity through our solar power systems on our production site in Dresden.",
+            "Einen Teil unseres Stroms erzeugen wir durch Solaranlagen auf unserem Produktionsgelände."
+          )}
+          alt={t(
+            "Solar panels on the roof of the Dresden production site",
+            "Solaranlagen auf dem Dach des Produktionsstandorts in Dresden"
+          )}
+        />
+      </div>
+    </div>
 
-              <SustainabilityLogos className="mt-8 mb-6" />
+    <div className="min-w-0 pr-8 xl:pr-12 2xl:pr-16">
+      <div className="max-w-[760px] text-left text-lg leading-[1.85] text-muted-foreground lg:pt-32 xl:pt-36">
+        <p>
+          {t(
+            "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
+            "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
+          )}
+        </p>
 
-              <p className="whitespace-pre-wrap">
-                {t(
-                  "\nThese certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
-                  "\nDiese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
-                )}
-              </p>
+        <SustainabilityLogos className="mt-8 mb-6" />
 
-              <p className="mt-8">
-                {"\n"}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <p>
+          {t(
+            "These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
+            "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
+          )}
+        </p>
+
+        <p className="mt-8">
+          {"\n"}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Desktop values */}
       <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
