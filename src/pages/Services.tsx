@@ -555,56 +555,74 @@ requestAnimationFrame(() => {
   </div>
 </div>
 
-        {/* Desktop split section */}
-        <div data-no-reveal className="hidden lg:grid lg:grid-cols-2">
-                      <div data-no-reveal className="min-h-[760px] bg-muted">
-              {s.desktopImages ? (
-                <div
-                  data-no-reveal
-                  className={
-                    s.id === "raw-material-production"
-                      ? "grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
-                      : "grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
-                  }
-                  style={{
-                    opacity: 1,
-                    transform: "none",
-                    transition: "none",
-                    animation: "none",
-                  }}
-                >
-                  {s.desktopImages.map((img, idx) => (
-                    <ProductionImageTile
-                      key={`${s.id}-${idx}`}
-                      src={img}
-                      alt={`${s.title} ${idx + 1}`}
-                      priority={i === 0}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div className="relative flex h-full min-h-[760px] w-full items-center justify-center overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
-                  <span
-                    className="relative text-center"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontSize: "11px",
-                      letterSpacing: "2px",
-                      textTransform: "uppercase",
-                      color: "hsl(var(--muted-foreground) / 0.6)",
-                    }}
-                  >
-                    {t("Image placeholder", "Bildplatzhalter")}{" "}
-                    {String(i + 1).padStart(2, "0")}
-                    <br />
-                    {s.title}
-                  </span>
-                </div>
-              )}
-            </div>
+       {/* Desktop split section */}
+<div data-no-reveal className="hidden lg:grid lg:grid-cols-2">
+  <div className="flex min-h-[760px] items-start lg:pl-[48px] lg:pr-10 py-20">
+    <div className="w-full max-w-none">
+      <h2
+        className="mb-16 leading-[1.1]"
+        style={{
+          fontFamily: "'Bodoni Moda', serif",
+          fontSize: "clamp(30px, 4vw, 46px)",
+          color: "hsl(var(--primary))",
+          fontWeight: 500,
+        }}
+      >
+        {s.title}
+      </h2>
 
-        </div>
+      {renderBody(s)}
+      {renderProcess(s)}
+    </div>
+  </div>
+
+  <div data-no-reveal className="min-h-[760px] bg-muted">
+    {s.desktopImages ? (
+      <div
+        data-no-reveal
+        className={
+          s.id === "raw-material-production"
+            ? "grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
+            : "grid h-full min-h-[760px] grid-cols-2 grid-rows-2 gap-0"
+        }
+        style={{
+          opacity: 1,
+          transform: "none",
+          transition: "none",
+          animation: "none",
+        }}
+      >
+        {s.desktopImages.map((img, idx) => (
+          <ProductionImageTile
+            key={`${s.id}-${idx}`}
+            src={img}
+            alt={`${s.title} ${idx + 1}`}
+            priority={i === 0}
+          />
+        ))}
+      </div>
+    ) : (
+      <div className="relative flex h-full min-h-[760px] w-full items-center justify-center overflow-hidden bg-muted">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-primary/5" />
+        <span
+          className="relative text-center"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontSize: "11px",
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            color: "hsl(var(--muted-foreground) / 0.6)",
+          }}
+        >
+          {t("Image placeholder", "Bildplatzhalter")}{" "}
+          {String(i + 1).padStart(2, "0")}
+          <br />
+          {s.title}
+        </span>
+      </div>
+    )}
+  </div>
+</div>
       </article>
     );
   })}
