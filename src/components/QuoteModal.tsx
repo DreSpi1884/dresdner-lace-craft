@@ -184,7 +184,6 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                       { value: "Spitze", label: t("Lace", "Spitze") },
                       { value: "Kettengewirke", label: t("Warp-knitted fabrics", "Kettengewirke") },
                       { value: "Funktionale Textilien", label: t("Functional textiles", "Funktionale Textilien") },
-                      { value: "Färbung/Ausrüstung", label: t("Dyeing/Finishing", "Färbung/Ausrüstung") },
                     ].map((opt) => (
                       <OptionButton
                         key={opt.value}
