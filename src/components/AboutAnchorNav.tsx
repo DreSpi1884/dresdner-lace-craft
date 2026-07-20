@@ -5,7 +5,7 @@ import { useLang } from "@/i18n/LanguageContext";
 const SECTION_OFFSETS: Record<string, number> = {
   history: 160,
   sustainability: 180,
-  values: 210,
+  values: 220,
 };
 
 const AboutAnchorNav = () => {
