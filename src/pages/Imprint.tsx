@@ -7,10 +7,13 @@ const Imprint = () => {
   return (
     <EditorialLayout heroAtTop={true}>
       <SEO
-        title={t("Imprint", "Impressum")}
+        title={t(
+          "Imprint",
+          "Impressum"
+        )}
         description={t(
-          "Legal information and company details for DreGuS / Dresdner Spitzen.",
-          "Rechtliche Angaben und Unternehmensinformationen zu DreGuS / Dresdner Spitzen."
+          "Legal information and company details for Dresdner Spitzen.",
+          "Rechtliche Angaben und Unternehmensinformationen von Dresdner Spitzen."
         )}
         path="/imprint"
       />
