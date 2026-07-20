@@ -21,12 +21,12 @@ const Index = () => {
     <EditorialLayout heroAtTop>
       <SEO
         title={t(
-          "Dresdner Spitzen | Premium German Textile Manufacturer since 1884",
-          "Dresdner Spitzen | Deutscher Premium-Textilhersteller seit 1884",
+          "Lace and Textile Production Since 1884",
+          "Spitze und Textilproduktion seit 1884"
         )}
         description={t(
-          "Dresdner Spitzen since 1884: German manufacturer of lace, warp-knitted & functional textiles. Offering seasonal collections & bespoke custom solutions.",
-          "Dresdner Spitzen seit 1884: Deutscher Hersteller von Spitze, Wirkwaren & Funktionstextilien. Wir bieten saisonale Kollektionen & maßgeschneiderte Lösungen.",
+          "Dresdner Spitzen develops and produces lace, warp-knitted fabrics, functional textiles, dyeing and finishing solutions in Dresden, Germany.",
+          "Dresdner Spitzen entwickelt und produziert in Dresden Spitzen, Kettengewirke, funktionale Textilien sowie Färbe- und Ausrüstungslösungen."
         )}
         path="/"
       />
