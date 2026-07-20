@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { useLang } from "@/i18n/LanguageContext";
 
-type Step = 1 | 2 | 3 | 4 | 5;
+type Step = 1 | 2 | 3 | 4 | 5 | 6;
 
 type QuoteModalContextType = {
   open: () => void;
@@ -24,6 +24,7 @@ export const useQuoteModal = () => {
 };
 
 const initialForm = {
+  textileType: "" as string,
   laceType: [] as string[],
   widths: "",
   widthsNotSure: false,
@@ -43,6 +44,9 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
   const [step, setStep] = useState<Step>(1);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState(initialForm);
+
+  const isSpitze = form.textileType === "Spitze";
+  const totalSteps = isSpitze ? 6 : 5;
 
   const open = useCallback(() => {
     setForm(initialForm);
@@ -64,14 +68,28 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updateForm = (
-    key: "widths" | "name" | "company" | "email" | "message",
+    key: "textileType" | "widths" | "name" | "company" | "email" | "message",
     value: string,
   ) => {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
-  const nextStep = () => setStep((s) => Math.min(s + 1, 5) as Step);
-  const prevStep = () => setStep((s) => Math.max(s - 1, 1) as Step);
+  const nextStep = () => {
+    if (step === 1 && !isSpitze) {
+      setStep(3);
+    } else {
+      setStep((s) => Math.min(s + 1, 6) as Step);
+    }
+  };
+
+  const prevStep = () => {
+    if (step === 3 && !isSpitze) {
+      setStep(1);
+    } else {
+      setStep((s) => Math.max(s - 1, 1) as Step);
+    }
+  };
+
   const handleSubmit = () => setSubmitted(true);
 
   const OptionButton = ({
@@ -145,7 +163,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
             <div className="mt-2">
               {/* Progress */}
               <div className="flex gap-1.5 mb-8">
-                {[1, 2, 3, 4, 5].map((s) => (
+                {Array.from({ length: totalSteps }, (_, i) => i + 1).map((s) => (
                   <div
                     key={s}
                     className={`h-1 flex-1 transition-colors duration-300 ${
@@ -157,6 +175,37 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
 
               {/* Step 1 */}
               {step === 1 && (
+                <div className="space-y-6 animate-fade-in">
+                  <h3 className="editorial-heading-sm text-foreground">
+                    {t("What type of textile are you looking for?", "Welche Art von Textil suchen Sie?")}
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {[
+                      { value: "Spitze", label: t("Lace", "Spitze") },
+                      { value: "Kettengewirke", label: t("Warp-knitted fabrics", "Kettengewirke") },
+                      { value: "Funktionale Textilien", label: t("Functional textiles", "Funktionale Textilien") },
+                      { value: "Färbung/Ausrüstung", label: t("Dyeing/Finishing", "Färbung/Ausrüstung") },
+                    ].map((opt) => (
+                      <OptionButton
+                        key={opt.value}
+                        label={opt.label}
+                        selected={form.textileType === opt.value}
+                        onClick={() => updateForm("textileType", opt.value)}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    onClick={nextStep}
+                    disabled={form.textileType === ""}
+                    className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    {continueLabel} <ArrowRight size={16} />
+                  </button>
+                </div>
+              )}
+
+              {/* Step 2 - Lace type (only if Spitze) */}
+              {step === 2 && isSpitze && (
                 <div className="space-y-6 animate-fade-in">
                   <h3 className="editorial-heading-sm text-foreground">
                     {t("What type of lace do you need?", "Welche Art von Spitze benötigen Sie?")}
@@ -187,8 +236,8 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                 </div>
               )}
 
-              {/* Step 2 */}
-              {step === 2 && (
+              {/* Step 3 */}
+              {step === 3 && (
                 <div className="space-y-6 animate-fade-in">
                   <h3 className="editorial-heading-sm text-foreground">
                     {t("Required widths?", "Gewünschte Breiten?")}
@@ -224,8 +273,8 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                 </div>
               )}
 
-              {/* Step 3 */}
-              {step === 3 && (
+              {/* Step 4 */}
+              {step === 4 && (
                 <div className="space-y-6 animate-fade-in">
                   <h3 className="editorial-heading-sm text-foreground">
                     {t("Design or usage?", "Design oder Verwendung?")}
@@ -258,8 +307,8 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                 </div>
               )}
 
-              {/* Step 4 */}
-              {step === 4 && (
+              {/* Step 5 */}
+              {step === 5 && (
                 <div className="space-y-6 animate-fade-in">
                   <h3 className="editorial-heading-sm text-foreground">
                     {t("Estimated quantity?", "Geschätzte Menge?")}
@@ -291,8 +340,8 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                 </div>
               )}
 
-              {/* Step 5 */}
-              {step === 5 && (
+              {/* Step 6 */}
+              {step === 6 && (
                 <div className="space-y-6 animate-fade-in">
                   <h3 className="editorial-heading-sm text-foreground">
                     {t("Your contact details", "Ihre Kontaktdaten")}
