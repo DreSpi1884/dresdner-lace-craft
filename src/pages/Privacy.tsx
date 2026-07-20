@@ -6,14 +6,17 @@ const Privacy = () => {
   const { t } = useLang();
   return (
     <EditorialLayout heroAtTop={true}>
-      <SEO
-        title={t("Privacy Policy", "Datenschutzerklärung")}
-        description={t(
-          "How Dresdner Spitzen handles your data, in compliance with GDPR.",
-          "Wie Dresdner Spitzen Ihre Daten gemäß DSGVO verarbeitet."
-        )}
-        path="/privacy"
-      />
+        <SEO
+          title={t(
+            "Privacy Policy",
+            "Datenschutzerklärung"
+          )}
+          description={t(
+            "Information on how personal data is processed when using the Dresdner Spitzen website.",
+            "Informationen zur Verarbeitung personenbezogener Daten bei der Nutzung der Website von Dresdner Spitzen."
+          )}
+          path="/privacy"
+        />
       <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12">
         <div className="editorial-container max-w-3xl">
           <h1 className="editorial-heading-xl mb-6">{t("Privacy Policy", "Datenschutzerklärung")}</h1>
