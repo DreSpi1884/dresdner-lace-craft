@@ -98,7 +98,7 @@ const CookieConsent = () => {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleAcceptAll}
-                className="px-6 py-3 bg-primary text-primary-foreground text-xs tracking-[0.2em] uppercase hover:bg-primary/90 transition-colors"
+                className="px-6 py-3 border border-primary bg-transparent text-primary text-xs tracking-[0.2em] uppercase hover:bg-primary hover:text-background transition-colors"
               >
                 {t("Accept All", "Alle akzeptieren")}
               </button>
@@ -110,7 +110,7 @@ const CookieConsent = () => {
               </button>
               <button
                 onClick={() => setShowPrefs(true)}
-                className="px-6 py-3 text-foreground text-xs tracking-[0.2em] uppercase underline underline-offset-4 hover:text-primary transition-colors"
+                className="px-6 py-3 border border-primary bg-transparent text-primary text-xs tracking-[0.2em] uppercase hover:bg-primary hover:text-background transition-colors"
               >
                 {t("Manage Preferences", "Einstellungen verwalten")}
               </button>
