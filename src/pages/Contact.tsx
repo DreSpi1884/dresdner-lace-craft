@@ -8,14 +8,17 @@ const Contact = () => {
   const { t } = useLang();
   return (
     <EditorialLayout heroAtTop={true}>
-      <SEO
-        title={t("Contact", "Kontakt")}
-        description={t(
-          "Speak to the Dresdner Spitzen team in Germany. Reach out for samples, bespoke projects or partnership inquiries.",
-          "Sprechen Sie mit dem Team von Dresdner Spitzen in Deutschland. Kontaktieren Sie uns für Muster, individuelle Projekte oder Partnerschaftsanfragen."
-        )}
-        path="/contact"
-      />
+    <SEO
+      title={t(
+        "Contact for Textile Projects",
+        "Kontakt für textile Projekte"
+      )}
+      description={t(
+        "Contact Dresdner Spitzen for lace, warp-knitted fabrics, dyeing, finishing, functional textiles or custom textile development in Dresden.",
+        "Kontaktieren Sie Dresdner Spitzen für Spitzen, Kettengewirke, Färbung, Ausrüstung, funktionale Textilien oder individuelle textile Entwicklungen."
+      )}
+      path="/contact"
+    />
       <section className="min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] pt-20 md:pt-24">
         <div className="editorial-container w-full h-full py-8 md:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 h-full">
