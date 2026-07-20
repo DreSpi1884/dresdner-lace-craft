@@ -322,8 +322,8 @@ requestAnimationFrame(() => {
                         <h3
                           style={{
                             fontFamily: "'Jost', sans-serif",
-                            fontSize: "18px",
-                            letterSpacing: "0.5px",
+                            fontSize: "14px",
+                            letterSpacing: "0.8px",
                             textTransform: "uppercase",
                             fontWeight: 600,
                             color: "hsl(var(--primary))",
