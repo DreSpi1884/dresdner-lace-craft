@@ -55,17 +55,36 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
     setIsOpen(true);
   }, []);
   const close = useCallback(() => setIsOpen(false), []);
+const toggleMulti = (
+  key: "laceType" | "usage" | "quantity",
+  value: string,
+) => {
+  setForm((prev) => {
+    const arr = prev[key];
 
-  const toggleMulti = (
-    key: "laceType" | "usage" | "quantity",
-    value: string,
-  ) => {
-    setForm((prev) => {
-      const arr = prev[key];
-      const next = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
+    if (value === NOT_SURE) {
+      const next = arr.includes(NOT_SURE) ? [] : [NOT_SURE];
       return { ...prev, [key]: next };
+    }
+
+    if (key === "laceType" && value === "Both") {
+      const next = arr.includes("Both") ? [] : ["Both"];
+      return { ...prev, [key]: next };
+    }
+
+    const cleaned = arr.filter((v) => {
+      if (v === NOT_SURE) return false;
+      if (key === "laceType" && v === "Both") return false;
+      return true;
     });
-  };
+
+    const next = cleaned.includes(value)
+      ? cleaned.filter((v) => v !== value)
+      : [...cleaned, value];
+
+    return { ...prev, [key]: next };
+  });
+};
 
   const updateForm = (
     key: "textileType" | "widths" | "name" | "company" | "email" | "message",
