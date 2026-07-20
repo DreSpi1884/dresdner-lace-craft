@@ -111,8 +111,10 @@ const EditorialNav = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useLayoutEffect(() => {
+useLayoutEffect(() => {
   let enableTransitionFrame: number | null = null;
+  let hasInitialMeasurement = false;
+  let lastMeasuredWidth = window.innerWidth;
 
   const updateLogo = () => {
     const nc = naturalCenter.current;
@@ -175,6 +177,9 @@ const EditorialNav = () => {
       cy: rect.top + rect.height / 2,
     };
 
+    hasInitialMeasurement = true;
+    lastMeasuredWidth = window.innerWidth;
+
     updateLogo();
     setLogoReady(true);
     enableTransitionAfterInitialPlacement();
@@ -187,11 +192,24 @@ const EditorialNav = () => {
   img?.addEventListener("load", measure);
 
   const onScroll = () => {
+    if (!hasInitialMeasurement) {
+      measure();
+      return;
+    }
+
     setLogoTransitionEnabled(true);
     updateLogo();
   };
 
   const onResize = () => {
+    const widthChanged = Math.abs(window.innerWidth - lastMeasuredWidth) > 2;
+    const isMobileWidth = window.innerWidth < 768;
+
+    if (isMobileWidth && hasInitialMeasurement && !widthChanged) {
+      updateLogo();
+      return;
+    }
+
     measure();
   };
 
