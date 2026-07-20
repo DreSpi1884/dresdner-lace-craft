@@ -74,8 +74,11 @@ const Services = () => {
   const { t, lang } = useLang();
   const { open: openQuote } = useQuoteModal();
   const location = useLocation();
-  useEffect(() => {
-  [
+  const [productionImagesReady, setProductionImagesReady] = useState(false);
+useEffect(() => {
+  let active = true;
+
+  const sources = [
     designImg1,
     designImg2,
     designImg3,
@@ -90,10 +93,32 @@ const Services = () => {
     functionalImg2,
     functionalImg3,
     functionalImg4,
-  ].forEach((src) => {
-    const image = new Image();
-    image.src = src;
+  ];
+
+  Promise.all(
+    sources.map(
+      (src) =>
+        new Promise<void>((resolve) => {
+          const image = new Image();
+
+          const done = () => resolve();
+
+          image.onload = done;
+          image.onerror = done;
+          image.src = src;
+
+          if ("decode" in image) {
+            image.decode().then(done).catch(done);
+          }
+        })
+    )
+  ).then(() => {
+    if (active) setProductionImagesReady(true);
   });
+
+  return () => {
+    active = false;
+  };
 }, []);
 
   const processSteps = useMemo(
@@ -486,21 +511,23 @@ requestAnimationFrame(() => {
 
 {/* Mobile accordion section */}
 <div data-no-reveal className="lg:hidden px-6">
-  {s.mobileImage && (
-    <div
-      data-no-reveal
-      role="img"
-      aria-label={s.title}
-      className="-mx-6 aspect-[4/3] overflow-hidden bg-muted bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${s.mobileImage})`,
-        opacity: 1,
-        transform: "none",
-        transition: "none",
-        animation: "none",
-      }}
-    />
-  )}
+{s.mobileImage && (
+  <div
+    data-no-reveal
+    role="img"
+    aria-label={s.title}
+    className="-mx-6 aspect-[4/3] overflow-hidden bg-muted bg-cover bg-center"
+    style={{
+      backgroundImage: productionImagesReady
+        ? `url(${s.mobileImage})`
+        : "none",
+      opacity: 1,
+      transform: "none",
+      transition: "none",
+      animation: "none",
+    }}
+  />
+)}
 
   <button
     type="button"
@@ -548,7 +575,18 @@ requestAnimationFrame(() => {
           </div>
 
             <div data-no-reveal className="min-h-[760px] bg-muted">
-  {s.id === "raw-material-production" && s.desktopImages ? (
+  {!productionImagesReady ? (
+    <div
+      data-no-reveal
+      className="h-full min-h-[760px] w-full bg-muted"
+      style={{
+        opacity: 1,
+        transform: "none",
+        transition: "none",
+        animation: "none",
+      }}
+    />
+  ) : s.id === "raw-material-production" && s.desktopImages ? (
     <div
       data-no-reveal
       className="grid h-full min-h-[760px] grid-cols-1 grid-rows-2 gap-0"
