@@ -245,7 +245,7 @@ useLayoutEffect(() => {
         isHome && !scrolled ? "bg-transparent" : "bg-foreground shadow-md"
       }`}
     >
-      <nav className="flex items-center justify-between h-20 md:h-24 pl-2 md:pl-4 pr-4 md:pr-8">
+      <nav className="flex items-center justify-between h-20 md:h-24 pl-4 md:pl-8 lg:pl-10 pr-4 md:pr-8">
         <Link
           to="/"
           className={`flex items-center text-background transition-opacity ${
