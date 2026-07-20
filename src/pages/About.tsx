@@ -211,34 +211,33 @@ const About = () => {
 
                   {section.id === "values" && (
                     <div className="divide-y divide-primary/15 text-left">
-                      {[
-                        {
-                          title: t(
-                            "Tradition & Innovation",
-                            "Tradition & Innovation"
-                          ),
-                          desc: t(
-                            "We combine over 140 years of textile experience with new ideas and modern manufacturing.",
-                            "Wir verbinden über 140 Jahre textile Erfahrung mit neuen Ideen und moderner Fertigung."
-                          ),
-                        },
-                        {
-                          title: t("Quality & Precision", "Qualität & Präzision"),
-                          desc: t(
-                            "We work with high standards, careful control and attention to detail.",
-                            "Wir arbeiten mit hohen Standards, sorgfältiger Kontrolle und Liebe zum Detail."
-                          ),
-                        },
-                        {
-                          title: t(
-                            "Flexibility & Reliability",
-                            "Flexibilität & Zuverlässigkeit"
-                          ),
-                          desc: t(
-                            "We develop tailored solutions and support projects from the initial idea to the finished textile.",
-                            "Wir entwickeln individuelle Lösungen und begleiten Projekte von der ersten Idee bis zum fertigen Textil."
-                          ),
-                        },
+                      {
+  title: t("Quality & Precision", "Qualität & Präzision"),
+  desc: t(
+    "We work with high standards, careful control and attention to detail.",
+    "Wir arbeiten mit hohen Standards, sorgfältiger Kontrolle und Liebe zum Detail."
+  ),
+},
+{
+  title: t(
+    "Flexibility & Reliability",
+    "Flexibilität & Zuverlässigkeit"
+  ),
+  desc: t(
+    "We develop tailored solutions and support projects from the initial idea to the finished textile.",
+    "Wir entwickeln individuelle Lösungen und begleiten Projekte von der ersten Idee bis zum fertigen Textil."
+  ),
+},
+{
+  title: t(
+    "Tradition & Innovation",
+    "Tradition & Innovation"
+  ),
+  desc: t(
+    "We combine over 140 years of textile experience with new ideas and modern manufacturing.",
+    "Wir verbinden über 140 Jahre textile Erfahrung mit neuen Ideen und moderner Fertigung."
+  ),
+},
                       ].map((item) => (
                         <div
                           key={item.title}
@@ -348,31 +347,34 @@ const About = () => {
 
             <div className="divide-y divide-primary/15">
               {[
-                {
-                  title: t("Tradition & Innovation", "Tradition & Innovation"),
-                  desc: t(
-                    "We combine over 140 years of textile experience with new ideas and modern manufacturing.",
-                    "Wir verbinden über 140 Jahre textile Erfahrung mit neuen Ideen und moderner Fertigung."
-                  ),
-                },
-                {
-                  title: t("Quality & Precision", "Qualität & Präzision"),
-                  desc: t(
-                    "We work with high standards, careful control and attention to detail.",
-                    "Wir arbeiten mit hohen Standards, sorgfältiger Kontrolle und Liebe zum Detail."
-                  ),
-                },
-                {
-                  title: t(
-                    "Flexibility & Reliability",
-                    "Flexibilität & Zuverlässigkeit"
-                  ),
-                  desc: t(
-                    "We develop tailored solutions and support projects from the initial idea to the finished textile.",
-                    "Wir entwickeln individuelle Lösungen und begleiten Projekte von der ersten Idee bis zum fertigen Textil."
-                  ),
-                },
-              ].map((item) => (
+  {
+    title: t("Quality & Precision", "Qualität & Präzision"),
+    desc: t(
+      "We work with high standards, careful control and attention to detail.",
+      "Wir arbeiten mit hohen Standards, sorgfältiger Kontrolle und Liebe zum Detail."
+    ),
+  },
+  {
+    title: t(
+      "Flexibility & Reliability",
+      "Flexibilität & Zuverlässigkeit"
+    ),
+    desc: t(
+      "We develop tailored solutions and support projects from the initial idea to the finished textile.",
+      "Wir entwickeln individuelle Lösungen und begleiten Projekte von der ersten Idee bis zum fertigen Textil."
+    ),
+  },
+  {
+    title: t(
+      "Tradition & Innovation",
+      "Tradition & Innovation"
+    ),
+    desc: t(
+      "We combine over 140 years of textile experience with new ideas and modern manufacturing.",
+      "Wir verbinden über 140 Jahre textile Erfahrung mit neuen Ideen und moderner Fertigung."
+    ),
+  },
+].map((item) => (
                 <div key={item.title} className="py-12 first:pt-0 last:pb-0">
                   <h3 className="editorial-heading-sm text-primary text-[28px] leading-snug xl:text-[32px]">
                     {item.title}
