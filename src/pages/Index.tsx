@@ -203,9 +203,9 @@ const Index = () => {
       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
-    <div className="absolute inset-x-0 bottom-0 p-6 z-10">
-      <h3 className="editorial-heading-sm text-background">{item.title}</h3>
-    </div>
+    <div className="absolute inset-x-0 bottom-0 p-6 z-10 transition-opacity duration-300 group-hover:opacity-0">
+  <h3 className="editorial-heading-sm text-background">{item.title}</h3>
+</div>
     <div className="absolute inset-0 bg-foreground/85 flex items-center p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
       <div>
         <h3 className="editorial-heading-sm text-background mb-3">{item.title}</h3>
@@ -222,7 +222,7 @@ const Index = () => {
           <div className="editorial-container text-center mt-8">
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 cta-lace editorial-body-sm font-medium transition-colors duration-300"
+              className="inline-flex items-center gap-2 border border-primary bg-transparent px-8 py-4 text-primary editorial-body-sm font-medium hover:bg-primary hover:text-background transition-colors duration-300"
             >
               {t("Learn More", "Mehr erfahren")} <ArrowRight size={16} />
             </Link>
