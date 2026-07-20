@@ -311,7 +311,7 @@ requestAnimationFrame(() => {
                           className="italic opacity-40 transition-opacity duration-300 group-hover:opacity-100"
                           style={{
                             fontFamily: "'Bodoni Moda', serif",
-                            fontSize: "24px",
+                            fontSize: "12px",
                             lineHeight: 1,
                             color: "hsl(var(--primary))",
                           }}
