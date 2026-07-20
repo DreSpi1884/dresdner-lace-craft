@@ -484,12 +484,12 @@ requestAnimationFrame(() => {
     <EditorialLayout title={t("Production", "Produktion")} heroCompact>
       <SEO
         title={t(
-          "Lace, Textile Production and Finishing",
-          "Spitze, Textilproduktion und Veredelung"
+          "Production, Dyeing and Textile Finishing",
+          "Produktion, Färbung und Textilveredelung"
         )}
         description={t(
-          "Discover lace collections, custom textile design, in-house dyeing and finishing, functional textiles and medical textile solutions made in Dresden, Germany.",
-          "Entdecken Sie Spitzenkollektionen, individuelle Textilentwürfe, hauseigene Färbung und Ausrüstung sowie funktionale und medizinische Textilien aus Dresden."
+          "From lace design to production, dyeing, finishing and functional textiles, Dresdner Spitzen offers integrated textile manufacturing in Dresden.",
+          "Von Spitzendesign über Produktion, Färbung und Ausrüstung bis zu funktionalen Textilien bietet Dresdner Spitzen integrierte Textilfertigung in Dresden."
         )}
         path="/services"
       />
