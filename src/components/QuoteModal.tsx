@@ -277,7 +277,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
               {step === 4 && (
                 <div className="space-y-6 animate-fade-in">
                   <h3 className="editorial-heading-sm text-foreground">
-                    {t("Design or usage?", "Design oder Verwendung?")}
+                    {t("Area of application?", "Einsatzbereich?")}
                   </h3>
                   <p className="editorial-body-sm text-muted-foreground">{multiHint}</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
