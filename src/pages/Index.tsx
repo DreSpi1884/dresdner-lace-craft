@@ -19,17 +19,17 @@ const Index = () => {
   const { t } = useLang();
   return (
     <EditorialLayout heroAtTop>
-      <SEO
-        title={t(
-          "Lace and Textile Production Since 1884",
-          "Spitze und Textilproduktion seit 1884"
-        )}
-        description={t(
-          "Dresdner Spitzen develops and produces lace, warp-knitted fabrics, functional textiles, dyeing and finishing solutions in Dresden, Germany.",
-          "Dresdner Spitzen entwickelt und produziert in Dresden Spitzen, Kettengewirke, funktionale Textilien sowie Färbe- und Ausrüstungslösungen."
-        )}
-        path="/"
-      />
+     <SEO
+      title={t(
+        "Lace and Textile Production Since 1884",
+        "Spitze und Textilproduktion seit 1884"
+      )}
+      description={t(
+        "Dresdner Spitzen develops and produces lace, warp-knitted fabrics, functional textiles, dyeing and finishing solutions in Dresden, Germany.",
+        "Dresdner Spitzen entwickelt und produziert in Dresden Spitzen, Kettengewirke, funktionale Textilien sowie Färbe- und Ausrüstungslösungen."
+      )}
+      path="/"
+    />
       {/* HERO */}
       <section data-no-reveal className="relative overflow-hidden min-h-screen flex items-center justify-center">
         <video
