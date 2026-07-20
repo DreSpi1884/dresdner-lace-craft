@@ -122,15 +122,15 @@ const About = () => {
     <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
       <SEO
         title={t(
-          "About Us — 140 Years of German Textile Craft",
-          "Über uns — 140 Jahre deutsche Textilkunst"
+          "Company and History Since 1884",
+          "Unternehmen und Geschichte seit 1884"
         )}
         description={t(
-          "Since 1884, Dresdner Spitzen has shaped textile manufacturing in Germany with tradition, innovation and sustainable production.",
-          "Seit 1884 prägt Dresdner Spitzen die Textilherstellung in Deutschland mit Tradition, Innovation und nachhaltiger Produktion."
+          "Learn more about Dresdner Spitzen, a textile company in Dresden with a history dating back to 1884, certified production and a clear commitment to quality.",
+          "Lernen Sie Dresdner Spitzen kennen: ein Textilunternehmen aus Dresden mit Geschichte seit 1884, zertifizierter Produktion und klarem Qualitätsanspruch."
         )}
         path="/about"
-      />
+      />  
 
       <AboutAnchorNav />
 
