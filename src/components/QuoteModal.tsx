@@ -135,7 +135,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
           onInteractOutside={(e) => e.preventDefault()}
         >
           <DialogTitle className="editorial-heading-md text-foreground font-normal">
-            {t("Let's create something together", "Lassen Sie uns gemeinsam etwas schaffen")}
+            {t("Request", "Anfrage")}
           </DialogTitle>
           <DialogDescription className="sr-only">
             {t(
