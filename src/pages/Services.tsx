@@ -484,12 +484,12 @@ requestAnimationFrame(() => {
     <EditorialLayout title={t("Production", "Produktion")} heroCompact>
       <SEO
         title={t(
-          "Services — Lace, Production & Finishing",
-          "Leistungen — Spitzen, Produktion & Veredelung",
+          "Lace, Textile Production and Finishing | Dresdner Spitzen",
+          "Spitze, Textilproduktion & Ausrüstung | Dresdner Spitzen",
         )}
         description={t(
-          "Seasonal lace collections, bespoke designs, in-house dyeing and finishing, and functional or medical textiles — engineered in Germany.",
-          "Saisonale Spitzenkollektionen, maßgeschneiderte Entwürfe, hauseigenes Färben und Veredeln sowie funktionale und medizinische Textilien — entwickelt in Deutschland.",
+          "Seasonal lace collections, bespoke designs, in-house dyeing and finishing, and functional or medical textiles — Made in Germany.",
+          "Saisonale Spitzenkollektionen, maßgeschneiderte Entwürfe, hauseigenes Färben und Ausrüsten sowie funktionale und medizinische Textilien — Made in Germany.",
         )}
         path="/services"
       />
