@@ -35,7 +35,7 @@ const SolarImageCard = ({
         {mobileText}
       </p>
 
-      <p className="hidden w-full max-w-none text-left text-[17px] leading-[1.65] text-background drop-shadow-md lg:block">
+      <p className="hidden max-w-[42ch] text-left text-[17px] leading-[1.65] text-background drop-shadow-md lg:block">
         {desktopText}
       </p>
     </figcaption>
