@@ -10,7 +10,7 @@ import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 import grsLogo from "@/assets/GRS_freigestellt.png?url";
 import oekoTexLogo from "@/assets/oeko-tex.png?url";
-import umweltallianzLogo from "@/assets/Umweltallianz Sachsen.png?url";
+import umweltallianzLogo from "@/assets/umweltallianz-sachsen.png?url";
 import solarRoofImg from "@/assets/solaranlage.jpg?url";
 
 const SolarImageCard = ({
