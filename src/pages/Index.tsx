@@ -258,7 +258,7 @@ const Index = () => {
   </div>
 
   <Link
-    to="/about"
+    to="/about#history"
     className="inline-flex items-center justify-center gap-2 text-primary editorial-body-sm font-medium mt-8 hover:gap-3 transition-all duration-300"
   >
     {t("From 1884 to today", "Von 1884 bis heute")} <ArrowRight size={16} />
