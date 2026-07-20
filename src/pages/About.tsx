@@ -270,7 +270,7 @@ const About = () => {
       {/* Desktop sustainability */}
       <section
         id="sustainability"
-        className="hidden lg:block editorial-section scroll-mt-32"
+        className="hidden lg:block editorial-section scroll-mt-32 overflow-hidden"
       >
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -281,7 +281,7 @@ const About = () => {
               {t("Sustainability", "Nachhaltigkeit")}
             </h2>
 
-              <div className="mt-10 xl:mt-12">
+              <div className="mt-10 xl:mt-12 lg:-ml-[calc((100vw-100%)/2)] lg:w-[calc(100%+((100vw-100%)/2))]">
                 <SolarImageCard
                   mobileText={t(
                     "Solar power from our site.",
