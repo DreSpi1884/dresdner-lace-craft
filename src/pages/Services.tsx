@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from "react";
+import { useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { ChevronDown, Info } from "lucide-react";
@@ -76,52 +76,33 @@ const ProductionImageTile = ({
   src: string;
   alt: string;
   priority?: boolean;
-}) => {
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setReady(false);
-  }, [src]);
-
-  return (
-    <div
+}) => (
+  <div
+    data-no-reveal
+    className="relative h-full min-h-0 w-full overflow-hidden bg-muted"
+    style={{
+      opacity: 1,
+      transform: "none",
+      transition: "none",
+      animation: "none",
+    }}
+  >
+    <img
       data-no-reveal
-      className="relative h-full min-h-0 w-full overflow-hidden bg-muted"
+      src={src}
+      alt={alt}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      className="absolute inset-0 h-full w-full object-cover"
       style={{
         opacity: 1,
         transform: "none",
         transition: "none",
         animation: "none",
       }}
-    >
-      <img
-        data-no-reveal
-        src={src}
-        alt={alt}
-        loading={priority ? "eager" : "lazy"}
-        decoding={priority ? "sync" : "async"}
-        onLoad={(event) => {
-          const image = event.currentTarget;
-          const show = () => setReady(true);
-
-          if ("decode" in image) {
-            image.decode().then(show).catch(show);
-          } else {
-            show();
-          }
-        }}
-        onError={() => setReady(true)}
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{
-          opacity: ready ? 1 : 0,
-          transform: "none",
-          transition: "none",
-          animation: "none",
-        }}
-      />
-    </div>
-  );
-};
+    />
+  </div>
+);
 
 // Fixed header height (h-20 mobile / h-24 desktop)
 
@@ -526,7 +507,7 @@ requestAnimationFrame(() => {
     <ProductionImageTile
       src={s.mobileImage}
       alt={s.title}
-      priority={i === 0}
+      priority={i < 2}
     />
   </div>
 )}
@@ -597,7 +578,7 @@ requestAnimationFrame(() => {
             key={`${s.id}-${idx}`}
             src={img}
             alt={`${s.title} ${idx + 1}`}
-            priority={i === 0}
+            priority={i < 2}
           />
         ))}
       </div>
