@@ -364,7 +364,7 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
                       type="email"
                       value={form.email}
                       onChange={(e) => updateForm("email", e.target.value)}
-                      placeholder={t("Email address", "E-Mail-Adresse")}
+                      placeholder={t("E-mail address", "E-Mail-Adresse")}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                     <textarea
