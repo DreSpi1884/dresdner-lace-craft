@@ -156,7 +156,7 @@ const Services = () => {
           />
         ) : (
           <TextWithRouterLink
-            text="Your order is produced to certified standards."
+            text="Your order is produced according to certified standards."
             link="certified"
             to="/about#sustainability"
           />
