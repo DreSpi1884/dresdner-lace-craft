@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { ChevronDown, Info } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
