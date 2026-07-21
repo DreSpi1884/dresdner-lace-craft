@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
 import laceAsset from "@/assets/lace_tile_vertikal.png";
+import history1995Asset from "@/assets/history-1995.jpg.asset.json";
 
 type Entry = {
   year: string;
@@ -206,9 +207,18 @@ const HistoryTimeline = () => {
         }}
       >
         <div className="relative left-1/2 aspect-[4/3] w-screen -translate-x-1/2 overflow-hidden border-y border-border bg-muted/20 flex items-center justify-center lg:left-auto lg:w-full lg:translate-x-0 lg:border">
-          <span className="editorial-label text-muted-foreground/45">
-            {t("Image", "Bild")} {i + 1}
-          </span>
+          {i === 4 ? (
+            <img
+              src={history1995Asset.url}
+              alt={t("1995 production facility", "Produktionsanlage 1995")}
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+          ) : (
+            <span className="editorial-label text-muted-foreground/45">
+              {t("Image", "Bild")} {i + 1}
+            </span>
+          )}
 
           {/* Mobile year on image */}
           <div
