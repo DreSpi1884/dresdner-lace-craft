@@ -2,10 +2,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
 import laceAsset from "@/assets/lace_tile_vertikal.png";
 import history1995Asset from "@/assets/history-1995.jpg.asset.json";
+import factory1884Image from "@/assets/1884-bild.jpg?url";
 
 type Entry = {
   year: string;
   text: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 const RIBBON_WIDTH = 72;
@@ -20,9 +23,14 @@ const HistoryTimeline = () => {
     () => [
       {
         year: "1884",
+        image: factory1884Image,
+        imageAlt: t(
+          "Historic painted view of the Dresden factory complex",
+          "Historische gemalte Ansicht des Dresdner Fabrikgeländes"
+        ),
         text: t(
-          "Our story begins in 1884, when Georg Marwitz and Carl H. Siegel find the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\nAt a time when fine lace is almost exclusively imported from England, we introduce English bobbin machines to Germany and establish the foundations of modern lace manufacturing in Dresden.",
-          "Unsere Geschichte beginnt 1884, als Georg Marwitz and Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen.\u00a0\nZu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
+          "Our story begins in 1884, when Georg Marwitz and Carl H. Siegel found the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\nAt a time when fine lace is almost exclusively imported from England, we introduce English bobbin machines to Germany and establish the foundations of modern lace manufacturing in Dresden.",
+          "Unsere Geschichte beginnt 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen.\u00a0\nZu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
         ),
       },
       {
@@ -67,7 +75,7 @@ const HistoryTimeline = () => {
   const [visible, setVisible] = useState<boolean[]>([]);
   const [laceOffset, setLaceOffset] = useState(0);
   const sectionRef = useRef<HTMLElement | null>(null);
-  const entryRefs = useRef<(HTMLElement | null)[]>([]);
+  const Refs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     setVisible(entries.map(() => false));
@@ -91,7 +99,7 @@ const HistoryTimeline = () => {
       { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
     );
 
-    entryRefs.current.forEach((el) => el && observer.observe(el));
+    Refs.current.forEach((el) => el && observer.observe(el));
 
     return () => observer.disconnect();
   }, [entries]);
@@ -157,15 +165,15 @@ const HistoryTimeline = () => {
       <div className="relative z-10 px-1 md:px-8 lg:px-12 xl:px-16">
         <div className="mx-auto w-full max-w-[1800px]">
           <div className="space-y-16 md:space-y-24 lg:space-y-28">
-            {entries.map((entry, i) => {
+            {entries.map((, i) => {
   const isLeft = i % 2 === 0;
   const isVisible = visible[i] ?? false;
 
   return (
     <article
-      key={entry.year}
+      key={.year}
       ref={(el) => {
-        entryRefs.current[i] = el;
+        Refs.current[i] = el;
       }}
       data-idx={i}
       className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_110px_minmax(0,1fr)] lg:gap-12 xl:gap-20 items-center lg:min-h-[56vh]"
@@ -188,11 +196,11 @@ const HistoryTimeline = () => {
             letterSpacing: "-0.04em",
           }}
         >
-          {entry.year}
+          {.year}
         </div>
 
         <p className="text-lg md:text-xl leading-[2] text-muted-foreground whitespace-pre-line max-w-[920px]">
-          {entry.text}
+          {.text}
         </p>
       </div>
 
@@ -215,9 +223,17 @@ const HistoryTimeline = () => {
               loading="lazy"
             />
           ) : (
-            <span className="editorial-label text-muted-foreground/45">
-              {t("Image", "Bild")} {i + 1}
-            </span>
+            {entry.image ? (
+              <img
+                src={entry.image}
+                alt={entry.imageAlt ?? entry.year}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <span className="editorial-label text-muted-foreground/45">
+                {t("Image", "Bild")} {i + 1}
+              </span>
+            )}
           )}
 
           {/* Mobile year on image */}
@@ -228,7 +244,7 @@ const HistoryTimeline = () => {
               letterSpacing: "-0.04em",
             }}
           >
-            {entry.year}
+            {.year}
           </div>
         </div>
       </div>
