@@ -9,7 +9,7 @@ const FooterCertificationLogos = () => (
     <img
       src={grsLogo}
       alt="Global Recycled Standard"
-      className="w-[350px] md:w-[180px] bg-white object-contain"
+      className="w-[200px] md:w-[300px] bg-white object-contain"
     />
   </div>
 );
