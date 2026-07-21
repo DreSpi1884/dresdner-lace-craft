@@ -330,11 +330,11 @@ requestAnimationFrame(() => {
               ))}
 
               <div className="pb-6 mb-6 border-b border-primary/15 max-w-none mt-8">
-                <div className="divide-y divide-primary/10">
+                <div className="space-y-5">
                   {processSteps.map((item) => (
                     <div
                       key={item.step}
-                      className="group grid grid-cols-[34px_1fr] gap-x-5 py-5 first:pt-0 last:pb-0"
+                      className="group grid grid-cols-[34px_1fr] gap-x-5"
                     >
                       <span
                         className="italic opacity-45 transition-opacity duration-300 group-hover:opacity-100"
@@ -350,7 +350,7 @@ requestAnimationFrame(() => {
               
                       <div>
                         <h3
-                          className="mb-2"
+                          className="mb-1.5"
                           style={{
                             fontFamily: "'Jost', sans-serif",
                             fontSize: "14px",
