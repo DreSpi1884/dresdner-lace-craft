@@ -212,8 +212,8 @@ const Services = () => {
         desktopImages: [dyeingImg1, dyeingImg2, dyeingImg3, dyeingImg4],
         mobileImage: dyeingImg2,
         text: t(
-          "Our in-house dyeing facilities offer precise color matching across the full spectrum, including solid and bicolor finishes.\nWe use jet dyeing technology, reducing water consumption by up to 70% compared to conventional dyeing methods.\nWe also provide finishing tailored to your intended application.\nHydrophilic | Hydrophobic | Antistatic | Flame Retardant | Soft Finish | Stiff Finish\n\nContract dyeing and finishing services available on request.",
-          "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nWir färben mittels Jet-Technologie, wobei wir bis zu 70% Wasser sparen können im Vergleich zu herkömmlichen Färbemethoden.\n\nDarüber hinaus veredeln wir Textilien mit funktionellen Ausrüstungen:\u00a0\nHydrophil | Hydrophob | Antistatisch | Flammhemmend | Weichausrüstung | Steifausrüstung\nLohnfärberei und -ausrüstung auf Anfrage.",
+          "Our in-house dyeing facilities cover the full colour spectrum, from delicate pastels to deep saturated shades, in solid and bicolour finishes.\nWith modern jet dyeing technology, we can save up to 70% water compared with high-liquor dyeing.\nContract dyeing and finishing services available on request.",
+          "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nMit moderner Jet-Technologie können wir beim Färben gegenüber Hochflotten-Färbung bis zu 70 % Wasser einsparen.\nLohnfärberei und -ausrüstung auf Anfrage.",
         ),
       },
       {
@@ -390,61 +390,73 @@ requestAnimationFrame(() => {
           />
         </p>
       </>
-    ) : s.id === "raw-material-production" ? (
-      <>
-        {s.text.split("\n").map((line, li) => (
-          <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-            {line}
-          </p>
-        ))}
-
-        <p
-          className="mt-8"
-          style={{
-            fontFamily: "'Jost', sans-serif",
-            fontSize: "12px",
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            fontWeight: 600,
-            color: "hsl(var(--primary))",
-          }}
-        >
-          {t("Contract manufacturing available on request.", "LOHNFERTIGUNG AUF ANFRAGE.")}
-        </p>
-      </>
     ) : s.id === "dyeing-finishing" ? (
-      <>
-        {s.text
-          .split("\n")
-          .slice(0, -1)
-          .map((line, li) => (
-            <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-              {line}
-              {li === 1 && (
-  <InfoTooltip
-    label={t(
-      "high-liquor dyeing.",
-      "Hochflotten-Färbung."
-    )}
-        />
-      )}
-    </p>
-  ))}
-
-        <p
-          className="mt-8"
-          style={{
-            fontFamily: "'Jost', sans-serif",
-            fontSize: "12px",
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            fontWeight: 600,
-            color: "hsl(var(--primary))",
-          }}
-        >
-          {s.text.split("\n").slice(-1)[0]}
+  <>
+    {s.text
+      .split("\n")
+      .slice(0, -1)
+      .map((line, li) => (
+        <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+          {line}
+          {li === 1 && (
+            <InfoTooltip
+              label={t(
+                "high-liquor dyeing.",
+                "Hochflotten-Färbung."
+              )}
+            />
+          )}
         </p>
-      </>
+      ))}
+
+    <div className="mt-10 border-t border-primary/15 pt-7">
+      <p
+        style={{
+          fontFamily: "'Jost', sans-serif",
+          fontSize: "clamp(15px, 1vw, 18px)",
+          lineHeight: 1.75,
+          color: "hsl(var(--muted-foreground))",
+        }}
+      >
+        {t(
+          "We also finish textiles according to their intended use:",
+          "Darüber hinaus veredeln wir Textilien je nach Einsatzzweck:"
+        )}
+      </p>
+
+      <ul className="mt-5 flex flex-wrap gap-2.5">
+        {[
+          t("Hydrophilic", "Hydrophil"),
+          t("Hydrophobic", "Hydrophob"),
+          t("Antistatic", "Antistatisch"),
+          t("Flame retardant", "Flammhemmend"),
+          t("Soft finish", "Weichausrüstung"),
+          t("Stiff finish", "Steifausrüstung"),
+        ].map((item) => (
+          <li
+            key={item}
+            className="border border-primary/20 px-3.5 py-2 text-[12px] uppercase leading-none tracking-[0.12em] text-primary"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <p
+      className="mt-8"
+      style={{
+        fontFamily: "'Jost', sans-serif",
+        fontSize: "12px",
+        letterSpacing: "2px",
+        textTransform: "uppercase",
+        fontWeight: 600,
+        color: "hsl(var(--primary))",
+      }}
+    >
+      {s.text.split("\n").slice(-1)[0]}
+    </p>
+  </>
     ) : (
       s.text.split("\n").map((line, li) => (
         <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
@@ -526,7 +538,7 @@ requestAnimationFrame(() => {
       key={s.id}
       id={s.id}
       data-no-reveal
-      className="border-b border-primary/10 scroll-mt-36"
+      className="border-b border-primary/18 scroll-mt-36"
       >
 
 
