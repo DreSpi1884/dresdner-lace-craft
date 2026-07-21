@@ -423,8 +423,8 @@ requestAnimationFrame(() => {
               {li === 1 && (
   <InfoTooltip
     label={t(
-      "Compared with high-liquor dyeing.",
-      "Im Vergleich zu Hochflotten-Färbung."
+      "high-liquor dyeing.",
+      "Hochflotten-Färbung."
     )}
         />
       )}
