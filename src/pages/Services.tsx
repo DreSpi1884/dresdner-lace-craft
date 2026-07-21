@@ -314,7 +314,7 @@ requestAnimationFrame(() => {
                   color: "hsl(var(--primary))",
                 }}
               >
-                {t("Custom Designs", "MASSGESCHNEIDERTE DESIGNS")}
+                {t("Custom Designs", "INDIVIDUELL ENTWICKELTE DESIGNS")}
               </h3>
 
               {customIntro?.split("\n").map((line, li, array) => (
