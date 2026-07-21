@@ -191,7 +191,7 @@ const Services = () => {
         mobileImage: designImg2,
         text: t(
           "Twice a year we develop new lace collections inspired by international fashion trends.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
-          "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte elastische und unelastische Spitzen und Kettengewirke nach Ihren individuellen Anforderungen.",
+          "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir maßgeschneiderte elastische und unelastische Spitzen und Kettgewirke nach Ihren individuellen Anforderungen.",
         ),
       },
       {
@@ -224,7 +224,7 @@ const Services = () => {
         mobileImage: functionalImg1,
         text: t(
           "We develop functional warp-knitted fabrics for technical and medical applications.\u00a0\n\nOur textiles are used in compression garments and post-surgical products,\u00a0delivering consistent quality, comfort and reliable performance.",
-          "Wir entwickeln funktionale Kettengewirke für technische und medizinische Anwendungen. Unsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit.",
+          "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen. Unsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit.",
         ),
       },
     ],

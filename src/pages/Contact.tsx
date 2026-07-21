@@ -15,7 +15,7 @@ const Contact = () => {
       )}
       description={t(
         "Contact Dresdner Spitzen for lace, warp-knitted fabrics, dyeing, finishing, functional textiles or custom textile development in Dresden.",
-        "Kontaktieren Sie Dresdner Spitzen für Spitzen, Kettengewirke, Färbung, Ausrüstung, funktionale Textilien oder individuelle textile Entwicklungen."
+        "Kontaktieren Sie Dresdner Spitzen für Spitzen, Kettgewirke, Färbung, Ausrüstung, funktionale Textilien oder individuelle textile Entwicklungen."
       )}
       path="/contact"
     />

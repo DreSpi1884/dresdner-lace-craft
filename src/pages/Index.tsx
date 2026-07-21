@@ -26,7 +26,7 @@ const Index = () => {
       )}
       description={t(
         "Dresdner Spitzen develops and produces lace, warp-knitted fabrics, functional textiles, dyeing and finishing solutions in Dresden, Germany.",
-        "Dresdner Spitzen entwickelt und produziert in Dresden Spitzen, Kettengewirke, funktionale Textilien sowie Färbe- und Ausrüstungslösungen."
+        "Dresdner Spitzen entwickelt und produziert in Dresden Spitzen, Kettgewirke, funktionale Textilien sowie Färbe- und Ausrüstungslösungen."
       )}
       path="/"
     />

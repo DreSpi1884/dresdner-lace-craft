@@ -201,7 +201,7 @@ const toggleMulti = (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
                       { value: "Spitze", label: t("Lace", "Spitze") },
-                      { value: "Kettengewirke", label: t("Warp-knitted fabrics", "Kettengewirke") },
+                      { value: "Kettgewirke", label: t("Warp-knitted fabrics", "Kettgewirke") },
                       { value: "Funktionale Textilien", label: t("Functional textiles", "Funktionale Textilien") },
                     ].map((opt) => (
                       <OptionButton
