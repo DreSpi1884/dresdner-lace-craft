@@ -3,12 +3,14 @@ import { useLang } from "@/i18n/LanguageContext";
 import laceAsset from "@/assets/lace_tile_vertikal.png";
 import history1995Asset from "@/assets/history-1995.jpg.asset.json";
 import factory1884Image from "@/assets/1884-bild.jpg?url";
+import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 
 type Entry = {
   year: string;
   text: string;
   image?: string;
   imageAlt?: string;
+  imageClassName?: string;
 };
 
 const RIBBON_WIDTH = 72;
@@ -35,6 +37,12 @@ const HistoryTimeline = () => {
       },
       {
         year: "1900",
+        image: bobbinetManImage,
+        imageAlt: t(
+          "Worker operating a historic bobbinet machine",
+          "Arbeiter an einer historischen Bobbinet-Maschine"
+        ),
+        imageClassName: "object-cover object-[50%_35%]",
         text: t(
           "As demand for our lace and textiles increases, so do our ambitions.\u00a0\nWe expand our textile production to a larger site in Dresden-Dobritz, invest in new manufacturing facilities and open factories abroad. Even through wars, inflation and economic uncertainty, we continue to produce and export textiles worldwide.",
           "Mit wachsender Nachfrage wachsen auch unsere Ambitionen.\u00a0\nWir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland. Auch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
