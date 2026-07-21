@@ -329,28 +329,32 @@ requestAnimationFrame(() => {
                 </div>
               ))}
 
-              <div className="pb-6 mb-6 border-b border-primary/15 max-w-none mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-4 lg:gap-8">
+              <div className="pb-6 mb-6 border-b border-primary/15 max-w-none mt-8">
+                <div className="divide-y divide-primary/10">
                   {processSteps.map((item) => (
-                    <div key={item.step} className="group">
-                      <div className="mb-2 flex items-baseline gap-3">
-                        <span
-                          className="italic opacity-40 transition-opacity duration-300 group-hover:opacity-100"
-                          style={{
-                            fontFamily: "'Bodoni Moda', serif",
-                            fontSize: "12px",
-                            lineHeight: 1,
-                            color: "hsl(var(--primary))",
-                          }}
-                        >
-                          {item.step}
-                        </span>
-
+                    <div
+                      key={item.step}
+                      className="group grid grid-cols-[34px_1fr] gap-x-5 py-5 first:pt-0 last:pb-0"
+                    >
+                      <span
+                        className="italic opacity-45 transition-opacity duration-300 group-hover:opacity-100"
+                        style={{
+                          fontFamily: "'Bodoni Moda', serif",
+                          fontSize: "18px",
+                          lineHeight: 1.2,
+                          color: "hsl(var(--primary))",
+                        }}
+                      >
+                        {item.step}
+                      </span>
+              
+                      <div>
                         <h3
+                          className="mb-2"
                           style={{
                             fontFamily: "'Jost', sans-serif",
                             fontSize: "14px",
-                            letterSpacing: "0.8px",
+                            letterSpacing: "1.2px",
                             textTransform: "uppercase",
                             fontWeight: 600,
                             color: "hsl(var(--primary))",
@@ -358,19 +362,18 @@ requestAnimationFrame(() => {
                         >
                           {item.title}
                         </h3>
+              
+                        <p
+                          style={{
+                            fontFamily: "'Jost', sans-serif",
+                            fontSize: "14px",
+                            lineHeight: 1.65,
+                            color: "hsl(var(--muted-foreground) / 0.9)",
+                          }}
+                        >
+                          {item.desc}
+                        </p>
                       </div>
-
-                      <p
-                        className="pl-[42px] md:pl-0"
-                        style={{
-                          fontFamily: "'Jost', sans-serif",
-                          fontSize: "14px",
-                          lineHeight: 1.55,
-                          color: "hsl(var(--muted-foreground) / 0.9)",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
                     </div>
                   ))}
                 </div>
