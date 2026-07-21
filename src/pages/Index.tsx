@@ -142,7 +142,7 @@ const Index = () => {
               },
 
               {
-                title: t("Dyeing and Finishing", "Färben & Ausrüsten"),
+                title: t("Dyeing & Finishing", "Färben & Ausrüsten"),
                 desc: t(
                   "In-house, we dye the full colour spectrum in solid and bicolour shades and finish textiles according to their intended use.",
                   "Wir färben in-house das gesamte Farbspektrum in Uni- und Bicolor und rüsten Textilien nach Einsatzzweck aus.",
@@ -151,7 +151,7 @@ const Index = () => {
                 anchor: "dyeing-finishing",
               },
               {
-                title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
+                title: t("Functional & Medical Textiles", "Funktions- und Medizintextilien"),
                 desc: t(
                   "We develop warp-knitted fabrics for medical and technical use.",
                   "Wir entwickeln Kettgewirke für medizinische und technische Anwendungen.\n",
