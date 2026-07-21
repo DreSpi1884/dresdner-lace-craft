@@ -167,8 +167,8 @@ const About = () => {
                     <div className="space-y-8 text-left text-[17px] leading-[1.9] text-muted-foreground">
                       <p className="whitespace-pre-wrap">
                         {t(
-                          "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100,\u00a0\nOEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
-                          "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\n\n"
+                          "Our production is supported by an energy management system and certified according to internationally recognised standards, \nincluding OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
+                          "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, \ndarunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\n\n"
                         )}
                       </p>
 
