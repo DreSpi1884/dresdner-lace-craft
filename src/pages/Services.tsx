@@ -150,7 +150,7 @@ const Services = () => {
         title: t("PRODUCTION", "PRODUKTION"),
         desc: lang === "de" ? (
           <TextWithRouterLink
-            text="Ihre Bestellung wird nach zertifizierten\u00a0Standards produziert."
+            text={"Ihre Bestellung wird nach zertifizierten\u00a0Standards produziert."}
             link="zertifizierten"
             to="/about#sustainability"
           />
