@@ -29,7 +29,7 @@ const HistoryTimeline = () => {
           "Historische gemalte Ansicht des Dresdner Fabrikgeländes"
         ),
         text: t(
-          "Our story begins in 1884, when Georg Marwitz and Carl H. Siegel found the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\nAt a time when fine lace is almost exclusively imported from England, we introduce English bobbin machines to Germany and establish the foundations of modern lace manufacturing in Dresden.",
+          "Our story begins in 1884, when Georg Marwitz and Carl H. Siegel find the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\nAt a time when fine lace is almost exclusively imported from England, we introduce English bobbin machines to Germany and establish the foundations of modern lace manufacturing in Dresden.",
           "Unsere Geschichte beginnt 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen.\u00a0\nZu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
         ),
       },
@@ -75,7 +75,7 @@ const HistoryTimeline = () => {
   const [visible, setVisible] = useState<boolean[]>([]);
   const [laceOffset, setLaceOffset] = useState(0);
   const sectionRef = useRef<HTMLElement | null>(null);
-  const Refs = useRef<(HTMLElement | null)[]>([]);
+  const entryRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     setVisible(entries.map(() => false));
@@ -99,7 +99,7 @@ const HistoryTimeline = () => {
       { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
     );
 
-    Refs.current.forEach((el) => el && observer.observe(el));
+    entryRefs.current.forEach((el) => el && observer.observe(el));
 
     return () => observer.disconnect();
   }, [entries]);
@@ -165,90 +165,90 @@ const HistoryTimeline = () => {
       <div className="relative z-10 px-1 md:px-8 lg:px-12 xl:px-16">
         <div className="mx-auto w-full max-w-[1800px]">
           <div className="space-y-16 md:space-y-24 lg:space-y-28">
-            {entries.map((, i) => {
-  const isLeft = i % 2 === 0;
-  const isVisible = visible[i] ?? false;
+            {entries.map((entry, i) => {
+              const isLeft = i % 2 === 0;
+              const isVisible = visible[i] ?? false;
+              const imageUrl = entry.image;
 
-  return (
-    <article
-      key={.year}
-      ref={(el) => {
-        Refs.current[i] = el;
-      }}
-      data-idx={i}
-      className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_110px_minmax(0,1fr)] lg:gap-12 xl:gap-20 items-center lg:min-h-[56vh]"
-    >
-      {/* Text */}
-      <div
-        className={`order-2 lg:order-none ${
-  isLeft ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-3 lg:row-start-1"
-} text-left transition-all duration-700 ease-out`}
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? "translateY(0)" : "translateY(24px)",
-        }}
-      >
-        {/* Desktop year */}
-        <div
-          className="hidden lg:block font-serif leading-none text-foreground mb-8 md:mb-10"
-          style={{
-            fontSize: "clamp(2.2rem, 4vw, 4rem)",
-            letterSpacing: "-0.04em",
-          }}
-        >
-          {.year}
-        </div>
+              return (
+                <article
+                  key={entry.year}
+                  ref={(el) => {
+                    entryRefs.current[i] = el;
+                  }}
+                  data-idx={i}
+                  className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_110px_minmax(0,1fr)] lg:gap-12 xl:gap-20 items-center lg:min-h-[56vh]"
+                >
+                  {/* Text */}
+                  <div
+                    className={`order-2 lg:order-none ${
+                      isLeft ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-3 lg:row-start-1"
+                    } text-left transition-all duration-700 ease-out`}
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? "translateY(0)" : "translateY(24px)",
+                    }}
+                  >
+                    {/* Desktop year */}
+                    <div
+                      className="hidden lg:block font-serif leading-none text-foreground mb-8 md:mb-10"
+                      style={{
+                        fontSize: "clamp(2.2rem, 4vw, 4rem)",
+                        letterSpacing: "-0.04em",
+                      }}
+                    >
+                      {entry.year}
+                    </div>
 
-        <p className="text-lg md:text-xl leading-[2] text-muted-foreground whitespace-pre-line max-w-[920px]">
-          {.text}
-        </p>
-      </div>
+                    <p className="text-lg md:text-xl leading-[2] text-muted-foreground whitespace-pre-line max-w-[920px]">
+                      {entry.text}
+                    </p>
+                  </div>
 
-      {/* Image */}
-      <div
-        className={`order-1 lg:order-none ${
-  isLeft ? "lg:col-start-3 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"
-} transition-all duration-700 ease-out delay-150`}
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? "translateY(0)" : "translateY(24px)",
-        }}
-      >
-        <div className="relative left-1/2 aspect-[4/3] w-screen -translate-x-1/2 overflow-hidden border-y border-border bg-muted/20 flex items-center justify-center lg:left-auto lg:w-full lg:translate-x-0 lg:border">
-          {i === 4 ? (
-            <img
-              src={history1995Asset.url}
-              alt={t("1995 production facility", "Produktionsanlage 1995")}
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-            />
-          ) : (
-            {entry.image ? (
-              <img
-                src={entry.image}
-                alt={entry.imageAlt ?? entry.year}
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <span className="editorial-label text-muted-foreground/45">
-                {t("Image", "Bild")} {i + 1}
-              </span>
-            )}
-          )}
+                  {/* Image */}
+                  <div
+                    className={`order-1 lg:order-none ${
+                      isLeft ? "lg:col-start-3 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"
+                    } transition-all duration-700 ease-out delay-150`}
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? "translateY(0)" : "translateY(24px)",
+                    }}
+                  >
+                    <div className="relative left-1/2 aspect-[4/3] w-screen -translate-x-1/2 overflow-hidden border-y border-border bg-muted/20 flex items-center justify-center lg:left-auto lg:w-full lg:translate-x-0 lg:border">
+                      {i === 4 ? (
+                        <img
+                          src={history1995Asset.url}
+                          alt={t("1995 production facility", "Produktionsanlage 1995")}
+                          className="absolute inset-0 h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : imageUrl ? (
+                        <img
+                          src={imageUrl}
+                          alt={entry.imageAlt ?? entry.year}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span className="editorial-label text-muted-foreground/45">
+                          {t("Image", "Bild")} {i + 1}
+                        </span>
+                      )}
 
-          {/* Mobile year on image */}
-          <div
-            className="absolute bottom-5 left-6 z-10 lg:hidden font-serif leading-none text-background"
-            style={{
-              fontSize: "clamp(2.2rem, 13vw, 4rem)",
-              letterSpacing: "-0.04em",
-            }}
-          >
-            {.year}
-          </div>
-        </div>
-      </div>
-    </article>
+                      {/* Mobile year on image */}
+                      <div
+                        className="absolute bottom-5 left-6 z-10 lg:hidden font-serif leading-none text-background"
+                        style={{
+                          fontSize: "clamp(2.2rem, 13vw, 4rem)",
+                          letterSpacing: "-0.04em",
+                        }}
+                      >
+                        {entry.year}
+                      </div>
+                    </div>
+                  </div>
+                </article>
               );
             })}
           </div>
@@ -259,4 +259,3 @@ const HistoryTimeline = () => {
 };
 
 export default HistoryTimeline;
-
