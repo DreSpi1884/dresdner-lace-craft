@@ -228,13 +228,13 @@ useLayoutEffect(() => {
 }, [isHome]);
 
 const DROPDOWN_SECTION_OFFSETS: Record<string, number> = {
-  history: 155,
-  sustainability: 175,
-  values: 205,
-  design: 175,
-  "raw-material-production": 175,
-  "dyeing-finishing": 175,
-  "functional-textiles": 175,
+  history: 112,
+  sustainability: 112,
+  values: 120,
+  design: 112,
+  "raw-material-production": 112,
+  "dyeing-finishing": 112,
+  "functional-textiles": 112,
 };
 
 const handleDropdownAnchor = (
@@ -323,13 +323,11 @@ const handleDropdownAnchor = (
                         <Link
                           key={s.hash}
                           to={`${base}${s.hash}`}
-                          oonClick={(e) => handleDropdownAnchor(e, base, s.hash)}
-                            }
-                          }}
+                          onClick={(e) => handleDropdownAnchor(e, base, s.hash)}
                           className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
                         >
                           {s.label}
-                        </Link>
+                       </Link>
                       ))}
                     </div>
                   </div>
