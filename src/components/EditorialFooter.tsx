@@ -162,9 +162,6 @@ const EditorialFooter = () => {
   <div className="hidden md:block">
     <p className="editorial-label text-background/40 mb-6">{t("Contact", "Kontakt")}</p>
 
-    <div className="flex flex-col gap-3 editorial-body-sm text-background/70">
-      <p>{t("Dresden, Germany", "Dresden, Deutschland")}</p>
-
       <a className="hover:text-background transition-colors" href="mailto:sales@dresdnerspitzen.com">
         sales@dresdnerspitzen.com
       </a>
