@@ -151,7 +151,7 @@ const Index = () => {
                 anchor: "dyeing-finishing",
               },
               {
-                title: t("Functional & Medical Textiles", "Funktions- und Medizintextilien"),
+                title: t("Functional & Medical Textiles", "Funktions- & Medizintextilien"),
                 desc: t(
                   "We develop warp-knitted fabrics for medical and technical use.",
                   "Wir entwickeln Kettgewirke für medizinische und technische Anwendungen.\n",
