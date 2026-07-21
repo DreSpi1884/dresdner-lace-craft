@@ -4,6 +4,7 @@ import laceAsset from "@/assets/lace_tile_vertikal.png";
 import history1995Asset from "@/assets/history-1995.jpg.asset.json";
 import factory1884Image from "@/assets/1884-bild.jpg?url";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
+import factory1900Image from "@/assets/aereal-dregus.jpg?url";
 
 type Entry = {
   year: string;
@@ -23,20 +24,8 @@ const HistoryTimeline = () => {
 
   const entries: Entry[] = useMemo(
     () => [
-      {
+        {
         year: "1884",
-        image: factory1884Image,
-        imageAlt: t(
-          "Historic painted view of the Dresden factory complex",
-          "Historische gemalte Ansicht des Dresdner Fabrikgeländes"
-        ),
-        text: t(
-          "Our story begins in 1884, when Georg Marwitz and Carl H. Siegel find the Dresdner Gardinen- und Spitzen-Manufaktur.\u00a0\nAt a time when fine lace is almost exclusively imported from England, we introduce English bobbin machines to Germany and establish the foundations of modern lace manufacturing in Dresden.",
-          "Unsere Geschichte beginnt 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen.\u00a0\nZu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
-        ),
-      },
-      {
-        year: "1900",
         image: bobbinetManImage,
         imageAlt: t(
           "Worker operating a historic bobbinet machine",
@@ -44,8 +33,21 @@ const HistoryTimeline = () => {
         ),
         imageClassName: "object-cover object-[50%_35%]",
         text: t(
-          "As demand for our lace and textiles increases, so do our ambitions.\u00a0\nWe expand our textile production to a larger site in Dresden-Dobritz, invest in new manufacturing facilities and open factories abroad. Even through wars, inflation and economic uncertainty, we continue to produce and export textiles worldwide.",
-          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen.\u00a0\nWir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland. Auch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
+          "Our story begins in 1884, when Georg Marwitz and Carl H. Siegel found the Dresdner Gardinen- und Spitzen-Manufaktur.\nAt a time when fine lace is almost exclusively imported from England, we introduce English bobbin machines to Germany and establish the foundations of modern lace manufacturing in Dresden.",
+          "Unsere Geschichte beginnt 1884, als Georg Marwitz und Carl H. Siegel die Dresdner Gardinen- und Spitzen-Manufaktur gründen.\nZu einer Zeit, als feine Spitze fast ausschließlich aus England importiert wird, bringen sie englische Bobbinet-Maschinen nach Deutschland und legen den Grundstein für die moderne Spitzenherstellung in Dresden."
+        ),
+      },
+      {
+        year: "1900",
+        image: factory1900Image,
+        imageAlt: t(
+          "Historic aerial view of the factory site in Dresden-Dobritz",
+          "Historische Ansicht des Fabrikgeländes in Dresden-Dobritz"
+        ),
+        imageClassName: "object-cover object-center",
+        text: t(
+          "As demand for our lace and textiles increases, so do our ambitions.\nWe expand our textile production to a larger site in Dresden-Dobritz, invest in new manufacturing facilities and open factories abroad. Even through wars, inflation and economic uncertainty, we continue to produce and export textiles worldwide.",
+          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen.\nWir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland. Auch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
         ),
       },
       {
@@ -229,14 +231,13 @@ const HistoryTimeline = () => {
                           src={history1995Asset.url}
                           alt={t("1995 production facility", "Produktionsanlage 1995")}
                           className="absolute inset-0 h-full w-full object-cover"
-                          loading="lazy"
+                          loading="auto"
                         />
                       ) : imageUrl ? (
                         <img
-                          src={imageUrl}
+                          src={entry.image}
                           alt={entry.imageAlt ?? entry.year}
                           className="h-full w-full object-cover"
-                          loading="lazy"
                         />
                       ) : (
                         <span className="editorial-label text-muted-foreground/45">
