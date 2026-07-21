@@ -339,7 +339,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="divide-y divide-primary/15 lg:pt-8 xl:pt-10">
+            <div className="divide-y divide-primary/15 lg:pt-6 xl:pt-8">
               {[
   {
     title: t("Quality & Precision", "Qualität & Präzision"),
