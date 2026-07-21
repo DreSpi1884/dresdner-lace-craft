@@ -50,7 +50,7 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
       data-no-reveal
       src={grsLogo}
       alt="Global Recycled Standard OekoTex Step"
-      className="block w-[200px] shrink-0 bg-white object-contain sm:w-[260px] md:w-[320px] lg:w-[360px] xl:w-[400px]"
+      className="block w-[220px] shrink-0 bg-white object-contain sm:w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px]"
 
     />
 
