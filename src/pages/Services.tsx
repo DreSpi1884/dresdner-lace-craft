@@ -168,7 +168,7 @@ const Services = () => {
         desc: t("We deliver reliably and on schedule.", "Wir liefern zuverlässig nach Ihrem Zeitplan."),
       },
     ],
-    [t],
+    [t, lang],
   );
   type ServiceItem = {
     id: string;
