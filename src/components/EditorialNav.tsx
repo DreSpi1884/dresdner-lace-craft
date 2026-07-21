@@ -227,16 +227,42 @@ useLayoutEffect(() => {
   };
 }, [isHome]);
 
-  const handleAboutAnchor = (e: MouseEvent<HTMLAnchorElement>, hash: string) => {
-    if (location.pathname === "/about") {
-      e.preventDefault();
+const DROPDOWN_SECTION_OFFSETS: Record<string, number> = {
+  history: 155,
+  sustainability: 175,
+  values: 205,
+  design: 175,
+  "raw-material-production": 175,
+  "dyeing-finishing": 175,
+  "functional-textiles": 175,
+};
 
-      const el = document.querySelector(hash);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  };
+const handleDropdownAnchor = (
+  e: MouseEvent<HTMLAnchorElement>,
+  path: string,
+  hash: string
+) => {
+  if (location.pathname !== path) return;
+
+  e.preventDefault();
+
+  const id = hash.replace("#", "");
+  const target =
+    document.getElementById(`${id}-scroll-target`) ??
+    document.getElementById(id);
+
+  if (!target) return;
+
+  const offset = DROPDOWN_SECTION_OFFSETS[id] ?? 175;
+  const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.history.replaceState(null, "", `${path}${hash}`);
+
+  window.scrollTo({
+    top,
+    behavior: "auto",
+  });
+};
 
   return (
     <header
@@ -297,9 +323,7 @@ useLayoutEffect(() => {
                         <Link
                           key={s.hash}
                           to={`${base}${s.hash}`}
-                          onClick={(e) => {
-                            if (item.key === "about") {
-                              handleAboutAnchor(e, s.hash);
+                          oonClick={(e) => handleDropdownAnchor(e, base, s.hash)}
                             }
                           }}
                           className="block px-5 py-2 editorial-body-sm text-background/80 hover:text-background hover:bg-background/5 transition-colors"
