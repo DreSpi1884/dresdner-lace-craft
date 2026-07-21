@@ -103,7 +103,7 @@ const Index = () => {
 
           <span
             className="editorial-label min-w-0 whitespace-nowrap text-primary leading-[1.35] tracking-[0.06em] sm:tracking-[0.1em] md:tracking-[0.13em] lg:tracking-[0.16em] xl:tracking-[0.2em]"
-            style={{ fontSize: "clamp(8px, 0.72vw, 13px)" }}
+            style={{ fontSize: "clamp(10px, 0.8vw, 16px)" }}
           >
             {text}
           </span>
