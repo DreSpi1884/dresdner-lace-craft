@@ -12,7 +12,7 @@ import Imprint from "./pages/Imprint.tsx";
 import Privacy from "./pages/Privacy.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
-import { QuoteModalProvider } from "./components/QuoteModal.tsx";
+import { QuoteModalProvider } from "@/components/QuoteModal";
 
 const queryClient = new QueryClient();
 
