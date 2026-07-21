@@ -8,8 +8,7 @@ import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
-import grsLogo from "@/assets/GRS_freigestellt.png?url";
-import oekoTexLogo from "@/assets/oeko-tex.png?url";
+import grsLogo from "@/assets/grs-step-logo.png?url";
 import umweltallianzLogo from "@/assets/umweltallianz-sachsen.png?url";
 import solarRoofImg from "@/assets/solaranlage.jpg?url";
 
@@ -50,15 +49,9 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
     <img
       data-no-reveal
       src={grsLogo}
-      alt="Global Recycled Standard certified by Control Union"
+      alt="Global Recycled Standard OekoTex Step"
       className="block w-[88px] shrink-0 bg-white object-contain sm:w-[108px] md:w-[140px] lg:w-[145px] xl:w-[165px]"
-    />
 
-    <img
-      data-no-reveal
-      src={oekoTexLogo}
-      alt="OEKO-TEX STeP certification"
-      className="block w-[104px] shrink-0 bg-white object-contain sm:w-[128px] md:w-[165px] lg:w-[170px] xl:w-[195px]"
     />
 
     <img
