@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { ChevronDown, Info } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
@@ -37,6 +37,24 @@ const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onC
       >
         {link}
       </button>
+      {parts[1]}
+    </>
+  );
+};
+
+// Inline link helper that turns a specific word in a paragraph into a router link.
+const TextWithRouterLink = ({ text, link, to }: { text: string; link: string; to: string }): ReactNode => {
+  const parts = text.split(link);
+  if (parts.length !== 2) return <>{text}</>;
+  return (
+    <>
+      {parts[0]}
+      <Link
+        to={to}
+        className="inline underline underline-offset-4 text-primary hover:opacity-80 transition-opacity"
+      >
+        {link}
+      </Link>
       {parts[1]}
     </>
   );
@@ -130,9 +148,18 @@ const Services = () => {
       {
         step: "03",
         title: t("PRODUCTION", "PRODUKTION"),
-        desc: t(
-          "Your order is produced to certified standards.",
-          "Ihre Bestellung wird nachhaltig zertifiziert produziert.",
+        desc: lang === "de" ? (
+          <TextWithRouterLink
+            text="Ihre Bestellung wird nachhaltig zertifiziert produziert."
+            link="zertifiziert"
+            to="/about#sustainability"
+          />
+        ) : (
+          <TextWithRouterLink
+            text="Your order is produced to certified standards."
+            link="certified"
+            to="/about#sustainability"
+          />
         ),
       },
       {
@@ -141,7 +168,7 @@ const Services = () => {
         desc: t("We deliver reliably and on schedule.", "Wir liefern zuverlässig nach Ihrem Zeitplan."),
       },
     ],
-    [t],
+    [t, lang],
   );
   type ServiceItem = {
     id: string;
