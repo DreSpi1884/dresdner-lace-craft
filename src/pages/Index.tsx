@@ -132,7 +132,7 @@ const Index = () => {
                 anchor: "design",
               },
               {
-                title: t("Bespoke Designs", "Maßgeschneiderte Designs"),
+                title: t("Bespoke Designs", "Individuell entwickelte Designs"),
                 desc: t(
                   "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
                   "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
@@ -151,7 +151,7 @@ const Index = () => {
                 anchor: "dyeing-finishing",
               },
               {
-                title: t("Functional & Medical Textiles", "Funktions- und Medizintextilien"),
+                title: t("Functional & Medical Textiles", "Funktions- & Medizintextilien"),
                 desc: t(
                   "We develop warp-knitted fabrics for medical and technical use.",
                   "Wir entwickeln Kettgewirke für medizinische und technische Anwendungen.\n",
