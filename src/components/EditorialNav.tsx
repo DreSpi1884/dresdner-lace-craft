@@ -229,8 +229,8 @@ useLayoutEffect(() => {
 
 const DROPDOWN_SECTION_OFFSETS: Record<string, number> = {
   history: 112,
-  sustainability: 150,
-  values: 150,
+  sustainability: 170,
+  values: 170,
   design: 112,
   "raw-material-production": 112,
   "dyeing-finishing": 112,
