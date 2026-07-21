@@ -203,7 +203,7 @@ const About = () => {
                   )}
 
                   {section.id === "values" && (
-                  <div className="divide-y divide-primary/15 text-left">
+                  <div className="divide-y divide-primary/15 lg:pt-8 xl:pt-10">
                     {[
                       {
                         title: t("Quality & Precision", "Qualität & Präzision"),
