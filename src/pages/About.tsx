@@ -50,7 +50,7 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
       data-no-reveal
       src={grsLogo}
       alt="Global Recycled Standard OekoTex Step"
-      className="block w-[176px] shrink-0 bg-white object-contain sm:w-[240px] md:w-[300px] lg:w-[320px] xl:w-[360px]"
+      className="block w-[200px] shrink-0 bg-white object-contain sm:w-[260px] md:w-[320px] lg:w-[360px] xl:w-[400px]"
 
     />
 
@@ -58,7 +58,7 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
       data-no-reveal
       src={umweltallianzLogo}
       alt="Umwelt- und Klimaallianz Sachsen"
-      className="block w-[66px] shrink-0 object-contain sm:w-[90px] md:w-[100px] lg:w-[98px] xl:w-[110px]"
+      className="block w-[80px] shrink-0 object-contain sm:w-[95px] md:w-[110px] lg:w-[130px] xl:w-[180px]"
     />
   </div>
 );
