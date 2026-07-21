@@ -538,7 +538,7 @@ requestAnimationFrame(() => {
       key={s.id}
       id={s.id}
       data-no-reveal
-      className="border-b border-primary/18 scroll-mt-36"
+      className="border-b border-primary/40 scroll-mt-36"
       >
 
 
