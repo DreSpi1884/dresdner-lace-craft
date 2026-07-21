@@ -148,9 +148,18 @@ const Services = () => {
       {
         step: "03",
         title: t("PRODUCTION", "PRODUKTION"),
-        desc: t(
-          "Your order is produced to certified standards.",
-          "Ihre Bestellung wird nachhaltig zertifiziert produziert.",
+        desc: lang === "de" ? (
+          <TextWithRouterLink
+            text="Ihre Bestellung wird nachhaltig zertifiziert produziert."
+            link="zertifiziert"
+            to="/about#sustainability"
+          />
+        ) : (
+          <TextWithRouterLink
+            text="Your order is produced to certified standards."
+            link="certified"
+            to="/about#sustainability"
+          />
         ),
       },
       {
