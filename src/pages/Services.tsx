@@ -42,6 +42,24 @@ const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onC
   );
 };
 
+// Inline link helper that turns a specific word in a paragraph into a router link.
+const TextWithRouterLink = ({ text, link, to }: { text: string; link: string; to: string }): ReactNode => {
+  const parts = text.split(link);
+  if (parts.length !== 2) return <>{text}</>;
+  return (
+    <>
+      {parts[0]}
+      <Link
+        to={to}
+        className="inline underline underline-offset-4 text-primary hover:opacity-80 transition-opacity"
+      >
+        {link}
+      </Link>
+      {parts[1]}
+    </>
+  );
+};
+
 const InfoTooltip = ({ label }: { label: string }) => {
   const [open, setOpen] = useState(false);
 
