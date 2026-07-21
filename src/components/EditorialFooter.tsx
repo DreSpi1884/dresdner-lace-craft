@@ -45,7 +45,7 @@ const EditorialFooter = () => {
   <p className="hidden md:block editorial-body-sm text-background/60 max-w-xs whitespace-pre-line mt-4">
     {t(
       "Your partner for high-quality lace, warp-knitted fabrics and functional textiles, developed and produced in Dresden.",
-      "Ihr Partner für hochwertige Spitzen, Kettengewirke und funktionale Textilien, entwickelt und produziert in Dresden."
+      "Ihr Partner für hochwertige Spitzen, Kettgewirke und funktionale Textilien, entwickelt und produziert in Dresden."
     )}
   </p>
 </div>
