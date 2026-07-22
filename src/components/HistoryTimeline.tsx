@@ -47,7 +47,7 @@ const HistoryTimeline = () => {
         imageClassName: "object-cover object-center",
         text: t(
           "As demand for our lace and textiles increases, so do our ambitions.\nWe expand our textile production to a larger site in Dresden-Dobritz, invest in new manufacturing facilities and open factories abroad. Even through wars, inflation and economic uncertainty, we continue to produce and export textiles worldwide.",
-          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen.\nWir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland. Auch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit."
+          "Mit wachsender Nachfrage wachsen auch unsere Ambitionen.\nWir verlagern unsere Produktion nach Dresden-Dobritz, investieren in neue Anlagen und eröffnen Werke im Ausland. Auch durch Kriege und wirtschaftliche Krisen hindurch produzieren und exportieren wir unsere Textilien weltweit. An diesem Standort produzieren wir auch heute noch."
         ),
       },
       {
