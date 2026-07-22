@@ -91,8 +91,8 @@ const HistoryTimeline = () => {
         ),
         imageClassName: "object-cover object-center",
         text: t(
-          "After reunification, a new chapter begins for us. With determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
-          "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel. Mit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
+          "In 2002, the flood of the century also hit our location in Dresden-Dobritz.\nA broken dike allowed the water to advance to the plant and caused great damage, especially in the yarn warehouse.\nWith the great commitment of our employees, the most important cleanup work was completed within a week and production could start up again.",
+          "Im Jahr 2002 trifft die Jahrhundertflut auch unseren Standort in Dresden-Dobritz.\nEin Deichbruch lässt das Wasser bis zum Werk vordringen und verursacht große Schäden, vor allem im Garnlager.\nMit großem Einsatz unserer Mitarbeitenden werden die wichtigsten Aufräumarbeiten innerhalb einer Woche abgeschlossen und die Produktion kann wieder anlaufen."
         ),
       },
       {
