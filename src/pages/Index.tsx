@@ -142,22 +142,22 @@ const Index = () => {
               },
 
               {
+                title: t("Technical Textiles", "Technische Textilien"),
+                desc: t(
+                  "We develop functional warp-knitted fabrics for technical and medical applications.",
+                  "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen.\n",
+                ),
+                image: serviceFunctional.url,
+                anchor: "functional-textiles",
+              },
+              {
                 title: t("Full-stage Production", "Vollstufige Produktion"),
                 desc: t(
-                  "In-house, we dye the full colour spectrum in solid and bicolour shades and finish textiles according to their intended use.",
+                  "In-house, we dye the full color spectrum in solid and bicolor shades and finish textiles according to their intended use.",
                   "Wir färben in-house das gesamte Farbspektrum in Uni- und Bicolor und rüsten Textilien nach Einsatzzweck aus.",
                 ),
                 image: serviceDyeing.url,
                 anchor: "dyeing-finishing",
-              },
-              {
-                title: t("Functional & Medical Textiles", "Funktions- & Medizintextilien"),
-                desc: t(
-                  "We develop warp-knitted fabrics for medical and technical use.",
-                  "Wir entwickeln Kettgewirke für medizinische und technische Anwendungen.\n",
-                ),
-                image: serviceFunctional.url,
-                anchor: "functional-textiles",
               },
             ].map((item) => (
 <Link
