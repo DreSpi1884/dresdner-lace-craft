@@ -132,7 +132,7 @@ const Index = () => {
                 anchor: "design",
               },
               {
-                title: t("Bespoke Designs", "Individuell entwickelte Designs"),
+                title: t("Custom Designs", "Individuell entwickelte Designs"),
                 desc: t(
                   "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
                   "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
