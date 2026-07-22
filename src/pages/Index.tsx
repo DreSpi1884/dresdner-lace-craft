@@ -8,8 +8,8 @@ import heroVideo from "@/assets/hero-video.mp4.asset.json";
 import bespokeDesignsImage from "@/assets/bespoke-designs.png?url";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
 import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg.asset.json";
-import serviceFunctional from "@/assets/functional-medical-fabric.jpg.asset.json";
-import serviceDyeing from "@/assets/dyeing-finishing.jpg.asset.json";
+import functionalTextiles from "@/assets/functional-medical-fabric.jpg.asset.json";
+import FullStageProduction from "@/assets/dyeing-finishing.jpg.asset.json";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
 import heritageNow from "@/assets/heritage-now.jpg.asset.json";
@@ -129,7 +129,6 @@ const Index = () => {
                   "Zweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden.",
                 ),
                 image: serviceLaceCollections.url,
-                anchor: "design",
               },
               {
                 title: t("Custom Designs", "Individuell entwickelte Designs"),
@@ -138,7 +137,6 @@ const Index = () => {
                   "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
                 ),
                 image: bespokeDesignsImage,
-                anchor: "design",
               },
 
               {
@@ -147,8 +145,7 @@ const Index = () => {
                   "We develop functional warp-knitted fabrics for technical and medical applications.",
                   "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen.\n",
                 ),
-                image: serviceFunctional.url,
-                anchor: "functional-textiles",
+                image: functionalTextiles.url,
               },
               {
                 title: t("Full-stage Production", "Vollstufige Produktion"),
@@ -156,8 +153,7 @@ const Index = () => {
                   "We develop warp-knitted fabrics for medical and technical use.",
                   "Wir entwickeln Kettgewirke für medizinische und technische Anwendungen.",
                 ),
-                image: serviceDyeing.url,
-                anchor: "dyeing-finishing",
+                image: FullStageProduction.url,
               },
             ].map((item) => (
 <Link
