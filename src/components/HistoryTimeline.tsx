@@ -2,13 +2,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
 import laceAsset from "@/assets/lace_tile_vertikal.png";
 import history1995Asset from "@/assets/history-1995.jpg.asset.json";
-import factory1884Image from "@/assets/1884-bild.jpg?url";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/aereal-dregus.jpg?url";
 import image1945 from "@/assets/bild-45.png?url";
 
 type Entry = {
   year: string;
+  date: string;
   text: string;
   image?: string;
   imageAlt?: string;
@@ -17,9 +17,6 @@ type Entry = {
 
 const RIBBON_WIDTH = 72;
 
-
-
-
 const HistoryTimeline = () => {
   const { t } = useLang();
 
@@ -27,6 +24,7 @@ const HistoryTimeline = () => {
     () => [
       {
         year: t("Our Founding", "Unsere Gründung"),
+        date: "1884",
         image: bobbinetManImage,
         imageAlt: t(
           "Worker operating a historic bobbinet machine",
@@ -40,6 +38,7 @@ const HistoryTimeline = () => {
       },
       {
         year: t("New Location", "Neuer Standort"),
+        date: "1900",
         image: factory1900Image,
         imageAlt: t(
           "Historic aerial view of the factory site in Dresden-Dobritz",
@@ -53,6 +52,7 @@ const HistoryTimeline = () => {
       },
       {
         year: t("Reconstruction", "Wiederaufbau"),
+        date: "1945",
         image: image1945,
         imageAlt: t(
           "Historic machine after the Second World War",
@@ -66,6 +66,7 @@ const HistoryTimeline = () => {
       },
       {
         year: t("New Machinery", "Neue Maschinen"),
+        date: "1970",
         text: t(
           "The introduction of warp knitting technology transformes our production and establishes us as one of the leading lace manufacturers in East Germany.\u00a0\n1982, we become the first company in the world to operate electronically controlled Raschel machines.",
           "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland.\u00a0\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt."
@@ -73,6 +74,7 @@ const HistoryTimeline = () => {
       },
       {
         year: t("New Beginning", "Neuanfang"),
+        date: "1995",
         text: t(
           "After reunification, a new chapter begins for us. With determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
           "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel. Mit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
@@ -80,6 +82,7 @@ const HistoryTimeline = () => {
       },
       {
         year: t("Today", "Heute"),
+        date: t("Today", "Heute"),
         text: t(
           "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day.\nIn Dresden, we produce lace, warp-knitted fabrics and functional textiles for fashion, industry and medical applications.\nMore than 140 years of textile experience remain part of our daily work, alongside modern technology and attention to detail in every product.",
           "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen.\nIn Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettgewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen.\nDabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie, Sorgfalt und Neugier."
@@ -129,7 +132,7 @@ const HistoryTimeline = () => {
       if (!section) return;
 
       const rect = section.getBoundingClientRect();
-      // Shift the seamless tile so the ribbon appears to scroll with the page.
+
       setLaceOffset(rect.top);
     };
 
@@ -152,9 +155,9 @@ const HistoryTimeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background text-primary w-full py-12 md:py-16 lg:py-20"
+      className="relative w-full bg-background py-12 text-primary md:py-16 lg:py-20"
     >
-      {/* lace ribbon — sticky, seamless vertical tile with strong top/bottom fade */}
+      {/* Lace ribbon */}
       <div
         className="pointer-events-none absolute top-0 left-0 right-0 z-0 hidden lg:block"
         aria-hidden="true"
@@ -178,7 +181,6 @@ const HistoryTimeline = () => {
         />
       </div>
 
-
       <div className="relative z-10 px-1 md:px-8 lg:px-12 xl:px-16">
         <div className="mx-auto w-full max-w-[1800px]">
           <div className="space-y-16 md:space-y-24 lg:space-y-28">
@@ -189,50 +191,48 @@ const HistoryTimeline = () => {
 
               return (
                 <article
-                  key={entry.year}
+                  key={`${entry.date}-${i}`}
                   ref={(el) => {
                     entryRefs.current[i] = el;
                   }}
                   data-idx={i}
-                  className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_110px_minmax(0,1fr)] lg:gap-12 xl:gap-20 items-center lg:min-h-[56vh]"
+                  className="grid grid-cols-1 items-center gap-6 lg:min-h-[56vh] lg:grid-cols-[minmax(0,1fr)_110px_minmax(0,1fr)] lg:gap-12 xl:gap-20"
                 >
                   {/* Text */}
                   <div
-                    className={`order-2 lg:order-none ${
-                      isLeft ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-3 lg:row-start-1"
-                    } text-left transition-all duration-700 ease-out`}
+                    className={`order-2 text-left transition-all duration-700 ease-out lg:order-none ${
+                      isLeft
+                        ? "lg:col-start-1 lg:row-start-1"
+                        : "lg:col-start-3 lg:row-start-1"
+                    }`}
                     style={{
                       opacity: isVisible ? 1 : 0,
                       transform: isVisible ? "translateY(0)" : "translateY(24px)",
                     }}
                   >
-                    {/* Desktop year */}
-                    <div
-                      className="hidden lg:block font-serif leading-none text-foreground mb-8 md:mb-10"
-                      style={{
-                        fontSize: "clamp(2.2rem, 4vw, 4rem)",
-                        letterSpacing: "-0.04em",
-                      }}
-                    >
+                    {/* Desktop headline */}
+                    <h2 className="hidden text-[28px] leading-snug text-primary lg:mb-7 lg:block xl:text-[32px]">
                       {entry.year}
-                    </div>
+                    </h2>
 
-                    <p className="text-lg md:text-xl leading-[2] text-muted-foreground whitespace-pre-line max-w-[920px]">
+                    <p className="max-w-[920px] whitespace-pre-line text-lg leading-[2.05] text-muted-foreground">
                       {entry.text}
                     </p>
                   </div>
 
                   {/* Image */}
                   <div
-                    className={`order-1 lg:order-none ${
-                      isLeft ? "lg:col-start-3 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"
-                    } transition-all duration-700 ease-out delay-150`}
+                    className={`order-1 transition-all delay-150 duration-700 ease-out lg:order-none ${
+                      isLeft
+                        ? "lg:col-start-3 lg:row-start-1"
+                        : "lg:col-start-1 lg:row-start-1"
+                    }`}
                     style={{
                       opacity: isVisible ? 1 : 0,
                       transform: isVisible ? "translateY(0)" : "translateY(24px)",
                     }}
                   >
-                    <div className="relative left-1/2 aspect-[4/3] w-screen -translate-x-1/2 overflow-hidden border-y border-border bg-muted/20 flex items-center justify-center lg:left-auto lg:w-full lg:translate-x-0 lg:border">
+                    <div className="relative left-1/2 flex aspect-[4/3] w-screen -translate-x-1/2 items-center justify-center overflow-hidden border-y border-border bg-muted/20 lg:left-auto lg:w-full lg:translate-x-0 lg:border">
                       {i === 4 ? (
                         <img
                           src={history1995Asset.url}
@@ -241,9 +241,11 @@ const HistoryTimeline = () => {
                         />
                       ) : imageUrl ? (
                         <img
-                          src={entry.image}
+                          src={imageUrl}
                           alt={entry.imageAlt ?? entry.year}
-                          className="h-full w-full object-cover"
+                          className={`absolute inset-0 h-full w-full ${
+                            entry.imageClassName ?? "object-cover object-center"
+                          }`}
                         />
                       ) : (
                         <span className="editorial-label text-muted-foreground/45">
@@ -251,15 +253,17 @@ const HistoryTimeline = () => {
                         </span>
                       )}
 
-                      {/* Mobile year on image */}
+                      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
+
+                      {/* Date on image */}
                       <div
-                        className="absolute bottom-5 left-6 z-10 lg:hidden font-serif leading-none text-background"
+                        className="pointer-events-none absolute bottom-5 left-6 z-10 font-serif leading-none text-background drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] lg:bottom-6 lg:left-7"
                         style={{
-                          fontSize: "clamp(2.2rem, 13vw, 4rem)",
+                          fontSize: "clamp(2.2rem, 8vw, 5.5rem)",
                           letterSpacing: "-0.04em",
                         }}
                       >
-                        {entry.year}
+                        {entry.date}
                       </div>
                     </div>
                   </div>
