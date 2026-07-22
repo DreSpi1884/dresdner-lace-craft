@@ -213,7 +213,7 @@ const Services = () => {
         mobileImage: dyeingImg2,
         text: t(
           "Our in-house dyeing facilities cover the full colour spectrum, from delicate pastels to deep saturated shades, in solid and bicolour finishes.\nWith modern jet dyeing technology, we can save up to 70% water compared with high-liquor dyeing.\nContract dyeing and finishing services available on request.",
-          "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nMit moderner Jet-Technologie können wir beim Färben gegenüber Hochflotten-Färbung bis zu 70 % Wasser einsparen.\nLohnfärberei und -ausrüstung auf Anfrage.",
+          "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nMit moderner Jet-Technologie können wir beim Färben bis zu 70 % Wasser einsparen.\nLohnfärberei und -ausrüstung auf Anfrage.",
         ),
       },
       {
@@ -391,23 +391,15 @@ requestAnimationFrame(() => {
         </p>
       </>
     ) : s.id === "dyeing-finishing" ? (
-  <>
-    {s.text
-      .split("\n")
-      .slice(0, -1)
-      .map((line, li) => (
-        <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
-          {line}
-          {li === 1 && (
-            <InfoTooltip
-              label={t(
-                "high-liquor dyeing.",
-                "Hochflotten-Färbung."
-              )}
-            />
-          )}
-        </p>
-      ))}
+      <>
+        {s.text
+          .split("\n")
+          .slice(0, -1)
+          .map((line, li) => (
+            <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
+              {line}
+            </p>
+          ))}
 
     <div className="mt-10 border-t border-primary/15 pt-7">
       <p

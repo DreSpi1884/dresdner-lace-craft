@@ -231,7 +231,6 @@ const HistoryTimeline = () => {
                           src={history1995Asset.url}
                           alt={t("1995 production facility", "Produktionsanlage 1995")}
                           className="absolute inset-0 h-full w-full object-cover"
-                          loading="auto"
                         />
                       ) : imageUrl ? (
                         <img
