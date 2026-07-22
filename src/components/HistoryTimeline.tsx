@@ -275,7 +275,7 @@ const HistoryTimeline = () => {
                     </div>
 
                     {entry.caption && (
-                      <p className="pointer-events-none absolute left-0 top-full mt-2 hidden text-left text-[11px] leading-[1.4] tracking-[0.08em] text-muted-foreground/70 lg:block"
+                      <p className="pointer-events-none absolute left-0 top-full mt-2 hidden text-left text-[11px] leading-[1.4] tracking-[0.08em] text-muted-foreground/70 lg:block">
                         {entry.caption}
                       </p>
                     )}
