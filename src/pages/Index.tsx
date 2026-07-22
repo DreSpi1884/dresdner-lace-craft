@@ -149,7 +149,7 @@ const Index = () => {
     anchor: "functional-textiles",
   },
   {
-    title: t("Full-stage Production", "Vollstufige Produktion"),
+    title: t("Full-Stage Production", "Vollstufige Produktion"),
     desc: t(
       "Our entire production — from design to raw material production, finishing and final production —\u00a0\ntakes place under one roof in Dresden.",
       "Unsere gesamte Produktion - von Design über Rohwarenproduktion, Ausrüstung und Endfertigung -\u00a0\nfindet unter einem Dach in Dresden statt.",
