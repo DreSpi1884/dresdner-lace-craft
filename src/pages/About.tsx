@@ -279,7 +279,7 @@ const About = () => {
         </h2>
       </div>
 
-      <div className="mt-10 xl:mt-12">
+      <div className="mt-10 xl:mt-12 px-8 xl:px-12 2xl:px-16">
         <SolarImageCard
           mobileText={t(
             "Solar power from our site.",
