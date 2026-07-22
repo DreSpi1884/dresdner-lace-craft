@@ -2,26 +2,61 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useScrollAnimations from "@/hooks/useScrollAnimations";
 
+// Offsets to keep the section heading clear of the fixed top nav.
+// Mobile nav is h-20 (80px); desktop is h-24 (96px). Anchor navs on desktop
+// add another sticky bar (~64px) for /about and /services.
+const getScrollOffset = (pathname: string) => {
+  const isDesktop = window.innerWidth >= 1024;
+  const hasAnchorNav =
+    isDesktop && (pathname.startsWith("/about") || pathname.startsWith("/services"));
+
+  if (hasAnchorNav) return 160;
+  return isDesktop ? 112 : 96;
+};
+
+const scrollToHash = (hash: string, pathname: string) => {
+  const id = hash.replace("#", "");
+  if (!id) return false;
+
+  const el =
+    document.getElementById(`${id}-scroll-target`) ??
+    document.getElementById(id);
+
+  if (!el) return false;
+
+  const offset = getScrollOffset(pathname);
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+  return true;
+};
+
 const ScrollToTop = () => {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
     if (hash) {
-      // Wait for the target section to mount, then scroll to it
-      const id = hash.replace("#", "");
+      let cancelled = false;
+
       const tryScroll = (attempt = 0) => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else if (attempt < 10) {
+        if (cancelled) return;
+        if (scrollToHash(hash, pathname)) return;
+        if (attempt < 20) {
           window.setTimeout(() => tryScroll(attempt + 1), 60);
         }
       };
-      tryScroll();
-      return;
+
+      // Give the new route a frame to mount before measuring.
+      const raf = window.requestAnimationFrame(() => tryScroll());
+
+      return () => {
+        cancelled = true;
+        window.cancelAnimationFrame(raf);
+      };
     }
+
     window.scrollTo(0, 0);
-  }, [pathname, hash]);
+  }, [pathname, hash, key]);
 
   useScrollAnimations();
 
