@@ -218,8 +218,8 @@ const Services = () => {
       },
       {
         id: "functional-textiles",
-        nav: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
-        title: t("Functional and Medical Textiles", "Funktions- und Medizintextilien"),
+        nav: t("Technical Textiles", "Technische Textilien"),
+        title: t("Technical Textiles", "Technische Textilien"),
         desktopImages: [functionalImg1, functionalImg2, functionalImg3, functionalImg4],
         mobileImage: functionalImg1,
         text: t(
