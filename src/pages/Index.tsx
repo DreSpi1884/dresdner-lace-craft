@@ -153,8 +153,8 @@ const Index = () => {
               {
                 title: t("Full-stage Production", "Vollstufige Produktion"),
                 desc: t(
-                  "In-house, we dye the full color spectrum in solid and bicolor shades and finish textiles according to their intended use.",
-                  "Wir färben in-house das gesamte Farbspektrum in Uni- und Bicolor und rüsten Textilien nach Einsatzzweck aus.",
+                  "We develop warp-knitted fabrics for medical and technical use.",
+                  "Wir entwickeln Kettgewirke für medizinische und technische Anwendungen.",
                 ),
                 image: serviceDyeing.url,
                 anchor: "dyeing-finishing",
