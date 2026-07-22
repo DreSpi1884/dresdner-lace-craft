@@ -241,13 +241,7 @@ const HistoryTimeline = () => {
                     }}
                   >
                     <div className="relative left-1/2 flex aspect-[4/3] w-screen -translate-x-1/2 items-center justify-center overflow-hidden border-y border-border bg-muted/20 lg:left-auto lg:w-full lg:translate-x-0 lg:border">
-                      {i === 3 ? (
-                        <img
-                          src={history1995Asset.url}
-                          alt={t("1995 production facility", "Produktionsanlage 1995")}
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                      ) : imageUrl ? (
+                      {imageUrl ? (
                         <img
                           src={imageUrl}
                           alt={entry.imageAlt ?? entry.year}
