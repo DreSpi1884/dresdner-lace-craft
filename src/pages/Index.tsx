@@ -142,7 +142,7 @@ const Index = () => {
               },
 
               {
-                title: t("Dyeing & Finishing", "Färben & Ausrüsten"),
+                title: t("Full-stage Production", "Vollstufige Produktion"),
                 desc: t(
                   "In-house, we dye the full colour spectrum in solid and bicolour shades and finish textiles according to their intended use.",
                   "Wir färben in-house das gesamte Farbspektrum in Uni- und Bicolor und rüsten Textilien nach Einsatzzweck aus.",
