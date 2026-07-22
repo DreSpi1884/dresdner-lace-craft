@@ -52,7 +52,7 @@ const HistoryTimeline = () => {
         ),
       },
       {
-        year: "1945",
+        year: t("Reconstruction", "Wiederaufbau"),
         image: image1945,
         imageAlt: t(
           "Historic machine after the Second World War",
