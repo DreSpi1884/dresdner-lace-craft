@@ -5,6 +5,7 @@ import history1980Asset from "@/assets/history-1995.jpg.asset.json";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bild-45.png?url";
+import flood2002Image from "@/assets/flut-2.jpg?url";
 
 type Entry = {
   year: string;
@@ -83,6 +84,12 @@ const HistoryTimeline = () => {
       {
         year: t("Flooded", "Hochwasser"),
         date: "2002",
+        image: flood2002Image,
+        imageAlt: t(
+          "Flooding at the Dresden-Dobritz production site in 2002",
+          "Hochwasser am Produktionsstandort Dresden-Dobritz im Jahr 2002"
+        ),
+        imageClassName: "object-cover object-center",
         text: t(
           "After reunification, a new chapter begins for us. With determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
           "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel. Mit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
