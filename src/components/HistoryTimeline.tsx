@@ -253,7 +253,6 @@ const HistoryTimeline = () => {
                         </span>
                       )}
 
-                      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
 
                       {/* Date on image */}
                       <div
