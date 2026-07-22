@@ -5,7 +5,7 @@ import history1980Asset from "@/assets/history-1995.jpg.asset.json";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bild-45.png?url";
-import flood2002Image from "@/assets/flut-2.jpg?url";
+import flood2002Image from "@/assets/flut-2002.JPG?url";
 
 type Entry = {
   year: string;
