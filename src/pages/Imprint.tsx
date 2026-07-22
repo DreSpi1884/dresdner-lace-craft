@@ -31,7 +31,7 @@ const Imprint = () => {
             </div>
             <div>
               <p className="font-semibold text-foreground">{t("Contact", "Kontakt")}</p>
-              <p>+49 351 2048 244</p>
+              <p>+49 351 2048 0</p>
               <p>sales@dresdnerspitzen.com</p>
             </div>
             <div>
