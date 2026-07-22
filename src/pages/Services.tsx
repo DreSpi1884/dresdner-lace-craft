@@ -14,7 +14,7 @@ import designImg4 from "@/assets/design-2.jpg?url";
 import dyeingImg1 from "@/assets/faerberei.png?url";
 import dyeingImg2 from "@/assets/dyeing-1.jpg?url";
 import dyeingImg3 from "@/assets/farbkarte-gruen.png?url";
-import dyeingImg4 from "@/assets/farbkarte-blau.png?url";
+import dyeingImg4 from "@/assets/farbkarte-blau.jpg?url";
 import rawMaterialImg1 from "@/assets/maschine-neu.png?url";
 import rawMaterialImg2 from "@/assets/rohware-hand.png?url";
 import functionalImg1 from "@/assets/wirkstoff-1.jpg?url";
