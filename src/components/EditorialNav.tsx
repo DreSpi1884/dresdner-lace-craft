@@ -88,7 +88,7 @@ const EditorialNav = () => {
       hash: "#dyeing-finishing",
     },
     {
-      label: t("FUNCTIONAL & MEDICAL TEXTILES", "FUNKTIONS- UND MEDIZINTEXTILIEN"),
+      label: t("TECHNICAL TEXTILES", "TECHNISCHE TEXTILIEN"),
       hash: "#functional-textiles",
     },
   ];
