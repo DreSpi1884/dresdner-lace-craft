@@ -5,6 +5,7 @@ import history1995Asset from "@/assets/history-1995.jpg.asset.json";
 import factory1884Image from "@/assets/1884-bild.jpg?url";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/aereal-dregus.jpg?url";
+import image1945 from "@/assets/bild-45.png?url";
 
 type Entry = {
   year: string;
@@ -52,6 +53,12 @@ const HistoryTimeline = () => {
       },
       {
         year: "1945",
+        image: image1945,
+        imageAlt: t(
+          "Historic machine after the Second World War",
+          "Historische Maschine nach dem Zweiten Weltkrieg"
+        ),
+        imageClassName: "object-cover object-[45%_50%]",
         text: t(
           "After the Second World War, every machine in our factory is dismantled.\u00a0\nStarting almost from nothing, we rebuild our production with borrowed equipment, determination and the commitment of our employees.\u00a0\nWithin a year, we can produce again.",
           "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert.\u00a0\nMit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf.\u00a0\nInnerhalb eines Jahres läuft die Textilproduktion erneut an."
