@@ -6,10 +6,9 @@ import EditorialSection from "@/components/EditorialSection";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
 
 import bespokeDesignsImage from "@/assets/bespoke-designs.png?url";
-import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
 import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg.asset.json";
 import functionalTextiles from "@/assets/dyeing-finishing.jpg.asset.json";
-import FullStageProduction from "@/assets/maschine-1.jpg
+import fullStageProductionImage from "@/assets/maschine-1.jpg?url";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
 import heritageNow from "@/assets/heritage-now.jpg.asset.json";
@@ -122,40 +121,43 @@ const Index = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 w-full">
             {[
-              {
-                title: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
-                desc: t(
-                  "Twice a year, we develop designs that combine international fashion trends with our lace expertise.",
-                  "Zweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden.",
-                ),
-                image: serviceLaceCollections.url,
-              },
-              {
-                title: t("Custom Designs", "Individuell entwickelte Designs"),
-                desc: t(
-                  "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
-                  "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
-                ),
-                image: bespokeDesignsImage,
-              },
-
-              {
-                title: t("Technical Textiles", "Technische Textilien"),
-                desc: t(
-                  "We develop functional warp-knitted fabrics for technical and medical applications.",
-                  "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen.\n",
-                ),
-                image: functionalTextiles.url,
-              },
-              {
-                title: t("Full-stage Production", "Vollstufige Produktion"),
-                desc: t(
-                  "We develop warp-knitted fabrics for medical and technical use.",
-                  "Wir entwickeln Kettgewirke für medizinische und technische Anwendungen.",
-                ),
-                image: FullStageProduction.url,
-              },
-            ].map((item) => (
+  {
+    title: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
+    desc: t(
+      "Twice a year, we develop designs that combine international fashion trends with our lace expertise.",
+      "Zweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden.",
+    ),
+    image: serviceLaceCollections.url,
+    anchor: "design",
+  },
+  {
+    title: t("Custom Designs", "Individuell entwickelte Designs"),
+    desc: t(
+      "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
+      "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
+    ),
+    image: bespokeDesignsImage,
+    anchor: "design",
+  },
+  {
+    title: t("Technical Textiles", "Technische Textilien"),
+    desc: t(
+      "We develop functional warp-knitted fabrics for technical and medical applications.",
+      "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen.",
+    ),
+    image: functionalTextiles.url,
+    anchor: "functional-textiles",
+  },
+  {
+    title: t("Full-stage Production", "Vollstufige Produktion"),
+    desc: t(
+      "All production processes take place under one roof in Dresden.",
+      "Die gesamte Produktion findet unter einem Dach in Dresden statt.",
+    ),
+    image: fullStageProductionImage,
+    anchor: "raw-material-production",
+  },
+].map((item) => (
 <Link
   key={item.title}
   to={`/services#${item.anchor}`}
