@@ -13,6 +13,7 @@ type Entry = {
   image?: string;
   imageAlt?: string;
   imageClassName?: string;
+  caption?: string;
 };
 
 const RIBBON_WIDTH = 72;
@@ -53,6 +54,7 @@ const HistoryTimeline = () => {
       {
         year: t("Reconstruction", "Wiederaufbau"),
         date: "1945",
+        caption: t('“Glück Auf” — a traditional miners’ greeting meaning “good luck”.', ""),
         image: image1945,
         imageAlt: t(
           "Historic machine after the Second World War",
@@ -228,7 +230,7 @@ const HistoryTimeline = () => {
 
                   {/* Image */}
                   <div
-                    className={`order-1 transition-all delay-150 duration-700 ease-out lg:order-none ${
+                    className={`relative order-1 transition-all delay-150 duration-700 ease-out lg:order-none ${
                       isLeft
                         ? "lg:col-start-3 lg:row-start-1"
                         : "lg:col-start-1 lg:row-start-1"
@@ -260,7 +262,7 @@ const HistoryTimeline = () => {
                       )}
 
 
-                      {/* Date on image */}
+                    {/* Date on image */}
                       <div
                         className="pointer-events-none absolute bottom-5 left-6 z-10 font-serif leading-none text-background drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] lg:bottom-6 lg:left-7"
                         style={{
@@ -271,6 +273,12 @@ const HistoryTimeline = () => {
                         {entry.date}
                       </div>
                     </div>
+
+                    {entry.caption && (
+                      <p className="pointer-events-none absolute right-0 top-full mt-2 hidden text-right text-[11px] leading-[1.4] tracking-[0.08em] text-muted-foreground/70 lg:block">
+                        {entry.caption}
+                      </p>
+                    )}
                   </div>
                 </article>
               );
