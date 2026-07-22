@@ -54,7 +54,7 @@ const HistoryTimeline = () => {
       {
         year: t("Reconstruction", "Wiederaufbau"),
         date: "1945",
-        caption: t('“Glück Auf” (traditional miners greeting) — "wishing a good new journey, in true DREGUS tradition."', ""),
+        caption: t('“Glück Auf” (traditional miners greeting) — /n"wishing a good new journey, in true DREGUS tradition."', ""),
         image: image1945,
         imageAlt: t(
           "Historic machine after the Second World War",
