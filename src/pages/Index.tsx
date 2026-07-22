@@ -8,8 +8,8 @@ import heroVideo from "@/assets/hero-video.mp4.asset.json";
 import bespokeDesignsImage from "@/assets/bespoke-designs.png?url";
 import serviceBespoke from "@/assets/service-bespoke.jpg.asset.json";
 import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg.asset.json";
-import functionalTextiles from "@/assets/functional-medical-fabric.jpg.asset.json";
-import FullStageProduction from "@/assets/dyeing-finishing.jpg.asset.json";
+import functionalTextiles from "@/assets/dyeing-finishing.jpg.asset.json";
+import FullStageProduction from "@/assets/maschine-1.jpg
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
 import heritageNow from "@/assets/heritage-now.jpg.asset.json";
