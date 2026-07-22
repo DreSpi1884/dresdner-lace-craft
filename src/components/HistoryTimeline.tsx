@@ -3,7 +3,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import laceAsset from "@/assets/lace_tile_vertikal.png";
 import history1980Asset from "@/assets/history-1995.jpg.asset.json";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
-import factory1900Image from "@/assets/aereal-dregus.jpg?url";
+import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bild-45.png?url";
 
 type Entry = {
