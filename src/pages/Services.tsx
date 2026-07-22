@@ -201,8 +201,8 @@ const Services = () => {
         desktopImages: [rawMaterialImg1, rawMaterialImg2],
         mobileImage: rawMaterialImg1,
         text: t(
-          "All production processes takes place under one roof in Dresden, Germany.\nOn Karl Mayer Raschel, Jacquardtronic® and Textronic® machines, we manufacture premium lace, elastic fabrics and technical textiles with over 140 years of textile expertise.",
-          "Die gesamte Produktion findet unter einem Dach in Dresden statt.\nAuf Karl Mayer Raschel-, Jacquardtronic®- und Textronic®-Maschinen fertigen wir hochwertige Spitzen, elastische Stoffe und technische Textilien mit über 140 Jahren Textilexpertise.\u00a0",
+          "Our entire production takes place under one roof in Dresden, Germany.\nOn Karl Mayer Raschel, Jacquardtronic® and Textronic® machines, we manufacture premium lace, elastic fabrics and technical textiles with over 140 years of textile expertise.",
+          "Unsere gesamte Produktion findet unter einem Dach in Dresden statt.\nAuf Karl Mayer Raschel-, Jacquardtronic®- und Textronic®-Maschinen fertigen wir hochwertige Spitzen, elastische Stoffe und technische Textilien mit über 140 Jahren Textilexpertise.\u00a0",
         ),
       },
       {
