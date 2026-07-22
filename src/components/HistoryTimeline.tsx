@@ -81,7 +81,7 @@ const HistoryTimeline = () => {
         ),
       },
       {
-        year: t("New Beginning", "Neuanfang"),
+        year: t("Flooded", "Hochwasser"),
         date: "1995",
         text: t(
           "After reunification, a new chapter begins for us. With determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
