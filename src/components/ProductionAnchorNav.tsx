@@ -23,8 +23,8 @@ const ProductionAnchorNav = () => {
       {
         id: "functional-textiles",
         label: t(
-          "Functional & medical textiles",
-          "Funktions- & Medizintextilien"
+          "Technical Textiles",
+          "TECHNISCHE TEXTILIEN"
         ),
       },
     ],
