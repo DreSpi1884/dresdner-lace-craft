@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
 import laceAsset from "@/assets/lace_tile_vertikal.png";
-import history1995Asset from "@/assets/history-1995.jpg.asset.json";
+import history1980Asset from "@/assets/history-1995.jpg.asset.json";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/aereal-dregus.jpg?url";
 import image1945 from "@/assets/bild-45.png?url";
@@ -69,10 +69,10 @@ const HistoryTimeline = () => {
       {
         year: t("New Machinery", "Neue Maschinen"),
         date: "1980",
-        image: history1995Asset.url,
+        image: history1980Asset.url,
         imageAlt: t(
-          "1995 production facility",
-          "Produktionsanlage 1995"
+          "1980 production facility",
+          "Produktionsanlage 1980"
         ),
         imageClassName: "object-cover object-center",
         text: t(
@@ -82,7 +82,7 @@ const HistoryTimeline = () => {
       },
       {
         year: t("Flooded", "Hochwasser"),
-        date: "1995",
+        date: "2002",
         text: t(
           "After reunification, a new chapter begins for us. With determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
           "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel. Mit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
