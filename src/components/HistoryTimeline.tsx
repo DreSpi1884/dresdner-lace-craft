@@ -81,7 +81,7 @@ const HistoryTimeline = () => {
         ),
       },
       {
-        year: t("Today", "Heute"),
+        year: t("140 Years Later", "140 Jahre Später"),
         date: t("Today", "Heute"),
         text: t(
           "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day.\nIn Dresden, we produce lace, warp-knitted fabrics and functional textiles for fashion, industry and medical applications.\nMore than 140 years of textile experience remain part of our daily work, alongside modern technology and attention to detail in every product.",
