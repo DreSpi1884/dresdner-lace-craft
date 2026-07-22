@@ -25,8 +25,8 @@ const HistoryTimeline = () => {
 
   const entries: Entry[] = useMemo(
     () => [
-        {
-        year: "1884",
+      {
+        year: t("Our Founding", "Unsere Gründung"),
         image: bobbinetManImage,
         imageAlt: t(
           "Worker operating a historic bobbinet machine",
@@ -39,7 +39,7 @@ const HistoryTimeline = () => {
         ),
       },
       {
-        year: "1900",
+        year: t("New Location", "Neuer Standort"),
         image: factory1900Image,
         imageAlt: t(
           "Historic aerial view of the factory site in Dresden-Dobritz",
