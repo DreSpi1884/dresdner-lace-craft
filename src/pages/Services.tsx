@@ -18,8 +18,8 @@ import dyeingImg4 from "@/assets/farbkarte-blau.jpg?url";
 import rawMaterialImg1 from "@/assets/maschine-neu.png?url";
 import rawMaterialImg2 from "@/assets/rohware-hand.png?url";
 import functionalImg1 from "@/assets/wirkstoff-1.jpg?url";
-import functionalImg2 from "@/assets/wirkstoff-2.jpg?url";
-import functionalImg3 from "@/assets/wirkstoff-3.jpg?url";
+import functionalImg2 from "@/assets/funktion-1.jpg?url";
+import functionalImg3 from "@/assets/funktion-2.png?url";
 import functionalImg4 from "@/assets/wirkstoff-4.jpg?url";
 
 
