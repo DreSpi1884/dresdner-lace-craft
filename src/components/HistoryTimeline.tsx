@@ -65,7 +65,7 @@ const HistoryTimeline = () => {
         ),
       },
       {
-        year: "1970",
+        year: t("New Machinery", "Neue Maschinen"),
         text: t(
           "The introduction of warp knitting technology transformes our production and establishes us as one of the leading lace manufacturers in East Germany.\u00a0\n1982, we become the first company in the world to operate electronically controlled Raschel machines.",
           "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als einen der führenden Spitzenhersteller in Ostdeutschland.\u00a0\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt."
