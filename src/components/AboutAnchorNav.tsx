@@ -2,7 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const DESKTOP_SCROLL_OFFSET = 130;
+const SECTION_OFFSETS: Record<string, number> = {
+  history: 130,
+  sustainability: 160,
+  values: 180,
+};
+
+const ACTIVE_SECTION_OFFSET = 150;
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
@@ -32,14 +38,19 @@ const AboutAnchorNav = () => {
     const top = getSectionTop(id);
     if (top === null) return;
     setActiveSection(id);
-    window.scrollTo({ top: top - DESKTOP_SCROLL_OFFSET, behavior });
+    const offset = SECTION_OFFSETS[id] ?? 130;
+
+    window.scrollTo({
+      top: top - offset,
+      behavior,
+    });
     window.history.replaceState(null, "", `#${id}`);
   };
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + DESKTOP_SCROLL_OFFSET + 8;
+      const anchorLine = window.scrollY + ACTIVE_SECTION_OFFSET;
       let current = sections[0].id;
       sections.forEach((section) => {
         const top = getSectionTop(section.id);
