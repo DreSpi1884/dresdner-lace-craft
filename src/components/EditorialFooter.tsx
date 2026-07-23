@@ -29,8 +29,8 @@ const EditorialFooter = () => {
 
   <p className="editorial-body-sm text-background/60 max-w-xs mx-auto md:mx-0">
     {t(
-      "Tradition meets Textile Innovation. Since 1884.",
-      "Tradition trifft Textile Innovation. Seit 1884."
+      "The Art of Textiles. Made in Germany. Since 1884.",
+      "The Art of Textiles. Made in Germany. Seit 1884."
     )}
   </p>
 
@@ -38,8 +38,8 @@ const EditorialFooter = () => {
 
   <p className="hidden md:block editorial-body-sm text-background/60 max-w-xs whitespace-pre-line mt-4">
     {t(
-      "Your partner for high-quality lace, warp-knitted fabrics and functional textiles, developed and produced in Dresden.",
-      "Ihr Partner für hochwertige Spitzen, Kettgewirke und funktionale Textilien, entwickelt und produziert in Dresden."
+      "Your partner for high-quality textiles, developed and produced in Dresden.",
+      "Ihr Partner für hochwertige Textilien, entwickelt und produziert in Dresden."
     )}
   </p>
 </div>
