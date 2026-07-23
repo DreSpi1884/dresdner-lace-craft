@@ -38,7 +38,7 @@ const ProductionAnchorNav = () => {
     return element.getBoundingClientRect().top + window.scrollY;
   };
 
-  const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
+  const scrollToSection = (id: string, behavior: ScrollBehavior = "auto") => {
     const top = getSectionTop(id);
     if (top === null) return;
 
