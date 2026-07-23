@@ -83,8 +83,8 @@ const Index = () => {
   {
     title: t("Custom Designs", "Individuell entwickelte Designs"),
     desc: t(
-      "Have a specific idea? We'll translate it into fabric, quickly and flexibly.",
-      "Sie haben eine konkrete Idee? Wir setzen sie schnell und flexibel in Textil um.",
+      "Want to develop your own design?? We'll translate it into high quality textiles according to your requirements.",
+      "Sie möchten Ihr eigenes Design Entwickeln? Wir setzen es nach Ihren Voraussetzungen in hochwertige Textilien um.",
     ),
     image: bespokeDesignsImage,
     anchor: "design",
@@ -92,8 +92,8 @@ const Index = () => {
   {
     title: t("Technical Textiles", "Technische Textilien"),
     desc: t(
-      "We develop functional warp-knitted fabrics for technical and medical applications.",
-      "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen.",
+      "We develop functional warp-knitted fabrics for technical and medical applications with a variety of finishes.",
+      "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen mit verschiedenen Ausrüstungen.",
     ),
     image: functionalTextiles.url,
     anchor: "functional-textiles",
