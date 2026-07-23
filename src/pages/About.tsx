@@ -117,7 +117,7 @@ const About = () => {
         scrollMobileSectionToTop(hash);
       });
     }
-  }, [location.hash]);
+  }, [location.hash, location.key]);
 
   return (
     <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
