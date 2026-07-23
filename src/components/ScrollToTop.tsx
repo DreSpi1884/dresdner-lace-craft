@@ -33,7 +33,7 @@ const scrollToHash = (hash: string, pathname: string) => {
 
   window.scrollTo({
     top: Math.max(top, 0),
-    behavior: isMobileAbout ? "auto" : "smooth",
+    behavior: isMobileAbout ? "auto",
   });
   return true;
 };
