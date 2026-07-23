@@ -49,19 +49,27 @@ const AboutAnchorNav = () => {
   };
 
   useEffect(() => {
-    if (window.innerWidth < 1024) return;
+  if (window.innerWidth < 1024) return;
 
-    const hash = location.hash.replace("#", "");
-    const isValidHash = sections.some((section) => section.id === hash);
+  const hash = location.hash.replace("#", "");
+  if (!hash) return;
 
-    if (!isValidHash) return;
+  const isValidHash = sections.some((section) => section.id === hash);
+  if (!isValidHash) return;
 
-    const timer = window.setTimeout(() => {
+  let secondFrame = 0;
+
+  const firstFrame = window.requestAnimationFrame(() => {
+    secondFrame = window.requestAnimationFrame(() => {
       scrollToSection(hash, "auto");
-    }, 120);
+    });
+  });
 
-    return () => window.clearTimeout(timer);
-  }, [location.hash, sections]);
+  return () => {
+    window.cancelAnimationFrame(firstFrame);
+    window.cancelAnimationFrame(secondFrame);
+  };
+}, [location.hash]);
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
