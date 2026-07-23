@@ -4,9 +4,9 @@ import laceAsset from "@/assets/lace_tile_vertikal.png";
 import history1980Asset from "@/assets/history-1995.jpg.asset.json";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/blick-von-westen.jpg?url";
-import image1945 from "@/assets/1995-bau.jpeg?url";
+import image1945 from "@/assets/bild-45.png?url";
 import flood2002Image from "@/assets/flut-2002-edited.png?url";
-import newImage from "@/assets/neuanfang-95.jpg?url";
+import newImage from "@/assets/1995-bau.jpg?url";
 
 
 type Entry = {
