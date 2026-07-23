@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
@@ -103,13 +103,19 @@ const About = () => {
     });
   };
 
+useLayoutEffect(() => {
+    const hash = location.hash.replace("#", "");
+    const validIds = ["history", "sustainability", "values"];
+    if (validIds.includes(hash)) {
+      setMobileOpenId(hash);
+    }
+  }, [location.hash, location.key]);
+
   useEffect(() => {
     const hash = location.hash.replace("#", "");
     const validIds = ["history", "sustainability", "values"];
 
     if (!validIds.includes(hash)) return;
-
-    setMobileOpenId(hash);
 
     if (window.innerWidth < 1024) {
       let secondFrame = 0;
