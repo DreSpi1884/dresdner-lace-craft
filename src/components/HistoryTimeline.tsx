@@ -91,7 +91,7 @@ const HistoryTimeline = () => {
           "Production machine in the 1990s",
           "Produktionsmaschine in den 1990er-Jahren"
         ),
-        imageClassName: "object-cover object-[50%_50%]",
+        imageClassName: "object-cover object-center",
         text: t(
           "After reunification, we begin a new chapter.\nWith determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
           "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel.\nMit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
