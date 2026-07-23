@@ -17,7 +17,6 @@ const AboutAnchorNav = () => {
     [t]
   );
 
-  // NUR diese eine Deklaration behalten:
   const [activeSection, setActiveSection] = useState(() => {
     const hash = location.hash.replace("#", "");
     return sections.some((s) => s.id === hash) ? hash : "history";
