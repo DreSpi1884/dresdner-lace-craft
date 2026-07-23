@@ -11,7 +11,7 @@ const getScrollOffset = (pathname: string) => {
     isDesktop && (pathname.startsWith("/about") || pathname.startsWith("/services"));
 
   if (hasAnchorNav) return 160;
-  return isDesktop ? 112 : 96;
+  return isDesktop ? 112 : 80;
 };
 
 const scrollToHash = (hash: string, pathname: string) => {
