@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Factory, PenTool, BadgeCheck, Truck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import EditorialSection from "@/components/EditorialSection";
@@ -61,56 +61,6 @@ const Index = () => {
         </div>
       </section>
 
-{/* KEYWORDS BANNER */}
-<section className="w-full border-b border-primary/10 bg-[hsl(var(--primary)/0.035)] py-0">
-  <div className="w-full">
-    <div className="grid w-full grid-cols-2 md:grid-cols-4">
-      {[
-        {
-          text: t("IN-HOUSE PRODUCTION", "INTEGRIERTE PRODUKTION"),
-          icon: Factory,
-        },
-        {
-          text: t("TAILORED DESIGNS", "MASSGESCHNEIDERTE DESIGNS"),
-          icon: PenTool,
-        },
-        {
-          text: t(
-            "CERTIFIED SUSTAINABLE PRODUCTION",
-            "ZERTIFIZIERTE NACHHALTIGKEIT"
-          ),
-          icon: BadgeCheck,
-        },
-        {
-          text: t("JUST-IN-TIME DELIVERY", "JUST-IN-TIME-LIEFERUNG"),
-          icon: Truck,
-        },
-      ].map(({ text, icon: Icon }, index) => (
-        <div
-          key={text}
-          className={`flex min-h-[3.6rem] min-w-0 items-center justify-center gap-1.5 px-2 py-3 text-center md:min-h-[4.4rem] md:px-4 md:py-0 ${
-            index % 2 === 0 ? "border-r border-primary/10 md:border-r" : ""
-          } ${
-            index < 2 ? "border-b border-primary/10 md:border-b-0" : ""
-          } md:border-r md:border-primary/15 last:md:border-r-0`}
-        >
-          <Icon
-            className="h-4 w-4 shrink-0 text-primary md:hidden"
-            strokeWidth={1.5}
-            aria-hidden="true"
-          />
-
-          <span
-            className="editorial-label min-w-0 whitespace-nowrap text-primary leading-[1.35] tracking-[0.06em] sm:tracking-[0.1em] md:tracking-[0.13em] lg:tracking-[0.16em] xl:tracking-[0.2em]"
-            style={{ fontSize: "clamp(10px, 0.8vw, 16px)" }}
-          >
-            {text}
-          </span>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
 
       {/* OUR SERVICES */}
       <EditorialSection className="bg-background text-foreground">
