@@ -7,7 +7,6 @@ const DESKTOP_SCROLL_OFFSET = 130;
 const AboutAnchorNav = () => {
   const { t } = useLang();
   const location = useLocation();
-  const [activeSection, setActiveSection] = useState("history");
 
   const sections = useMemo(
     () => [
@@ -18,62 +17,40 @@ const AboutAnchorNav = () => {
     [t]
   );
 
+  // NUR diese eine Deklaration behalten:
+  const [activeSection, setActiveSection] = useState(() => {
+    const hash = location.hash.replace("#", "");
+    return sections.some((s) => s.id === hash) ? hash : "history";
+  });
+
   const getSectionTop = (id: string) => {
     const element = document.getElementById(id);
     if (!element) return null;
-
     return element.getBoundingClientRect().top + window.scrollY;
   };
 
   const scrollToSection = (id: string, behavior: ScrollBehavior = "auto") => {
     const top = getSectionTop(id);
     if (top === null) return;
-
     setActiveSection(id);
-
-    window.scrollTo({
-      top: top - DESKTOP_SCROLL_OFFSET,
-      behavior,
-    });
-
+    window.scrollTo({ top: top - DESKTOP_SCROLL_OFFSET, behavior });
     window.history.replaceState(null, "", `#${id}`);
   };
 
-useEffect(() => {
-  if (window.innerWidth < 1024) return;
-  const hash = location.hash.replace("#", "");
-  const isValidHash = sections.some((section) => section.id === hash);
-  if (!isValidHash) return;
-  const timer = window.setTimeout(() => {
-    scrollToSection(hash, "auto");
-  }, 120);
-  return () => window.clearTimeout(timer);
-}, [location.hash, sections]);
-
   useEffect(() => {
     if (window.innerWidth < 1024) return;
-
     const updateActiveSection = () => {
       const anchorLine = window.scrollY + DESKTOP_SCROLL_OFFSET + 8;
-
       let current = sections[0].id;
-
       sections.forEach((section) => {
         const top = getSectionTop(section.id);
-
-        if (top !== null && top <= anchorLine) {
-          current = section.id;
-        }
+        if (top !== null && top <= anchorLine) current = section.id;
       });
-
       setActiveSection(current);
     };
-
     updateActiveSection();
-
     window.addEventListener("scroll", updateActiveSection, { passive: true });
     window.addEventListener("resize", updateActiveSection);
-
     return () => {
       window.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
@@ -95,7 +72,6 @@ useEffect(() => {
             }`}
           >
             {section.label}
-
             {activeSection === section.id && (
               <span className="absolute bottom-0 left-0 h-px w-full bg-primary" />
             )}
