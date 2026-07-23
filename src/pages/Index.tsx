@@ -72,7 +72,7 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 w-full">
             {[
   {
-    title: t("Seasonal Lace Collections", "Saisonale Spitzenkollektionen"),
+    title: t("Lace Collections", "Spitzenkollektionen"),
     desc: t(
       "Twice a year, we develop designs that combine international fashion trends with our lace expertise.",
       "Zweimal im Jahr entwickeln wir Designs, die internationale Modetrends mit unserer Spitzenkompetenz verbinden.",
@@ -81,7 +81,7 @@ const Index = () => {
     anchor: "design",
   },
   {
-    title: t("Custom Designs", "Individuell entwickelte Designs"),
+    title: t("Custom Designs", "Individuelle Designs"),
     desc: t(
       "Want to develop your own design?? We'll translate it into high quality textiles according to your requirements.",
       "Sie möchten Ihr eigenes Design Entwickeln? Wir setzen es nach Ihren Voraussetzungen in hochwertige Textilien um.",
