@@ -2,11 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const SECTION_OFFSETS: Record<string, number> = {
-  history: 155,
-  sustainability: 180,
-  values: 220,
-};
+const DESKTOP_SCROLL_OFFSET = 130;
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
@@ -22,16 +18,11 @@ const AboutAnchorNav = () => {
     [t]
   );
 
-  const getOffset = (id: string) => SECTION_OFFSETS[id] ?? 180;
-
   const getSectionTop = (id: string) => {
-    const target =
-      document.getElementById(`${id}-scroll-target`) ??
-      document.getElementById(id);
+    const element = document.getElementById(id);
+    if (!element) return null;
 
-    if (!target) return null;
-
-    return target.getBoundingClientRect().top + window.scrollY;
+    return element.getBoundingClientRect().top + window.scrollY;
   };
 
   const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
@@ -41,7 +32,7 @@ const AboutAnchorNav = () => {
     setActiveSection(id);
 
     window.scrollTo({
-      top: top - getOffset(id),
+      top: top - DESKTOP_SCROLL_OFFSET,
       behavior,
     });
 
@@ -49,33 +40,26 @@ const AboutAnchorNav = () => {
   };
 
   useEffect(() => {
-  if (window.innerWidth < 1024) return;
+    if (window.innerWidth < 1024) return;
 
-  const hash = location.hash.replace("#", "");
-  if (!hash) return;
+    const hash = location.hash.replace("#", "");
+    const isValidHash = sections.some((section) => section.id === hash);
 
-  const isValidHash = sections.some((section) => section.id === hash);
-  if (!isValidHash) return;
+    if (!isValidHash) return;
 
-  let secondFrame = 0;
-
-  const firstFrame = window.requestAnimationFrame(() => {
-    secondFrame = window.requestAnimationFrame(() => {
+    const timer = window.setTimeout(() => {
       scrollToSection(hash, "auto");
-    });
-  });
+    }, 120);
 
-  return () => {
-    window.cancelAnimationFrame(firstFrame);
-    window.cancelAnimationFrame(secondFrame);
-  };
-}, [location.hash]);
+    return () => window.clearTimeout(timer);
+  }, [location.hash, sections]);
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
 
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + 190;
+      const anchorLine = window.scrollY + DESKTOP_SCROLL_OFFSET + 8;
+
       let current = sections[0].id;
 
       sections.forEach((section) => {
