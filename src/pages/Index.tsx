@@ -199,7 +199,7 @@ const Index = () => {
   <div className="space-y-4 editorial-body text-muted-foreground max-w-2xl mx-auto lg:mx-0">
     <p>
       {t(
-        "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and a passion for textile innovation.",
+        "Every piece of fabric tells a story. Ours began in 1884 and continues today through new ideas, skilled craftsmanship and passion for textile innovation.",
         "Mehr als 140 Jahre Geschichte erzählen von Wandel und Innovationsgeist. Geblieben ist unsere Leidenschaft und unser Anspruch an hochwertige Textilien.",
       )}
     </p>
