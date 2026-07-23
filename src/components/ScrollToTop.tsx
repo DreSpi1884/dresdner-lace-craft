@@ -2,40 +2,68 @@ import { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useScrollAnimations from "@/hooks/useScrollAnimations";
 
+const DESKTOP_ANCHOR_OFFSET = 130;
+
 // Offsets to keep the section heading clear of the fixed top nav.
-// Mobile nav is h-20 (80px); desktop is h-24 (96px). Anchor navs on desktop
-// add another sticky bar (~64px) for /about and /services.
+// Mobile nav is h-20 (80px); desktop is h-24 (96px).
+// About and Services have an additional sticky anchor nav on desktop.
 const getScrollOffset = (pathname: string) => {
   const isDesktop = window.innerWidth >= 1024;
   const hasAnchorNav =
     isDesktop && (pathname.startsWith("/about") || pathname.startsWith("/services"));
 
-  if (hasAnchorNav) return 160;
+  if (hasAnchorNav) return DESKTOP_ANCHOR_OFFSET;
 
   const header = document.querySelector<HTMLElement>("[data-site-header]");
   return header?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
+};
+
+const getTargetElement = (id: string, pathname: string) => {
+  const isMobileAbout = pathname.startsWith("/about") && window.innerWidth < 1024;
+
+  if (isMobileAbout) {
+    return document.getElementById(`mobile-${id}`);
+  }
+
+  return (
+    document.getElementById(`${id}-scroll-target`) ??
+    document.getElementById(id)
+  );
+};
+
+const instantScrollTo = (top: number) => {
+  const html = document.documentElement;
+  const body = document.body;
+
+  const previousHtmlScrollBehavior = html.style.scrollBehavior;
+  const previousBodyScrollBehavior = body.style.scrollBehavior;
+
+  html.style.scrollBehavior = "auto";
+  body.style.scrollBehavior = "auto";
+
+  window.scrollTo({
+    top: Math.max(top, 0),
+    left: 0,
+    behavior: "auto",
+  });
+
+  window.requestAnimationFrame(() => {
+    html.style.scrollBehavior = previousHtmlScrollBehavior;
+    body.style.scrollBehavior = previousBodyScrollBehavior;
+  });
 };
 
 const scrollToHash = (hash: string, pathname: string) => {
   const id = hash.replace("#", "");
   if (!id) return false;
 
-  const isMobileAbout = pathname.startsWith("/about") && window.innerWidth < 1024;
-
-  const el = isMobileAbout
-    ? document.getElementById(`mobile-${id}`)
-    : document.getElementById(`${id}-scroll-target`) ??
-      document.getElementById(id);
-
-  if (!el) return false;
+  const target = getTargetElement(id, pathname);
+  if (!target) return false;
 
   const offset = getScrollOffset(pathname);
-  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  const top = target.getBoundingClientRect().top + window.scrollY - offset;
 
-  window.scrollTo({
-    top: Math.max(top, 0),
-    behavior: "auto",
-  });
+  instantScrollTo(top);
 
   return true;
 };
@@ -43,8 +71,17 @@ const scrollToHash = (hash: string, pathname: string) => {
 const ScrollToTop = () => {
   const { pathname, hash, key } = useLocation();
 
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
   useLayoutEffect(() => {
-    if (!hash) return;
+    if (!hash) {
+      instantScrollTo(0);
+      return;
+    }
 
     let cancelled = false;
 
@@ -64,15 +101,6 @@ const ScrollToTop = () => {
       cancelled = true;
       window.cancelAnimationFrame(raf);
     };
-  }, [pathname, hash, key]);
-
-  useEffect(() => {
-    if (hash) return;
-
-    window.scrollTo({
-      top: 0,
-      behavior: "auto",
-    });
   }, [pathname, hash, key]);
 
   useScrollAnimations();
