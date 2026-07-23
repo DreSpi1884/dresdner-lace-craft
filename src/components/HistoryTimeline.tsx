@@ -170,7 +170,7 @@ const HistoryTimeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background py-12 text-primary md:py-16 lg:py-20"
+      className="relative w-full bg-background pb-12 pt-0 text-primary md:pb-16 md:pt-0 lg:pb-20 lg:pt-0"
     >
       {/* Lace ribbon */}
       <div
