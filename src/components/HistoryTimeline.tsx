@@ -6,7 +6,7 @@ import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bild-45.png?url";
 import flood2002Image from "@/assets/flut-2002-edited.png?url";
-import neuanfangImage from "@/assets/neuanfang-95.jpg?url";
+import newImage from "@/assets/neuanfang-95.jpg?url";
 
 
 type Entry = {
@@ -86,7 +86,7 @@ const HistoryTimeline = () => {
       {
         year: t("A New Beginning", "Neuanfang"),
         date: "1995",
-        image: neuanfangImage,
+        image: newImage,
         imageAlt: t(
           "Production machine in the 1990s",
           "Produktionsmaschine in den 1990er-Jahren"
