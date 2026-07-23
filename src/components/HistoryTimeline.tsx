@@ -6,6 +6,8 @@ import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bild-45.png?url";
 import flood2002Image from "@/assets/flut-2002.JPG?url";
+import machine1995Image from "@/assets/1994-maschine.jpg?url";
+
 
 type Entry = {
   year: string;
@@ -81,6 +83,21 @@ const HistoryTimeline = () => {
           "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als den führenden Spitzenhersteller in Ostdeutschland.\u00a0\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt."
         ),
       },
+      {
+        year: t("A New Beginning", "Neuanfang"),
+        date: "1995",
+        image: machine1995Image,
+        imageAlt: t(
+          "Production machine in the 1990s",
+          "Produktionsmaschine in den 1990er-Jahren"
+        ),
+        imageClassName: "object-cover object-[50%_50%]",
+        text: t(
+          "After reunification, we begin a new chapter.\nWith determination, investment and trust in our employees, we modernise our production and gradually align Dresdner Spitzen with international markets.",
+          "Nach der Wiedervereinigung beginnt für uns ein neues Kapitel.\nMit Entschlossenheit, Investitionen und Vertrauen in unsere Mitarbeitenden modernisieren wir unsere Produktion und richten Dresdner Spitzen Schritt für Schritt auf internationale Märkte aus."
+        ),
+      },
+      
       {
         year: t("Flooded", "Hochwasser"),
         date: "2002",
