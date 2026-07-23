@@ -72,7 +72,7 @@ const About = () => {
     const element = document.getElementById(`mobile-${id}`);
     if (!element) return;
 
-    const offset = 88;
+    const offset = 80;
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
     window.scrollTo({
@@ -108,7 +108,15 @@ const About = () => {
 
     if (!validIds.includes(hash)) return;
 
-    setMobileOpenId(hash);
+    flushSync(() => {
+      setMobileOpenId(hash);
+    });
+
+    if (window.innerWidth < 1024) {
+      requestAnimationFrame(() => {
+        scrollMobileSectionToTop(hash);
+      });
+    }
   }, [location.hash]);
 
   return (
