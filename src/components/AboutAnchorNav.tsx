@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
@@ -39,15 +39,15 @@ const AboutAnchorNav = () => {
     window.history.replaceState(null, "", `#${id}`);
   };
 
-  useLayoutEffect(() => {
+useEffect(() => {
   if (window.innerWidth < 1024) return;
-
   const hash = location.hash.replace("#", "");
   const isValidHash = sections.some((section) => section.id === hash);
-
   if (!isValidHash) return;
-
-  scrollToSection(hash, "auto");
+  const timer = window.setTimeout(() => {
+    scrollToSection(hash, "auto");
+  }, 120);
+  return () => window.clearTimeout(timer);
 }, [location.hash, sections]);
 
   useEffect(() => {
