@@ -243,7 +243,7 @@ const HistoryTimeline = () => {
                     }}
                   >
                     {/* Desktop headline */}
-                    <h2 className="hidden text-[28px] leading-snug text-primary lg:mb-7 lg:block xl:text-[32px]">
+                    <h2 className="mb-5 text-[28px] leading-snug text-primary lg:mb-7 xl:text-[32px]">
                       {entry.year}
                     </h2>
 
