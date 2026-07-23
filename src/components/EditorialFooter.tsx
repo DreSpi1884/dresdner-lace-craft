@@ -29,8 +29,8 @@ const EditorialFooter = () => {
 
   <p className="editorial-body-sm text-background/60 max-w-xs mx-auto md:mx-0">
     {t(
-      "The Art of Textiles. Made in Germany. Since 1884.",
-      "The Art of Textiles. Made in Germany. Seit 1884."
+      "Made in Germany. Since 1884.",
+      "Made in Germany. Seit 1884."
     )}
   </p>
 
