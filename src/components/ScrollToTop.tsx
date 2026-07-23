@@ -28,13 +28,16 @@ const scrollToHash = (
   const id = hash.replace("#", "");
   if (!id) return false;
 
-  const isAbout = pathname.startsWith("/about");
-  const isMobileAbout = isAbout && window.innerWidth < 1024;
+const isAbout = pathname.startsWith("/about");
+const isMobileAbout = isAbout && window.innerWidth < 1024;
+const shouldJumpInstantly =
+  isMobileAbout ||
+  (isAbout && window.sessionStorage.getItem("about-anchor-jump") === id);
 
-  const el = isMobileAbout
-    ? document.getElementById(`mobile-${id}`)
-    : document.getElementById(`${id}-scroll-target`) ??
-      document.getElementById(id);
+const el = isMobileAbout
+  ? document.getElementById(`mobile-${id}`)
+  : document.getElementById(`${id}-scroll-target`) ??
+    document.getElementById(id);
 
   if (!el) return false;
 
@@ -43,9 +46,13 @@ const scrollToHash = (
 
   window.scrollTo({
     top: Math.max(top, 0),
-    behavior: isAbout ? "auto" : behavior,
+    behavior: shouldJumpInstantly ? "auto" : "smooth",
   });
-
+  
+  if (shouldJumpInstantly) {
+    window.sessionStorage.removeItem("about-anchor-jump");
+  }
+  
   return true;
 };
 
