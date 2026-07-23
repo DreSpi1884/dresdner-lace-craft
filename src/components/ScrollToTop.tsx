@@ -11,23 +11,30 @@ const getScrollOffset = (pathname: string) => {
     isDesktop && (pathname.startsWith("/about") || pathname.startsWith("/services"));
 
   if (hasAnchorNav) return 160;
-  return isDesktop ? 112 : 80;
+
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  return header?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
 };
 
 const scrollToHash = (hash: string, pathname: string) => {
   const id = hash.replace("#", "");
   if (!id) return false;
 
-  const el =
-    document.getElementById(`${id}-scroll-target`) ??
-    document.getElementById(id);
+  const isMobileAbout = pathname.startsWith("/about") && window.innerWidth < 1024;
+  const el = isMobileAbout
+    ? document.getElementById(`mobile-${id}`)
+    : document.getElementById(`${id}-scroll-target`) ??
+      document.getElementById(id);
 
   if (!el) return false;
 
   const offset = getScrollOffset(pathname);
   const top = el.getBoundingClientRect().top + window.scrollY - offset;
 
-  window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+  window.scrollTo({
+    top: Math.max(top, 0),
+    behavior: isMobileAbout ? "auto" : "smooth",
+  });
   return true;
 };
 

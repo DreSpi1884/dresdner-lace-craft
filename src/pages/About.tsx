@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
@@ -72,7 +72,8 @@ const About = () => {
     const element = document.getElementById(`mobile-${id}`);
     if (!element) return;
 
-    const offset = 80;
+    const header = document.querySelector<HTMLElement>("[data-site-header]");
+    const offset = header?.getBoundingClientRect().height ?? 80;
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
 
     window.scrollTo({
@@ -102,20 +103,26 @@ const About = () => {
     });
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const hash = location.hash.replace("#", "");
     const validIds = ["history", "sustainability", "values"];
 
     if (!validIds.includes(hash)) return;
 
-    flushSync(() => {
-      setMobileOpenId(hash);
-    });
+    setMobileOpenId(hash);
 
     if (window.innerWidth < 1024) {
-      requestAnimationFrame(() => {
-        scrollMobileSectionToTop(hash);
+      let secondFrame = 0;
+      const firstFrame = requestAnimationFrame(() => {
+        secondFrame = requestAnimationFrame(() => scrollMobileSectionToTop(hash));
       });
+      const settleTimer = window.setTimeout(() => scrollMobileSectionToTop(hash), 350);
+
+      return () => {
+        cancelAnimationFrame(firstFrame);
+        cancelAnimationFrame(secondFrame);
+        window.clearTimeout(settleTimer);
+      };
     }
   }, [location.hash, location.key]);
 
