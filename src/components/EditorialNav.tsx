@@ -6,7 +6,7 @@ import {
   type CSSProperties,
   type MouseEvent,
 } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang, type Lang } from "@/i18n/LanguageContext";
@@ -242,28 +242,18 @@ const handleDropdownAnchor = (
   path: string,
   hash: string
 ) => {
-  const id = hash.replace("#", "");
-
-  if (path === "/about" && location.pathname !== path) {
-    e.preventDefault();
-
-    window.sessionStorage.setItem("about-anchor-jump", id);
-    navigate(`${path}${hash}`);
-
-    return;
-  }
-
   if (location.pathname !== path) return;
 
   e.preventDefault();
 
+  const id = hash.replace("#", "");
   const target =
     document.getElementById(`${id}-scroll-target`) ??
     document.getElementById(id);
 
   if (!target) return;
 
-  const offset = DROPDOWN_SECTION_OFFSETS[id] ?? 130;
+  const offset = DROPDOWN_SECTION_OFFSETS[id] ?? 175;
   const top = target.getBoundingClientRect().top + window.scrollY - offset;
 
   window.history.replaceState(null, "", `${path}${hash}`);
