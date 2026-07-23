@@ -151,8 +151,8 @@ const Index = () => {
   {
     title: t("Full-Stage Production", "Vollstufige Produktion"),
     desc: t(
-      "Our entire production — from design to raw material production, finishing and final production —\u00a0\ntakes place under one roof in Dresden.",
-      "Unsere gesamte Produktion - von Design über Rohwarenproduktion, Färbung, Ausrüstung und Endfertigung -\u00a0\nfindet unter einem Dach in Dresden statt.",
+      "Design, raw material production, finishing and final production — under one roof.",
+      "Design, Rohwarenproduktion, Ausrüstung und Endfertigung - unter einem Dach.",
     ),
     image: fullStageProductionImage,
     anchor: "raw-material-production",
