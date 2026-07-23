@@ -4,15 +4,16 @@ import useScrollAnimations from "@/hooks/useScrollAnimations";
 
 const DESKTOP_ANCHOR_OFFSET = 130;
 
-// Offsets to keep the section heading clear of the fixed top nav.
-// Mobile nav is h-20 (80px); desktop is h-24 (96px).
-// About and Services have an additional sticky anchor nav on desktop.
 const getScrollOffset = (pathname: string) => {
   const isDesktop = window.innerWidth >= 1024;
-  const hasAnchorNav =
-    isDesktop && (pathname.startsWith("/about") || pathname.startsWith("/services"));
+  const isAbout = pathname.startsWith("/about");
+const isServices = pathname.startsWith("/services");
 
-  if (hasAnchorNav) return DESKTOP_ANCHOR_OFFSET;
+if (isDesktop && isAbout) return ABOUT_DESKTOP_ANCHOR_OFFSET;
+if (isDesktop && isServices) return SERVICES_DESKTOP_ANCHOR_OFFSET;
+
+  const ABOUT_DESKTOP_ANCHOR_OFFSET = 180;
+  const SERVICES_DESKTOP_ANCHOR_OFFSET = 130;
 
   const header = document.querySelector<HTMLElement>("[data-site-header]");
   return header?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
