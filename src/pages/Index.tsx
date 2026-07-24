@@ -136,7 +136,7 @@ const Index = () => {
 
   <div className="absolute inset-x-0 bottom-0 p-6 text-center">
     <h3
-      className="font-serif text-background whitespace-nowrap text-[clamp(23px,6.2vw,32px)] leading-none mb-4"
+      className="font-serif text-background whitespace-nowrap text-[clamp(28px,7vw,40px)] leading-none mb-4"
       style={{
         textShadow: "0 2px 12px rgba(0,0,0,0.75)",
       }}
@@ -145,7 +145,7 @@ const Index = () => {
     </h3>
 
     <p
-      className="text-background whitespace-pre-line text-[18px] leading-[1.6]"
+      className="text-background whitespace-pre-line text-[25px] leading-[1.6]"
       style={{
         fontFamily: "'Jost', sans-serif",
         textShadow: "0 2px 10px rgba(0,0,0,0.8)",
