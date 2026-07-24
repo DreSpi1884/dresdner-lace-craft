@@ -1,20 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
-
-const getDesktopOffset = () => {
-  const header = document.querySelector<HTMLElement>("[data-site-header]");
-  const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
-  const headerHeight = header?.getBoundingClientRect().height ?? 96;
-  const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
-  return headerHeight + subNavHeight;
-};
+import { getAnchorScrollOffset, getAnchorSectionTop } from "@/lib/scrollNav";
 
 const ProductionAnchorNav = () => {
   const { t } = useLang();
   const location = useLocation();
-  const [activeSection, setActiveSection] = useState("design");
-
 
   const sections = useMemo(
     () => [
@@ -29,65 +20,45 @@ const ProductionAnchorNav = () => {
       },
       {
         id: "functional-textiles",
-        label: t(
-          "Technical Textiles",
-          "TECHNISCHE TEXTILIEN"
-        ),
+        label: t("Technical Textiles", "TECHNISCHE TEXTILIEN"),
       },
     ],
     [t]
   );
 
-  const getSectionTop = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return null;
-
-    return element.getBoundingClientRect().top + window.scrollY;
-  };
+  const [activeSection, setActiveSection] = useState(() => {
+    const hash = location.hash.replace("#", "");
+    return sections.some((s) => s.id === hash) ? hash : "design";
+  });
 
   const scrollToSection = (id: string, behavior: ScrollBehavior = "auto") => {
-    const top = getSectionTop(id);
+    const top = getAnchorSectionTop(id, location.pathname);
     if (top === null) return;
-
     setActiveSection(id);
-
-    window.scrollTo({
-      top: top - getDesktopOffset(),
-      behavior,
-    });
-
+    const offset = getAnchorScrollOffset();
+    window.scrollTo({ top: top - offset, behavior });
     window.history.replaceState(null, "", `#${id}`);
   };
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
-
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + getDesktopOffset() + 8;
-
-
+      const anchorLine = window.scrollY + getAnchorScrollOffset() + 8;
       let current = sections[0].id;
-
       sections.forEach((section) => {
-        const top = getSectionTop(section.id);
-        if (top !== null && top <= anchorLine) {
-          current = section.id;
-        }
+        const top = getAnchorSectionTop(section.id, location.pathname);
+        if (top !== null && top <= anchorLine) current = section.id;
       });
-
       setActiveSection(current);
     };
-
     updateActiveSection();
-
     window.addEventListener("scroll", updateActiveSection, { passive: true });
     window.addEventListener("resize", updateActiveSection);
-
     return () => {
       window.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
     };
-  }, [sections]);
+  }, [sections, location.pathname]);
 
   return (
     <nav
@@ -95,7 +66,6 @@ const ProductionAnchorNav = () => {
       className="sticky top-24 z-40 hidden bg-background/95 backdrop-blur border-b border-primary/10 lg:block"
     >
       <div className="flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
-
         {sections.map((section) => (
           <button
             key={section.id}
@@ -108,7 +78,6 @@ const ProductionAnchorNav = () => {
             }`}
           >
             {section.label}
-
             {activeSection === section.id && (
               <span className="absolute bottom-0 left-0 h-px w-full bg-primary" />
             )}
