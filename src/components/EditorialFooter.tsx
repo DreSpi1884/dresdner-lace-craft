@@ -5,7 +5,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import grsLogo from "@/assets/grs-step-logo.png?url";
 
 const FooterCertificationLogos = () => (
-  <div className="mt-4 flex items-center justify-center gap-3 md:justify-start">
+  <div className="flex items-center justify-center gap-3">
     <img
       src={grsLogo}
       alt="Global Recycled Standard"
@@ -33,8 +33,6 @@ const EditorialFooter = () => {
       "Made in Germany. Seit 1884."
     )}
   </p>
-
-  <FooterCertificationLogos />
 
   <p className="hidden md:block editorial-body-sm text-background/60 max-w-xs whitespace-pre-line mt-4">
     {t(
@@ -209,15 +207,20 @@ const EditorialFooter = () => {
 </div>
         </div>
 
-      <div className="mt-6 md:mt-16 pt-4 md:pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left">
-          <p className="editorial-body-sm text-background/40">
+      <div className="mt-2 md:mt-6 pt-6 md:pt-10 pb-2 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+          <FooterCertificationLogos />
+
+          <p className="editorial-body-sm text-background">
             © {new Date().getFullYear()} Dresdner Spitzen. {t("All rights reserved.", "Alle Rechte vorbehalten.")}
           </p>
-          <div className="flex justify-center gap-4 md:gap-6">
-            <Link to="/imprint" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">{t("Imprint", "Impressum")}</Link>
-            <Link to="/privacy" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">{t("Privacy", "Datenschutz")}</Link>
-          </div>
         </div>
+
+        <div className="flex justify-center gap-4 md:gap-6">
+          <Link to="/imprint" className="editorial-body-sm text-background">{t("Imprint", "Impressum")}</Link>
+          <Link to="/privacy" className="editorial-body-sm text-background">{t("Privacy", "Datenschutz")}</Link>
+        </div>
+      </div>
       </div>
     </footer>);
 
