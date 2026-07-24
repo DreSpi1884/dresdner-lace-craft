@@ -2,21 +2,20 @@ import { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useScrollAnimations from "@/hooks/useScrollAnimations";
 
-const DESKTOP_ANCHOR_OFFSET = 130;
-
 const getScrollOffset = (pathname: string) => {
   const isDesktop = window.innerWidth >= 1024;
-  const isAbout = pathname.startsWith("/about");
-const isServices = pathname.startsWith("/services");
-
-if (isDesktop && isAbout) return ABOUT_DESKTOP_ANCHOR_OFFSET;
-if (isDesktop && isServices) return SERVICES_DESKTOP_ANCHOR_OFFSET;
-
-  const ABOUT_DESKTOP_ANCHOR_OFFSET = 180;
-  const SERVICES_DESKTOP_ANCHOR_OFFSET = 130;
-
   const header = document.querySelector<HTMLElement>("[data-site-header]");
-  return header?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
+  const headerHeight = header?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
+
+  if (isDesktop) {
+    // Include sticky sub-nav (About / Services anchor navs) so the section
+    // header lands flush below both the fixed header and the sub-nav.
+    const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
+    const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
+    return headerHeight + subNavHeight + 8;
+  }
+
+  return headerHeight;
 };
 
 const getTargetElement = (id: string, pathname: string) => {

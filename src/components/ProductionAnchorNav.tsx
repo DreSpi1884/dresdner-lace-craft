@@ -97,8 +97,12 @@ const ProductionAnchorNav = () => {
   }, [sections]);
 
   return (
-    <nav className="sticky top-24 z-40 hidden bg-background/95 backdrop-blur border-b border-primary/10 lg:block">
+    <nav
+      data-anchor-subnav
+      className="sticky top-24 z-40 hidden bg-background/95 backdrop-blur border-b border-primary/10 lg:block"
+    >
       <div className="flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
+
         {sections.map((section) => (
           <button
             key={section.id}

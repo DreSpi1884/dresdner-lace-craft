@@ -2,13 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const SECTION_OFFSETS: Record<string, number> = {
-  history: 130,
-  sustainability: 160,
-  values: 180,
+const getDesktopOffset = () => {
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
+  const headerHeight = header?.getBoundingClientRect().height ?? 96;
+  const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
+  return headerHeight + subNavHeight + 8;
 };
-
-const ACTIVE_SECTION_OFFSET = 150;
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
@@ -38,7 +38,7 @@ const AboutAnchorNav = () => {
     const top = getSectionTop(id);
     if (top === null) return;
     setActiveSection(id);
-    const offset = SECTION_OFFSETS[id] ?? 130;
+    const offset = getDesktopOffset();
 
     window.scrollTo({
       top: top - offset,
@@ -50,7 +50,7 @@ const AboutAnchorNav = () => {
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + ACTIVE_SECTION_OFFSET;
+      const anchorLine = window.scrollY + getDesktopOffset() + 8;
       let current = sections[0].id;
       sections.forEach((section) => {
         const top = getSectionTop(section.id);
@@ -68,7 +68,10 @@ const AboutAnchorNav = () => {
   }, [sections]);
 
   return (
-    <nav className="sticky top-24 z-40 hidden bg-background/95 backdrop-blur border-b border-primary/10 lg:block">
+    <nav
+      data-anchor-subnav
+      className="sticky top-24 z-40 hidden bg-background/95 backdrop-blur border-b border-primary/10 lg:block"
+    >
       <div className="flex items-center gap-12 px-[60px] overflow-x-auto no-scrollbar">
         {sections.map((section) => (
           <button
