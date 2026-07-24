@@ -2,17 +2,7 @@ import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
-import grsLogo from "@/assets/grs-step-logo.png?url";
 
-const FooterCertificationLogos = () => (
-  <div className="mt-4 flex items-center justify-center gap-3 md:justify-start">
-    <img
-      src={grsLogo}
-      alt="Global Recycled Standard"
-      className="w-[200px] md:w-[300px] bg-white object-contain"
-    />
-  </div>
-);
 
 const EditorialFooter = () => {
   const { open: openQuote } = useQuoteModal();
@@ -34,7 +24,6 @@ const EditorialFooter = () => {
     )}
   </p>
 
-  <FooterCertificationLogos />
 
   <p className="hidden md:block editorial-body-sm text-background/60 max-w-xs whitespace-pre-line mt-4">
     {t(
