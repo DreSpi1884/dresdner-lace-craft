@@ -25,7 +25,7 @@ const AboutAnchorNav = () => {
     const top = getAnchorSectionTop(id, location.pathname);
     if (top === null) return;
     setActiveSection(id);
-    const offset = getAnchorScrollOffset();
+    const offset = getAnchorScrollOffset(id);
     window.scrollTo({ top: top - offset, behavior });
     window.history.replaceState(null, "", `#${id}`);
   };
