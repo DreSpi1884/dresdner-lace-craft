@@ -114,8 +114,8 @@ const Index = () => {
   {
     title: t("Full-Stage Production", "Vollstufige Produktion"),
     desc: t(
-      "Design, raw material production, finishing and final production under one roof.\u00a0\nOEKO-TEX SteP® and GRS certified.",
-      "Design, Rohwarenproduktion, Ausrüstung und Endfertigung unter einem Dach.\u00a0\nOEKO-TEX SteP® und GRS zertifiziert.",
+      "Design, raw material production, finishing and final production under one roof. OEKO-TEX SteP® and GRS certified.",
+      "Design, Rohwarenproduktion, Ausrüstung und Endfertigung unter einem Dach. OEKO-TEX SteP® und GRS zertifiziert.",
     ),
     image: fullStageProductionImage,
     anchor: "raw-material-production",
