@@ -2,12 +2,19 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const DESKTOP_SCROLL_OFFSET = 130;
+const getDesktopOffset = () => {
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
+  const headerHeight = header?.getBoundingClientRect().height ?? 96;
+  const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
+  return headerHeight + subNavHeight + 8;
+};
 
 const ProductionAnchorNav = () => {
   const { t } = useLang();
   const location = useLocation();
   const [activeSection, setActiveSection] = useState("design");
+
 
   const sections = useMemo(
     () => [
