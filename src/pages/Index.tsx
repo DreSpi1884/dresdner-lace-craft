@@ -134,7 +134,7 @@ const Index = () => {
     className="absolute inset-0 h-full w-full object-cover"
   />
 
-  <div className="absolute inset-x-0 bottom-0 p-6">
+  <div className="absolute inset-x-0 bottom-0 p-6 text-center">
     <h3
       className="font-serif text-background whitespace-nowrap text-[clamp(23px,6.2vw,32px)] leading-none mb-4"
       style={{
@@ -164,11 +164,11 @@ const Index = () => {
       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
-    <div className="absolute inset-x-0 bottom-0 p-6 z-10 transition-opacity duration-300 group-hover:opacity-0">
+    <div className="absolute inset-x-0 bottom-0 p-6 z-10 text-center transition-opacity duration-300 group-hover:opacity-0">
   <h3 className="editorial-heading-sm text-background">{item.title}</h3>
 </div>
     <div className="absolute inset-0 bg-foreground/85 flex items-center p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
-      <div>
+      <div className="mx-auto text-center">
         <h3 className="editorial-heading-sm text-background mb-3">{item.title}</h3>
         <p className="editorial-body-sm text-background/80 whitespace-pre-line">
           {item.desc}
