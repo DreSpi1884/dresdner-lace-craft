@@ -5,7 +5,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import grsLogo from "@/assets/grs-step-logo.png?url";
 
 const FooterCertificationLogos = () => (
-  <div className="flex items-center justify-center gap-3">
+  <div className="mt-4 flex items-center justify-center gap-3 md:justify-start">
     <img
       src={grsLogo}
       alt="Global Recycled Standard"
@@ -33,6 +33,8 @@ const EditorialFooter = () => {
       "Made in Germany. Seit 1884."
     )}
   </p>
+
+  <FooterCertificationLogos />
 
   <p className="hidden md:block editorial-body-sm text-background/60 max-w-xs whitespace-pre-line mt-4">
     {t(
@@ -206,21 +208,14 @@ const EditorialFooter = () => {
   </div>
 </div>
         </div>
-      </div>
 
-      <div className="bg-white pt-6 md:pt-10 pb-6 md:pb-10">
-        <div className="editorial-container flex flex-col md:grid md:grid-cols-3 items-center gap-4 md:gap-6 text-center">
-          <p className="editorial-body-sm text-primary md:justify-self-start">
+      <div className="mt-6 md:mt-16 pt-4 md:pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left">
+          <p className="editorial-body-sm text-background/40">
             © {new Date().getFullYear()} Dresdner Spitzen. {t("All rights reserved.", "Alle Rechte vorbehalten.")}
           </p>
-
-          <div className="md:justify-self-center">
-            <FooterCertificationLogos />
-          </div>
-
-          <div className="flex justify-center gap-4 md:gap-6 md:justify-self-end">
-            <Link to="/imprint" className="editorial-body-sm text-primary">{t("Imprint", "Impressum")}</Link>
-            <Link to="/privacy" className="editorial-body-sm text-primary">{t("Privacy", "Datenschutz")}</Link>
+          <div className="flex justify-center gap-4 md:gap-6">
+            <Link to="/imprint" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">{t("Imprint", "Impressum")}</Link>
+            <Link to="/privacy" className="editorial-body-sm text-background/40 hover:text-background/70 transition-colors">{t("Privacy", "Datenschutz")}</Link>
           </div>
         </div>
       </div>
