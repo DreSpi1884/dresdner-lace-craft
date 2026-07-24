@@ -207,18 +207,18 @@ const EditorialFooter = () => {
 </div>
         </div>
 
-      <div className="mt-2 md:mt-6 pt-6 md:pt-10 pb-2 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-center md:text-left">
+      <div className="mt-2 md:mt-6 bg-white -mx-4 md:-mx-12 px-4 md:px-12 pt-6 md:pt-10 pb-6 md:pb-8 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-center md:text-left">
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
           <FooterCertificationLogos />
 
-          <p className="editorial-body-sm text-background">
+          <p className="editorial-body-sm text-primary">
             © {new Date().getFullYear()} Dresdner Spitzen. {t("All rights reserved.", "Alle Rechte vorbehalten.")}
           </p>
         </div>
 
         <div className="flex justify-center gap-4 md:gap-6">
-          <Link to="/imprint" className="editorial-body-sm text-background">{t("Imprint", "Impressum")}</Link>
-          <Link to="/privacy" className="editorial-body-sm text-background">{t("Privacy", "Datenschutz")}</Link>
+          <Link to="/imprint" className="editorial-body-sm text-primary">{t("Imprint", "Impressum")}</Link>
+          <Link to="/privacy" className="editorial-body-sm text-primary">{t("Privacy", "Datenschutz")}</Link>
         </div>
       </div>
       </div>
