@@ -2,12 +2,19 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
-const DESKTOP_SCROLL_OFFSET = 130;
+const getDesktopOffset = () => {
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
+  const headerHeight = header?.getBoundingClientRect().height ?? 96;
+  const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
+  return headerHeight + subNavHeight + 8;
+};
 
 const ProductionAnchorNav = () => {
   const { t } = useLang();
   const location = useLocation();
   const [activeSection, setActiveSection] = useState("design");
+
 
   const sections = useMemo(
     () => [
@@ -45,7 +52,7 @@ const ProductionAnchorNav = () => {
     setActiveSection(id);
 
     window.scrollTo({
-      top: top - DESKTOP_SCROLL_OFFSET,
+      top: top - getDesktopOffset(),
       behavior,
     });
 
@@ -55,23 +62,9 @@ const ProductionAnchorNav = () => {
   useEffect(() => {
     if (window.innerWidth < 1024) return;
 
-    const hash = location.hash.replace("#", "");
-    const isValidHash = sections.some((section) => section.id === hash);
-
-    if (!isValidHash) return;
-
-    const timer = window.setTimeout(() => {
-      scrollToSection(hash, "auto");
-    }, 120);
-
-    return () => window.clearTimeout(timer);
-  }, [location.hash, sections]);
-
-  useEffect(() => {
-    if (window.innerWidth < 1024) return;
-
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + DESKTOP_SCROLL_OFFSET + 8;
+      const anchorLine = window.scrollY + getDesktopOffset() + 8;
+
 
       let current = sections[0].id;
 
