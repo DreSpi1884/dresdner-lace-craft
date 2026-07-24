@@ -7,6 +7,7 @@ import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bildkombi-45.png?url";
 import flood2002Image from "@/assets/flut-2002-edited.png?url";
 import newImage from "@/assets/1995-bau.jpeg?url";
+import todayImage from "@/assets/heute-raschel.jpg?url";
 
 
 type Entry = {
@@ -115,6 +116,12 @@ const HistoryTimeline = () => {
       {
         year: t("Over 140 Years Later", "Über 140 Jahre Später"),
         date: t("Today", "Heute"),
+        image: todayImage,
+        imageAlt: t(
+          "Lace Production at Dresdner Spitzen",
+          "Spitzenproduktion bei Dresdner Spitzen"
+        ),
+        imageClassName: "object-cover object-center",
         text: t(
           "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day.\nIn Dresden, we produce lace, warp-knitted fabrics and functional textiles for fashion, industry and medical applications.\nMore than 140 years of textile experience remain part of our daily work, alongside modern technology and attention to detail in every product.",
           "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen.\nIn Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettgewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen.\nDabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie, Sorgfalt und Neugier."
