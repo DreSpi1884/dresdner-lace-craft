@@ -38,8 +38,8 @@ const Contact = () => {
                   <Mail size={20} className="text-primary mt-1 shrink-0" />
                   <div>
                     <p className="editorial-body-sm font-medium text-foreground mb-1">{t("Email", "E-Mail")}</p>
-                    <a href="mailto:info@dresdnerspitzen.de" className="editorial-body text-muted-foreground hover:text-primary transition-colors">
-                      info@dresdnerspitzen.de
+                    <a href="mailto:sales@dresdnerspitzen.de" className="editorial-body text-muted-foreground hover:text-primary transition-colors">
+                      sales@dresdnerspitzen.de
                     </a>
                   </div>
                 </div>
