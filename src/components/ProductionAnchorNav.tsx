@@ -36,7 +36,7 @@ const ProductionAnchorNav = () => {
     const top = getAnchorSectionTop(id, location.pathname);
     if (top === null) return;
     setActiveSection(id);
-    const offset = getAnchorScrollOffset();
+    const offset = getAnchorScrollOffset(id);
     window.scrollTo({ top: top - offset, behavior });
     window.history.replaceState(null, "", `#${id}`);
   };
@@ -44,7 +44,7 @@ const ProductionAnchorNav = () => {
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + getAnchorScrollOffset() + 8;
+      const anchorLine = window.scrollY + getAnchorScrollOffset(id) + 8;
       let current = sections[0].id;
       sections.forEach((section) => {
         const top = getAnchorSectionTop(section.id, location.pathname);
