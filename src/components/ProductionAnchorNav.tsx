@@ -7,7 +7,7 @@ const getDesktopOffset = () => {
   const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
   const headerHeight = header?.getBoundingClientRect().height ?? 96;
   const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
-  return headerHeight + subNavHeight + 10;
+  return headerHeight + subNavHeight + 0;
 };
 
 const ProductionAnchorNav = () => {
