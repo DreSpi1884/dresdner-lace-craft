@@ -191,7 +191,7 @@ const Services = () => {
         mobileImage: designImg2,
         text: t(
           "Twice a year we develop new lace collections inspired by international fashion trends.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
-          "Zweimal im Jahr entwickeln wir neue Spitzenkollektionen, inspiriert von internationalen Modetrends.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir auch elastische, unelastische Spitzen und Kettgewirke nach Ihren individuellen Anforderungen.",
+          "In unserem Dresdner Atelier entstehen saisonale Spitzenkollektionen, inspiriert von aktuellen Trends.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir auch elastische, unelastische Spitzen und Kettgewirke nach Ihren individuellen Anforderungen.",
         ),
       },
       {
