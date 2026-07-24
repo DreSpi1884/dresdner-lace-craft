@@ -145,10 +145,10 @@ const Index = () => {
     </h3>
 
     <p
-      className="text-background whitespace-pre-line text-[25px] leading-[1.6]"
+      className="text-background whitespace-pre-line text-[18px] leading-[1.6]"
       style={{
         fontFamily: "'Jost', sans-serif",
-        textShadow: "0 2px 10px rgba(0,0,0,0.8)",
+        textShadow: "0 2px 10px rgba(0,0,0,0.5)",
       }}
     >
       {item.desc}
