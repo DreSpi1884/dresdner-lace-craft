@@ -228,7 +228,12 @@ const Index = () => {
   </div>
 </section>
 
-      <FooterCertificationLogos />
+      <div className="bg-white pt-6 md:pt-10 pb-6 md:pb-10">
+        <div className="editorial-container flex flex-col items-center gap-6 md:gap-8">
+          <FooterCertificationLogos />
+        </div>
+    </div>
+
       
     </EditorialLayout>
   );
