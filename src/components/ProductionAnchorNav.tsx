@@ -44,7 +44,7 @@ const ProductionAnchorNav = () => {
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + getAnchorScrollOffset(id) + 8;
+      const anchorLine = window.scrollY + getAnchorScrollOffset() + 8;
       let current = sections[0].id;
       sections.forEach((section) => {
         const top = getAnchorSectionTop(section.id, location.pathname);
