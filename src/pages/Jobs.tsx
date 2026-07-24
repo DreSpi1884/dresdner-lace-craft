@@ -143,8 +143,8 @@ const Jobs = () => {
               <div className="space-y-6 text-lg leading-[1.85] text-muted-foreground">
                 <p>
                   {t(
-                    "Please send your application by email or by post to the address listed in the imprint.",
-                    "Bitte senden Sie Ihre Bewerbung per E-Mail oder per Post an die im Impressum angegebene Adresse."
+                    "Please send your application to:",
+                    "Bitte senden Sie Ihre Bewerbung an:"
                   )}
                 </p>
 
