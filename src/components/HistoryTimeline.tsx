@@ -7,7 +7,7 @@ import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bildkombi-45.png?url";
 import flood2002Image from "@/assets/flut-2002-edited.png?url";
 import newImage from "@/assets/1995-bau.jpeg?url";
-import todayImage from "@/assets/heute-raschel.jpg?url";
+import todayImage from "@/assets/heute-raschel.png?url";
 
 
 type Entry = {
