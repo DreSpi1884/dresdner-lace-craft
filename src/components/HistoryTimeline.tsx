@@ -6,7 +6,7 @@ import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bild-45.png?url";
 import flood2002Image from "@/assets/flut-2002-edited.png?url";
-import newImage from "@/assets/1995-bau.jpg?url";
+import newImage from "@/assets/1995-bau.jpeg?url";
 
 
 type Entry = {
