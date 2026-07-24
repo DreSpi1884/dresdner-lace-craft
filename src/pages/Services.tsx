@@ -412,7 +412,7 @@ requestAnimationFrame(() => {
       >
         {t(
           "We also finish textiles according to their intended use:",
-          "Darüber hinaus veredeln wir Textilien je nach Einsatzzweck:"
+          "Wir veredeln Textilien nach Einsatzzweck:"
         )}
       </p>
 
