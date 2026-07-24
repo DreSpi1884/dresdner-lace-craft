@@ -50,10 +50,10 @@ const Jobs = () => {
         <section className="editorial-container py-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-8xl text-center">
 
-            <p className="mx-auto max-w-8xl text-lg leading-[1.9] text-muted-foreground">
+            <p className="mx-auto max-w-8xl text-lg leading-[1.9] text-muted-foreground whitespace-pre-wrap">
               {t(
-                "For more than 140 years, Dresdner Spitzen has stood for textile craftsmanship, precision and quality made in Dresden. We welcome people who want to become part of our history with passion and new ideas.",
-                "Seit über 140 Jahren steht Dresdner Spitzen für textile Handwerkskunst, Präzision und Qualität aus Dresden. Wir freuen uns über Menschen, die mit Leidenschaft und neuen Ideen Teil unserer Geschichte werden möchten."
+                "For more than 140 years, Dresdner Spitzen has stood for textile craftsmanship, precision and quality made in Dresden.\u00a0\nWe welcome people who want to become part of our history with passion and new ideas.",
+                "Seit über 140 Jahren steht Dresdner Spitzen für textile Handwerkskunst, Präzision und Qualität aus Dresden.\u00a0\nWir freuen uns über Menschen, die mit Leidenschaft und neuen Ideen Teil unserer Geschichte werden möchten."
               )}
             </p>
           </div>
