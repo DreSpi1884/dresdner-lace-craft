@@ -4,7 +4,7 @@
 const EXTRA_OFFSET_BY_ID: Record<string, number> = {
   history: -40,
   sustainability: 30,
-  values: -40,
+  values: -80,
 
   design: -60,
   "raw-material-production": -60,
