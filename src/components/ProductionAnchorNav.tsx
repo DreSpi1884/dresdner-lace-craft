@@ -7,6 +7,7 @@ const ProductionAnchorNav = () => {
   const { t } = useLang();
   const location = useLocation();
 
+  
   const sections = useMemo(
     () => [
       { id: "design", label: t("Design", "Design") },
