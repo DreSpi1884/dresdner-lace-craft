@@ -109,8 +109,8 @@ const HistoryTimeline = () => {
         ),
         imageClassName: "object-cover object-center",
         text: t(
-          "In 2002, the flood of the century also hit our production site in Dresden.\nA broken dike allowed the water to advance to the plant and caused great damage, especially in the yarn warehouse.\nWith the great commitment of our employees, the most important cleanup work was completed within a week and production could start up again.",
-          "Im Jahr 2002 trifft die Jahrhundertflut auch unseren Produktionsstandort in Dresden.\nEin Deichbruch lässt das Wasser bis zum Werk vordringen und verursacht große Schäden, vor allem im Garnlager.\nMit großem Einsatz unserer Mitarbeitenden werden die wichtigsten Aufräumarbeiten innerhalb einer Woche abgeschlossen und die Produktion kann wieder anlaufen."
+          "In 2002, the flood of the century also hit our production site in Dresden.\nA broken dike allowed the water to advance to the plant and caused great damage,\u00a0\nespecially in the yarn warehouse.\nWith the great commitment of our employees, the most important cleanup work was completed within a week and production could start up again.",
+          "Im Jahr 2002 trifft die Jahrhundertflut auch unseren Produktionsstandort in Dresden.\nEin Deichbruch lässt das Wasser bis zum Werk vordringen und verursacht große Schäden,\u00a0\nvor allem im Garnlager.\nMit großem Einsatz unserer Mitarbeitenden werden die wichtigsten Aufräumarbeiten innerhalb einer Woche abgeschlossen und die Produktion kann wieder anlaufen."
         ),
       },
       {
