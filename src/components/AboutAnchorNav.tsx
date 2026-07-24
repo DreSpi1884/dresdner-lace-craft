@@ -1,14 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
-
-const getDesktopOffset = () => {
-  const header = document.querySelector<HTMLElement>("[data-site-header]");
-  const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
-  const headerHeight = header?.getBoundingClientRect().height ?? 96;
-  const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
-  return headerHeight + subNavHeight + 30;
-};
+import { getAnchorScrollOffset, getAnchorSectionTop } from "@/lib/scrollNav";
 
 const AboutAnchorNav = () => {
   const { t } = useLang();
@@ -28,32 +21,22 @@ const AboutAnchorNav = () => {
     return sections.some((s) => s.id === hash) ? hash : "history";
   });
 
-  const getSectionTop = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return null;
-    return element.getBoundingClientRect().top + window.scrollY;
-  };
-
   const scrollToSection = (id: string, behavior: ScrollBehavior = "auto") => {
-    const top = getSectionTop(id);
+    const top = getAnchorSectionTop(id, location.pathname);
     if (top === null) return;
     setActiveSection(id);
-    const offset = getDesktopOffset();
-
-    window.scrollTo({
-      top: top - offset,
-      behavior,
-    });
+    const offset = getAnchorScrollOffset();
+    window.scrollTo({ top: top - offset, behavior });
     window.history.replaceState(null, "", `#${id}`);
   };
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + getDesktopOffset() + 8;
+      const anchorLine = window.scrollY + getAnchorScrollOffset() + 8;
       let current = sections[0].id;
       sections.forEach((section) => {
-        const top = getSectionTop(section.id);
+        const top = getAnchorSectionTop(section.id, location.pathname);
         if (top !== null && top <= anchorLine) current = section.id;
       });
       setActiveSection(current);
@@ -65,7 +48,7 @@ const AboutAnchorNav = () => {
       window.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
     };
-  }, [sections]);
+  }, [sections, location.pathname]);
 
   return (
     <nav
