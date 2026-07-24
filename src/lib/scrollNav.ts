@@ -7,9 +7,9 @@ const EXTRA_OFFSET_BY_ID: Record<string, number> = {
   values: 40,
 
   design: -60,
-  raw-material-production: -60,
-  dyeing-finishing: -60,
-  technical-textiles: -60
+  "raw-material-production": -60,
+  "dyeing-finishing": -60,
+  "functional-textiles": -60
   
 };
 
