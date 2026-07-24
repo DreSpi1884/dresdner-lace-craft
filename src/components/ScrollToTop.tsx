@@ -26,7 +26,7 @@ const scrollToHash = (hash: string, pathname: string) => {
   if (!id) return false;
   const target = getAnchorTargetElement(id, pathname);
   if (!target) return false;
-  const offset = getAnchorScrollOffset();
+  const offset = getAnchorScrollOffset(id);
   const top = target.getBoundingClientRect().top + window.scrollY - offset;
   instantScrollTo(top);
   return true;
