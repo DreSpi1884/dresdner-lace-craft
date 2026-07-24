@@ -3,7 +3,7 @@
 // Zusätzlicher Abstand für einzelne Sections (z.B. mehr Luft oberhalb der Überschrift)
 const EXTRA_OFFSET_BY_ID: Record<string, number> = {
   history: -50,
-  sustainability: 40,
+  sustainability: 30,
   values: 40,
 };
 
