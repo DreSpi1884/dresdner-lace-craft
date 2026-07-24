@@ -12,7 +12,7 @@ const getScrollOffset = (pathname: string) => {
     // header lands flush below both the fixed header and the sub-nav.
     const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
     const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
-    return headerHeight + subNavHeight + 8;
+    return headerHeight + subNavHeight + 24;
   }
 
   return headerHeight;
