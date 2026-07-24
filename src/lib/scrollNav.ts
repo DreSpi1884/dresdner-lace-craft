@@ -5,6 +5,9 @@ const EXTRA_OFFSET_BY_ID: Record<string, number> = {
   history: -50,
   sustainability: 30,
   values: 40,
+
+  design: -60
+  
 };
 
 export const getAnchorScrollOffset = (id?: string) => {
