@@ -52,7 +52,7 @@ const ProductionAnchorNav = () => {
     setActiveSection(id);
 
     window.scrollTo({
-      top: top - DESKTOP_SCROLL_OFFSET,
+      top: top - getDesktopOffset(),
       behavior,
     });
 
@@ -62,23 +62,9 @@ const ProductionAnchorNav = () => {
   useEffect(() => {
     if (window.innerWidth < 1024) return;
 
-    const hash = location.hash.replace("#", "");
-    const isValidHash = sections.some((section) => section.id === hash);
-
-    if (!isValidHash) return;
-
-    const timer = window.setTimeout(() => {
-      scrollToSection(hash, "auto");
-    }, 120);
-
-    return () => window.clearTimeout(timer);
-  }, [location.hash, sections]);
-
-  useEffect(() => {
-    if (window.innerWidth < 1024) return;
-
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + DESKTOP_SCROLL_OFFSET + 8;
+      const anchorLine = window.scrollY + getDesktopOffset() + 8;
+
 
       let current = sections[0].id;
 
