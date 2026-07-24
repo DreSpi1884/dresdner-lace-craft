@@ -27,8 +27,8 @@ const EditorialFooter = () => {
 
   <p className="hidden md:block editorial-body-sm text-background/60 max-w-xs whitespace-pre-line mt-4">
     {t(
-      "Your partner for high-quality textiles, developed and produced in Dresden.",
-      "Ihr Partner für hochwertige Textilien, entwickelt und produziert in Dresden."
+      "Your partner for high-quality textiles,\ndeveloped and produced in Dresden.",
+      "Ihr Partner für hochwertige Textilien,\nentwickelt und produziert in Dresden."
     )}
   </p>
 </div>
