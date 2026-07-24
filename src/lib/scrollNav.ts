@@ -6,7 +6,10 @@ const EXTRA_OFFSET_BY_ID: Record<string, number> = {
   sustainability: 30,
   values: 40,
 
-  design: -60
+  design: -60,
+  raw-material-production: -60,
+  dyeing-finishing: -60,
+  technical-textiles: -60
   
 };
 
