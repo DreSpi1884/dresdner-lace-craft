@@ -12,7 +12,20 @@ import fullStageProductionImage from "@/assets/full-production.jpg?url";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
 import heritageNow from "@/assets/heritage-now.jpg.asset.json";
+import grsLogo from "@/assets/grs-step-logo.png?url";
 import { useLang } from "@/i18n/LanguageContext";
+
+
+const FooterCertificationLogos = () => (
+
+  <div className="mt-4 flex items-center justify-center gap-3 md:justify-start">
+    <img
+      src={grsLogo}
+      alt="Global Recycled Standard"
+      className="w-[200px] md:w-[300px] bg-white object-contain"
+    />
+  </div>
+);
 
 const Index = () => {
   const { t } = useLang();
@@ -214,6 +227,8 @@ const Index = () => {
 </div>
   </div>
 </section>
+
+      <FooterCertificationLogos />
       
     </EditorialLayout>
   );
