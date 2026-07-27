@@ -144,14 +144,17 @@ const Index = () => {
   <img
     src={item.image}
     alt={item.title}
+    decoding="async"
     className="absolute inset-0 h-full w-full object-cover"
   />
 
-  <div className="absolute inset-x-0 bottom-0 p-6 text-center">
+  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-foreground/80 via-foreground/45 to-transparent" />
+  
+  <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-center">
     <h3
       className="font-serif text-background whitespace-nowrap text-[clamp(28px,7vw,40px)] leading-none mb-4"
       style={{
-        textShadow: "0 2px 12px rgba(0,0,0,0.75)",
+        textShadow: "0 2px 12px rgba(0,0,0,0.5)",
       }}
     >
       {item.title}
