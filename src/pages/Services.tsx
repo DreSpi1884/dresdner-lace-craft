@@ -7,6 +7,8 @@ import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
 import ProductionAnchorNav from "@/components/ProductionAnchorNav";
+import { getAnchorScrollOffset } from "@/lib/scrollNav";
+
 import designImg1 from "@/assets/design-1.jpg?url";
 import designImg2 from "@/assets/design-4.jpg?url";
 import designImg3 from "@/assets/design-3.jpg?url";
