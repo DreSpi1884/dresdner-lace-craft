@@ -13,6 +13,7 @@ import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import heritageThen from "@/assets/heritage-then.png.asset.json";
 import heritageNow from "@/assets/heritage-now.jpg.asset.json";
 import grsLogo from "@/assets/grs-step-logo.png?url";
+import OekoTexStepLogo from "@/assets/OEKOTEXSTep.png?url";
 import { useLang } from "@/i18n/LanguageContext";
 
 
@@ -22,6 +23,11 @@ const FooterCertificationLogos = () => (
     <img
       src={grsLogo}
       alt="Global Recycled Standard"
+      className="w-[400px] md:w-[400px] bg-white object-contain"
+    />
+    <img
+      src={OekoTexStepLogo}
+      alt="OEKO TEX STeP"
       className="w-[400px] md:w-[400px] bg-white object-contain"
     />
   </div>
