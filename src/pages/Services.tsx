@@ -33,12 +33,20 @@ const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onC
     <>
       {parts[0]}
       <button
-        type="button"
-        onClick={onClick}
-        className="ml-1 inline-flex border-b border-primary/40 pb-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-primary transition-colors hover:border-primary"
-      >
-        {link}
-      </button>
+  type="button"
+  onClick={onClick}
+  className="inline border-b border-primary/40 pb-0.5 text-primary transition-colors hover:border-primary"
+  style={{
+    fontFamily: "inherit",
+    fontSize: "inherit",
+    fontWeight: "inherit",
+    letterSpacing: "inherit",
+    textTransform: "inherit",
+    lineHeight: "inherit",
+  }}
+>
+  {link}
+</button>
       {parts[1]}
     </>
   );
@@ -380,13 +388,16 @@ requestAnimationFrame(() => {
           );
         })()}
 
-        <p className="mt-8">
-          <TextWithLink
-            text={t("Samples are available on request.", "Muster sind auf Anfrage erhältlich.")}
-            link={lang === "de" ? "Anfrage" : "request"}
-            onClick={openQuote}
-          />
-        </p>
+        <p className="mt-8 text-[13px] font-medium uppercase tracking-[0.16em] text-primary">
+  <TextWithLink
+    text={t(
+      "Samples are available on request.",
+      "Muster sind auf Anfrage erhältlich."
+    )}
+    link={lang === "de" ? "Anfrage" : "request"}
+    onClick={openQuote}
+  />
+</p>
       </>
     ) : s.id === "dyeing-finishing" ? (
       <>
