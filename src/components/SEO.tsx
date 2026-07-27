@@ -1,26 +1,34 @@
 import { Helmet } from "react-helmet-async";
+import { SITE } from "@/config/site";
 
 interface SEOProps {
   title: string;
   description: string;
   path: string;
   image?: string;
+  noIndex?: boolean;
 }
 
-const SITE_NAME = "Dresdner Spitzen";
-const SITE_URL = "https://www.dresdner-spitzen.de";
-
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpeg`;
+const DEFAULT_IMAGE = `${SITE.url}/og-image.jpeg`;
 
 const makeAbsoluteUrl = (value: string) => {
-  if (value.startsWith("http")) return value;
-  return `${SITE_URL}${value.startsWith("/") ? value : `/${value}`}`;
+  if (/^https?:\/\//i.test(value)) {
+    return value;
+  }
+
+  return `${SITE.url}${value.startsWith("/") ? value : `/${value}`}`;
 };
 
-const SEO = ({ title, description, path, image = DEFAULT_IMAGE }: SEOProps) => {
-  const fullTitle = title.includes(SITE_NAME)
+const SEO = ({
+  title,
+  description,
+  path,
+  image = DEFAULT_IMAGE,
+  noIndex = false,
+}: SEOProps) => {
+  const fullTitle = title.includes(SITE.name)
     ? title
-    : `${title} | ${SITE_NAME}`;
+    : `${title} | ${SITE.name}`;
 
   const canonicalUrl = makeAbsoluteUrl(path);
   const imageUrl = makeAbsoluteUrl(image);
@@ -29,15 +37,20 @@ const SEO = ({ title, description, path, image = DEFAULT_IMAGE }: SEOProps) => {
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonicalUrl} />
+
+      {noIndex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <link rel="canonical" href={canonicalUrl} />
+      )}
 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
-      <meta property="og:image:alt" content={SITE_NAME} />
-      <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:image:alt" content={SITE.name} />
+      <meta property="og:site_name" content={SITE.name} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
