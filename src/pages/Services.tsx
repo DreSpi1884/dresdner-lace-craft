@@ -255,7 +255,10 @@ const scrollMobileSectionToTop = (id: string) => {
   if (!element) return;
   const offset = getAnchorScrollOffset(id);
   const top = element.getBoundingClientRect().top + window.scrollY - offset;
-  window.scrollTo({ top, behavior: "auto" });
+  window.scrollTo({
+  top: Math.max(top, 0),
+  behavior: "auto",
+});
 };
 
 
@@ -275,9 +278,7 @@ const openMobileSection = (id: string) => {
 
   window.history.replaceState(null, "", `#${id}`);
 
-requestAnimationFrame(() => {
-  scrollMobileSectionToTop(id);
-});
+scrollMobileSectionToTop(id);
 };
 
   const renderBody = (s: ServiceItem) => (
