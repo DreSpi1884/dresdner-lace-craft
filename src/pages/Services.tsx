@@ -35,7 +35,7 @@ const TextWithLink = ({ text, link, onClick }: { text: string; link: string; onC
       <button
         type="button"
         onClick={onClick}
-        className="inline underline underline-offset-4 text-primary hover:opacity-80 transition-opacity"
+        className="ml-1 inline-flex border-b border-primary/40 pb-0.5 text-[13px] font-medium uppercase tracking-[0.16em] text-primary transition-colors hover:border-primary"
       >
         {link}
       </button>
