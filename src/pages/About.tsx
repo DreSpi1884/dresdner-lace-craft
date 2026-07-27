@@ -56,6 +56,12 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
     />
 
     <img
+      src={OekoTex}
+      alt="OEKO TEX STeP"
+      className="block w-[220px] shrink-0 bg-white object-contain sm:w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px]"
+    />
+
+    <img
       data-no-reveal
       src={umweltallianzLogo}
       alt="Umwelt- und Klimaallianz Sachsen"
