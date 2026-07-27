@@ -196,7 +196,7 @@ useLayoutEffect(() => {
               </button>
 
               {isOpen && (
-                <div className="px-4 pt-2 pb-10">
+                <div className="px-4 pt-0 pb-10">
                   {section.id === "history" && <HistoryTimeline />}
 
                   {section.id === "sustainability" && (
@@ -244,7 +244,7 @@ useLayoutEffect(() => {
                       {
                         title: t("Quality & Precision", "Qualität & Präzision"),
                         desc: t(
-                          "We work with high standards, careful control and attention to detail.",
+                          "We work with high standards, careful quality control and attention to detail.",
                           "Wir arbeiten mit hohen Standards, sorgfältiger Kontrolle und Liebe zum Detail."
                         ),
                       },
@@ -254,7 +254,7 @@ useLayoutEffect(() => {
                           "Flexibilität & Zuverlässigkeit"
                         ),
                         desc: t(
-                          "We develop tailored solutions and support projects from the initial idea to the finished textile.",
+                          "We develop tailored solutions and support projects from initial idea to finished textile.",
                           "Wir entwickeln individuelle Lösungen und begleiten Projekte von der ersten Idee bis zum fertigen Textil."
                         ),
                       },
