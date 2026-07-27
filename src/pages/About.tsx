@@ -51,14 +51,14 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
       data-no-reveal
       src={grsLogo}
       alt="Global Recycled Standard"
-      className="block w-[220px] shrink-0 bg-white object-contain sm:w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px]"
+      className="block w-[220px] shrink-0 bg-white object-contain sm:w-[150px] md:w-[250px] lg:w-[300px] xl:w-[350px]"
     />
 
     <img
       data-no-reveal
       src={oekoTexLogo}
       alt="OEKO-TEX STeP"
-      className="block w-[220px] shrink-0 bg-white object-contain sm:w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px]"
+      className="block w-[220px] shrink-0 bg-white object-contain sm:w-[150px] md:w-[250px] lg:w-[300px] xl:w-[350px]"
     />
 
     <img
