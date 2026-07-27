@@ -158,7 +158,7 @@ const Index = () => {
     </h3>
 
     <p
-      className="text-background whitespace-pre-line text-[18px] leading-[1.6]"
+      className="text-background whitespace-pre-line text-[17px] font-light leading-[1.6]"
     >
       {item.desc}
     </p>
