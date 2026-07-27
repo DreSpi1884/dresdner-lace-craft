@@ -39,10 +39,16 @@ const ScrollToTop = () => {
   }, []);
 
   useLayoutEffect(() => {
-    if (!hash) {
-      instantScrollTo(0);
-      return;
-    }
+  const isMobileAbout =
+    pathname.startsWith("/about") && window.innerWidth < 1024;
+
+  // Mobile About manages its accordion state and scrolling itself.
+  if (hash && isMobileAbout) return;
+
+  if (!hash) {
+    instantScrollTo(0);
+    return;
+  }
 
     // Try immediately (synchronous, pre-paint) — no visible jump.
     if (scrollToHash(hash, pathname)) return;
