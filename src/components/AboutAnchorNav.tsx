@@ -33,13 +33,11 @@ const AboutAnchorNav = () => {
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     const updateActiveSection = () => {
-      const scrollPos = window.scrollY + 8;
+      const anchorLine = window.scrollY + getAnchorScrollOffset() + 8;
       let current = sections[0].id;
       sections.forEach((section) => {
         const top = getAnchorSectionTop(section.id, location.pathname);
-        if (top === null) return;
-        const threshold = top - getAnchorScrollOffset(section.id);
-        if (threshold <= scrollPos) current = section.id;
+        if (top !== null && top <= anchorLine) current = section.id;
       });
       setActiveSection(current);
     };
@@ -51,6 +49,7 @@ const AboutAnchorNav = () => {
       window.removeEventListener("resize", updateActiveSection);
     };
   }, [sections, location.pathname]);
+
 
   return (
     <nav
