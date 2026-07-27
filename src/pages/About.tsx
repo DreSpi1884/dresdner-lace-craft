@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { flushSync } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
@@ -8,10 +8,12 @@ import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
+import { getAnchorScrollOffset } from "@/lib/scrollNav";
 import grsLogo from "@/assets/GRS_freigestellt.png?url";
 import oekoTexLogo from "@/assets/OEKOTEXSTeP.png?url";
 import umweltallianzLogo from "@/assets/umweltallianz-sachsen.png?url";
 import solarRoofImg from "@/assets/solaranlage.jpg?url";
+
 
 const SolarImageCard = ({
   mobileText,
