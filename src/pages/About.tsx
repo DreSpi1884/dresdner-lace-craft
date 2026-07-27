@@ -200,7 +200,7 @@ useLayoutEffect(() => {
                   {section.id === "history" && <HistoryTimeline />}
 
                   {section.id === "sustainability" && (
-                    <div className="space-y-8 text-left text-[17px] leading-[1.9] text-muted-foreground">
+                    <div className="space-y-6 text-left text-[17px] leading-[1.9] text-muted-foreground">
                       <p className="whitespace-pre-wrap">
                         {t(
                           "Our production is supported by an energy management system and certified according to internationally recognised standards, \nincluding OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
