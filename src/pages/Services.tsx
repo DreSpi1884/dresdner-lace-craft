@@ -593,7 +593,12 @@ requestAnimationFrame(() => {
     />
   </button>
 
-  <div hidden={!isOpen} className="pb-10 pt-0">
+  <div
+  hidden={!isOpen}
+  className={`pt-0 ${
+    s.id === "functional-textiles" ? "pb-20" : "pb-10"
+  }`}
+>
     {renderBody(s)}
     {renderProcess(s)}
   </div>
