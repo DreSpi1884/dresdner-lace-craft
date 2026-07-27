@@ -19,9 +19,12 @@ const EXTRA_OFFSET_BY_ID: Record<string, number> = {
 
 export const getAnchorScrollOffset = (id?: string) => {
   const isDesktop = window.innerWidth >= 1024;
-  const header = document.querySelector<HTMLElement>("[data-site-header]");
-  const headerHeight =
-    header?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
+const headerBar = document.querySelector<HTMLElement>(
+  "[data-site-header] > nav"
+);
+
+const headerHeight =
+  headerBar?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
 
   if (!isDesktop) return headerHeight;
 
