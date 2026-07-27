@@ -228,6 +228,7 @@ const Services = () => {
         "We develop functional warp-knitted fabrics for technical and medical applications.\n\nOur textiles are used in compression garments and post-surgical products, delivering consistent quality, comfort and reliable performance.",
         "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen.\n\nUnsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit.",
       ),
+    },
     ],
     [t, processSteps],
   );
