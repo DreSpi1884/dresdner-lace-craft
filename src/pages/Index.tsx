@@ -109,8 +109,8 @@ const Index = () => {
   {
     title: t("Custom Designs", "Individuelle Designs"),
     desc: t(
-      "Want to develop your own design?? We'll translate it into high quality textiles according to your requirements.",
-      "Sie möchten Ihr eigenes Design Entwickeln? Wir setzen es nach Ihren Voraussetzungen in hochwertige Textilien um.",
+      "Want to develop your own design? We'll translate it into high quality textiles according to your requirements.",
+      "Sie möchten Ihr eigenes Design entwickeln? Wir setzen es nach Ihren Voraussetzungen in hochwertige Textilien um.",
     ),
     image: bespokeDesignsImage,
     anchor: "design",
