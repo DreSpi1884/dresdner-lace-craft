@@ -8,7 +8,8 @@ import HistoryTimeline from "@/components/HistoryTimeline";
 import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
-import grsLogo from "@/assets/grs-step-logo.png?url";
+import grsLogo from "@/assets/GRS_freigestellt.png?url";
+import OekoTex from "@/assets/OEKOTEXSTep.png?url";
 import umweltallianzLogo from "@/assets/umweltallianz-sachsen.png?url";
 import solarRoofImg from "@/assets/solaranlage.jpg?url";
 
