@@ -184,7 +184,13 @@ useLayoutEffect(() => {
               </button>
 
               {isOpen && (
-                <div className="px-4 pt-0 pb-10">
+                <div
+                  className={`px-4 pt-0 ${
+                    section.id === "values"
+                      ? "min-h-[calc(100svh-5rem)] pb-20"
+                      : "pb-10"
+                  }`}
+                >
                   {section.id === "history" && <HistoryTimeline />}
 
                   {section.id === "sustainability" && (
