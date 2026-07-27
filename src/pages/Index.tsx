@@ -153,19 +153,12 @@ const Index = () => {
   <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-center">
     <h3
       className="font-serif text-background whitespace-nowrap text-[clamp(28px,7vw,40px)] leading-none mb-4"
-      style={{
-        textShadow: "0 2px 12px rgba(0,0,0,0.5)",
-      }}
     >
       {item.title}
     </h3>
 
     <p
       className="text-background whitespace-pre-line text-[18px] leading-[1.6]"
-      style={{
-        fontFamily: "'Jost', sans-serif",
-        textShadow: "0 2px 10px rgba(0,0,0,0.5)",
-      }}
     >
       {item.desc}
     </p>
