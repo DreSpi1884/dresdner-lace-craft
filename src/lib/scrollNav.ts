@@ -5,7 +5,19 @@
 
 const BUFFER_PX = 8;
 
-export const getAnchorScrollOffset = (_id?: string) => {
+// Extra breathing room (or negative = scroll further down) needed for
+// specific sections, on top of the base header/sub-nav offset.
+const EXTRA_OFFSET_BY_ID: Record<string, number> = {
+  history: -50,
+  sustainability: 30,
+  values: 40,
+  design: -60,
+  "raw-material-production": -60,
+  "dyeing-finishing": -60,
+  "functional-textiles": -60,
+};
+
+export const getAnchorScrollOffset = (id?: string) => {
   const header = document.querySelector<HTMLElement>("[data-site-header]");
   const headerHeight =
     header?.getBoundingClientRect().height ??
@@ -15,7 +27,9 @@ export const getAnchorScrollOffset = (_id?: string) => {
   // hidden elements report height 0, so this is safe on mobile
   const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
 
-  return headerHeight + subNavHeight + BUFFER_PX;
+  const extra = id ? EXTRA_OFFSET_BY_ID[id] ?? 0 : 0;
+
+  return headerHeight + subNavHeight + BUFFER_PX + extra;
 };
 
 export const getAnchorTargetElement = (id: string, pathname: string) => {
