@@ -225,10 +225,9 @@ const Services = () => {
         desktopImages: [functionalImg1, functionalImg2, functionalImg3, functionalImg4],
         mobileImage: functionalImg1,
         text: t(
-          "We develop functional warp-knitted fabrics for technical and medical applications.\u00a0\n\nOur textiles are used in compression garments and post-surgical products,\u00a0delivering consistent quality, comfort and reliable performance.",
-          "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen.\u00a0\n\nUnsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit.\n\nGerne entwickeln wir mit Ihnen das passende Textil für Ihre Anforderungen.",
-        ),
-      },
+        "We develop functional warp-knitted fabrics for technical and medical applications.\n\nOur textiles are used in compression garments and post-surgical products, delivering consistent quality, comfort and reliable performance.",
+        "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen.\n\nUnsere Textilien werden beispielsweise in Kompressionsbekleidung und postoperativen Produkten eingesetzt und stehen für hohe Qualität, Tragekomfort und Langlebigkeit.",
+      ),
     ],
     [t, processSteps],
   );
@@ -446,7 +445,39 @@ requestAnimationFrame(() => {
     >
       {s.text.split("\n").slice(-1)[0]}
     </p>
-  </>
+    </>
+    ) : s.id === "functional-textiles" ? (
+      <>
+        {s.text.split("\n").map((line, li) =>
+          line ? (
+            <p
+              key={`${s.id}-${lang}-${li}`}
+              className={li > 0 ? "mt-3" : ""}
+            >
+              {line}
+            </p>
+          ) : (
+            <div key={`${s.id}-${lang}-${li}`} className="h-4" />
+          )
+        )}
+
+        <div className="mt-10 border-t border-primary/15 pt-7">
+          <p>
+            {t(
+              "We would be pleased to develop the right textile for your requirements together with you.",
+              "Gerne entwickeln wir mit Ihnen das passende Textil für Ihre Anforderungen."
+            )}
+          </p>
+
+          <button
+            type="button"
+            onClick={openQuote}
+            className="mt-6 inline-flex border-b border-primary/40 pb-1 text-[13px] font-medium uppercase tracking-[0.16em] text-primary transition-colors hover:border-primary"
+          >
+            {t("Enquire now", "Jetzt anfragen")}
+          </button>
+        </div>
+      </>
     ) : (
       s.text.split("\n").map((line, li) => (
         <p key={`${s.id}-${lang}-${li}`} className={li > 0 ? "mt-3" : ""}>
