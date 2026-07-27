@@ -47,7 +47,7 @@ const Index = () => {
      <SEO
       title={t(
         "Lace and Textile Production Since 1884",
-        "Spitze und Textilproduktion seit 1884"
+        "Spitzen- und Textilproduktion seit 1884"
       )}
       description={t(
         "Dresdner Spitzen develops and produces lace, warp-knitted fabrics, functional textiles, dyeing and finishing solutions in Dresden, Germany.",
