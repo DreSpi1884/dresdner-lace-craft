@@ -58,7 +58,7 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
         data-no-reveal
         src={grsLogo}
         alt="Global Recycled Standard"
-        className="block w-[200px] shrink-0 bg-white object-contain sm:w-[100px] md:w-[150px] lg:w-[200px] xl:w-[250px]"
+        className="block w-[180px] shrink-0 bg-white object-contain sm:w-[90px] md:w-[130px] lg:w-[180px] xl:w-[230px]"
       />
     </a>
 
@@ -66,7 +66,7 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
       data-no-reveal
       src={oekoTexLogo}
       alt="OEKO-TEX STeP"
-      className="block w-[200px] shrink-0 bg-white object-contain sm:w-[100px] md:w-[150px] lg:w-[200px] xl:w-[250px]"
+      className="block w-[190px] shrink-0 bg-white object-contain sm:w-[90px] md:w-[130px] lg:w-[180px] xl:w-[230px]"
     />
 
     <img
