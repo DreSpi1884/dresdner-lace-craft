@@ -7,6 +7,8 @@ import SEO from "@/components/SEO";
 import { useQuoteModal } from "@/components/QuoteModal";
 import { useLang } from "@/i18n/LanguageContext";
 import ProductionAnchorNav from "@/components/ProductionAnchorNav";
+import { getAnchorScrollOffset } from "@/lib/scrollNav";
+
 import designImg1 from "@/assets/design-1.jpg?url";
 import designImg2 from "@/assets/design-4.jpg?url";
 import designImg3 from "@/assets/design-3.jpg?url";
@@ -243,15 +245,11 @@ useLayoutEffect(() => {
 const scrollMobileSectionToTop = (id: string) => {
   const element = document.getElementById(id);
   if (!element) return;
-
-  const offset = 80;
+  const offset = getAnchorScrollOffset(id);
   const top = element.getBoundingClientRect().top + window.scrollY - offset;
-
-  window.scrollTo({
-  top,
-  behavior: "auto",
-});
+  window.scrollTo({ top, behavior: "auto" });
 };
+
 
 const openMobileSection = (id: string) => {
   if (mobileOpenId === id) {
