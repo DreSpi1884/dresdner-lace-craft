@@ -20,11 +20,18 @@ import { useLang } from "@/i18n/LanguageContext";
 const FooterCertificationLogos = () => (
 
   <div className="mt-4 flex items-center justify-center gap-12 md:justify-start">
-    <img
-      src={grsLogo}
-      alt="Global Recycled Standard"
-      className="w-[200px] md:w-[200px] bg-white object-contain"
-    />
+    <a
+      href="https://textileexchange.org/recycled-claim-global-recycled-standard/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Global Recycled Standard – mehr erfahren"
+    >
+      <img
+        src={grsLogo}
+        alt="Global Recycled Standard"
+        className="w-[200px] md:w-[200px] bg-white object-contain"
+      />
+    </a>
     <img
       src={OekoTex}
       alt="OEKO-TEX STeP"

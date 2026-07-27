@@ -47,12 +47,20 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
     data-no-reveal
     className={`flex w-full flex-nowrap items-center justify-start gap-2.5 overflow-visible sm:gap-4 md:gap-5 ${className}`}
   >
-    <img
-      data-no-reveal
-      src={grsLogo}
-      alt="Global Recycled Standard"
-      className="block w-[200px] shrink-0 bg-white object-contain sm:w-[100px] md:w-[150px] lg:w-[200px] xl:w-[250px]"
-    />
+    <a
+      href="https://textileexchange.org/recycled-claim-global-recycled-standard/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Global Recycled Standard – mehr erfahren"
+      className="shrink-0"
+    >
+      <img
+        data-no-reveal
+        src={grsLogo}
+        alt="Global Recycled Standard"
+        className="block w-[200px] shrink-0 bg-white object-contain sm:w-[100px] md:w-[150px] lg:w-[200px] xl:w-[250px]"
+      />
+    </a>
 
     <img
       data-no-reveal
