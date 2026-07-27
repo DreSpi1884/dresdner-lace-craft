@@ -245,15 +245,11 @@ useLayoutEffect(() => {
 const scrollMobileSectionToTop = (id: string) => {
   const element = document.getElementById(id);
   if (!element) return;
-
-  const offset = 80;
+  const offset = getAnchorScrollOffset(id);
   const top = element.getBoundingClientRect().top + window.scrollY - offset;
-
-  window.scrollTo({
-  top,
-  behavior: "auto",
-});
+  window.scrollTo({ top, behavior: "auto" });
 };
+
 
 const openMobileSection = (id: string) => {
   if (mobileOpenId === id) {
