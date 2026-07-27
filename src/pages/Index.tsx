@@ -19,7 +19,7 @@ import { useLang } from "@/i18n/LanguageContext";
 
 const FooterCertificationLogos = () => (
 
-  <div className="mt-4 flex items-center justify-center gap-3 md:justify-start">
+  <div className="mt-4 flex items-center justify-center gap-6 md:justify-start">
     <img
       src={grsLogo}
       alt="Global Recycled Standard"
