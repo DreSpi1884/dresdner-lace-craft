@@ -364,7 +364,7 @@ useLayoutEffect(() => {
               </h2>
 
               <p className="editorial-label text-primary">
-                {t("WHAT DRIVES US EVERYDAY", "WAS UNS TÄGLICH ANTREIBT")}
+                {t("WHAT DRIVES US EVERY DAY", "WAS UNS TÄGLICH ANTREIBT")}
               </p>
             </div>
 
