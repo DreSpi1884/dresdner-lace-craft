@@ -605,14 +605,7 @@ requestAnimationFrame(() => {
     />
   </button>
 
-  <div
-  hidden={!isOpen}
-  className={`pt-0 ${
-    s.id === "functional-textiles"
-      ? "min-h-[calc(100svh-5rem)] pb-20"
-      : "pb-10"
-  }`}
->
+ <div hidden={!isOpen} className="pb-10 pt-0">
   {renderBody(s)}
   {renderProcess(s)}
 </div>
