@@ -88,15 +88,9 @@ const About = () => {
   const scrollMobileSectionToTop = (id: string) => {
     const element = document.getElementById(`mobile-${id}`);
     if (!element) return;
-
-    const header = document.querySelector<HTMLElement>("[data-site-header]");
-    const offset = header?.getBoundingClientRect().height ?? 80;
+    const offset = getAnchorScrollOffset(id);
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
-
-    window.scrollTo({
-      top,
-      behavior: "auto",
-    });
+    window.scrollTo({ top, behavior: "auto" });
   };
 
   const openMobileSection = (id: string) => {
@@ -104,7 +98,6 @@ const About = () => {
       flushSync(() => {
         setMobileOpenId(null);
       });
-
       window.history.replaceState(null, "", location.pathname);
       return;
     }
@@ -112,7 +105,6 @@ const About = () => {
     flushSync(() => {
       setMobileOpenId(id);
     });
-
     window.history.replaceState(null, "", `#${id}`);
 
     requestAnimationFrame(() => {
@@ -120,7 +112,10 @@ const About = () => {
     });
   };
 
-useLayoutEffect(() => {
+  // Sync accordion state with URL hash (opening a section from another page
+  // or from the anchor nav). Actual scrolling is handled centrally by
+  // ScrollToTop — no duplicate scroll logic here.
+  useLayoutEffect(() => {
     const hash = location.hash.replace("#", "");
     const validIds = ["history", "sustainability", "values"];
     if (validIds.includes(hash)) {
@@ -128,26 +123,6 @@ useLayoutEffect(() => {
     }
   }, [location.hash, location.key]);
 
-  useEffect(() => {
-    const hash = location.hash.replace("#", "");
-    const validIds = ["history", "sustainability", "values"];
-
-    if (!validIds.includes(hash)) return;
-
-    if (window.innerWidth < 1024) {
-      let secondFrame = 0;
-      const firstFrame = requestAnimationFrame(() => {
-        secondFrame = requestAnimationFrame(() => scrollMobileSectionToTop(hash));
-      });
-      const settleTimer = window.setTimeout(() => scrollMobileSectionToTop(hash), 350);
-
-      return () => {
-        cancelAnimationFrame(firstFrame);
-        cancelAnimationFrame(secondFrame);
-        window.clearTimeout(settleTimer);
-      };
-    }
-  }, [location.hash, location.key]);
 
   return (
     <EditorialLayout title={t("About Us", "Über uns")} heroCompact>
