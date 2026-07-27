@@ -18,13 +18,21 @@ const EXTRA_OFFSET_BY_ID: Record<string, number> = {
 };
 
 export const getAnchorScrollOffset = (id?: string) => {
+  const isDesktop = window.innerWidth >= 1024;
+
   const header = document.querySelector<HTMLElement>("[data-site-header]");
   const headerHeight =
-    header?.getBoundingClientRect().height ??
-    (window.innerWidth >= 1024 ? 96 : 80);
+    header?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
 
-  const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
-  // hidden elements report height 0, so this is safe on mobile
+  // Mobile: wie im alten Code ausschließlich den Haupt-Header berücksichtigen.
+  if (!isDesktop) {
+    return headerHeight;
+  }
+
+  // Desktop: Haupt-Header + sticky Subnav + individueller Section-Offset.
+  const subNav = document.querySelector<HTMLElement>(
+    "[data-anchor-subnav]"
+  );
   const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
 
   const extra = id ? EXTRA_OFFSET_BY_ID[id] ?? 0 : 0;
