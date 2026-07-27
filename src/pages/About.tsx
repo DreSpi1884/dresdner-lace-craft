@@ -107,21 +107,32 @@ const About = () => {
     });
     window.history.replaceState(null, "", `#${id}`);
 
-    requestAnimationFrame(() => {
       scrollMobileSectionToTop(id);
-    });
   };
 
   // Sync accordion state with URL hash (opening a section from another page
   // or from the anchor nav). Actual scrolling is handled centrally by
   // ScrollToTop — no duplicate scroll logic here.
-  useLayoutEffect(() => {
-    const hash = location.hash.replace("#", "");
-    const validIds = ["history", "sustainability", "values"];
-    if (validIds.includes(hash)) {
-      setMobileOpenId(hash);
-    }
-  }, [location.hash, location.key]);
+useLayoutEffect(() => {
+  if (window.innerWidth >= 1024) return;
+
+  const hash = location.hash.replace("#", "");
+  const validIds = ["history", "sustainability", "values"];
+
+  if (validIds.includes(hash)) {
+    setMobileOpenId(hash);
+  }
+}, [location.hash, location.key]);
+
+useLayoutEffect(() => {
+  if (window.innerWidth >= 1024) return;
+
+  const hash = location.hash.replace("#", "");
+
+  if (!hash || mobileOpenId !== hash) return;
+
+  scrollMobileSectionToTop(hash);
+}, [mobileOpenId, location.hash, location.key]);
 
 
   return (
@@ -152,12 +163,12 @@ const About = () => {
           return (
             <article
               key={section.id}
-              id={`mobile-${section.id}`}
-              className="border-b border-primary/10 scroll-mt-36"
+              className="border-b border-primary/10"
             >
               <button
-                type="button"
-                onClick={() => openMobileSection(section.id)}
+              id={`mobile-${section.id}`}
+              type="button"
+              onClick={() => openMobileSection(section.id)}
                 aria-expanded={isOpen}
                 className="flex w-full items-center justify-between px-4 py-6 text-left"
               >
