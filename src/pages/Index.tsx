@@ -125,7 +125,7 @@ const Index = () => {
     anchor: "functional-textiles",
   },
   {
-    title: t("Full-Stage Production", "Vollstufige Produktion"),
+    title: t("Fully Integrated Production", "Vollstufige Produktion"),
     desc: t(
       "Design, raw material production, finishing and final production under one roof. OEKO-TEX® STeP and GRS certified.",
       "Design, Rohwarenproduktion, Ausrüstung und Endfertigung unter einem Dach. OEKO-TEX® STeP und GRS zertifiziert.",
