@@ -9,7 +9,7 @@ import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 import grsLogo from "@/assets/GRS_freigestellt.png?url";
-import OekoTex from "@/assets/OEKOTEXSTep.png?url";
+import oekoTexLogo from "@/assets/OEKOTEXSTeP.png?url";
 import umweltallianzLogo from "@/assets/umweltallianz-sachsen.png?url";
 import solarRoofImg from "@/assets/solaranlage.jpg?url";
 
@@ -50,14 +50,14 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
     <img
       data-no-reveal
       src={grsLogo}
-      alt="Global Recycled Standard OekoTex Step"
+      alt="Global Recycled Standard"
       className="block w-[220px] shrink-0 bg-white object-contain sm:w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px]"
-
     />
 
     <img
-      src={OekoTex}
-      alt="OEKO TEX STeP"
+      data-no-reveal
+      src={oekoTexLogo}
+      alt="OEKO-TEX STeP"
       className="block w-[220px] shrink-0 bg-white object-contain sm:w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px]"
     />
 
