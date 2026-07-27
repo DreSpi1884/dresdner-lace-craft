@@ -148,7 +148,7 @@ const Index = () => {
     className="absolute inset-0 h-full w-full object-cover"
   />
 
-  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-foreground/80 via-foreground/45 to-transparent" />
+  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-foreground/80 via-foreground/45 to-transparent" />
   
   <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-center">
     <h3
