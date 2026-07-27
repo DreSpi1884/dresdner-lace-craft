@@ -197,8 +197,8 @@ useLayoutEffect(() => {
                     <div className="space-y-4 text-left text-[17px] leading-[1.9] text-muted-foreground">
                       <p className="whitespace-pre-wrap">
                         {t(
-                          "Our production is supported by an energy management system and certified according to internationally recognised standards, \nincluding OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
-                          "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, \ndarunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS).\n\n"
+                          "Our production is supported by an energy management system and certified according to internationally recognized standards, \nincluding OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
+                          "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, \ndarunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie dem Global Recycled Standard (GRS).\n\n"
                         )}
                       </p>
 
@@ -331,7 +331,7 @@ useLayoutEffect(() => {
       <div className="max-w-[760px] text-left text-lg leading-[1.85] text-muted-foreground lg:pt-32 xl:pt-36">
         <p className="whitespace-pre-wrap">
           {t(
-            "Our production is supported by an energy management system and certified according to internationally recognised standards, including OEKO-TEX® Standard 100,\u00a0\nOEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
+            "Our production is supported by an energy management system and certified according to internationally recognized standards, including OEKO-TEX® Standard 100,\u00a0\nOEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
             "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie Global Recycled Standard (GRS)."
           )}
         </p>
