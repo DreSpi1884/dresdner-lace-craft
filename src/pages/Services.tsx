@@ -608,12 +608,14 @@ requestAnimationFrame(() => {
   <div
   hidden={!isOpen}
   className={`pt-0 ${
-    s.id === "functional-textiles" ? "pb-20" : "pb-10"
+    s.id === "functional-textiles"
+      ? "min-h-[calc(100svh-5rem)] pb-20"
+      : "pb-10"
   }`}
 >
-    {renderBody(s)}
-    {renderProcess(s)}
-  </div>
+  {renderBody(s)}
+  {renderProcess(s)}
+</div>
 </div>
 
        {/* Desktop split section */}
