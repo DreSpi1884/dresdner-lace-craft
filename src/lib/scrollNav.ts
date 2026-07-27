@@ -8,9 +8,9 @@ const BUFFER_PX = 8;
 // Extra breathing room (or negative = scroll further down) needed for
 // specific sections, on top of the base header/sub-nav offset.
 const EXTRA_OFFSET_BY_ID: Record<string, number> = {
-  history: -25,
+  history: -50,
   sustainability: 30,
-  values: -80,
+  values: 40,
   design: -60,
   "raw-material-production": -60,
   "dyeing-finishing": -60,
@@ -19,22 +19,14 @@ const EXTRA_OFFSET_BY_ID: Record<string, number> = {
 
 export const getAnchorScrollOffset = (id?: string) => {
   const isDesktop = window.innerWidth >= 1024;
-
   const header = document.querySelector<HTMLElement>("[data-site-header]");
   const headerHeight =
     header?.getBoundingClientRect().height ?? (isDesktop ? 96 : 80);
 
-  // Mobile: wie im alten Code ausschließlich den Haupt-Header berücksichtigen.
-  if (!isDesktop) {
-    return headerHeight;
-  }
+  if (!isDesktop) return headerHeight;
 
-  // Desktop: Haupt-Header + sticky Subnav + individueller Section-Offset.
-  const subNav = document.querySelector<HTMLElement>(
-    "[data-anchor-subnav]"
-  );
+  const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
   const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
-
   const extra = id ? EXTRA_OFFSET_BY_ID[id] ?? 0 : 0;
 
   return headerHeight + subNavHeight + BUFFER_PX + extra;
