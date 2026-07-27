@@ -1,4 +1,11 @@
-import { createContext, useCallback, useContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 import { ArrowRight, Check } from "lucide-react";
 import {
   Dialog,
@@ -9,6 +16,7 @@ import {
 import { useLang } from "@/i18n/LanguageContext";
 
 type Step = 1 | 2 | 3 | 4 | 5 | 6;
+type SubmitStatus = "idle" | "submitting" | "error";
 
 type QuoteModalContextType = {
   open: () => void;
@@ -37,21 +45,32 @@ const initialForm = {
 };
 
 export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const NOT_SURE = t("I'm not sure", "Ich bin mir nicht sicher");
 
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<Step>(1);
   const [submitted, setSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] =
+    useState<SubmitStatus>("idle");
+  const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState(initialForm);
 
   const isSpitze = form.textileType === "Spitze";
   const totalSteps = isSpitze ? 6 : 5;
 
+  const visibleStep = isSpitze
+    ? step
+    : step === 1
+      ? 1
+      : step - 1;
+
   const open = useCallback(() => {
     setForm(initialForm);
     setStep(1);
     setSubmitted(false);
+    setSubmitStatus("idle");
+    setSubmitError("");
     setIsOpen(true);
   }, []);
   const close = useCallback(() => setIsOpen(false), []);
@@ -109,7 +128,62 @@ const toggleMulti = (
     }
   };
 
-  const handleSubmit = () => setSubmitted(true);
+  const handleSubmit = async (
+    event: FormEvent<HTMLFormElement>,
+  ) => {
+    event.preventDefault();
+
+    if (!contactValid || submitStatus === "submitting") {
+      return;
+    }
+
+    const endpoint = import.meta.env.VITE_QUOTE_ENDPOINT;
+
+    if (!endpoint) {
+      setSubmitStatus("error");
+      setSubmitError(
+        t(
+          "The enquiry form is not configured yet. Please contact us at sales@dresdnerspitzen.com.",
+          "Das Anfrageformular ist noch nicht eingerichtet. Bitte kontaktieren Sie uns unter sales@dresdnerspitzen.com.",
+        ),
+      );
+      return;
+    }
+
+    setSubmitStatus("submitting");
+    setSubmitError("");
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...form,
+          language: lang,
+          submittedAt: new Date().toISOString(),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      setSubmitted(true);
+      setSubmitStatus("idle");
+    } catch (error) {
+      console.error("Quote request failed:", error);
+
+      setSubmitStatus("error");
+      setSubmitError(
+        t(
+          "Your enquiry could not be sent. Please try again or contact us at sales@dresdnerspitzen.com.",
+          "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns unter sales@dresdnerspitzen.com.",
+        ),
+      );
+    }
+  };
 
   const OptionButton = ({
     label,
@@ -140,7 +214,11 @@ const toggleMulti = (
     </button>
   );
 
-  const contactValid = form.name.trim() !== "" && form.email.trim() !== "";
+  const emailValid =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
+
+  const contactValid =
+    form.name.trim() !== "" && emailValid;
   const continueLabel = t("Continue", "Weiter");
   const multiHint = t("You can select multiple options.", "Sie können mehrere Optionen auswählen.");
 
@@ -186,7 +264,7 @@ const toggleMulti = (
                   <div
                     key={s}
                     className={`h-1 flex-1 transition-colors duration-300 ${
-                      s <= step ? "bg-foreground" : "bg-border"
+                     s <= visibleStep ? "bg-foreground" : "bg-border"
                     }`}
                   />
                 ))}
@@ -360,52 +438,104 @@ const toggleMulti = (
 
               {/* Step 6 */}
               {step === 6 && (
-                <div className="space-y-6 animate-fade-in">
+                <form
+                  className="space-y-6 animate-fade-in"
+                  onSubmit={handleSubmit}
+                >
                   <h3 className="editorial-heading-sm text-foreground">
                     {t("Your contact details", "Ihre Kontaktdaten")}
                   </h3>
                   <div className="space-y-4">
                     <input
+                      name="name"
                       type="text"
+                      required
+                      autoComplete="name"
+                      aria-label={t("Your name", "Ihr Name")}
                       value={form.name}
-                      onChange={(e) => updateForm("name", e.target.value)}
+                      onChange={(e) =>
+                        updateForm("name", e.target.value)
+                      }
                       placeholder={t("Your name", "Ihr Name")}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                     <input
+                      name="company"
                       type="text"
+                      autoComplete="organization"
+                      aria-label={t("Company name", "Firmenname")}
                       value={form.company}
-                      onChange={(e) => updateForm("company", e.target.value)}
+                      onChange={(e) =>
+                        updateForm("company", e.target.value)
+                      }
                       placeholder={t("Company name", "Firmenname")}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                     <input
+                      name="email"
                       type="email"
+                      required
+                      autoComplete="email"
+                      aria-label={t("Email address", "E-Mail-Adresse")}
                       value={form.email}
-                      onChange={(e) => updateForm("email", e.target.value)}
+                      onChange={(e) =>
+                        updateForm("email", e.target.value)
+                      }
                       placeholder={t("Email address", "E-Mail-Adresse")}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
                     />
                     <textarea
+                      name="message"
+                      aria-label={t(
+                        "Your message (optional)",
+                        "Ihre Nachricht (optional)",
+                      )}
                       value={form.message}
-                      onChange={(e) => updateForm("message", e.target.value)}
-                      placeholder={t("Your message (optional)", "Ihre Nachricht (optional)")}
+                      onChange={(e) =>
+                        updateForm("message", e.target.value)
+                      }
+                      placeholder={t(
+                        "Your message (optional)",
+                        "Ihre Nachricht (optional)",
+                      )}
                       rows={5}
                       className="w-full border border-border bg-background px-6 py-4 editorial-body-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors resize-none"
                     />
                   </div>
                   <button
-                    onClick={handleSubmit}
-                    disabled={!contactValid}
-                    className="inline-flex items-center gap-2 cta-lace bg-foreground text-background px-8 py-4 editorial-body-sm font-medium hover:bg-charcoal-light transition-colors w-full justify-center disabled:opacity-40 disabled:cursor-not-allowed"
+                    type="submit"
+                    disabled={
+                      !contactValid ||
+                      submitStatus === "submitting"
+                    }
+                    className="inline-flex w-full items-center justify-center gap-2 cta-lace px-8 py-4 editorial-body-sm font-medium disabled:cursor-not-allowed disabled:opacity-40"
                   >
-                    {t("Submit Quote Request", "Angebot anfordern")} <ArrowRight size={16} />
+                    {submitStatus === "submitting"
+                      ? t("Sending…", "Wird gesendet…")
+                      : t(
+                          "Submit Quote Request",
+                          "Angebot anfordern",
+                        )}
+
+                    {submitStatus !== "submitting" && (
+                      <ArrowRight size={16} />
+                    )}
                   </button>
-                </div>
+
+                  {submitStatus === "error" && (
+                    <p
+                      role="alert"
+                      className="editorial-body-sm text-destructive"
+                    >
+                      {submitError}
+                    </p>
+                  )}
+                </form>
               )}
 
               {step > 1 && (
                 <button
+                  type="button"
                   onClick={prevStep}
                   className="mt-6 editorial-body-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
