@@ -33,11 +33,13 @@ const AboutAnchorNav = () => {
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     const updateActiveSection = () => {
-      const anchorLine = window.scrollY + getAnchorScrollOffset() + 8;
+      const scrollPos = window.scrollY;
       let current = sections[0].id;
       sections.forEach((section) => {
         const top = getAnchorSectionTop(section.id, location.pathname);
-        if (top !== null && top <= anchorLine) current = section.id;
+        if (top === null) return;
+        const threshold = top - getAnchorScrollOffset(section.id);
+        if (threshold <= scrollPos) current = section.id;
       });
       setActiveSection(current);
     };
