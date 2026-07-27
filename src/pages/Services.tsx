@@ -563,7 +563,7 @@ scrollMobileSectionToTop(id);
 
 <ProductionAnchorNav />
 
-<section className="w-full">
+<section className="w-full pb-32 md:pb-48 lg:pb-64">
   {services.map((s, i) => {
     const isOpen = mobileOpenId === s.id;
 
