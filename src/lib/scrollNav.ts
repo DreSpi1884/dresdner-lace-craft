@@ -8,9 +8,9 @@ const BUFFER_PX = 8;
 // Extra breathing room (or negative = scroll further down) needed for
 // specific sections, on top of the base header/sub-nav offset.
 const EXTRA_OFFSET_BY_ID: Record<string, number> = {
-  history: -35,
+  history: -25,
   sustainability: 30,
-  values: 20,
+  values: 5,
   design: -60,
   "raw-material-production": -60,
   "dyeing-finishing": -60,
