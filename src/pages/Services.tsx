@@ -149,7 +149,7 @@ const Services = () => {
       },
       {
         step: "02",
-        title: t("Plan", "PLANUNG"),
+        title: t("PLAN", "PLANUNG"),
         desc: t(
           "We develop the right solution for your project.",
           "Wir entwickeln eine Lösung, die exakt zu Ihrem Projekt passt.",
@@ -174,7 +174,7 @@ const Services = () => {
       },
       {
         step: "04",
-        title: t("Delivery", "Lieferung"),
+        title: t("DELIVERY", "LIEFERUNG"),
         desc: t("We deliver reliably and on schedule.", "Wir liefern zuverlässig nach Ihrem Zeitplan."),
       },
     ],
