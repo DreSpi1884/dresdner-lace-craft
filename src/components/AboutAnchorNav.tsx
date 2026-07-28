@@ -19,7 +19,14 @@ const AboutAnchorNav = () => {
 
   const [activeSection, setActiveSection] = useState(() => {
     const hash = location.hash.replace("#", "");
-    return sections.some((s) => s.id === hash) ? hash : "history";
+    const matches = sections.some((s) => s.id === hash);
+    if (matches) {
+      // Beim Reinlinken von außen braucht ScrollToTop einen Moment, bis der
+      // Ziel-Scroll abgeschlossen ist - solange den Listener nicht ran lassen.
+      suppressUntilRef.current = Date.now() + 700;
+      return hash;
+    }
+    return "history";
   });
 
   const scrollToSection = (id: string, behavior: ScrollBehavior = "auto") => {
