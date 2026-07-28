@@ -497,8 +497,8 @@ const openMobileSection = (id: string) => {
           <p>
             {s.id === "raw-material-production"
               ? t(
-                  "Would you like to manufacture a textile project with us? We would be pleased to advise you.",
-                  "Möchten Sie ein textiles Projekt mit uns umsetzen? Wir beraten Sie gerne.",
+                  "In our finishing department, the lace ribbons are separated and the fine scalloped edges are scalloped by hand. Afterwards, all our textiles are carefully checked for quality by us.",
+                  "In unserer Endfertigung werden die Spitzenbänder getrennt und die feinen Bogenkanten von Hand gezäckelt. Danach werden all unsere Textilien sorgfältig von uns auf Qualität geprüft.",
                 )
               : t(
                   "We would be pleased to develop the right textile for your requirements together with you.",
