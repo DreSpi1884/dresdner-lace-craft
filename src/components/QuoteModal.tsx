@@ -157,13 +157,18 @@ const toggleMulti = (
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...form,
-          language: lang,
-          submittedAt: new Date().toISOString(),
-        }),
+  Accept: "application/json",
+  "Content-Type": "application/json",
+},
+body: JSON.stringify({
+  subject:
+    lang === "de"
+      ? "Neue Angebotsanfrage über die Website"
+      : "New quote request via website",
+  ...form,
+  language: lang,
+  submittedAt: new Date().toISOString(),
+}),
       });
 
       if (!response.ok) {
