@@ -66,7 +66,7 @@ const EditorialNav = () => {
 
   const navItems = [
     { key: "home", label: t("HOME", "START"), path: "/" },
-    { key: "services", label: t("PRODUCTION", "PRODUKTION"), path: "/services" },
+    { key: "services", label: t("SERVICES", "SERVICES"), path: "/services" },
     { key: "about", label: t("ABOUT", "ÜBER UNS"), path: "/about" },
     { key: "contact", label: t("CONTACT", "KONTAKT"), path: "/contact" },
   ];

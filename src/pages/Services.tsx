@@ -206,8 +206,8 @@ const Services = () => {
       },
       {
         id: "raw-material-production",
-        nav: t("Raw Material Production", "Rohwarenproduktion"),
-        title: t("Raw Material Production", "Rohwarenproduktion"),
+        nav: t("Production", "Produktion"),
+        title: t("Production", "Produktion"),
         desktopImages: [rawMaterialImg1, rawMaterialImg2],
         mobileImage: rawMaterialImg1,
         text: t(
