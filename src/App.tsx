@@ -13,6 +13,7 @@ import Imprint from "./pages/Imprint.tsx";
 import Privacy from "./pages/Privacy.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import { QuoteModalProvider } from "@/components/QuoteModal";
+import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <CookieConsent />
         </QuoteModalProvider>
       </BrowserRouter>
     </TooltipProvider>
