@@ -14,9 +14,18 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["'Bodoni Moda'", "Georgia", "serif"],
-        sans: ["'Jost'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-      },
+  serif: [
+    "'Bodoni Moda Variable'",
+    "Georgia",
+    "serif",
+  ],
+  sans: [
+    "'Jost Variable'",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "sans-serif",
+  ],
+},
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
