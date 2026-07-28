@@ -474,7 +474,8 @@ const openMobileSection = (id: string) => {
       {s.text.split("\n").slice(-1)[0]}
     </p>
     </>
-    ) : s.id === "functional-textiles" ? (
+       ) : s.id === "functional-textiles" ||
+        s.id === "raw-material-production" ? (
       <>
         {s.text.split("\n").map((line, li) =>
           line ? (
@@ -485,16 +486,24 @@ const openMobileSection = (id: string) => {
               {line}
             </p>
           ) : (
-            <div key={`${s.id}-${lang}-${li}`} className="h-4" />
+            <div
+              key={`${s.id}-${lang}-${li}`}
+              className="h-4"
+            />
           )
         )}
 
         <div className="mt-10 border-t border-primary/15 pt-7">
           <p>
-            {t(
-              "We would be pleased to develop the right textile for your requirements together with you.",
-              "Gerne entwickeln wir mit Ihnen das passende Textil für Ihre Anforderungen."
-            )}
+            {s.id === "raw-material-production"
+              ? t(
+                  "Would you like to manufacture a textile project with us? We would be pleased to advise you.",
+                  "Möchten Sie ein textiles Projekt mit uns umsetzen? Wir beraten Sie gerne.",
+                )
+              : t(
+                  "We would be pleased to develop the right textile for your requirements together with you.",
+                  "Gerne entwickeln wir mit Ihnen das passende Textil für Ihre Anforderungen.",
+                )}
           </p>
 
           <button
