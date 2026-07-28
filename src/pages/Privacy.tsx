@@ -15,9 +15,9 @@ const Privacy = () => {
         path="/privacy"
       />
       <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12">
-        <div className="editorial-container max-w-6xl">
+        <div className="editorial-container max-w-full">
           <h1 className="editorial-heading-xl mb-6">{t("Privacy Policy", "Datenschutzerklärung")}</h1>
-          <div className="editorial-body text-muted-foreground whitespace-pre-wrap">
+          <div className="editorial-body text-muted-foreground whitespace-pre-line">
             <p>
               {t(
                 `Last updated: 28 July 2026
