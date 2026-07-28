@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 import { getAnchorScrollOffset, getAnchorSectionTop } from "@/lib/scrollNav";
@@ -6,6 +6,7 @@ import { getAnchorScrollOffset, getAnchorSectionTop } from "@/lib/scrollNav";
 const AboutAnchorNav = () => {
   const { t } = useLang();
   const location = useLocation();
+  const suppressUntilRef = useRef(0);
 
   const sections = useMemo(
     () => [
@@ -25,6 +26,9 @@ const AboutAnchorNav = () => {
     const top = getAnchorSectionTop(id, location.pathname);
     if (top === null) return;
     setActiveSection(id);
+    // Scroll-Listener für kurze Zeit ignorieren, damit er die gerade
+    // gesetzte Markierung nicht sofort wieder überschreibt.
+    suppressUntilRef.current = Date.now() + 700;
     const offset = getAnchorScrollOffset(id);
     window.scrollTo({ top: top - offset, behavior });
     window.history.replaceState(null, "", `#${id}`);
@@ -33,6 +37,7 @@ const AboutAnchorNav = () => {
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     const updateActiveSection = () => {
+      if (Date.now() < suppressUntilRef.current) return;
       const scrollPos = window.scrollY;
       let current = sections[0].id;
       sections.forEach((section) => {
@@ -51,7 +56,6 @@ const AboutAnchorNav = () => {
       window.removeEventListener("resize", updateActiveSection);
     };
   }, [sections, location.pathname]);
-
 
   return (
     <nav
