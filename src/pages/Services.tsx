@@ -309,13 +309,8 @@ const openMobileSection = (id: string) => {
 
   const renderBody = (s: ServiceItem) => (
   <div
-    style={{
-      fontFamily: "'Jost', sans-serif",
-      fontSize: "clamp(15px, 1vw, 18px)",
-      lineHeight: 1.75,
-      maxWidth: "900px",
-      color: "hsl(var(--muted-foreground))",
-    }}
+    className="editorial-body text-muted-foreground"
+    style={{ maxWidth: "900px" }}
   >
     {s.id === "design" ? (
       <>
@@ -339,7 +334,7 @@ const openMobileSection = (id: string) => {
               <h3
                 className="mt-8 mb-6"
                 style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: "14px",
                   letterSpacing: "2px",
                   textTransform: "uppercase",
@@ -372,7 +367,7 @@ const openMobileSection = (id: string) => {
                       <span
                         className="italic opacity-45 transition-opacity duration-300 group-hover:opacity-100"
                         style={{
-                          fontFamily: "'Bodoni Moda', serif",
+                          fontFamily: "var(--font-serif)",
                           fontSize: "18px",
                           lineHeight: 1.2,
                           color: "hsl(var(--primary))",
@@ -385,7 +380,7 @@ const openMobileSection = (id: string) => {
                         <h3
                           className="mb-1.5"
                           style={{
-                            fontFamily: "'Jost', sans-serif",
+                            fontFamily: "var(--font-sans)",
                             fontSize: "14px",
                             letterSpacing: "1.2px",
                             textTransform: "uppercase",
@@ -398,7 +393,7 @@ const openMobileSection = (id: string) => {
               
                         <p
                           style={{
-                            fontFamily: "'Jost', sans-serif",
+                            fontFamily: "var(--font-sans)",
                             fontSize: "14px",
                             lineHeight: 1.65,
                             color: "hsl(var(--muted-foreground) / 0.9)",
@@ -440,7 +435,7 @@ const openMobileSection = (id: string) => {
     <div className="mt-10 border-t border-primary/15 pt-7">
       <p
         style={{
-          fontFamily: "'Jost', sans-serif",
+          fontFamily: "var(--font-sans)",
           fontSize: "clamp(15px, 1vw, 18px)",
           lineHeight: 1.75,
           color: "hsl(var(--muted-foreground))",
@@ -474,7 +469,7 @@ const openMobileSection = (id: string) => {
     <p
       className="mt-8"
       style={{
-        fontFamily: "'Jost', sans-serif",
+        fontFamily: "var(--font-sans)",
         fontSize: "12px",
         letterSpacing: "2px",
         textTransform: "uppercase",
@@ -545,7 +540,7 @@ const openMobileSection = (id: string) => {
               <span
                 className="mb-4 italic transition-opacity duration-300 opacity-30 group-hover:opacity-100"
                 style={{
-                  fontFamily: "'Bodoni Moda', serif",
+                  fontFamily: "var(--font-serif)",
                   fontSize: "30px",
                   lineHeight: 1,
                   color: "hsl(var(--primary))",
@@ -556,7 +551,7 @@ const openMobileSection = (id: string) => {
               <h3
                 className="mb-3"
                 style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: "15px",
                   letterSpacing: "0.5px",
                   textTransform: "uppercase",
@@ -568,7 +563,7 @@ const openMobileSection = (id: string) => {
               </h3>
               <p
                 style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontSize: "13px",
                   lineHeight: 1.6,
                   color: "hsl(var(--muted-foreground) / 0.9)",
@@ -653,15 +648,9 @@ const openMobileSection = (id: string) => {
 <div data-no-reveal className="hidden lg:grid lg:grid-cols-2">
   <div className="flex min-h-[760px] items-start lg:pl-[48px] lg:pr-10 py-20">
     <div className="w-full max-w-none">
-      <h2
-        className="mb-16 leading-[1.1]"
-        style={{
-          fontFamily: "'Bodoni Moda', serif",
-          fontSize: "clamp(30px, 4vw, 46px)",
-          color: "hsl(var(--primary))",
-          fontWeight: 500,
-        }}
-      >
+      <h2 className="editorial-heading-lg mb-16 text-primary">
+  {s.title}
+</h2>
         {s.title}
       </h2>
 
@@ -701,7 +690,7 @@ const openMobileSection = (id: string) => {
         <span
           className="relative text-center"
           style={{
-            fontFamily: "'Jost', sans-serif",
+            fontFamily: "var(--font-sans)",
             fontSize: "11px",
             letterSpacing: "2px",
             textTransform: "uppercase",
