@@ -242,6 +242,7 @@ const Services = () => {
   );
 
 const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
+const lastHandledKeyRef = useRef<string | null>(null);
 
 useLayoutEffect(() => {
   const hash = location.hash.replace("#", "");
@@ -251,10 +252,15 @@ useLayoutEffect(() => {
     setMobileOpenId(exists ? hash : null);
   });
 
-  if (exists && typeof window !== "undefined" && window.innerWidth < 1024) {
-    // Layout is now flushed (previous accordion closed, target opened).
-    // Scroll once, before paint, so the image sits crisp under the header
-    // with no visible jump.
+  // Only scroll on real navigations (new location.key), not on incidental
+  // re-runs (e.g. language toggle rebuilding `services`).
+  if (
+    exists &&
+    lastHandledKeyRef.current !== location.key &&
+    typeof window !== "undefined" &&
+    window.innerWidth < 1024
+  ) {
+    lastHandledKeyRef.current = location.key;
     scrollMobileSectionToTop(hash);
   }
 }, [location.hash, location.key, services]);
