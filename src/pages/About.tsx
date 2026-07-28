@@ -90,7 +90,18 @@ const About = () => {
     if (!element) return;
     const offset = getAnchorScrollOffset(id);
     const top = element.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: "auto" });
+
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.scrollBehavior;
+    const prevBody = body.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+    body.style.scrollBehavior = "auto";
+    window.scrollTo({ top: Math.max(top, 0), left: 0, behavior: "auto" });
+    window.requestAnimationFrame(() => {
+      html.style.scrollBehavior = prevHtml;
+      body.style.scrollBehavior = prevBody;
+    });
   };
 
   const openMobileSection = (id: string) => {
