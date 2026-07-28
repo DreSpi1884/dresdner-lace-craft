@@ -2,27 +2,9 @@ import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 
-const Privacy = () => {
-  const { t } = useLang();
-  return (
-    <EditorialLayout heroAtTop={true}>
-      <SEO
-        title={t("Privacy Policy", "Datenschutzerklärung")}
-        description={t(
-          "Information on how personal data is processed when using the Dresdner Spitzen website.",
-          "Informationen zur Verarbeitung personenbezogener Daten bei der Nutzung der Website von Dresdner Spitzen."
-        )}
-        path="/privacy"
-      />
-      <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12">
-        <div className="editorial-container max-w-full">
-          <h1 className="editorial-heading-xl mb-6">{t("Privacy Policy", "Datenschutzerklärung")}</h1>
-          <div className="editorial-body text-muted-foreground whitespace-pre-line">
-            <p>
-              {t(
-                `Last updated: 28 July 2026
+const privacyTextEn = `Last updated: 28 July 2026
 
-                1. Data Controller
+1. Data Controller
 
 The data controller for the processing of personal data on this website is:
 
@@ -214,10 +196,11 @@ You can also contact any other data protection supervisory authority responsible
 
 16. Changes to this Privacy Policy
 
-We may adjust this privacy policy if the website, the services used, or the legal requirements change. The version published on this website at the time applies.`,
-                `Stand: 28. Juli 2026
+We may adjust this privacy policy if the website, the services used, or the legal requirements change. The version published on this website at the time applies.`;
 
-                1. Verantwortlicher
+const privacyTextDe = `Stand: 28. Juli 2026
+
+1. Verantwortlicher
 
 Verantwortlicher für die Verarbeitung personenbezogener Daten auf dieser Website ist:
 
@@ -267,10 +250,10 @@ Im Rahmen des IONOS-Hostings wird IONOS WebAnalytics eingesetzt. Die Auswertung 
 Verarbeitet werden insbesondere:
 
 die zuvor besuchte Website;
-die aufgerufene Seite oder Datei; 
+die aufgerufene Seite oder Datei;
 Browsertyp und Browserversion;
-Betriebssystem; 
-Gerätetyp; 
+Betriebssystem;
+Gerätetyp;
 Zeitpunkt des Zugriffs;
 die IP-Adresse in anonymisierter Form zur ungefähren Bestimmung des Zugriffsortes.
 
@@ -323,7 +306,7 @@ Beim Absenden des Formulars kann Formspree außerdem technisch die IP-Adresse, d
 
 Die Verarbeitung erfolgt zur Bearbeitung Ihrer Anfrage und gegebenenfalls zur Vorbereitung eines Angebots oder Vertrags. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Bei Anfragen, die nicht auf einen Vertrag gerichtet sind, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der effizienten und sicheren Bearbeitung von Websiteanfragen.
 
-Formspree verarbeitet Daten in den Vereinigten Staaten und nutzt nach eigenen Angaben technische Infrastruktur von Amazon Web Services in den USA. Formspree gibt an, für Übermittlungen aus Europa Standardvertragsklauseln als geeignete Garantie zu verwenden. 
+Formspree verarbeitet Daten in den Vereinigten Staaten und nutzt nach eigenen Angaben technische Infrastruktur von Amazon Web Services in den USA. Formspree gibt an, für Übermittlungen aus Europa Standardvertragsklauseln als geeignete Garantie zu verwenden.
 
 Trotz dieser Garantien kann bei einer Verarbeitung in den USA nicht vollständig ausgeschlossen werden, dass US-Behörden im Rahmen der gesetzlichen Befugnisse auf Daten zugreifen.
 
@@ -390,7 +373,7 @@ Zur Ausübung Ihrer Rechte können Sie sich an datenschutz@dresdnerspitzen.com w
 
 14. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
 
-Soweit wir personenbezogene Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen die Verarbeitung einzulegen.
+Soweit wir personenbezogene Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen die Verarbeitung einlegen.
 
 Wir verarbeiten die betreffenden Daten anschließend nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
 
@@ -409,9 +392,30 @@ Sie können sich auch an eine andere für Sie zuständige Datenschutzaufsichtsbe
 
 16. Änderungen dieser Datenschutzerklärung
 
-Wir können diese Datenschutzerklärung anpassen, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen Anforderungen ändern. Es gilt die jeweils auf dieser Website veröffentlichte Fassung.`
-              )}
-            </p>
+Wir können diese Datenschutzerklärung anpassen, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen Anforderungen ändern. Es gilt die jeweils auf dieser Website veröffentlichte Fassung.`;
+
+const Privacy = () => {
+  const { t } = useLang();
+  
+  const content = t(privacyTextEn, privacyTextDe);
+
+  return (
+    <EditorialLayout heroAtTop={true}>
+      <SEO
+        title={t("Privacy Policy", "Datenschutzerklärung")}
+        description={t(
+          "Information on how personal data is processed when using the Dresdner Spitzen website.",
+          "Informationen zur Verarbeitung personenbezogener Daten bei der Nutzung der Website von Dresdner Spitzen."
+        )}
+        path="/privacy"
+      />
+      <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12 w-full px-4 md:px-8">
+        <div className="editorial-container w-full max-w-none">
+          <h1 className="editorial-heading-xl mb-6">
+            {t("Privacy Policy", "Datenschutzerklärung")}
+          </h1>
+          <div className="editorial-body text-muted-foreground whitespace-pre-line w-full">
+            {content}
           </div>
         </div>
       </section>
