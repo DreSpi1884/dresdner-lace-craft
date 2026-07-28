@@ -247,8 +247,17 @@ useLayoutEffect(() => {
   const hash = location.hash.replace("#", "");
   const exists = services.some((service) => service.id === hash);
 
-  setMobileOpenId(exists ? hash : null);
-}, [location.hash, services]);
+  flushSync(() => {
+    setMobileOpenId(exists ? hash : null);
+  });
+
+  if (exists && typeof window !== "undefined" && window.innerWidth < 1024) {
+    // Layout is now flushed (previous accordion closed, target opened).
+    // Scroll once, before paint, so the image sits crisp under the header
+    // with no visible jump.
+    scrollMobileSectionToTop(hash);
+  }
+}, [location.hash, location.key, services]);
 
 const scrollMobileSectionToTop = (id: string) => {
   const element = document.getElementById(id);
