@@ -32,8 +32,8 @@ const Contact = () => {
 
               <p className="editorial-body mb-6 whitespace-pre-line text-muted-foreground">
                 {t(
-                  "Do you have a specific project or would you like to learn more about us?\nWe usually respond within two business days.",
-                  "Sie haben ein konkretes Projekt oder möchten mehr über uns erfahren?\nIn der Regel antworten wir innerhalb von zwei Werktagen.",
+                  "Do you have a specific project or would like to learn more about us?\nWe respond within two business days.",
+                  "Sie haben ein konkretes Projekt oder möchten mehr über uns erfahren?\nWir antworten innerhalb von zwei Werktagen.",
                 )}
               </p>
 
