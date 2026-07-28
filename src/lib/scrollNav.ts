@@ -10,7 +10,7 @@ const BUFFER_PX = 8;
 const EXTRA_OFFSET_BY_ID: Record<string, number> = {
   history: -50,
   sustainability: 30,
-  values: -60,
+  values: -80,
   design: -60,
   "raw-material-production": -60,
   "dyeing-finishing": -60,
