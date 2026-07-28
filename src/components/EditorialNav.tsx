@@ -437,7 +437,7 @@ const handleDropdownAnchor = (
                         : "text-background/80"
                     }`}
                     style={{
-                      fontFamily: "'Jost', sans-serif",
+                      fontFamily: "var(--font-sans)",
                       fontSize: "13px",
                       letterSpacing: "2px",
                       textTransform: "uppercase",
@@ -460,7 +460,7 @@ const handleDropdownAnchor = (
                         : "text-background/80"
                     }`}
                     style={{
-                      fontFamily: "'Jost', sans-serif",
+                      fontFamily: "var(--font-sans)",
                       fontSize: "13px",
                       letterSpacing: "2px",
                       textTransform: "uppercase",
@@ -478,7 +478,7 @@ const handleDropdownAnchor = (
                         onClick={() => setIsOpen(false)}
                         className="text-background/55 hover:text-background transition-colors pl-2"
                         style={{
-                          fontFamily: "'Jost', sans-serif",
+                          fontFamily: "var(--font-sans)",
                           fontSize: "14px",
                           lineHeight: 1.8,
                         }}
