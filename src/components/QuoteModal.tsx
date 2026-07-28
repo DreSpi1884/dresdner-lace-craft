@@ -137,43 +137,69 @@ const toggleMulti = (
       return;
     }
 
-    const endpoint = import.meta.env.VITE_QUOTE_ENDPOINT;
-
-    if (!endpoint) {
-      setSubmitStatus("error");
-      setSubmitError(
-        t(
-          "The enquiry form is not configured yet. Please contact us at sales@dresdnerspitzen.com.",
-          "Das Anfrageformular ist noch nicht eingerichtet. Bitte kontaktieren Sie uns unter sales@dresdnerspitzen.com.",
-        ),
-      );
-      return;
-    }
+   const endpoint = "https://formspree.io/f/meeynank";
 
     setSubmitStatus("submitting");
     setSubmitError("");
 
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-  Accept: "application/json",
-  "Content-Type": "application/json",
-},
-body: JSON.stringify({
-  subject:
-    lang === "de"
-      ? "Neue Angebotsanfrage über die Website"
-      : "New quote request via website",
-  ...form,
-  language: lang,
-  submittedAt: new Date().toISOString(),
-}),
-      });
+      const payload = new FormData();
 
-      if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
-      }
+payload.append(
+  "_subject",
+  lang === "de"
+    ? "Neue Angebotsanfrage über die Website"
+    : "New quote request via website",
+);
+
+payload.append("textileType", form.textileType);
+payload.append("laceType", form.laceType.join(", "));
+payload.append("widths", form.widths);
+payload.append(
+  "widthsNotSure",
+  form.widthsNotSure ? "Ja" : "Nein",
+);
+payload.append("usage", form.usage.join(", "));
+payload.append("quantity", form.quantity.join(", "));
+payload.append("name", form.name);
+payload.append("company", form.company);
+payload.append("email", form.email);
+payload.append("message", form.message);
+payload.append("language", lang);
+payload.append(
+  "submittedAt",
+  new Date().toISOString(),
+);
+
+const response = await fetch(endpoint, {
+  method: "POST",
+  body: payload,
+  headers: {
+    Accept: "application/json",
+  },
+});
+
+const responseData = await response
+  .json()
+  .catch(() => null);
+
+if (!response.ok) {
+  const formspreeError =
+    Array.isArray(responseData?.errors)
+      ? responseData.errors
+          .map(
+            (error: { message?: string }) =>
+              error.message,
+          )
+          .filter(Boolean)
+          .join(", ")
+      : "";
+
+  throw new Error(
+    formspreeError ||
+      `Request failed with status ${response.status}`,
+  );
+}
 
       setSubmitted(true);
       setSubmitStatus("idle");
