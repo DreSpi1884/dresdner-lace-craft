@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 import { useLocation, Link } from "react-router-dom";
 import { ChevronDown, Info } from "lucide-react";
@@ -242,27 +242,14 @@ const Services = () => {
   );
 
 const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
-const lastHandledKeyRef = useRef<string | null>(null);
 
 useLayoutEffect(() => {
+  if (window.innerWidth >= 1024) return;
+
   const hash = location.hash.replace("#", "");
   const exists = services.some((service) => service.id === hash);
 
-  flushSync(() => {
-    setMobileOpenId(exists ? hash : null);
-  });
-
-  // Only scroll on real navigations (new location.key), not on incidental
-  // re-runs (e.g. language toggle rebuilding `services`).
-  if (
-    exists &&
-    lastHandledKeyRef.current !== location.key &&
-    typeof window !== "undefined" &&
-    window.innerWidth < 1024
-  ) {
-    lastHandledKeyRef.current = location.key;
-    scrollMobileSectionToTop(hash);
-  }
+  setMobileOpenId(exists ? hash : null);
 }, [location.hash, location.key, services]);
 
 const scrollMobileSectionToTop = (id: string) => {
@@ -283,6 +270,15 @@ const scrollMobileSectionToTop = (id: string) => {
     body.style.scrollBehavior = prevBody;
   });
 };
+
+useLayoutEffect(() => {
+  if (window.innerWidth >= 1024) return;
+
+  const hash = location.hash.replace("#", "");
+  if (!hash || mobileOpenId !== hash) return;
+
+  scrollMobileSectionToTop(hash);
+}, [mobileOpenId, location.hash, location.key]);
 
 
 const openMobileSection = (id: string) => {
