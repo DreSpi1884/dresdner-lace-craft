@@ -6,520 +6,404 @@ const Privacy = () => {
   const { t } = useLang();
   return (
     <EditorialLayout heroAtTop={true}>
-        <SEO
-          title={t(
-            "Privacy Policy",
-            "Datenschutzerklärung"
-          )}
-          description={t(
-            "Information on how personal data is processed when using the Dresdner Spitzen website.",
-            "Informationen zur Verarbeitung personenbezogener Daten bei der Nutzung der Website von Dresdner Spitzen."
-          )}
-          path="/privacy"
-        />
+      <SEO
+        title={t("Privacy Policy", "Datenschutzerklärung")}
+        description={t(
+          "Information on how personal data is processed when using the Dresdner Spitzen website.",
+          "Informationen zur Verarbeitung personenbezogener Daten bei der Nutzung der Website von Dresdner Spitzen."
+        )}
+        path="/privacy"
+      />
       <section className="mt-20 md:mt-24 pt-8 md:pt-12 pb-8 md:pb-12">
         <div className="editorial-container max-w-3xl">
           <h1 className="editorial-heading-xl mb-6">{t("Privacy Policy", "Datenschutzerklärung")}</h1>
           <div className="editorial-body text-muted-foreground whitespace-pre-wrap">
-
             <p>
               {t(
-                `Datenschutzerklärung nach den Vorgaben der DSGVO
+                `1. Data Controller
 
-I.         Name und Anschrift des Verantwortlichen
-
-Der Verantwortliche im Sinne der Datenschutz-Grundverordnung und anderer nationaler Datenschutzgesetze der Mitgliedsstaaten sowie sonstiger datenschutzrechtlicher Bestimmungen ist die:
-
- 
+The data controller for the processing of personal data on this website is:
 
 DreGuS GmbH & Co. KG
-
-Breitscheidstr. 78
-
+Breitscheidstraße 78
 01237 Dresden
+Germany
+Phone: +49 351 2048 0
+Email: sales@dresdnerspitzen.com
 
-Telefon: +49 (0) 351 204 8 20
+Represented by: Dr.-Ing. Sascha Schröder
 
+2. General Information
+
+We process personal data only to the extent necessary to provide our website, process inquiries, initiate and execute business relationships, or fulfill legal obligations.
+
+Personal data is any information relating to an identified or identifiable natural person.
+
+Processing is carried out in particular on the basis of:
+
+Art. 6 (1) (b) GDPR, insofar as processing is necessary for the performance of pre-contractual measures or a contract;
+Art. 6 (1) (c) GDPR, insofar as we are subject to legal obligations;
+Art. 6 (1) (f) GDPR, insofar as processing is necessary for the protection of our legitimate interests or the legitimate interests of third parties;
+Art. 6 (1) (a) GDPR, insofar as we have obtained prior consent.
+
+3. Hosting and Server Logs
+
+This website is hosted by the following provider:
+
+IONOS SE
+Elgendorfer Straße 57
+56410 Montabaur
+Germany
+
+When the website is accessed, technically necessary access data is processed. This may include, in particular, the page or file accessed, date and time of access, browser type and version, operating system, device type, referrer URL, and IP address.
+
+Processing is carried out to deliver the website, ensure its stability and security, detect technical errors, and prevent misuse.
+
+The legal basis is Art. 6 (1) (f) GDPR. Our legitimate interest lies in the secure, reliable, and technically flawless operation of the website.
+
+According to IONOS, visitor data collected for web hosting is immediately anonymized and stored for up to eight weeks. According to IONOS, no data is passed on to third parties or transferred to countries outside the European Union for this hosting data.
+
+4. IONOS WebAnalytics
+
+As part of IONOS hosting, IONOS WebAnalytics is used. The evaluation is carried out via log files or a tracking pixel. According to IONOS, WebAnalytics does not use cookies.
+
+The following are processed in particular:
+
+the previously visited website;
+the page or file accessed;
+browser type and version;
+operating system;
+device type;
+time of access;
+the IP address in anonymized form for the approximate determination of the location of access.
+
+The IP address is technically transmitted when a page is accessed and is then immediately anonymized according to IONOS.
+
+The data is processed for statistical evaluation and technical optimization of our web offer. The legal basis is Art. 6 (1) (f) GDPR. Our legitimate interest lies in the analysis of general usage and the improvement of our website.
+
+According to IONOS, no personal visitor profiles are created via WebAnalytics and no data is passed on to third parties.
+
+5. Language Selection
+
+On the website, you can choose between the German and English language versions. The selected language is stored under the key "ds-lang" in your browser's local storage.
+
+This allows the website to restore your language selection on a subsequent visit. The information is stored exclusively on your end device and is not used for analysis or advertising purposes.
+
+The legal basis is Art. 6 (1) (f) GDPR. Our legitimate interest lies in a user-friendly and uniform presentation of the website. Storage is also necessary to provide the language function you have expressly chosen.
+
+You can delete the stored language selection at any time by removing the website or browser data in your browser.
+
+6. Contact by Email
+
+If you contact us by email, we process the data you transmit, in particular your email address, your name, the content of your message, and any other information you provide voluntarily.
+
+Processing is carried out to process and answer your inquiry.
+
+If your inquiry relates to a possible contract or an existing business relationship, Art. 6 (1) (b) GDPR is the legal basis. For general inquiries, processing is based on Art. 6 (1) (f) GDPR. Our legitimate interest lies in the proper handling of incoming communication.
+
+7. Inquiry Form and Formspree
+
+For the inquiry form, we use the service Formspree, provided by Formspree, Inc., USA.
+
+Depending on your specifications, the following data in particular is processed via the form:
+
+desired type of textile;
+desired type of lace;
+width specifications;
+intended area of use;
+desired quantity;
+name;
+company;
+email address;
+message;
+selected language;
+time of transmission.
+
+Information on company and message can be voluntary. The information marked as required is needed so that we can process and answer your inquiry.
+
+Formspree receives the form data, protects the form from abusive submissions, stores the submission in the Formspree system, and forwards a notification to us.
+
+Processing is carried out to process your inquiry and, if necessary, to prepare an offer or contract. The legal basis is Art. 6 (1) (b) GDPR. For inquiries that are not directed towards a contract, processing is based on Art. 6 (1) (f) GDPR. Our legitimate interest lies in the efficient and secure processing of website inquiries.
+
+Formspree processes data in the United States and, according to its own information, uses technical infrastructure from Amazon Web Services in the USA. Formspree states that it uses standard contractual clauses as an appropriate guarantee for transfers from Europe.
+
+Despite these guarantees, it cannot be completely ruled out that US authorities may access data within the scope of legal powers when processing takes place in the USA.
+
+Please do not submit any special categories of personal data via the form, such as health data, information on ethnic origin, political opinion, religion, or trade union membership.
+
+We delete form data as soon as it is no longer required for processing the inquiry and a possible business relationship. Data may be stored longer if there are legal retention obligations or if it is needed for the assertion, exercise, or defense of legal claims.
+
+According to Formspree, data is stored for as long as is necessary to provide the service, fulfill legal obligations, resolve disputes, or enforce agreements.
+
+8. Links to Instagram and LinkedIn
+
+Our website contains links to our profiles on Instagram and LinkedIn. These are merely external links. No social media plugins, feeds, or tracking pixels from these providers are integrated into our website.
+
+Only when you click on such a link do you leave our website and a connection to the respective provider is established. In doing so, your IP address, device, and browser information, as well as the information that you reached the respective offer from our website, may be processed.
+
+The respective platform operator is responsible for the data processing that takes place after clicking. The use of the platforms is subject to their own data protection provisions.
+
+9. Recipients of Personal Data
+
+Personal data will only be transferred to recipients if this is necessary to fulfill the described purposes, if a legal obligation exists, or if you have consented.
+
+Possible recipients include in particular:
+
+IONOS SE as hosting and WebAnalytics provider;
+Formspree, Inc. as service provider for the inquiry form;
+internal departments and employees involved in processing your inquiry;
+external advisors or service providers, insofar as this is necessary for the fulfillment of legal or business obligations.
+
+Insofar as service providers process data exclusively on our behalf, they are used as processors in accordance with legal requirements.
+
+10. Storage Period
+
+We store personal data only as long as is necessary for the respective processing purpose.
+
+After completion of an inquiry, the data will be deleted unless a further business relationship arises and there are no legal retention obligations or legitimate interests in further storage.
+
+Business communication may be subject to legal commercial or tax retention periods. In this case, processing is limited to the fulfillment of these obligations.
+
+11. Obligation to Provide Data
+
+The provision of personal data is generally not required by law or contract.
+
+However, certain information, in particular name and email address, is required so that we can process and answer an inquiry made via the inquiry form. Without this information, processing via the form is not possible.
+
+12. Automated Decisions
+
+Automated decision-making, including profiling within the meaning of Art. 22 GDPR, does not take place.
+
+13. Your Rights
+
+You have the following rights in particular within the scope of legal requirements:
+
+Right of access under Art. 15 GDPR;
+Right to rectification under Art. 16 GDPR;
+Right to erasure under Art. 17 GDPR;
+Right to restriction of processing under Art. 18 GDPR;
+Right to data portability under Art. 20 GDPR;
+Right to object under Art. 21 GDPR;
+Right to withdraw consent given with effect for the future.
+
+The withdrawal of consent does not affect the lawfulness of the processing that took place until the withdrawal.
+
+To exercise your rights, you can contact sales@dresdnerspitzen.com. The rights may be restricted if legal exceptions or retention obligations stand in the way.
+
+14. Objection to Processing Based on Legitimate Interests
+
+Insofar as we process personal data on the basis of Art. 6 (1) (f) GDPR, you have the right to object to the processing at any time for reasons arising from your particular situation.
+
+We will then no longer process the data concerned unless we can demonstrate compelling legitimate grounds for processing that outweigh your interests, rights, and freedoms, or the processing serves the assertion, exercise, or defense of legal claims.
+
+15. Right of Complaint
+
+You have the right to complain to a data protection supervisory authority if you believe that the processing of your personal data violates data protection law.
+
+The supervisory authority responsible for Saxony is:
+
+Sächsische Datenschutz- und Transparenzbeauftragte
+Devrientstraße 5
+01067 Dresden
+Germany
+
+You can also contact any other data protection supervisory authority responsible for you.
+
+16. Changes to this Privacy Policy
+
+We may adjust this privacy policy if the website, the services used, or the legal requirements change. The version published on this website at the time applies.`,
+                `1. Verantwortlicher
+
+Verantwortlicher für die Verarbeitung personenbezogener Daten auf dieser Website ist:
+
+DreGuS GmbH & Co. KG
+Breitscheidstraße 78
+01237 Dresden
+Deutschland
+Telefon: +49 351 2048 0
 E-Mail: sales@dresdnerspitzen.com
 
- 
+Vertreten durch: Dr.-Ing. Sascha Schröder
 
-II.       Allgemeines zur Datenverarbeitung
-1.        Umfang der Verarbeitung personenbezogener Daten
+2. Allgemeine Hinweise
 
-Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Webseite sowie unserer Inhalte und Leistungen erforderlich ist. Die Verarbeitung personenbezogener Daten unserer Nutzer erfolgt regelmäßig nur nach Einwilligung des Nutzers. Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.
+Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung unserer Website, zur Bearbeitung von Anfragen, zur Anbahnung und Durchführung von Geschäftsbeziehungen oder zur Erfüllung gesetzlicher Verpflichtungen erforderlich ist.
 
- 
+Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen.
 
-2.        Rechtsgrundlage für die Verarbeitung personenbezogener Daten
+Die Verarbeitung erfolgt insbesondere auf Grundlage von:
 
-Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person einholen, dient Art. 6 Abs. 1 lit. a EU-Datenschutzgrundverordnung (DSGVO) als Rechtsgrundlage.
+Art. 6 Abs. 1 lit. b DSGVO, soweit die Verarbeitung zur Durchführung vorvertraglicher Maßnahmen oder zur Erfüllung eines Vertrags erforderlich ist;
+Art. 6 Abs. 1 lit. c DSGVO, soweit wir rechtlichen Verpflichtungen unterliegen;
+Art. 6 Abs. 1 lit. f DSGVO, soweit die Verarbeitung zur Wahrung unserer berechtigten Interessen oder der berechtigten Interessen Dritter erforderlich ist;
+Art. 6 Abs. 1 lit. a DSGVO, soweit wir zuvor eine Einwilligung eingeholt haben.
 
-Bei der Verarbeitung von personenbezogenen Daten, die zur Erfüllung eines Vertrages, dessen Vertragspartei die betroffene Person ist, erforderlich ist, dient Art. 6 Abs. 1 lit. B DSGVO als Rechtsgrundlage. Dies gilt auch für Verarbeitungsvorgänge, die zur Durchführung vorvertraglicher Maßnahmen erforderlich sind.
+3. Hosting und Serverprotokolle
 
-Soweit eine Verarbeitung personenbezogener Daten zur Erfüllung einer rechtlichen Verpflichtung erforderlich ist, der unser Unternehmen unterliegt, dient Art. 6 Abs. 1 lit. c DSGVO als Rechtsgrundlage.
+Diese Website wird bei folgendem Anbieter gehostet:
 
-Für den Fall, dass lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person eine Verarbeitung personenbezogener Daten erforderlich machen, dient Art. 6 Abs. 1 lit. d DSGVO als Rechtsgrundlage.
+IONOS SE
+Elgendorfer Straße 57
+56410 Montabaur
+Deutschland
 
-Ist die Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens oder eines Dritten erforderlich und überwiegen die Interessen, Grundrechte und Grundfreiheiten des Betroffenen das erstgenannte Interesse nicht, so dient Art. 6 Abs. 1 lit. f DSGVO als Rechtsgrundlage für die Verarbeitung.
+Beim Aufruf der Website werden technisch erforderliche Zugriffsdaten verarbeitet. Dazu können insbesondere die aufgerufene Seite oder Datei, Datum und Uhrzeit des Zugriffs, Browsertyp und Browserversion, Betriebssystem, Gerätetyp, Referrer-URL sowie die IP-Adresse gehören.
 
-3.        Datenlöschung und Speicherdauer
+Die Verarbeitung erfolgt, um die Website auszuliefern, ihre Stabilität und Sicherheit zu gewährleisten, technische Fehler zu erkennen und Missbrauch zu verhindern.
 
-Die personenbezogenen Daten der betroffenen Person werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt. Eine Speicherung kann darüber hinaus erfolgen, wenn dies durch den europäischen oder nationalen Gesetzgeber in unionsrechtlichen Verordnungen, Gesetzen oder sonstigen Vorschriften, denen der Verantwortliche unterliegt, vorgesehen wurde. Eine Sperrung oder Löschung der Daten erfolgt auch dann, wenn eine durch die genannten Normen vorgeschriebene Speicherfrist abläuft, es sei denn, dass eine Erforderlichkeit zur weiteren Speicherung der Daten für einen Vertragsabschluss oder eine Vertragserfüllung besteht.
+Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht im sicheren, zuverlässigen und technisch einwandfreien Betrieb der Website.
 
- 
+Nach den Angaben von IONOS werden die für Webhosting erhobenen Besucherdaten unmittelbar anonymisiert und bis zu acht Wochen gespeichert. Eine Weitergabe an Dritte oder Übermittlung in Staaten außerhalb der Europäischen Union findet laut IONOS für diese Hostingdaten nicht statt.
 
-III.    Bereitstellung der Webseite und Erstellung von Logfiles
-1.        Beschreibung und Umfang der Datenverarbeitung
+4. IONOS WebAnalytics
 
-Bei jedem Aufruf unserer Internetseite erfasst unser System automatisiert Daten und Informationen vom Computersystem des aufrufenden Rechners.
+Im Rahmen des IONOS-Hostings wird IONOS WebAnalytics eingesetzt. Die Auswertung erfolgt über Logdateien oder einen Zählpixel. Nach Angaben von IONOS verwendet WebAnalytics dabei keine Cookies.
 
-Folgende Daten werden hierbei erhoben:
+Verarbeitet werden insbesondere:
 
-(1)   Informationen über den Browsertyp und die verwendete Version
+die zuvor besuchte Website;
+die aufgerufene Seite oder Datei; 
+Browsertyp und Browserversion;
+Betriebssystem; 
+Gerätetyp; 
+Zeitpunkt des Zugriffs;
+die IP-Adresse in anonymisierter Form zur ungefähren Bestimmung des Zugriffsortes.
 
-(2)   Das Betriebssystem des Nutzers
+Die IP-Adresse wird bei der Übermittlung eines Seitenaufrufs technisch übertragen und anschließend nach Angaben von IONOS unmittelbar anonymisiert.
 
-(3)   Den Internet-Service-Provider des Nutzers
+Die Daten werden zur statistischen Auswertung und technischen Optimierung unseres Webangebots verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der Analyse der allgemeinen Nutzung und der Verbesserung unserer Website.
 
-(4)   Die IP-Adresse des Nutzers
+Nach Angaben von IONOS werden über WebAnalytics keine personenbezogenen Besucherprofile erstellt und keine Daten an Dritte weitergegeben.
 
-(5)   Datum und Uhrzeit des Zugriffs
+5. Sprachauswahl
 
-(6)   Webseiten, von denen das System des Nutzers auf unsere Internetseite gelangt
+Auf der Website können Sie zwischen der deutschen und englischen Sprachversion wählen. Die gewählte Sprache wird unter dem Schlüssel „ds-lang“ im lokalen Speicher Ihres Browsers gespeichert.
 
-(7)   Webseiten, die vom System des Nutzers über unsere Webseite aufgerufen werden
+Dadurch kann die Website Ihre Sprachauswahl bei einem späteren Besuch wiederherstellen. Die Information wird ausschließlich auf Ihrem Endgerät gespeichert und nicht zu Analyse- oder Werbezwecken verwendet.
 
-(8)   Name und URL der abgerufenen Datei
+Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in einer benutzerfreundlichen und einheitlichen Darstellung der Website. Die Speicherung ist außerdem erforderlich, um die von Ihnen ausdrücklich gewählte Sprachfunktion bereitzustellen.
 
-(9)   Meldung, ob der Abruf erfolgreich war
+Sie können die gespeicherte Sprachauswahl jederzeit löschen, indem Sie die Website- beziehungsweise Browserdaten in Ihrem Browser entfernen.
 
-Die Daten werden ebenfalls in den Logfiles unseres Systems gespeichert. Eine Speicherung dieser Daten zusammen mit anderen personenbezogenen Daten des Nutzers findet nicht statt.
+6. Kontaktaufnahme per E-Mail
 
-2.        Rechtsgrundlage für die Datenverarbeitung
+Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen übermittelten Daten, insbesondere Ihre E-Mail-Adresse, Ihren Namen, den Inhalt Ihrer Nachricht und gegebenenfalls weitere von Ihnen freiwillig mitgeteilte Informationen.
 
-Rechtsgrundlage für die vorübergehende Speicherung der Daten und der Logfiles ist Art. 6 Abs. 1 lit. f DSGVO.
+Die Verarbeitung erfolgt zur Bearbeitung und Beantwortung Ihrer Anfrage.
 
-3.        Zweck der Datenverarbeitung
+Bezieht sich Ihre Anfrage auf einen möglichen Vertrag oder eine bestehende Geschäftsbeziehung, ist Art. 6 Abs. 1 lit. b DSGVO die Rechtsgrundlage. Bei allgemeinen Anfragen erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der sachgerechten Bearbeitung eingehender Kommunikation.
 
-Die vorübergehende Speicherung der IP-Adresse durch das System ist notwendig, um eine Auslieferung der Webseite an den Rechner des Nutzers zu ermöglichen. Hierfür muss die IP‑Adresse des Nutzers für die Dauer der Sitzung gespeichert bleiben.
+7. Anfrageformular und Formspree
 
- 
+Für das Anfrageformular verwenden wir den Dienst Formspree, bereitgestellt von Formspree, Inc., USA.
 
-Die Speicherung in Logfiles erfolgt, um die Funktionsfähigkeit der Webseite sicherzustellen. Zudem dienen uns die Daten zur Optimierung der Webseite und zur Sicherstellung der Sicherheit unserer informationstechnischen Systeme. Eine Auswertung der Daten zu Marketingzwecken findet in diesem Zusammenhang nicht statt.
+Je nach Ihren Angaben werden über das Formular insbesondere folgende Daten verarbeitet:
 
- 
+gewünschte Textilart;
+gewünschte Spitzenart;
+Breitenangaben;
+vorgesehener Einsatzbereich;
+gewünschte Menge;
+Name;
+Unternehmen;
+E-Mail-Adresse;
+Nachricht;
+ausgewählte Sprache;
+Zeitpunkt der Übermittlung.
 
-In diesen Zwecken liegt auch unser berechtigtes Interesse an der Datenverarbeitung nach Art. 6 Abs. 1 lit. f DSGVO.
+Die Angaben zu Unternehmen und Nachricht können freiwillig sein. Die als erforderlich gekennzeichneten Angaben werden benötigt, damit wir Ihre Anfrage bearbeiten und beantworten können.
 
- 
+Formspree nimmt die Formulardaten entgegen, schützt das Formular vor missbräuchlichen Einsendungen, speichert die Einsendung im Formspree-System und leitet eine Benachrichtigung an uns weiter.
 
-4.        Dauer der Speicherung
+Die Verarbeitung erfolgt zur Bearbeitung Ihrer Anfrage und gegebenenfalls zur Vorbereitung eines Angebots oder Vertrags. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Bei Anfragen, die nicht auf einen Vertrag gerichtet sind, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der effizienten und sicheren Bearbeitung von Websiteanfragen.
 
-Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind. Im Falle der Erfassung der Daten zur Bereitstellung der Webseite ist dies der Fall, wenn die jeweilige Sitzung beendet ist.
+Formspree verarbeitet Daten in den Vereinigten Staaten und nutzt nach eigenen Angaben technische Infrastruktur von Amazon Web Services in den USA. Formspree gibt an, für Übermittlungen aus Europa Standardvertragsklauseln als geeignete Garantie zu verwenden. 
 
-Im Falle der Speicherung der Daten in Logfiles ist dies nach spätestens sieben Tagen der Fall. Eine darüberhinausgehende Speicherung ist möglich. In diesem Fall werden die IP-Adressen der Nutzer gelöscht oder verfremdet, sodass eine Zuordnung des aufrufenden Clients nicht mehr möglich ist.
+Trotz dieser Garantien kann bei einer Verarbeitung in den USA nicht vollständig ausgeschlossen werden, dass US-Behörden im Rahmen der gesetzlichen Befugnisse auf Daten zugreifen.
 
-5.        Widerspruchs- und Beseitigungsmöglichkeit
+Bitte übermitteln Sie über das Formular keine besonderen Kategorien personenbezogener Daten, beispielsweise Gesundheitsdaten, Angaben zur ethnischen Herkunft, politischen Meinung, Religion oder Gewerkschaftszugehörigkeit.
 
-Die Erfassung der Daten zur Bereitstellung der Webseite und die Speicherung der Daten in Logfiles ist für den Betrieb der Internetseite zwingend erforderlich. Es besteht folglich seitens des Nutzers keine Widerspruchsmöglichkeit.
+Wir löschen Formulardaten, sobald sie für die Bearbeitung der Anfrage und eine mögliche Geschäftsbeziehung nicht mehr erforderlich sind. Daten können länger gespeichert werden, wenn gesetzliche Aufbewahrungspflichten bestehen oder sie zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen benötigt werden.
 
-IV.    Verwendung von Cookies
+Formspree speichert Daten nach eigenen Angaben so lange, wie dies zur Erbringung des Dienstes, zur Erfüllung gesetzlicher Pflichten, zur Beilegung von Streitigkeiten oder zur Durchsetzung von Vereinbarungen erforderlich ist.
 
-a) Beschreibung und Umfang der Datenverarbeitung
+8. Links zu Instagram und LinkedIn
 
-Unsere Webseite verwendet Cookies. Bei Cookies handelt es sich um Textdateien, die im Internetbrowser bzw. vom Internetbrowser auf dem Computersystem des Nutzers gespeichert werden. Ruft ein Nutzer eine Webseite auf, so kann ein Cookie auf dem Betriebssystem des Nutzers gespeichert werden. Dieser Cookie enthält eine charakteristische Zeichenfolge, die eine eindeutige Identifizierung des Browsers beim erneuten Aufrufen der Webseite ermöglicht.
+Unsere Website enthält Links zu unseren Profilen bei Instagram und LinkedIn. Es handelt sich lediglich um externe Links. Auf unserer Website werden keine Social-Media-Plugins, Feeds oder Tracking-Pixel dieser Anbieter eingebunden.
 
-Wir setzen Cookies ein, um unsere Webseite nutzerfreundlicher zu gestalten. Einige Elemente unserer Internetseite erfordern es, dass der aufrufende Browser auch nach einem Seitenwechsel identifiziert werden kann.
+Erst wenn Sie einen solchen Link anklicken, verlassen Sie unsere Website und es wird eine Verbindung zum jeweiligen Anbieter hergestellt. Dabei können insbesondere Ihre IP-Adresse, Geräte- und Browserinformationen sowie die Information verarbeitet werden, dass Sie von unserer Website auf das jeweilige Angebot gelangt sind.
 
-In den Cookies werden dabei folgende Daten gespeichert und übermittelt:
+Für die nach dem Anklicken erfolgende Datenverarbeitung ist der jeweilige Plattformbetreiber verantwortlich. Die Nutzung der Plattformen richtet sich nach deren eigenen Datenschutzbestimmungen.
 
-(1)   Spracheinstellungen
+9. Empfänger personenbezogener Daten
 
-(2)   Browsertyp/ Browserversion
+Personenbezogene Daten werden nur an Empfänger übermittelt, wenn dies zur Erfüllung der beschriebenen Zwecke erforderlich ist, eine gesetzliche Verpflichtung besteht oder Sie eingewilligt haben.
 
-(3)   Verwendetes Betriebssystem
+Zu den möglichen Empfängern gehören insbesondere:
 
-(4)   Referrer URL
+IONOS SE als Hosting- und WebAnalytics-Anbieter;
+Formspree, Inc. als Dienstleister für das Anfrageformular;
+internal departments and employees involved in processing your inquiry;
+externe Berater oder Dienstleister, soweit dies für die Erfüllung rechtlicher oder geschäftlicher Pflichten erforderlich ist.
 
-(5)   Hostname des zugreifenden Rechners
+Soweit Dienstleister Daten ausschließlich in unserem Auftrag verarbeiten, werden sie entsprechend den gesetzlichen Anforderungen als Auftragsverarbeiter eingesetzt.
 
-(6)   Uhrzeit der Serveranfrage
+10. Speicherdauer
 
-b) Rechtsgrundlage für die Datenverarbeitung
+Wir speichern personenbezogene Daten nur so lange, wie dies für den jeweiligen Verarbeitungszweck erforderlich ist.
 
-Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten unter Verwendung von Cookies ist Art. 6 Abs. 1 lit. f DSGVO.
+Nach Abschluss einer Anfrage werden die Daten gelöscht, sofern keine weitere Geschäftsbeziehung entsteht und keine gesetzlichen Aufbewahrungspflichten oder berechtigten Interessen an einer weiteren Speicherung bestehen.
 
- 
+Geschäftliche Kommunikation kann gesetzlichen handels- oder steuerrechtlichen Aufbewahrungsfristen unterliegen. In diesem Fall wird die Verarbeitung auf die Erfüllung dieser Pflichten beschränkt.
 
-c) Zweck der Datenverarbeitung
+11. Pflicht zur Bereitstellung von Daten
 
-Der Zweck der Verwendung technisch notwendiger Cookies ist, die Nutzung von Webseiten für die Nutzer zu vereinfachen. Einige Funktionen unserer Internetseite können ohne den Einsatz von Cookies nicht angeboten werden. Für diese ist es erforderlich, dass der Browser auch nach einem Seitenwechsel wiedererkannt wird.
+Die Bereitstellung personenbezogener Daten ist grundsätzlich weder gesetzlich noch vertraglich vorgeschrieben.
 
-Für folgende Anwendungen benötigen wir Cookies:
+Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlich, damit wir eine über das Anfrageformular gestellte Anfrage bearbeiten und beantworten können. Ohne diese Angaben ist eine Bearbeitung über das Formular nicht möglich.
 
-(1)   Kontaktaufnahme
+12. Automatisierte Entscheidungen
 
-(2)   Produkt- und Supportanfragen
+Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO findet nicht statt.
 
-(3)   Anfordern von Informationen
+13. Ihre Rechte
 
-(4)   Übernahme von Spracheinstellungen
+Sie haben im Rahmen der gesetzlichen Voraussetzungen insbesondere folgende Rechte:
 
-(5)   Merken von Suchbegriffen
+Recht auf Auskunft nach Art. 15 DSGVO;
+Recht auf Berichtigung nach Art. 16 DSGVO;
+Recht auf Löschung nach Art. 17 DSGVO;
+Recht auf Einschränkung der Verarbeitung nach Art. 18 DSGVO;
+Recht auf Datenübertragbarkeit nach Art. 20 DSGVO;
+Recht auf Widerspruch nach Art. 21 DSGVO;
+Recht auf Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft.
 
-Die durch technisch notwendige Cookies erhobenen Nutzerdaten werden nicht zur Erstellung von Nutzerprofilen verwendet.
+Der Widerruf einer Einwilligung berührt nicht die Rechtmäßigkeit der Verarbeitung, die bis zum Widerruf erfolgt ist.
 
-In diesen Zwecken liegt auch unser berechtigtes Interesse in der Verarbeitung der personenbezogenen Daten nach Art. 6 Abs. 1 lit. f DSGVO.
+Zur Ausübung Ihrer Rechte können Sie sich an sales@dresdnerspitzen.com wenden. Die Rechte können eingeschränkt sein, wenn gesetzliche Ausnahmen oder Aufbewahrungspflichten entgegenstehen.
 
-e) Dauer der Speicherung, Widerspruchs- und Beseitigungsmöglichkeit
+14. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
 
-Cookies werden auf dem Rechner des Nutzers gespeichert und von diesem an unsere Seite übermittelt. Daher haben Sie als Nutzer auch die volle Kontrolle über die Verwendung von Cookies. Durch eine Änderung der Einstellungen in Ihrem Internetbrowser können Sie die Übertragung von Cookies deaktivieren oder einschränken. Bereits gespeicherte Cookies können jederzeit gelöscht werden. Dies kann auch automatisiert erfolgen. Werden Cookies für unsere Webseite deaktiviert, können möglicherweise nicht mehr alle Funktionen der Webseite vollumfänglich genutzt werden.
+Soweit wir personenbezogene Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen die Verarbeitung einzulegen.
 
-V.            E-Mail-Kontakt
-1.      Beschreibung und Umfang der Datenverarbeitung
+Wir verarbeiten die betreffenden Daten anschließend nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
 
-Auf unserer Internetseite ist eine Kontaktaufnahme über die bereitgestellten E-Mail-Adressen möglich, welche für die elektronische Kontaktaufnahme genutzt werden können.
+15. Beschwerderecht
 
-Für die Verarbeitung der Daten wird im Rahmen des Absendevorgangs Ihre Einwilligung erteilt und auf diese Datenschutzerklärung verwiesen.
+Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogener Daten gegen Datenschutzrecht verstößt.
 
-In diesem Fall werden die mit der E-Mail übermittelten personenbezogenen Daten des Nutzers gespeichert.
+Die für Sachsen zuständige Aufsichtsbehörde ist:
 
- 
+Sächsische Datenschutz- und Transparenzbeauftragte
+Devrientstraße 5
+01067 Dresden
+Deutschland
 
-Es erfolgt in diesem Zusammenhang keine Weitergabe der Daten an Dritte. Die Daten werden ausschließlich für die Verarbeitung der Konversation verwendet.
+Sie können sich auch an eine andere für Sie zuständige Datenschutzaufsichtsbehörde wenden.
 
-2.        Rechtsgrundlage für die Datenverarbeitung
+16. Änderungen dieser Datenschutzerklärung
 
-Rechtsgrundlage für die Verarbeitung der Daten ist bei Vorliegen einer Einwilligung des Nutzers Art. 6 Abs. 1 lit. a DSGVO.
-
-Rechtsgrundlage für die Verarbeitung der Daten, die im Zuge einer Übersendung einer E‑Mail übermittelt werden, ist Art. 6 Abs. 1 lit. f DSGVO. Zielt der E-Mail-Kontakt auf den Abschluss eines Vertrages ab, so ist zusätzliche Rechtsgrundlage für die Verarbeitung Art. 6 Abs. 1 lit. b DSGVO.
-
-3.        Zweck der Datenverarbeitung
-
-Die per E-Mail an uns übersandten personenbezogenen Daten dienen der Kontaktaufnahme. Hieran liegt auch das erforderliche berechtigte Interesse an der Verarbeitung der Daten.
-
-4.        Dauer der Speicherung
-
-Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind. Für die personenbezogenen Daten, die per E-Mail übersandt wurden, ist dies dann der Fall, wenn die jeweilige Konversation mit dem Nutzer beendet ist. Beendet ist die Konversation dann, wenn sich aus den Umständen entnehmen lässt, dass der betroffene Sachverhalt abschließend geklärt ist.
-
-5.        Widerspruchs- und Beseitigungsmöglichkeit
-
-Der Nutzer hat jederzeit die Möglichkeit, seine Einwilligung zur Verarbeitung der personenbezogenen Daten zu widerrufen. Nimmt der Nutzer per E-Mail Kontakt mit uns auf, so kann er der Speicherung seiner personenbezogenen Daten jederzeit widersprechen. In einem solchen Fall kann die Konversation nicht fortgeführt werden.
-
-Diese kann schriftlich auf dem Postweg oder per Email erfolgen.
-
- 
-
-DreGuS GmbH & Co. KG
-
-Breitscheidstr. 78
-
-01237 Dresden
-
-Telefon: +49 (0) 351 204 8 20
-
-Fax: +49 (0) 351 203 1 660
-
-E-Mail: datenschutz@dresdnerspitzen.com
-
- 
-
-Alle personenbezogenen Daten, die im Zuge der Kontaktaufnahme gespeichert wurden, werden in diesem Fall gelöscht.
-
-VI.    Weitergabe personenbezogener Daten an Dritte
-
-1.      Zur Vertragserfüllung
-
-a)      Logistik- und Versandunternehmen
-
-Im Rahmen der Vertragserfüllung werden Ihre personenbezogenen Daten an Logistik- und Versandunternehmen weitergeleitet.
-
-aa) Rechtsgrundlage für die Verarbeitung personenbezogener Daten
-
- 
-
-Die Rechtsgrundlage für die Verarbeitung bzw. Weiterleitung personenbezogener Daten an Logistik- und Versandunternehmen ist Art. 6 Abs. 1 lit. b DSGVO.
-
- 
-
-bb) Zweck für die Verarbeitung bzw. Weiterleitung personenbezogener Daten
-
- 
-
-Zweck der Verarbeitung bzw. Weiterleitung Ihrer personenbezogenen Daten ist die Erfüllung der vertraglichen Verpflichtung insbes. die Lieferung der Leistung aus Vertrag.
-
- 
-
-b)      Kreditinstitute, Zahlungsdienstleister und Abrechnungsfirmen (z.B. Paypal, Kreditkartenunternehmen, Inkassodienstleister)
-
- 
-
-aa) Rechtsgrundlage für die Verarbeitung personenbezogener Daten
-
-Die Rechtsgrundlage für die Verarbeitung bzw. Weiterleitung personenbezogener Daten an Logistik- und Versandunternehmen ist Art. 6 Abs. 1 lit. b DSGVO und für die Durchsetzung von fälligen Forderungen Art. 6 Abs. 1 lit. f DSGVO.
-
-bb) Zweck für die Verarbeitung bzw. Weiterleitung personenbezogener Daten
-
-Zweck der Verarbeitung und Weiterleitung ist die Abrechnung und Einziehung der vertraglichen Forderungen und Rechnungen zur Erfüllung der vertraglichen Beziehungen.
-
-c)      Dauer der Speicherung für a) und b)
-
-In der Regel werden die erhobenen Daten gelöscht, sobald sie nicht mehr benötigt werden. Eine Löschung erfolgt demnach spätestens mit Ablauf der hierfür relevanten gesetzlichen Aufbewahrungsfristen. Diese liegen in der Regel zwischen 3 bis 10 Jahren. 
-
-d)      Widerspruchs- und Beseitigungsmöglichkeit
-
-Als Nutzer haben sie jederzeit die Möglichkeit, der Verarbeitung Ihrer Daten zu widersprechen. Die über Sie gespeicherten Daten können Sie jederzeit auch abändern lassen.
-
-Sind die Daten zur Erfüllung eines Vertrages oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, ist eine vorzeitige Löschung der Daten nur möglich, soweit nicht vertragliche oder gesetzliche Verpflichtungen einer Löschung entgegenstehen.
-
-2.      Google Analytics
-
-a)      Umfang der Verarbeitung personenbezogener Daten
-
-Diese Webseite benutzt Google Analytics einen Webanalysedienst von Google (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Google Analytics verwendet Cookies, die auf Ihrem Computer gespeichert werden und eine Analyse der Benutzung ermöglichen. Dabei handelt es sich um Cookies von Google selbst und sogenannten Drittanbieter-Cookies. Die durch die Cookies erzeugten Informationen über Ihre Benutzung dieser Webseite werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Zur datenschutzkonformen Verarbeitung setzen wir den Code „gat._anonymizeIp();“ ein, um eine anonymisierte Erfassung von IP-Adressen (sog. IP‑Masking) zu gewährleisten.
-
-b)      Rechtsgrundlage für die Verarbeitung personenbezogener Daten
-
-Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten für die Verwendung von Google Analytics Art. 6 Abs. 1 lit. f DSGVO.
-
- 
-
-Rechtsgrundlage für die Verarbeitung der Daten ist bei Vorliegen einer Einwilligung des Nutzers Art. 6 Abs. 1 lit. a DSGVO.
-
-c)      Zweck der Datenverarbeitung
-
-Diese Webseite nutzt Google Analytics, um eine Analyse der Benutzung zu ermöglichen. Die Verarbeitung der personenbezogenen Daten der Nutzer ermöglicht uns eine Analyse des Surfverhaltens unserer Nutzer. Wir sind durch die Auswertung der gewonnen Daten in der Lage, Informationen über die Nutzung der einzelnen Komponenten unserer Webseite zusammenzustellen. Dies hilft uns dabei unsere Webseite und deren Nutzerfreundlichkeit stetig zu verbessern. In diesen Zwecken liegt auch unser berechtigtes Interesse in der Verarbeitung der Daten nach Art. 6 Abs. 1 lit. f DSGVO. Durch die Anonymisierung der IP‑Adresse wird dem Interesse der Nutzer an deren Schutz personenbezogener Daten hinreichend Rechnung getragen.
-
-d)      Dauer der Speicherung
-
-In der Regel werden die erhobenen Daten gelöscht, sobald sie nicht mehr benötigt werden. Eine Löschung erfolgt demnach spätestens mit Ablauf der hierfür relevanten gesetzlichen Aufbewahrungsfristen. Diese liegen in der Regel zwischen 3 bis 10 Jahren. 
-
-e)      Widerspruchs- und Beseitigungsmöglichkeit
-
-Die personenbezogenen Daten der betroffenen Person werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt. Eine Speicherung kann darüber hinaus erfolgen, wenn dies durch den europäischen oder nationalen Gesetzgeber in unionsrechtlichen Verordnungen, Gesetzen oder sonstigen Vorschriften, denen der Verantwortliche unterliegt, vorgesehen wurde. Eine Sperrung oder Löschung der Daten erfolgt auch dann, wenn eine durch die genannten Normen vorgeschriebene Speicherfrist abläuft, es sei denn, dass eine Erforderlichkeit zur weiteren Speicherung der Daten für einen Vertragsabschluss oder eine Vertragserfüllung besteht.
-
- 
-
-Diese kann schriftlich auf dem Postweg oder per Email erfolgen.
-
-Ihre Widerrufs- und Beseitigungsanfrage richten Sie bitte an:
-
- 
-
-DreGuS GmbH & Co. KG
-
-Breitscheidstr. 78
-
-01237 Dresden
-
-Telefon: +49 (0) 351 204 8 244
-
-E-Mail: datenschutz@dresdnerspitzen.com
-
- 
-
-Alle personenbezogenen Daten, die im Zuge des Vertrages gespeichert wurden, werden in diesem Fall gelöscht, soweit dies möglich ist und keine der oben genannten Voraussetzungen dagegensprechen.
-
-3.      Präsenzen von Dritten (Google Map, Youtube etc.)
-
-Im Rahmen unseres Online-Angebots kann es vorkommen, dass auf unserer Internetseite auch Inhalte von Dritten, wie zum Beispiel YouTube, Google-Maps oder Grafiken eingebunden werden. Dabei ist es üblich, dass eine Weiterleitung der IP-Adresse an den Dritten zur Nutzung der Dienste (z. B. Darstellung im Browser) vorgenommen wird. Grundsätzlich haben wir keinen Einfluss darauf, wie der Dritte mit den Daten agiert.
-
- 
-
-Bitte entnehmen Sie die jeweiligen Datenschutzhinweise der Browser-Plug-Ins von den Anbietern:
-
-           -           YouTube https://www.youtube.com
-
-           -           Google-Maps  https://www.google.com/intl/de/policies/privacy/
-
- 
-
-4.      Plugin
-
-a)      Facebook-Plugins (Like-Button)
-
-Auf unseren Seiten sind Plugins des sozialen Netzwerks Facebook, Anbieter Facebook Inc., 1 Hacker Way, Menlo Park, California 94025, USA, integriert. Die Facebook-Plugins erkennen Sie an dem Facebook-Logo oder dem "Like-Button" ("Gefällt mir") auf unserer Seite. Eine Übersicht über die Facebook-Plugins finden Sie hier:
-
-https://developers.facebook.com/docs/plugins.
-
-Wenn Sie unsere Seiten besuchen, wird über das Plugin eine direkte Verbindung zwischen Ihrem Browser und dem Facebook-Server hergestellt. Facebook erhält dadurch die Information, dass Sie mit Ihrer IP-Adresse unsere Seite besucht haben. Wenn Sie den Facebook "Like-Button" anklicken während Sie in Ihrem Facebook-Account eingeloggt sind, können Sie die Inhalte unserer Seiten auf Ihrem Facebook-Profil verlinken. Dadurch kann Facebook den Besuch unserer Seiten Ihrem Benutzerkonto zuordnen. Wir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Facebook erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Facebook unter https://de-de.facebook.com/policy.php. Wenn Sie nicht wünschen, dass Facebook den Besuch unserer Seiten Ihrem Facebook-Nutzerkonto
-
-zuordnen kann, loggen Sie sich bitte aus Ihrem Facebook-Benutzerkonto aus.
-
-a)      Google+
-
-Unsere Seiten nutzen Funktionen von Google+. Anbieter ist die Google Inc., 1600 Amphitheatre Parkway Mountain View, CA 94043, USA.
-
-Erfassung und Weitergabe von Informationen: Mithilfe der Google+-Schaltfläche können Sie Informationen weltweit veröffentlichen. Über die Google+-Schaltfläche erhalten Sie und andere Nutzer personalisierte Inhalte von Google und unseren Partnern. Google speichert sowohl die Information, dass Sie für einen Inhalt +1 gegeben haben, als auch Informationen über die Seite, die Sie beim Klicken auf +1 angesehen haben. Ihre +1 können als Hinweise zusammen mit Ihrem Profilnamen und Ihrem Foto in Google-Diensten, wie etwa in Suchergebnissen oder in Ihrem Google-Profil oder an anderen Stellen auf Webseiten und Anzeigen im Internet eingeblendet werden. Google zeichnet Informationen über Ihre +1‑Aktivitäten auf, um die Google-Dienste für Sie und andere zu verbessern. Um die Google+-Schaltfläche verwenden zu können, benötigen Sie ein weltweit sichtbares, öffentliches Google-Profil, das zumindest den für das Profil gewählten Namen enthalten muss. Dieser Name wird in allen Google-Diensten verwendet. In manchen Fällen kann dieser Name auch einen anderen Namen ersetzen, den Sie beim Teilen von Inhalten über Ihr Google-Konto verwendet haben. Die Identität Ihres Google-Profils kann Nutzern angezeigt werden, die Ihre E-Mail-Adresse kennen oder über andere identifizierende Informationen von Ihnen verfügen. Verwendung der erfassten Informationen: Neben den oben erläuterten Verwendungszwecken werden die von Ihnen bereitgestellten Informationen gemäß den geltenden Google-Datenschutzbestimmungen genutzt. Google veröffentlicht möglicherweise zusammengefasste Statistiken über die +1-Aktivitäten der Nutzer bzw. gibt diese an Nutzer und Partner weiter, wie etwa Publisher, Inserenten oder verbundene Webseiten.
-
-VII.  Rechte der betroffenen Person
-
-Werden personenbezogene Daten von Ihnen verarbeitet, sind Sie Betroffener i.S.d. DSGVO und es stehen Ihnen folgende Rechte gegenüber dem Verantwortlichen zu:
-
-1.        Auskunftsrecht
-
-Sie können von dem Verantwortlichen eine Bestätigung darüber verlangen, ob personenbezogene Daten, die Sie betreffen, von uns verarbeitet werden.
-
-Liegt eine solche Verarbeitung vor, können Sie von dem Verantwortlichen über folgende Informationen Auskunft verlangen:
-
-(1)       die Zwecke, zu denen die personenbezogenen Daten verarbeitet werden;
-
-(2)       die Kategorien von personenbezogenen Daten, welche verarbeitet werden;
-
-(3)       die Empfänger bzw. die Kategorien von Empfängern, gegenüber denen die Sie betreffenden personenbezogenen Daten offengelegt wurden oder noch offengelegt werden;
-
-(4)       die geplante Dauer der Speicherung der Sie betreffenden personenbezogenen Daten oder, falls konkrete Angaben hierzu nicht möglich sind, Kriterien für die Festlegung der Speicherdauer;
-
-(5)       das Bestehen eines Rechts auf Berichtigung oder Löschung der Sie betreffenden personenbezogenen Daten, eines Rechts auf Einschränkung der Verarbeitung durch den Verantwortlichen oder eines Widerspruchsrechts gegen diese Verarbeitung;
-
-(6)       das Bestehen eines Beschwerderechts bei einer Aufsichtsbehörde;
-
-(7)       alle verfügbaren Informationen über die Herkunft der Daten, wenn die personenbezogenen Daten nicht bei der betroffenen Person erhoben werden;
-
-(8)       das Bestehen einer automatisierten Entscheidungsfindung einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und – zumindest in diesen Fällen – aussagekräftige Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung für die betroffene Person.
-
-Ihnen steht das Recht zu, Auskunft darüber zu verlangen, ob die Sie betreffenden personenbezogenen Daten in ein Drittland oder an eine internationale Organisation übermittelt werden. In diesem Zusammenhang können Sie verlangen, über die geeigneten Garantien gem. Art. 46 DSGVO im Zusammenhang mit der Übermittlung unterrichtet zu werden.
-
-2.        Recht auf Berichtigung
-
-Sie haben ein Recht auf Berichtigung und/oder Vervollständigung gegenüber dem Verantwortlichen, sofern die verarbeiteten personenbezogenen Daten, die Sie betreffen, unrichtig oder unvollständig sind. Der Verantwortliche hat die Berichtigung unverzüglich vorzunehmen.
-
-3.        Recht auf Einschränkung der Verarbeitung
-
-Sie können die Einschränkung der Verarbeitung der Sie betreffenden personenbezogenen Daten verlangen, wenn
-
-(1)       Sie die Richtigkeit der Sie betreffenden personenbezogenen Daten für eine Dauer bestreiten, die es dem Verantwortlichen ermöglicht, die Richtigkeit der personenbezogenen Daten zu überprüfen;
-
-(2)       die Verarbeitung unrechtmäßig ist und Sie die Löschung der personenbezogenen Daten ablehnen und stattdessen die Einschränkung der Nutzung der personenbezogenen Daten verlangen;
-
-(3)       der Verantwortliche die personenbezogenen Daten für die Zwecke der Verarbeitung nicht länger benötigt, Sie diese jedoch zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen benötigen, oder
-
-(4)       Sie Widerspruch gegen die Verarbeitung gemäß Art. 21 Abs. 1 DSGVO eingelegt haben und noch nicht feststeht, ob die berechtigten Gründe des Verantwortlichen gegenüber Ihren Gründen überwiegen.
-
-Wurde die Verarbeitung der Sie betreffenden personenbezogenen Daten eingeschränkt, dürfen diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung oder zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person oder aus Gründen eines wichtigen öffentlichen Interesses der Union oder eines Mitgliedstaats verarbeitet werden.
-
-Wurde die Einschränkung der Verarbeitung nach den o.g. Voraussetzungen eingeschränkt, werden Sie von dem Verantwortlichen unterrichtet bevor die Einschränkung aufgehoben wird.
-
-4.        Recht auf Löschung
-a)        Löschungspflicht
-
-Sie können von dem Verantwortlichen verlangen, dass die Sie betreffenden personenbezogenen Daten unverzüglich gelöscht werden, und der Verantwortliche ist verpflichtet, diese Daten unverzüglich zu löschen, sofern einer der folgenden Gründe zutrifft:
-
-(1)       Die Sie betreffenden personenbezogenen Daten sind für die Zwecke, für die sie erhoben oder auf sonstige Weise verarbeitet wurden, nicht mehr notwendig.
-
-(2)       Sie widerrufen Ihre Einwilligung, auf die sich die Verarbeitung gem. Art. 6 Abs. 1 lit. a oder Art. 9 Abs. 2 lit. a DSGVO stützte, und es fehlt an einer anderweitigen Rechtsgrundlage für die Verarbeitung.
-
-(3)       Sie legen gem. Art. 21 Abs. 1 DSGVO Widerspruch gegen die Verarbeitung ein und es liegen keine vorrangigen berechtigten Gründe für die Verarbeitung vor, oder Sie legen gem. Art. 21 Abs. 2 DSGVO Widerspruch gegen die Verarbeitung ein.
-
-(4)       Die Sie betreffenden personenbezogenen Daten wurden unrechtmäßig verarbeitet.
-
-(5)       Die Löschung der Sie betreffenden personenbezogenen Daten ist zur Erfüllung einer rechtlichen Verpflichtung nach dem Unionsrecht oder dem Recht der Mitgliedstaaten erforderlich, dem der Verantwortliche unterliegt.
-
-(6)                   Die Sie betreffenden personenbezogenen Daten wurden in Bezug auf angebotene Dienste der Informationsgesellschaft gemäß Art. 8 Abs. 1 DSGVO erhoben.
-
-b)        Information an Dritte
-
-Hat der Verantwortliche die Sie betreffenden personenbezogenen Daten öffentlich gemacht und ist er gem. Art. 17 Abs. 1 DSGVO zu deren Löschung verpflichtet, so trifft er, unter Berücksichtigung der verfügbaren Technologie und der Implementierungskosten, angemessene Maßnahmen, auch technischer Art, um für die Datenverarbeitung Verantwortliche, die die personenbezogenen Daten verarbeiten, darüber zu informieren, dass Sie als betroffene Person von ihnen die Löschung aller Links zu diesen personenbezogenen Daten oder von Kopien oder Replikationen dieser personenbezogenen Daten verlangt haben.
-
-c)        Ausnahmen
-
-Das Recht auf Löschung besteht nicht, soweit die Verarbeitung erforderlich ist
-
-(1)       zur Ausübung des Rechts auf freie Meinungsäußerung und Information;
-
-(2)       zur Erfüllung einer rechtlichen Verpflichtung, die die Verarbeitung nach dem Recht der Union oder der Mitgliedstaaten, dem der Verantwortliche unterliegt, erfordert, oder zur Wahrnehmung einer Aufgabe, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, die dem Verantwortlichen übertragen wurde;
-
-(3)       aus Gründen des öffentlichen Interesses im Bereich der öffentlichen Gesundheit gemäß Art. 9 Abs. 2 lit. h und i sowie Art. 9 Abs. 3 DSGVO;
-
-(4)       für im öffentlichen Interesse liegende Archivzwecke, wissenschaftliche oder historische Forschungszwecke oder für statistische Zwecke gem. Art. 89 Abs. 1 DSGVO, soweit das unter Abschnitt a) genannte Recht voraussichtlich die Verwirklichung der Ziele dieser Verarbeitung umöglich macht oder ernsthaft beeinträchtigt, oder
-
-(5)       zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
-
-5.        Recht auf Unterrichtung
-
-Haben Sie das Recht auf Berichtigung, Löschung oder Einschränkung der Verarbeitung gegenüber dem Verantwortlichen geltend gemacht, ist dieser verpflichtet, allen Empfängern, denen die Sie betreffenden personenbezogenen Daten offengelegt wurden, diese Berichtigung oder Löschung der Daten oder Einschränkung der Verarbeitung mitzuteilen, es sei denn, dies erweist sich als unmöglich oder ist mit einem unverhältnismäßigen Aufwand verbunden.
-
-Ihnen steht gegenüber dem Verantwortlichen das Recht zu, über diese Empfänger unterrichtet zu werden.
-
-6.        Recht auf Datenübertragbarkeit
-
-Sie haben das Recht, die Sie betreffenden personenbezogenen Daten, die Sie dem Verantwortlichen bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten. Außerdem haben Sie das Recht diese Daten einem anderen Verantwortlichen ohne Behinderung durch den Verantwortlichen, dem die personenbezogenen Daten bereitgestellt wurden, zu übermitteln, sofern
-
-(1)       die Verarbeitung auf einer Einwilligung gem. Art. 6 Abs. 1 lit. a DSGVO oder Art. 9 Abs. 2 lit. a DSGVO oder auf einem Vertrag gem. Art. 6 Abs. 1 lit. b DSGVO beruht und
-
-(2)       die Verarbeitung mithilfe automatisierter Verfahren erfolgt.
-
-In Ausübung dieses Rechts haben Sie ferner das Recht, zu erwirken, dass die Sie betreffenden personenbezogenen Daten direkt von einem Verantwortlichen einem anderen Verantwortlichen übermittelt werden, soweit dies technisch machbar ist. Freiheiten und Rechte anderer Personen dürfen hierdurch nicht beeinträchtigt werden.
-
-Das Recht auf Datenübertragbarkeit gilt nicht für eine Verarbeitung personenbezogener Daten, die für die Wahrnehmung einer Aufgabe erforderlich ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, die dem Verantwortlichen übertragen wurde.
-
-7.        Widerspruchsrecht
-
-Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling.
-
-Der Verantwortliche verarbeitet die Sie betreffenden personenbezogenen Daten nicht mehr, es sei denn, er kann zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
-
-Werden die Sie betreffenden personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten zum Zwecke derartiger Werbung einzulegen; dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht.
-
-Widersprechen Sie der Verarbeitung für Zwecke der Direktwerbung, so werden die Sie betreffenden personenbezogenen Daten nicht mehr für diese Zwecke verarbeitet.
-
-Sie haben die Möglichkeit, im Zusammenhang mit der Nutzung von Diensten der Informationsgesellschaft – ungeachtet der Richtlinie 2002/58/EG – Ihr Widerspruchsrecht mittels automatisierter Verfahren auszuüben, bei denen technische Spezifikationen verwendet werden.
-
-8.        Recht auf Widerruf der datenschutzrechtlichen Einwilligungserklärung
-
-Sie haben das Recht, Ihre datenschutzrechtliche Einwilligungserklärung jederzeit zu widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt.
-
-9.        Automatisierte Entscheidung im Einzelfall einschließlich Profiling
-
-Sie haben das Recht, nicht einer ausschließlich auf einer automatisierten Verarbeitung – einschließlich Profiling – beruhenden Entscheidung unterworfen zu werden, die Ihnen gegenüber rechtliche Wirkung entfaltet oder Sie in ähnlicher Weise erheblich beeinträchtigt. Dies gilt nicht, wenn die Entscheidung
-
-(1)       für den Abschluss oder die Erfüllung eines Vertrags zwischen Ihnen und dem Verantwortlichen erforderlich ist,
-
-(2)       aufgrund von Rechtsvorschriften der Union oder der Mitgliedstaaten, denen der Verantwortliche unterliegt, zulässig ist und diese Rechtsvorschriften angemessene Maßnahmen zur Wahrung Ihrer Rechte und Freiheiten sowie Ihrer berechtigten Interessen enthalten oder
-
-(3)       mit Ihrer ausdrücklichen Einwilligung erfolgt.
-
-Allerdings dürfen diese Entscheidungen nicht auf besonderen Kategorien personenbezogener Daten nach Art. 9 Abs. 1 DSGVO beruhen, sofern nicht Art. 9 Abs. 2 lit. a oder g DSGVO gilt und angemessene Maßnahmen zum Schutz der Rechte und Freiheiten sowie Ihrer berechtigten Interessen getroffen wurden.
-
-Hinsichtlich der in (1) und (3) genannten Fälle trifft der Verantwortliche angemessene Maßnahmen, um die Rechte und Freiheiten sowie Ihre berechtigten Interessen zu wahren, wozu mindestens das Recht auf Erwirkung des Eingreifens einer Person seitens des Verantwortlichen, auf Darlegung des eigenen Standpunkts und auf Anfechtung der Entscheidung gehört.
-
-10.    Recht auf Beschwerde bei einer Aufsichtsbehörde
-
-Unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs steht Ihnen das Recht auf Beschwerde bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu, wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die DSGVO verstößt.
-
-Die Aufsichtsbehörde, bei der die Beschwerde eingereicht wurde, unterrichtet den Beschwerdeführer über den Stand und die Ergebnisse der Beschwerde einschließlich der Möglichkeit eines gerichtlichen Rechtsbehelfs nach Art. 78 DSGVO.
-
-Die für uns zuständige Aufsichtsbehörde ist:
-
-Sächsische Datenschutzbeauftragter
-
-Herr Andreas Schurig
-
-Telefon: +49 (0) 351/493-5401
-
-Telefax: +49 (0) 351/493-5490
-
-E-Mail: saechsdsb@slt.sachsen.de
-
- 
-
-VIII.         Copyright
-
-Die Inhalte unserer Webseite sind urheberrechtlich geschützt. Sie dürfen nur zu privaten Zwecken in den Arbeitsspeicher und einmalig in einen anderen Speicher (Festplatte) geladen werden. Die sonstige Verwendung der Texte und Abbildungen, auch auszugsweise, ist ohne die schriftliche Zustimmung der DreGuS GmbH & Co. KG urheberrechtswidrig und strafbar. In den vorliegenden Inhalten werden Marken und geschäftliche Bezeichnungen verwendet; auch wenn diese nicht als solche gekennzeichnet sind, gelten die entsprechenden Schutzbestimmungen.
-
-Der Inhalt von www.dresdnerspitzen.com ist ausschließlich zu Informationszwecken bestimmt.
-
-IX.     Links zu Webseiten anderer Anbieter
-
-Die DreGuS GmbH & Co. KG ist nicht verantwortlich für die Inhalte externer Internetseiten.
-
-Bei direkten oder indirekten Verweisen auf fremde Internetseiten ("Links"), die außerhalb des Verantwortungsbereiches der DreGuS GmbH & Co. KG liegen, tritt eine Haftungsverpflichtung ausschließlich in dem Fall ein, in dem die DreGuS GmbH & Co. KG von den fremden Inhalten Kenntnis hat und es ihr technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern.
-
-Die DreGuS GmbH & Co. KG erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung die entsprechenden verlinkten Seiten frei von illegalen Inhalten waren. Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der gelinkten/verknüpften Seiten hat die DreGuS GmbH & Co. KG keinerlei Einfluss. Sie distanziert sich daher ausdrücklich von allen Inhalten aller gelinkten / verknüpften Seiten, die nach der Linksetzung verändert wurden.
-
-Diese Feststellung gilt für alle innerhalb des eigenen Internetangebotes gesetzten Links und Verweise. Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung solcher Art dargebotener Informationen entstehen, haftet allein der Anbieter der Seite, auf welche verwiesen wurde.`,
-                "Privacy policy content will be added here."
+Wir können diese Datenschutzerklärung anpassen, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen Anforderungen ändern. Es gilt die jeweils auf dieser Website veröffentlichte Fassung.`
               )}
             </p>
           </div>
