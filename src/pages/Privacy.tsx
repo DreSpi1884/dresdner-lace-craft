@@ -343,7 +343,7 @@ Zu den möglichen Empfängern gehören insbesondere:
 
 IONOS SE als Hosting- und WebAnalytics-Anbieter;
 Formspree, Inc. als Dienstleister für das Anfrageformular;
-internal departments and employees involved in processing your inquiry;
+interne Abteilungen und Beschäftigte, die mit der Bearbeitung Ihrer Anfrage befasst sind;
 externe Berater oder Dienstleister, soweit dies für die Erfüllung rechtlicher oder geschäftlicher Pflichten erforderlich ist.
 
 Soweit Dienstleister Daten ausschließlich in unserem Auftrag verarbeiten, werden sie entsprechend den gesetzlichen Anforderungen als Auftragsverarbeiter eingesetzt.
@@ -390,7 +390,7 @@ Wir verarbeiten die betreffenden Daten anschließend nicht mehr, es sei denn, wi
 
 15. Beschwerderecht
 
-Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogener Daten gegen Datenschutzrecht verstößt.
+Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen Datenschutzrecht verstößt.
 
 Die für Sachsen zuständige Aufsichtsbehörde ist:
 
