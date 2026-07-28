@@ -278,7 +278,14 @@ const openMobileSection = (id: string) => {
 
   window.history.replaceState(null, "", `#${id}`);
 
-scrollMobileSectionToTop(id);
+  // Zwei Frames warten, bis das Layout final steht (z.B. wenn eine andere
+  // Section gleichzeitig zuklappt), dann NUR EINMAL scrollen - kein
+  // sichtbares Nachkorrigieren.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      scrollMobileSectionToTop(id);
+    });
+  });
 };
 
   const renderBody = (s: ServiceItem) => (
