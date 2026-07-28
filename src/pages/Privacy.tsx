@@ -20,7 +20,9 @@ const Privacy = () => {
           <div className="editorial-body text-muted-foreground whitespace-pre-wrap">
             <p>
               {t(
-                `1. Data Controller
+                `Last updated: 28 July 2026
+
+                1. Data Controller
 
 The data controller for the processing of personal data on this website is:
 
@@ -204,7 +206,7 @@ You have the right to complain to a data protection supervisory authority if you
 The supervisory authority responsible for Saxony is:
 
 Sächsische Datenschutz- und Transparenzbeauftragte
-Devrientstraße 5
+Maternistraße 17
 01067 Dresden
 Germany
 
@@ -213,7 +215,9 @@ You can also contact any other data protection supervisory authority responsible
 16. Changes to this Privacy Policy
 
 We may adjust this privacy policy if the website, the services used, or the legal requirements change. The version published on this website at the time applies.`,
-                `1. Verantwortlicher
+                `Stand: 28. Juli 2026
+
+                1. Verantwortlicher
 
 Verantwortlicher für die Verarbeitung personenbezogener Daten auf dieser Website ist:
 
@@ -397,7 +401,7 @@ Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, 
 Die für Sachsen zuständige Aufsichtsbehörde ist:
 
 Sächsische Datenschutz- und Transparenzbeauftragte
-Devrientstraße 5
+Maternistraße 17
 01067 Dresden
 Deutschland
 
