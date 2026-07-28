@@ -200,7 +200,7 @@ const Services = () => {
         desktopImages: [designImg1, designImg2, designImg3, designImg4],
         mobileImage: designImg2,
         text: t(
-          "In our Dresden studio, seasonal lace collections are created, inspired by current trends.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
+          "In our Design Studio in Dresden we create seasonal lace collections, inspired by current trends.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
           "In unserem Dresdner Atelier entstehen saisonale Spitzenkollektionen, inspiriert von aktuellen Trends.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir auch elastische, unelastische Spitzen und Kettgewirke nach Ihren individuellen Anforderungen.",
         ),
       },
