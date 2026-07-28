@@ -80,7 +80,7 @@ const EditorialNav = () => {
   const serviceSections = [
     { label: t("DESIGN", "DESIGN"), hash: "#design" },
     {
-      label: t("RAW MATERIAL PRODUCTION", "ROHWARENPRODUKTION"),
+      label: t("PRODUCTION", "PRODUKTION"),
       hash: "#raw-material-production",
     },
     {
