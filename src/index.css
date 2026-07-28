@@ -43,7 +43,7 @@
     --warm-gray: 215 15% 45%;
 
     --font-serif: 'Bodoni Moda Variable', Georgia, 'Times New Roman', serif;
---font-sans: 'Jost Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Jost Variable', -apple-system, BlinkMacSystemFont, sans-serif;
 
     --shadow-subtle: 0 1px 3px hsl(0 0% 0% / 0.04);
     --shadow-editorial: 0 8px 30px hsl(0 0% 0% / 0.06);
