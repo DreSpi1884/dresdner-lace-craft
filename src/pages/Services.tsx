@@ -255,10 +255,18 @@ const scrollMobileSectionToTop = (id: string) => {
   if (!element) return;
   const offset = getAnchorScrollOffset(id);
   const top = element.getBoundingClientRect().top + window.scrollY - offset;
-  window.scrollTo({
-  top: Math.max(top, 0),
-  behavior: "auto",
-});
+
+  const html = document.documentElement;
+  const body = document.body;
+  const prevHtml = html.style.scrollBehavior;
+  const prevBody = body.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+  body.style.scrollBehavior = "auto";
+  window.scrollTo({ top: Math.max(top, 0), left: 0, behavior: "auto" });
+  window.requestAnimationFrame(() => {
+    html.style.scrollBehavior = prevHtml;
+    body.style.scrollBehavior = prevBody;
+  });
 };
 
 
@@ -579,7 +587,9 @@ const openMobileSection = (id: string) => {
       key={s.id}
       id={s.id}
       data-no-reveal
-      className="border-b-2 border-primary/40 scroll-mt-36"
+      className={`scroll-mt-36 ${
+        i < services.length - 1 ? "border-b-2 border-primary/40" : ""
+      }`}
       >
 
 
