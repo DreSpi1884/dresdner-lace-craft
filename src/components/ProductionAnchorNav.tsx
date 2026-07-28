@@ -13,7 +13,7 @@ const ProductionAnchorNav = () => {
       { id: "design", label: t("Design", "Design") },
       {
         id: "raw-material-production",
-        label: t("Raw material production", "Rohwarenproduktion"),
+        label: t("Production", "Produktion"),
       },
       {
         id: "dyeing-finishing",
