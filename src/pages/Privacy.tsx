@@ -122,6 +122,7 @@ time of transmission.
 Information on company and message can be voluntary. The information marked as required is needed so that we can process and answer your inquiry.
 
 Formspree receives the form data, protects the form from abusive submissions, stores the submission in the Formspree system, and forwards a notification to us.
+When the form is submitted, Formspree may also technically process the IP address, browser type, domain name, access time and referring website address. This data is processed in particular to operate the service securely and to prevent misuse and fraud.
 
 Processing is carried out to process your inquiry and, if necessary, to prepare an offer or contract. The legal basis is Art. 6 (1) (b) GDPR. For inquiries that are not directed towards a contract, processing is based on Art. 6 (1) (f) GDPR. Our legitimate interest lies in the efficient and secure processing of website inquiries.
 
@@ -188,7 +189,7 @@ Right to withdraw consent given with effect for the future.
 
 The withdrawal of consent does not affect the lawfulness of the processing that took place until the withdrawal.
 
-To exercise your rights, you can contact sales@dresdnerspitzen.com. The rights may be restricted if legal exceptions or retention obligations stand in the way.
+To exercise your rights, you can contact datenschutz@dresdnerspitzen.com. The rights may be restricted if legal exceptions or retention obligations stand in the way.
 
 14. Objection to Processing Based on Legitimate Interests
 
@@ -314,6 +315,7 @@ Zeitpunkt der Übermittlung.
 Die Angaben zu Unternehmen und Nachricht können freiwillig sein. Die als erforderlich gekennzeichneten Angaben werden benötigt, damit wir Ihre Anfrage bearbeiten und beantworten können.
 
 Formspree nimmt die Formulardaten entgegen, schützt das Formular vor missbräuchlichen Einsendungen, speichert die Einsendung im Formspree-System und leitet eine Benachrichtigung an uns weiter.
+Beim Absenden des Formulars kann Formspree außerdem technisch die IP-Adresse, den Browsertyp, den Domainnamen, die Zugriffszeit und die Referrer-Adresse verarbeiten. Diese Daten werden insbesondere zum sicheren Betrieb des Dienstes sowie zur Verhinderung von Missbrauch und Betrug verarbeitet.
 
 Die Verarbeitung erfolgt zur Bearbeitung Ihrer Anfrage und gegebenenfalls zur Vorbereitung eines Angebots oder Vertrags. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Bei Anfragen, die nicht auf einen Vertrag gerichtet sind, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der effizienten und sicheren Bearbeitung von Websiteanfragen.
 
@@ -380,7 +382,7 @@ Recht auf Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft.
 
 Der Widerruf einer Einwilligung berührt nicht die Rechtmäßigkeit der Verarbeitung, die bis zum Widerruf erfolgt ist.
 
-Zur Ausübung Ihrer Rechte können Sie sich an sales@dresdnerspitzen.com wenden. Die Rechte können eingeschränkt sein, wenn gesetzliche Ausnahmen oder Aufbewahrungspflichten entgegenstehen.
+Zur Ausübung Ihrer Rechte können Sie sich an datenschutz@dresdnerspitzen.com wenden. Die Rechte können eingeschränkt sein, wenn gesetzliche Ausnahmen oder Aufbewahrungspflichten entgegenstehen.
 
 14. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
 
