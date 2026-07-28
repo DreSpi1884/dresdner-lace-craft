@@ -152,7 +152,7 @@ const Index = () => {
   
   <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-center">
     <h3
-      className="font-serif text-background whitespace-nowrap text-[clamp(28px,7vw,40px)] leading-none mb-4"
+      className="mb-4 font-serif text-[clamp(28px,7vw,40px)] leading-tight text-background"
     >
       {item.title}
     </h3>
