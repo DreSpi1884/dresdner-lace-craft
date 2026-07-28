@@ -649,8 +649,6 @@ const openMobileSection = (id: string) => {
   <div className="flex min-h-[760px] items-start lg:pl-[48px] lg:pr-10 py-20">
     <div className="w-full max-w-none">
       <h2 className="editorial-heading-lg mb-16 text-primary">
-  {s.title}
-</h2>
         {s.title}
       </h2>
 
