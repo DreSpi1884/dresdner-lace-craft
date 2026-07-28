@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import EditorialSection from "@/components/EditorialSection";
-import heroVideo from "@/assets/hero-video.mp4.asset.json";
+import heroVideo from "@/assets/hero-video.mp4";
 
 import bespokeDesignsImage from "@/assets/bespoke-designs.png?url";
 import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg.asset.json";
