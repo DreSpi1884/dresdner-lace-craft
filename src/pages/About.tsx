@@ -205,7 +205,7 @@ useLayoutEffect(() => {
                   {section.id === "history" && <HistoryTimeline />}
 
                   {section.id === "sustainability" && (
-                    <div className="space-y-4 text-left text-[17px] leading-[1.9] text-muted-foreground">
+                    <div className="editorial-body space-y-4 text-left text-muted-foreground">
                       <p className="whitespace-pre-wrap">
                         {t(
                           "Our production is supported by an energy management system and certified according to internationally recognized standards, \nincluding OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
@@ -278,11 +278,11 @@ useLayoutEffect(() => {
                         key={item.title}
                         className="py-8 first:pt-0 last:pb-0"
                       >
-                        <h3 className="editorial-heading-sm text-primary text-[21px] leading-snug">
+                        <h3 className="editorial-heading-sm text-primary">
                           {item.title}
                         </h3>
                 
-                        <p className="mt-4 max-w-[42ch] text-[16px] leading-[1.8] text-muted-foreground">
+                        <p className="editorial-body mt-4 max-w-[42ch] text-muted-foreground">
                           {item.desc}
                         </p>
                       </div>
@@ -339,7 +339,7 @@ useLayoutEffect(() => {
     </div>
 
     <div className="min-w-0 pr-8 xl:pr-12 2xl:pr-16">
-      <div className="max-w-[760px] text-left text-lg leading-[1.85] text-muted-foreground lg:pt-32 xl:pt-36">
+      <div className="editorial-body max-w-[760px] text-left text-muted-foreground lg:pt-32 xl:pt-36">
         <p className="whitespace-pre-wrap">
           {t(
             "Our production is supported by an energy management system and certified according to internationally recognized standards, including OEKO-TEX® Standard 100,\u00a0\nOEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
@@ -410,11 +410,11 @@ useLayoutEffect(() => {
   },
 ].map((item) => (
                 <div key={item.title} className="py-12 first:pt-0 last:pb-0">
-                  <h3 className="editorial-heading-sm text-primary text-[28px] leading-snug xl:text-[32px]">
+                  <h3 className="editorial-heading-sm text-primary">
                     {item.title}
                   </h3>
 
-                  <p className="mt-6 w-full text-lg leading-[1.9] text-muted-foreground">
+                  <p className="editorial-body mt-6 w-full text-muted-foreground">
                     {item.desc}
                   </p>
                 </div>
