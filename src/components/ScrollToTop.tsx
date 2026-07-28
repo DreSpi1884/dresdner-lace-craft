@@ -39,11 +39,13 @@ const ScrollToTop = () => {
   }, []);
 
   useLayoutEffect(() => {
-  const isMobileAbout =
-    pathname.startsWith("/about") && window.innerWidth < 1024;
+  const isMobileAccordionPage =
+    window.innerWidth < 1024 &&
+    (pathname.startsWith("/about") || pathname.startsWith("/services"));
 
-  // Mobile About manages its accordion state and scrolling itself.
-  if (hash && isMobileAbout) return;
+  // Mobile accordion pages must open their section before measuring it.
+  // Their page components perform the single, final pre-paint scroll.
+  if (hash && isMobileAccordionPage) return;
 
   if (!hash) {
     instantScrollTo(0);

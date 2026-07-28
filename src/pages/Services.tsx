@@ -244,11 +244,13 @@ const Services = () => {
 const [mobileOpenId, setMobileOpenId] = useState<string | null>(null);
 
 useLayoutEffect(() => {
+  if (window.innerWidth >= 1024) return;
+
   const hash = location.hash.replace("#", "");
   const exists = services.some((service) => service.id === hash);
 
   setMobileOpenId(exists ? hash : null);
-}, [location.hash, services]);
+}, [location.hash, location.key, services]);
 
 const scrollMobileSectionToTop = (id: string) => {
   const element = document.getElementById(id);
@@ -268,6 +270,15 @@ const scrollMobileSectionToTop = (id: string) => {
     body.style.scrollBehavior = prevBody;
   });
 };
+
+useLayoutEffect(() => {
+  if (window.innerWidth >= 1024) return;
+
+  const hash = location.hash.replace("#", "");
+  if (!hash || mobileOpenId !== hash) return;
+
+  scrollMobileSectionToTop(hash);
+}, [mobileOpenId, location.hash, location.key]);
 
 
 const openMobileSection = (id: string) => {
