@@ -367,7 +367,8 @@ useLayoutEffect(() => {
       {/* Desktop values */}
       <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
         <span id="values-scroll-target" className="block h-0" aria-hidden="true" />
-        <div className="editorial-container py-24 xl:py-32">
+        <div className="editorial-container pt-0 pb-24 xl:pb-32">
+
           <div className="grid grid-cols-[0.7fr_1.3fr] gap-16 xl:gap-24 items-start">
             <div className="sticky top-32">
               <h2 className="editorial-heading-lg text-foreground mb-4">
