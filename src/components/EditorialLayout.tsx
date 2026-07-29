@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import EditorialNav from "./EditorialNav";
 import EditorialFooter from "./EditorialFooter";
-import laceBanner from "@/assets/lace-banner.png.asset.json";
+import laceBanner from "@/assets/lace-banner.png?url";
 
 interface EditorialLayoutProps {
   children: ReactNode;
@@ -22,7 +22,7 @@ const EditorialLayout = ({ children, heroAtTop = false, title, subtitle, heroCom
         {!heroAtTop && (
           <div
             className={`mt-20 md:mt-24 relative w-full bg-cover bg-center flex items-end ${heroCompact ? "h-[20vh] min-h-[120px] md:min-h-[140px] pb-3 md:pb-4" : "h-[280px] md:h-[340px] pb-10 md:pb-14"} ${heroClassName || ""}`}
-            style={{ backgroundImage: `url(${laceBanner.url})`, scrollSnapAlign: heroSnap ? "start" : undefined }}
+            style={{ backgroundImage: `url(${laceBanner})`, scrollSnapAlign: heroSnap ? "start" : undefined }}
           >
             <div className="absolute inset-0 bg-background/40" aria-hidden="true" />
             {(title || subtitle) && (
