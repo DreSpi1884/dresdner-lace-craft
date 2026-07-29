@@ -365,7 +365,7 @@ useLayoutEffect(() => {
 </section>
 
       {/* Desktop values */}
-      <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32">
+      <EditorialSection id="values" className="hidden lg:block bg-card scroll-mt-32 lg:pt-36">
         <span id="values-scroll-target" className="block h-0" aria-hidden="true" />
         <div className="editorial-container pt-0 pb-24 xl:pb-32">
 
