@@ -593,7 +593,7 @@ const openMobileSection = (id: string) => {
 
 <ProductionAnchorNav />
 
-<section className="w-full pb-32 md:pb-48 lg:pb-64">
+<section className="w-full">
   {services.map((s, i) => {
     const isOpen = mobileOpenId === s.id;
 
