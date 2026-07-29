@@ -578,7 +578,7 @@ const openMobileSection = (id: string) => {
     );
 
     return (
-    <EditorialLayout title={t("Production", "Produktion")} heroCompact>
+    <EditorialLayout title={t("Services", "Services")} heroCompact>
       <SEO
         title={t(
           "Production, Dyeing and Textile Finishing",
