@@ -1,7 +1,7 @@
 import { Mail, MapPin } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
-import germanyMap from "@/assets/germany-map-dregus.png.asset.json";
+import germanyMap from "@/assets/germany-map-dregus.png?url";
 import { useLang } from "@/i18n/LanguageContext";
 import { SITE } from "@/config/site";
 
@@ -84,7 +84,7 @@ const Contact = () => {
 
             <div className="flex items-start justify-center lg:justify-end">
               <img
-                src={germanyMap.url}
+                src={germanyMap}
                 alt={t(
                   "Map of Germany showing Dresden",
                   "Deutschlandkarte mit dem Standort Dresden",

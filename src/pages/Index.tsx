@@ -6,12 +6,12 @@ import EditorialSection from "@/components/EditorialSection";
 import heroVideo from "@/assets/hero-video.mp4?url";
 
 import bespokeDesignsImage from "@/assets/bespoke-designs.png?url";
-import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg.asset.json";
-import functionalTextiles from "@/assets/dyeing-finishing.jpg.asset.json";
+import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg?url";
+import functionalTextiles from "@/assets/dyeing-finishing.jpg?url";
 import fullStageProductionImage from "@/assets/full-production.jpg?url";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-import heritageThen from "@/assets/heritage-then.png.asset.json";
-import heritageNow from "@/assets/heritage-now.jpg.asset.json";
+import heritageThen from "@/assets/heritage-then.png?url";
+import heritageNow from "@/assets/heritage-now.jpg?url";
 import grsLogo from "@/assets/GRS_freigestellt.png?url";
 import OekoTex from "@/assets/OEKOTEXSTeP.png?url";
 import { useLang } from "@/i18n/LanguageContext";
@@ -103,7 +103,7 @@ const Index = () => {
       "In our Dresden studio, seasonal lace collections are created, inspired by current trends.",
       "In unserem Dresdner Atelier entstehen saisonale Spitzenkollektionen, inspiriert von aktuellen Trends.",
     ),
-    image: serviceLaceCollections.url,
+    image: serviceLaceCollections,
     anchor: "design",
   },
   {
@@ -121,7 +121,7 @@ const Index = () => {
       "We develop functional warp-knitted fabrics for technical and medical applications with a variety of finishes.",
       "Wir entwickeln funktionale Kettgewirke für technische und medizinische Anwendungen mit verschiedenen Ausrüstungen.",
     ),
-    image: functionalTextiles.url,
+    image: functionalTextiles,
     anchor: "functional-textiles",
   },
   {
@@ -205,8 +205,8 @@ const Index = () => {
   <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
   <div className="w-full">
     <BeforeAfterSlider
-      beforeImage={heritageThen.url}
-      afterImage={heritageNow.url}
+      beforeImage={heritageThen}
+      afterImage={heritageNow}
       beforeAlt="Historic Dresdner Spitzen weaving hall"
       afterAlt="Modern Dresdner Spitzen production facility"
       className="aspect-[4/3] lg:aspect-[16/10]"

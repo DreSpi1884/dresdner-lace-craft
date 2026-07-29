@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import { useLang } from "@/i18n/LanguageContext";
 import laceAsset from "@/assets/lace_tile_vertikal.png";
-import history1980Asset from "@/assets/history-1995.jpg.asset.json";
+import history1980Asset from "@/assets/history-1995.jpg?url";
 import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
 import factory1900Image from "@/assets/blick-von-westen.jpg?url";
 import image1945 from "@/assets/bildkombi-45.png?url";
@@ -74,7 +74,7 @@ const HistoryTimeline = () => {
       {
         year: t("New Machinery", "Neue Maschinen"),
         date: "1980",
-        image: history1980Asset.url,
+        image: history1980Asset,
         imageAlt: t(
           "1980 production facility",
           "Produktionsanlage 1980"
