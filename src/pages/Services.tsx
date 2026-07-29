@@ -107,7 +107,7 @@ const ProductionImageTile = ({
 }) => (
   <div
     data-no-reveal
-    className="relative h-full min-h-0 w-full overflow-hidden bg-muted"
+    className="relative h-full w-full overflow-hidden bg-muted"
     style={{
       opacity: 1,
       transform: "none",
@@ -119,6 +119,8 @@ const ProductionImageTile = ({
       data-no-reveal
       src={src}
       alt={alt}
+      width={1920}
+      height={1080}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
       className="absolute inset-0 h-full w-full object-cover"
