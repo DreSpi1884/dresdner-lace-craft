@@ -9,10 +9,10 @@ import AboutAnchorNav from "@/components/AboutAnchorNav";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 import { getAnchorScrollOffset } from "@/lib/scrollNav";
-import grsLogo from "@/assets/GRS_freigestellt.png?url";
+import grsLogo from "@/assets/GRS_freigestellt.webp?url";
 import oekoTexLogo from "@/assets/OEKOTEXSTeP.png?url";
-import umweltallianzLogo from "@/assets/umweltallianz-sachsen.png?url";
-import solarRoofImg from "@/assets/solaranlage.jpg?url";
+import umweltallianzLogo from "@/assets/umweltallianz-sachsen.webp?url";
+import solarRoofImg from "@/assets/solaranlage.webp?url";
 
 
 const SolarImageCard = ({

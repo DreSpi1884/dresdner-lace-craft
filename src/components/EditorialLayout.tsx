@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import EditorialNav from "./EditorialNav";
 import EditorialFooter from "./EditorialFooter";
-import laceBanner from "@/assets/lace-banner.png?url";
+import laceBanner from "@/assets/lace-banner.webp?url";
 
 interface EditorialLayoutProps {
   children: ReactNode;
