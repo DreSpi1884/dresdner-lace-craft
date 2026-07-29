@@ -223,7 +223,7 @@ const Services = () => {
         mobileImage: dyeingImg2,
         text: t(
           "Our in-house dyeing facilities cover the full color spectrum, from delicate pastels to deep saturated shades, in solid and bicolor finishes.\nWith modern jet dyeing technology, we can save up to 70% water compared with high-liquor dyeing.\nContract dyeing and finishing services available on request.",
-          "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nMit moderner Jet-Technologie können wir beim Färben bis zu 70 % Wasser einsparen im Vergleich zur herkömmlichen Hochflottenfärbung.\nLohnfärberei und -ausrüstung auf Anfrage.",
+          "Unsere hauseigene Färberei deckt das gesamte Farbspektrum ab, von zarten Pastelltönen bis zu tiefen Sattfarben, in Uni- und Bicolor-Ausführung.\nMit moderner Jet-Technologie können wir\u00a0im Vergleich zur herkömmlichen Hochflottenfärbung\u00a0bis zu 70 % Wasser\u00a0beim Färben\u00a0einsparen .\nLohnfärberei und -ausrüstung auf Anfrage.",
         ),
       },
       {
