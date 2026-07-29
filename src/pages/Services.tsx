@@ -680,7 +680,7 @@ const openMobileSection = (id: string) => {
             key={`${s.id}-${idx}`}
             src={img}
             alt={`${s.title} ${idx + 1}`}
-            priority={i < 2}
+            priority={true}
           />
         ))}
       </div>
