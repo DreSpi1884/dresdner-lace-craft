@@ -245,40 +245,41 @@ Die Verarbeitung erfolgt zur Bearbeitung und Beantwortung Ihrer Anfrage.
 
 Bezieht sich Ihre Anfrage auf einen möglichen Vertrag oder eine bestehende Geschäftsbeziehung, ist Art. 6 Abs. 1 lit. b DSGVO die Rechtsgrundlage. Bei allgemeinen Anfragen erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der sachgerechten Bearbeitung eingehender Kommunikation.
 
-7. Anfrageformular und Formspree
+8. Links zu Instagram und LinkedIn
 
-Für das Anfrageformular verwenden wir den Dienst Formspree, bereitgestellt von Formspree, Inc., USA.
+Unsere Website enthält Links zu unseren Profilen bei Instagram und LinkedIn. Es handelt sich lediglich um externe Links. Auf unserer Website werden keine Social-Media-Plugins, Feeds oder Tracking-Pixel dieser Anbieter eingebunden.
 
-Je nach Ihren Angaben werden über das Formular insbesondere folgende Daten verarbeitet:
+Erst wenn Sie einen solchen Link anklicken, verlassen Sie unsere Website und es wird eine Verbindung zum jeweiligen Anbieter hergestellt. Dabei können insbesondere Ihre IP-Adresse, Geräte- und Browserinformationen sowie die Information verarbeitet werden, dass Sie von unserer Website auf das jeweilige Angebot gelangt sind.
 
-gewünschte Textilart;
-gewünschte Spitzenart;
-Breitenangaben;
-vorgesehener Einsatzbereich;
-gewünschte Menge;
-Name;
-Unternehmen;
-E-Mail-Adresse;
-Nachricht;
-ausgewählte Sprache;
-Zeitpunkt der Übermittlung.
+Für die nach dem Anklicken erfolgende Datenverarbeitung ist der jeweilige Plattformbetreiber verantwortlich. Die Nutzung der Plattformen richtet sich nach deren eigenen Datenschutzbestimmungen.
 
-Die Angaben zu Unternehmen und Nachricht können freiwillig sein. Die als erforderlich gekennzeichneten Angaben werden benötigt, damit wir Ihre Anfrage bearbeiten und beantworten können.
+9. Empfänger personenbezogener Daten
 
-Formspree nimmt die Formulardaten entgegen, schützt das Formular vor missbräuchlichen Einsendungen, speichert die Einsendung im Formspree-System und leitet eine Benachrichtigung an uns weiter.
-Beim Absenden des Formulars kann Formspree außerdem technisch die IP-Adresse, den Browsertyp, den Domainnamen, die Zugriffszeit und die Referrer-Adresse verarbeiten. Diese Daten werden insbesondere zum sicheren Betrieb des Dienstes sowie zur Verhinderung von Missbrauch und Betrug verarbeitet.
+Personenbezogene Daten werden nur an Empfänger übermittelt, wenn dies zur Erfüllung der beschriebenen Zwecke erforderlich ist, eine gesetzliche Verpflichtung besteht oder Sie eingewilligt haben.
 
-Die Verarbeitung erfolgt zur Bearbeitung Ihrer Anfrage und gegebenenfalls zur Vorbereitung eines Angebots oder Vertrags. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Bei Anfragen, die nicht auf einen Vertrag gerichtet sind, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der effizienten und sicheren Bearbeitung von Websiteanfragen.
+Zu den möglichen Empfängern gehören insbesondere:
 
-Formspree verarbeitet Daten in den Vereinigten Staaten und nutzt nach eigenen Angaben technische Infrastruktur von Amazon Web Services in den USA. Formspree gibt an, für Übermittlungen aus Europa Standardvertragsklauseln als geeignete Garantie zu verwenden.
+IONOS SE als Hosting- und WebAnalytics-Anbieter;
+interne Abteilungen und Beschäftigte, die mit der Bearbeitung Ihrer Anfrage befasst sind;
+externe Berater oder Dienstleister, soweit dies für die Erfüllung rechtlicher oder geschäftlicher Pflichten erforderlich ist.
 
-Trotz dieser Garantien kann bei einer Verarbeitung in den USA nicht vollständig ausgeschlossen werden, dass US-Behörden im Rahmen der gesetzlichen Befugnisse auf Daten zugreifen.
+Soweit Dienstleister Daten ausschließlich in unserem Auftrag verarbeiten, werden sie entsprechend den gesetzlichen Anforderungen als Auftragsverarbeiter eingesetzt.
 
-Bitte übermitteln Sie über das Formular keine besonderen Kategorien personenbezogener Daten, beispielsweise Gesundheitsdaten, Angaben zur ethnischen Herkunft, politischen Meinung, Religion oder Gewerkschaftszugehörigkeit.
+10. Speicherdauer
 
-Wir löschen Formulardaten, sobald sie für die Bearbeitung der Anfrage und eine mögliche Geschäftsbeziehung nicht mehr erforderlich sind. Daten können länger gespeichert werden, wenn gesetzliche Aufbewahrungspflichten bestehen oder sie zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen benötigt werden.
+Wir speichern personenbezogene Daten nur so lange, wie dies für den jeweiligen Verarbeitungszweck erforderlich ist.
 
-Formspree speichert Daten nach eigenen Angaben so lange, wie dies zur Erbringung des Dienstes, zur Erfüllung gesetzlicher Pflichten, zur Beilegung von Streitigkeiten oder zur Durchsetzung von Vereinbarungen erforderlich ist.
+Nach Abschluss einer Anfrage werden die Daten gelöscht, sofern keine weitere Geschäftsbeziehung entsteht und keine gesetzlichen Aufbewahrungspflichten oder berechtigten Interessen an einer weiteren Speicherung bestehen.
+
+Geschäftliche Kommunikation kann gesetzlichen handels- oder steuerrechtlichen Aufbewahrungsfristen unterliegen. In diesem Fall wird die Verarbeitung auf die Erfüllung dieser Pflichten beschränkt.
+
+11. Pflicht zur Bereitstellung von Daten
+
+Die Bereitstellung personenbezogener Daten ist grundsätzlich weder gesetzlich noch vertraglich vorgeschrieben.
+
+Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlich, damit wir eine Anfrage bearbeiten und beantworten können. Ohne diese Angaben ist eine Bearbeitung nicht möglich.
+
+12. Automatisierte Entscheidungen
 
 8. Links zu Instagram und LinkedIn
 
