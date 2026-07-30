@@ -122,7 +122,8 @@ const ProductionImageTile = ({
       width={1920}
       height={1080}
       loading={priority ? "eager" : "lazy"}
-      decoding="async"
+      fetchPriority={priority ? "high" : "low"}
+      decoding={priority ? "sync" : "async"}
       className="absolute inset-0 h-full w-full object-cover"
       style={{
         opacity: 1,
@@ -140,6 +141,16 @@ const Services = () => {
   const { t, lang } = useLang();
   const { open: openQuote } = useQuoteModal();
   const location = useLocation();
+
+  const hashSectionId = location.hash.replace(/^#/, "");
+  const prioritySectionId = [
+    "design",
+    "raw-material-production",
+    "dyeing-finishing",
+    "functional-textiles",
+  ].includes(hashSectionId)
+    ? hashSectionId
+    : "design";
   
 
   const processSteps = useMemo(
@@ -617,7 +628,7 @@ const openMobileSection = (id: string) => {
     <ProductionImageTile
       src={s.mobileImage}
       alt={s.title}
-      priority={i < 2}
+      priority={s.id === prioritySectionId}
     />
   </div>
 )}
@@ -680,7 +691,7 @@ const openMobileSection = (id: string) => {
             key={`${s.id}-${idx}`}
             src={img}
             alt={`${s.title} ${idx + 1}`}
-            priority={true}
+            priority={s.id === prioritySectionId}
           />
         ))}
       </div>
