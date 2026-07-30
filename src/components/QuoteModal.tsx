@@ -310,7 +310,7 @@ if (!response.ok) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
                       { value: "Spitze", label: t("Lace", "Spitze") },
-                      { value: "Kettgewirke", label: t("Warp-knitted fabrics", "Kettgewirke") },
+                      { value: "Meterware", label: t("Fabrics", "Meterware") },
                       { value: "Funktionale Textilien", label: t("Functional textiles", "Funktionale Textilien") },
                     ].map((opt) => (
                       <OptionButton
