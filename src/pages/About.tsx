@@ -47,7 +47,7 @@ const SolarImageCard = ({
 const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
   <div
     data-no-reveal
-    className={`flex w-full flex-nowrap items-center justify-start gap-2.5 overflow-visible sm:gap-4 md:gap-5 ${className}`}
+    className={`flex w-full items-center justify-start gap-[3vw] sm:gap-4 ${className}`}
   >
     <a
       href="https://textileexchange.org/recycled-claim-global-recycled-standard/"
@@ -56,11 +56,11 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
       aria-label="Global Recycled Standard – mehr erfahren"
       className="shrink-0"
     >
-     <img
+      <img
         data-no-reveal
         src={grsLogo}
         alt="Global Recycled Standard"
-        className="block w-[120px] shrink-0 bg-white object-contain sm:w-[230px] md:w-[180px] lg:w-[200px] xl:w-[250px]"
+        className="block w-[clamp(70px,22vw,250px)] shrink-0 bg-white object-contain transition-all duration-150"
       />
     </a>
 
@@ -68,14 +68,14 @@ const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
       data-no-reveal
       src={oekoTexLogo}
       alt="OEKO-TEX STeP"
-      className="block w-[120px] shrink-0 bg-white object-contain sm:w-[1800px] md:w-[130px] lg:w-[200px] xl:w-[250px]"
+      className="block w-[clamp(70px,22vw,250px)] shrink-0 bg-white object-contain transition-all duration-150"
     />
 
     <img
       data-no-reveal
       src={umweltallianzLogo}
       alt="Umwelt- und Klimaallianz Sachsen"
-      className="block w-[80px] shrink-0 object-contain sm:w-[120px] md:w-[100px] lg:w-[130px] xl:w-[180px]"
+      className="block w-[clamp(50px,15vw,180px)] shrink-0 object-contain transition-all duration-150"
     />
   </div>
 );
