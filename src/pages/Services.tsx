@@ -211,7 +211,7 @@ const Services = () => {
         nav: t("Design", "Design"),
         title: t("Design", "Design"),
         desktopImages: [designImg1, designImg2, designImg3, designImg4],
-        mobileImage: designImg2,
+        mobileImage: designImg1,
         text: t(
           "In our Design Studio in Dresden we create seasonal lace collections, inspired by current trends.\n\n\n\nWe also create custom elastic or inelastic lace and warp-knitted fabrics tailored to your specific requirements.",
           "In unserem Dresdner Atelier entstehen saisonale Spitzenkollektionen, inspiriert von aktuellen Trends.\n\n\n\nNeben unseren saisonalen Kollektionen entwickeln wir auch elastische, unelastische Spitzen und Kettgewirke nach Ihren individuellen Anforderungen.",
@@ -517,7 +517,7 @@ const openMobileSection = (id: string) => {
             {s.id === "raw-material-production"
               ? t(
                   "In our finishing department, the lace ribbons are separated and the fine scalloped edges are cut. During all production steps, we perform regular quality controls to guarantee the highest quality standards for our customers.",
-                  "In unserer Endfertigung werden die Spitzenbänder getrennt und die feinen Bogenkanten geschnitten. Während aller Produktionsschritten führen wir regelmäßige Qualitätskontrollen durch, um unseren Kunden den höchsten Qualitätsstandard zu garantieren.",
+                  "In unserer Endfertigung werden die Spitzenbänder getrennt und die feinen Bogenkanten geschnitten. Während aller Produktionsschritten führen wir regelmäßige Qualitätskontrollen durch, um unseren Kunden höchste Qualitätsstandards zu garantieren.",
                 )
               : t(
                   "We would be pleased to develop the right textile for your requirements together with you.",

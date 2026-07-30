@@ -68,7 +68,7 @@ const HistoryTimeline = () => {
         imageClassName: "object-cover object-[45%_50%]",
         text: t(
           "After the Second World War, every machine in our factory is dismantled.\u00a0\nStarting almost from nothing, we rebuild our production with borrowed equipment, determination and the commitment of our employees. Within a year, we can produce again.",
-          "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert.\u00a0\nMit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf.\u00a0\nInnerhalb eines Jahres läuft die Textilproduktion erneut an."
+          "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert.\u00a0\nMit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf. Innerhalb eines Jahres läuft die Textilproduktion erneut an."
         ),
       },
       {
@@ -82,7 +82,7 @@ const HistoryTimeline = () => {
         imageClassName: "object-cover object-center",
         text: t(
           "The introduction of warp knitting technology transforms our production and establishes us as the leading lace manufacturer in East Germany.\u00a0\nIn 1982, we become the first company in the world to operate electronically controlled Raschel machines.",
-          "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als den führenden Spitzenhersteller in Ostdeutschland.\u00a0\n1982 sind wir das weltweit erste Unternehmen, das elektronisch gesteuerte Raschel-Maschinen einsetzt."
+          "Die Einführung der Kettenwirktechnik verändert unsere Produktion grundlegend und etabliert uns als den führenden Spitzenhersteller in Ostdeutschland.\u00a0\n1982 setzen wir, als erstes Unternehmen weltweit, elektronisch gesteuerte Raschel-Maschinen ein."
         ),
       },
       {
@@ -125,7 +125,7 @@ const HistoryTimeline = () => {
         imageClassName: "object-cover object-center",
         text: t(
           "Today, Dresdner Spitzen is shaped by the people who carry this knowledge forward every day.\nIn Dresden, we produce lace, warp-knitted fabrics and functional textiles for fashion, industry and medical applications.\nMore than 140 years of textile experience remain part of our daily work, alongside modern technology and attention to detail in every product.",
-          "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen.\nIn Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettgewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen.\nDabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie und Liebe zum Detail in jedem Produkt."
+          "Heute wird Dresdner Spitzen von den Menschen geprägt, die dieses Wissen jeden Tag weitertragen.\nIn Dresden entstehen längst nicht mehr nur Spitzen, sondern auch Kettgewirke und funktionale Textilien für Mode, Industrie und medizinische Anwendungen. Dabei verbinden wir über 140 Jahre Erfahrung mit moderner Technologie und Liebe zum Detail in jedem Produkt."
         ),
       },
     ],
