@@ -68,7 +68,7 @@ const HistoryTimeline = () => {
         imageClassName: "object-cover object-[45%_50%]",
         text: t(
           "After the Second World War, every machine in our factory is dismantled.\u00a0\nStarting almost from nothing, we rebuild our production with borrowed equipment, determination and the commitment of our employees. Within a year, we can produce again.",
-          "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert.\u00a0\nMit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf.\u00a0\nInnerhalb eines Jahres läuft die Textilproduktion erneut an."
+          "Nach dem Zweiten Weltkrieg wird jede Maschine unserer Fabrik demontiert.\u00a0\nMit geliehenen Maschinen, Entschlossenheit und dem Einsatz unserer Mitarbeitenden bauen wir die Produktion wieder auf. Innerhalb eines Jahres läuft die Textilproduktion erneut an."
         ),
       },
       {
