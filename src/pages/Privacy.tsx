@@ -246,15 +246,6 @@ Die Verarbeitung dieser Daten erfolgt zur Bearbeitung Ihrer Anfrage oder zur Dur
 Die von Ihnen per E-Mail übersandten Daten verbleiben bei uns, bis der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen, insbesondere gesetzliche Aufbewahrungsfristen (z. B. nach HGB oder AO bei geschäftlicher Korrespondenz), bleiben unberührt.
 
 Bitte beachten Sie, dass die Datenübertragung im Internet bei der Kommunikation per unverschlüsselter E-Mail Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Übermitteln Sie uns daher bitte keine besonderen Kategorien personenbezogener Daten (z. B. Gesundheitsdaten, Angaben zur ethnischen Herkunft, Religion oder Gewerkschaftszugehörigkeit) per unverschlüsselter E-Mail.
-7. Kontaktaufnahme per E-Mail
-
-Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten personenbezogenen Daten (z. B. E-Mail-Adresse, Name, Inhalt der Nachricht sowie Zeitpunkt der Übermittlung) von uns verarbeitet, um Ihre Anfrage zu bearbeiten und zu beantworten.
-
-Die Verarbeitung dieser Daten erfolgt zur Bearbeitung Ihrer Anfrage oder zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO). Sofern Ihre Anfrage nicht auf den Abschluss oder die Erfüllung eines Vertrags gerichtet ist, erfolgt die Verarbeitung auf Grundlage unseres berechtigten Interesses an einer effizienten und ordnungsgemäßen Bearbeitung von Anfragen (Art. 6 Abs. 1 lit. f DSGVO).
-
-Die von Ihnen per E-Mail übersandten Daten verbleiben bei uns, bis der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen, insbesondere gesetzliche Aufbewahrungsfristen (z. B. nach HGB oder AO bei geschäftlicher Korrespondenz), bleiben unberührt.
-
-Bitte beachten Sie, dass die Datenübertragung im Internet bei der Kommunikation per unverschlüsselter E-Mail Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Übermitteln Sie uns daher bitte keine besonderen Kategorien personenbezogener Daten (z. B. Gesundheitsdaten, Angaben zur ethnischen Herkunft, Religion oder Gewerkschaftszugehörigkeit) per unverschlüsselter E-Mail.
 
 8. Links zu Instagram und LinkedIn
 
