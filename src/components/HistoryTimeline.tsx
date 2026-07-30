@@ -2,13 +2,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import { useLang } from "@/i18n/LanguageContext";
 import laceAsset from "@/assets/lace_tile_vertikal.png";
-import history1980Asset from "@/assets/history-1995.jpg?url";
-import bobbinetManImage from "@/assets/bobbinet-2.jpg?url";
-import factory1900Image from "@/assets/blick-von-westen.jpg?url";
-import image1945 from "@/assets/bildkombi-45.png?url";
-import flood2002Image from "@/assets/flut-2002-edited.png?url";
-import newImage from "@/assets/1995-bau.jpeg?url";
-import todayImage from "@/assets/heute-raschel.png?url";
+import history1980Asset from "@/assets/history-1995.webp?url";
+import bobbinetManImage from "@/assets/bobbinet-2.webp?url";
+import factory1900Image from "@/assets/blick-von-westen.webp?url";
+import image1945 from "@/assets/bildkombi-45.webp?url";
+import flood2002Image from "@/assets/flut-2002-edited.webp?url";
+import newImage from "@/assets/1995-bau.webp?url";
+import todayImage from "@/assets/heute-raschel.webp?url";
 
 
 type Entry = {

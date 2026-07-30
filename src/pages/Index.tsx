@@ -5,14 +5,14 @@ import SEO from "@/components/SEO";
 import EditorialSection from "@/components/EditorialSection";
 import heroVideo from "@/assets/hero-video.mp4?url";
 
-import bespokeDesignsImage from "@/assets/bespoke-designs.png?url";
-import serviceLaceCollections from "@/assets/seasonal-lace-collections.jpg?url";
-import functionalTextiles from "@/assets/dyeing-finishing.jpg?url";
-import fullStageProductionImage from "@/assets/full-production.jpg?url";
+import bespokeDesignsImage from "@/assets/bespoke-designs.webp?url";
+import serviceLaceCollections from "@/assets/seasonal-lace-collections.webp?url";
+import functionalTextiles from "@/assets/dyeing-finishing.webp?url";
+import fullStageProductionImage from "@/assets/full-production.webp?url";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-import heritageThen from "@/assets/heritage-then.png?url";
-import heritageNow from "@/assets/heritage-now.jpg?url";
-import grsLogo from "@/assets/GRS_freigestellt.png?url";
+import heritageThen from "@/assets/heritage-then.webp?url";
+import heritageNow from "@/assets/heritage-now.webp?url";
+import grsLogo from "@/assets/GRS_freigestellt.webp?url";
 import OekoTex from "@/assets/OEKOTEXSTeP.png?url";
 import { useLang } from "@/i18n/LanguageContext";
 

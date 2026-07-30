@@ -9,20 +9,20 @@ import { useLang } from "@/i18n/LanguageContext";
 import ProductionAnchorNav from "@/components/ProductionAnchorNav";
 import { getAnchorScrollOffset } from "@/lib/scrollNav";
 
-import designImg1 from "@/assets/design-1.jpg?url";
-import designImg2 from "@/assets/design-4.jpg?url";
-import designImg3 from "@/assets/design-3.jpg?url";
-import designImg4 from "@/assets/design-2.jpg?url";
-import dyeingImg1 from "@/assets/faerberei.jpg?url";
-import dyeingImg2 from "@/assets/dyeing-1.jpg?url";
-import dyeingImg3 from "@/assets/farbkarte-gruen.png?url";
-import dyeingImg4 from "@/assets/farbkarte-blau.jpg?url";
-import rawMaterialImg1 from "@/assets/maschine-roh-2.png?url";
-import rawMaterialImg2 from "@/assets/maschine-roh-1.png?url";
-import functionalImg1 from "@/assets/wirkstoff-1.jpg?url";
-import functionalImg2 from "@/assets/funktion-1.jpg?url";
-import functionalImg3 from "@/assets/funktion-2.png?url";
-import functionalImg4 from "@/assets/wirkstoff-4.jpg?url";
+import designImg1 from "@/assets/design-1.webp?url";
+import designImg2 from "@/assets/design-4.webp?url";
+import designImg3 from "@/assets/design-3.webp?url";
+import designImg4 from "@/assets/design-2.webp?url";
+import dyeingImg1 from "@/assets/faerberei.webp?url";
+import dyeingImg2 from "@/assets/dyeing-1.webp?url";
+import dyeingImg3 from "@/assets/farbkarte-gruen.webp?url";
+import dyeingImg4 from "@/assets/farbkarte-blau.webp?url";
+import rawMaterialImg1 from "@/assets/maschine-roh-2.webp?url";
+import rawMaterialImg2 from "@/assets/maschine-roh-1.webp?url";
+import functionalImg1 from "@/assets/wirkstoff-1.webp?url";
+import functionalImg2 from "@/assets/funktion-1.webp?url";
+import functionalImg3 from "@/assets/funktion-2.webp?url";
+import functionalImg4 from "@/assets/wirkstoff-4.webp?url";
 
 
 // Inline link helper that turns a specific word in a paragraph into a button.
@@ -122,7 +122,8 @@ const ProductionImageTile = ({
       width={1920}
       height={1080}
       loading={priority ? "eager" : "lazy"}
-      decoding="async"
+      fetchPriority={priority ? "high" : "low"}
+      decoding={priority ? "sync" : "async"}
       className="absolute inset-0 h-full w-full object-cover"
       style={{
         opacity: 1,
@@ -140,6 +141,16 @@ const Services = () => {
   const { t, lang } = useLang();
   const { open: openQuote } = useQuoteModal();
   const location = useLocation();
+
+  const hashSectionId = location.hash.replace(/^#/, "");
+  const prioritySectionId = [
+    "design",
+    "raw-material-production",
+    "dyeing-finishing",
+    "functional-textiles",
+  ].includes(hashSectionId)
+    ? hashSectionId
+    : "design";
   
 
   const processSteps = useMemo(
@@ -617,7 +628,7 @@ const openMobileSection = (id: string) => {
     <ProductionImageTile
       src={s.mobileImage}
       alt={s.title}
-      priority={i < 2}
+      priority={s.id === prioritySectionId}
     />
   </div>
 )}
@@ -680,7 +691,7 @@ const openMobileSection = (id: string) => {
             key={`${s.id}-${idx}`}
             src={img}
             alt={`${s.title} ${idx + 1}`}
-            priority={true}
+            priority={s.id === prioritySectionId}
           />
         ))}
       </div>
