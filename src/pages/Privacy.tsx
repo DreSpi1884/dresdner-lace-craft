@@ -247,7 +247,7 @@ Die von Ihnen per E-Mail übersandten Daten verbleiben bei uns, bis der Zweck f�
 
 Bitte beachten Sie, dass die Datenübertragung im Internet bei der Kommunikation per unverschlüsselter E-Mail Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Übermitteln Sie uns daher bitte keine besonderen Kategorien personenbezogener Daten (z. B. Gesundheitsdaten, Angaben zur ethnischen Herkunft, Religion oder Gewerkschaftszugehörigkeit) per unverschlüsselter E-Mail.
 
-8. Links zu Instagram und LinkedIn
+7. Links zu Instagram und LinkedIn
 
 Unsere Website enthält Links zu unseren Profilen bei Instagram und LinkedIn. Es handelt sich lediglich um externe Links. Auf unserer Website werden keine Social-Media-Plugins, Feeds oder Tracking-Pixel dieser Anbieter eingebunden.
 
