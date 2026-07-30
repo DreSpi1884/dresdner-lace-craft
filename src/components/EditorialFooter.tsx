@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail, ArrowRight } from "lucide-react";
-import { useQuoteModal } from "@/components/QuoteModal";
+import { SITE } from "@/config/site";
 import { useLang } from "@/i18n/LanguageContext";
 
 
 const EditorialFooter = () => {
-  const { open: openQuote } = useQuoteModal();
+  const openQuote = () => {
+    window.location.href = `mailto:${SITE.salesEmail}`;
+  };
   const { t, lang, setLang } = useLang();
   return (
     <footer data-no-reveal className="bg-foreground text-background">

@@ -12,7 +12,6 @@ import NotFound from "./pages/NotFound.tsx";
 import Imprint from "./pages/Imprint.tsx";
 import Privacy from "./pages/Privacy.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
-import { QuoteModalProvider } from "@/components/QuoteModal";
 
 
 const queryClient = new QueryClient();
@@ -23,7 +22,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <QuoteModalProvider>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -35,7 +33,6 @@ const App = () => (
             <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </QuoteModalProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
