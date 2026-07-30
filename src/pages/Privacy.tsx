@@ -85,42 +85,7 @@ Processing is carried out to process and answer your inquiry.
 
 If your inquiry relates to a possible contract or an existing business relationship, Art. 6 (1) (b) GDPR is the legal basis. For general inquiries, processing is based on Art. 6 (1) (f) GDPR. Our legitimate interest lies in the proper handling of incoming communication.
 
-7. Inquiry Form and Formspree
-
-For the inquiry form, we use the service Formspree, provided by Formspree, Inc., USA.
-
-Depending on your specifications, the following data in particular is processed via the form:
-
-desired type of textile;
-desired type of lace;
-width specifications;
-intended area of use;
-desired quantity;
-name;
-company;
-email address;
-message;
-selected language;
-time of transmission.
-
-Information on company and message can be voluntary. The information marked as required is needed so that we can process and answer your inquiry.
-
-Formspree receives the form data, protects the form from abusive submissions, stores the submission in the Formspree system, and forwards a notification to us.
-When the form is submitted, Formspree may also technically process the IP address, browser type, domain name, access time and referring website address. This data is processed in particular to operate the service securely and to prevent misuse and fraud.
-
-Processing is carried out to process your inquiry and, if necessary, to prepare an offer or contract. The legal basis is Art. 6 (1) (b) GDPR. For inquiries that are not directed towards a contract, processing is based on Art. 6 (1) (f) GDPR. Our legitimate interest lies in the efficient and secure processing of website inquiries.
-
-Formspree processes data in the United States and, according to its own information, uses technical infrastructure from Amazon Web Services in the USA. Formspree states that it uses standard contractual clauses as an appropriate guarantee for transfers from Europe.
-
-Despite these guarantees, it cannot be completely ruled out that US authorities may access data within the scope of legal powers when processing takes place in the USA.
-
-Please do not submit any special categories of personal data via the form, such as health data, information on ethnic origin, political opinion, religion, or trade union membership.
-
-We delete form data as soon as it is no longer required for processing the inquiry and a possible business relationship. Data may be stored longer if there are legal retention obligations or if it is needed for the assertion, exercise, or defense of legal claims.
-
-According to Formspree, data is stored for as long as is necessary to provide the service, fulfill legal obligations, resolve disputes, or enforce agreements.
-
-8. Links to Instagram and LinkedIn
+7. Links to Instagram and LinkedIn
 
 Our website contains links to our profiles on Instagram and LinkedIn. These are merely external links. No social media plugins, feeds, or tracking pixels from these providers are integrated into our website.
 
@@ -128,20 +93,19 @@ Only when you click on such a link do you leave our website and a connection to 
 
 The respective platform operator is responsible for the data processing that takes place after clicking. The use of the platforms is subject to their own data protection provisions.
 
-9. Recipients of Personal Data
+8. Recipients of Personal Data
 
 Personal data will only be transferred to recipients if this is necessary to fulfill the described purposes, if a legal obligation exists, or if you have consented.
 
 Possible recipients include in particular:
 
 IONOS SE as hosting and WebAnalytics provider;
-Formspree, Inc. as service provider for the inquiry form;
 internal departments and employees involved in processing your inquiry;
 external advisors or service providers, insofar as this is necessary for the fulfillment of legal or business obligations.
 
 Insofar as service providers process data exclusively on our behalf, they are used as processors in accordance with legal requirements.
 
-10. Storage Period
+9. Storage Period
 
 We store personal data only as long as is necessary for the respective processing purpose.
 
@@ -149,13 +113,13 @@ After completion of an inquiry, the data will be deleted unless a further busine
 
 Business communication may be subject to legal commercial or tax retention periods. In this case, processing is limited to the fulfillment of these obligations.
 
-11. Obligation to Provide Data
+10. Obligation to Provide Data
 
 The provision of personal data is generally not required by law or contract.
 
-However, certain information, in particular name and email address, is required so that we can process and answer an inquiry made via the inquiry form. Without this information, processing via the form is not possible.
+However, certain information, in particular name and email address, is required so that we can process and answer an inquiry. Without this information, processing is not possible.
 
-12. Automated Decisions
+11. Automated Decisions
 
 Automated decision-making, including profiling within the meaning of Art. 22 GDPR, does not take place.
 
@@ -275,48 +239,15 @@ Sie können die gespeicherte Sprachauswahl jederzeit löschen, indem Sie die Web
 
 6. Kontaktaufnahme per E-Mail
 
-Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen übermittelten Daten, insbesondere Ihre E-Mail-Adresse, Ihren Namen, den Inhalt Ihrer Nachricht und gegebenenfalls weitere von Ihnen freiwillig mitgeteilte Informationen.
+Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten personenbezogenen Daten (z. B. E-Mail-Adresse, Name, Inhalt der Nachricht sowie Zeitpunkt der Übermittlung) von uns verarbeitet, um Ihre Anfrage zu bearbeiten und zu beantworten.
 
-Die Verarbeitung erfolgt zur Bearbeitung und Beantwortung Ihrer Anfrage.
+Die Verarbeitung dieser Daten erfolgt zur Bearbeitung Ihrer Anfrage oder zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO). Sofern Ihre Anfrage nicht auf den Abschluss oder die Erfüllung eines Vertrags gerichtet ist, erfolgt die Verarbeitung auf Grundlage unseres berechtigten Interesses an einer effizienten und ordnungsgemäßen Bearbeitung von Anfragen (Art. 6 Abs. 1 lit. f DSGVO).
 
-Bezieht sich Ihre Anfrage auf einen möglichen Vertrag oder eine bestehende Geschäftsbeziehung, ist Art. 6 Abs. 1 lit. b DSGVO die Rechtsgrundlage. Bei allgemeinen Anfragen erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der sachgerechten Bearbeitung eingehender Kommunikation.
+Die von Ihnen per E-Mail übersandten Daten verbleiben bei uns, bis der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen, insbesondere gesetzliche Aufbewahrungsfristen (z. B. nach HGB oder AO bei geschäftlicher Korrespondenz), bleiben unberührt.
 
-7. Anfrageformular und Formspree
+Bitte beachten Sie, dass die Datenübertragung im Internet bei der Kommunikation per unverschlüsselter E-Mail Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Übermitteln Sie uns daher bitte keine besonderen Kategorien personenbezogener Daten (z. B. Gesundheitsdaten, Angaben zur ethnischen Herkunft, Religion oder Gewerkschaftszugehörigkeit) per unverschlüsselter E-Mail.
 
-Für das Anfrageformular verwenden wir den Dienst Formspree, bereitgestellt von Formspree, Inc., USA.
-
-Je nach Ihren Angaben werden über das Formular insbesondere folgende Daten verarbeitet:
-
-gewünschte Textilart;
-gewünschte Spitzenart;
-Breitenangaben;
-vorgesehener Einsatzbereich;
-gewünschte Menge;
-Name;
-Unternehmen;
-E-Mail-Adresse;
-Nachricht;
-ausgewählte Sprache;
-Zeitpunkt der Übermittlung.
-
-Die Angaben zu Unternehmen und Nachricht können freiwillig sein. Die als erforderlich gekennzeichneten Angaben werden benötigt, damit wir Ihre Anfrage bearbeiten und beantworten können.
-
-Formspree nimmt die Formulardaten entgegen, schützt das Formular vor missbräuchlichen Einsendungen, speichert die Einsendung im Formspree-System und leitet eine Benachrichtigung an uns weiter.
-Beim Absenden des Formulars kann Formspree außerdem technisch die IP-Adresse, den Browsertyp, den Domainnamen, die Zugriffszeit und die Referrer-Adresse verarbeiten. Diese Daten werden insbesondere zum sicheren Betrieb des Dienstes sowie zur Verhinderung von Missbrauch und Betrug verarbeitet.
-
-Die Verarbeitung erfolgt zur Bearbeitung Ihrer Anfrage und gegebenenfalls zur Vorbereitung eines Angebots oder Vertrags. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Bei Anfragen, die nicht auf einen Vertrag gerichtet sind, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der effizienten und sicheren Bearbeitung von Websiteanfragen.
-
-Formspree verarbeitet Daten in den Vereinigten Staaten und nutzt nach eigenen Angaben technische Infrastruktur von Amazon Web Services in den USA. Formspree gibt an, für Übermittlungen aus Europa Standardvertragsklauseln als geeignete Garantie zu verwenden.
-
-Trotz dieser Garantien kann bei einer Verarbeitung in den USA nicht vollständig ausgeschlossen werden, dass US-Behörden im Rahmen der gesetzlichen Befugnisse auf Daten zugreifen.
-
-Bitte übermitteln Sie über das Formular keine besonderen Kategorien personenbezogener Daten, beispielsweise Gesundheitsdaten, Angaben zur ethnischen Herkunft, politischen Meinung, Religion oder Gewerkschaftszugehörigkeit.
-
-Wir löschen Formulardaten, sobald sie für die Bearbeitung der Anfrage und eine mögliche Geschäftsbeziehung nicht mehr erforderlich sind. Daten können länger gespeichert werden, wenn gesetzliche Aufbewahrungspflichten bestehen oder sie zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen benötigt werden.
-
-Formspree speichert Daten nach eigenen Angaben so lange, wie dies zur Erbringung des Dienstes, zur Erfüllung gesetzlicher Pflichten, zur Beilegung von Streitigkeiten oder zur Durchsetzung von Vereinbarungen erforderlich ist.
-
-8. Links zu Instagram und LinkedIn
+7. Links zu Instagram und LinkedIn
 
 Unsere Website enthält Links zu unseren Profilen bei Instagram und LinkedIn. Es handelt sich lediglich um externe Links. Auf unserer Website werden keine Social-Media-Plugins, Feeds oder Tracking-Pixel dieser Anbieter eingebunden.
 
@@ -324,20 +255,19 @@ Erst wenn Sie einen solchen Link anklicken, verlassen Sie unsere Website und es 
 
 Für die nach dem Anklicken erfolgende Datenverarbeitung ist der jeweilige Plattformbetreiber verantwortlich. Die Nutzung der Plattformen richtet sich nach deren eigenen Datenschutzbestimmungen.
 
-9. Empfänger personenbezogener Daten
+8. Empfänger personenbezogener Daten
 
 Personenbezogene Daten werden nur an Empfänger übermittelt, wenn dies zur Erfüllung der beschriebenen Zwecke erforderlich ist, eine gesetzliche Verpflichtung besteht oder Sie eingewilligt haben.
 
 Zu den möglichen Empfängern gehören insbesondere:
 
 IONOS SE als Hosting- und WebAnalytics-Anbieter;
-Formspree, Inc. als Dienstleister für das Anfrageformular;
 interne Abteilungen und Beschäftigte, die mit der Bearbeitung Ihrer Anfrage befasst sind;
 externe Berater oder Dienstleister, soweit dies für die Erfüllung rechtlicher oder geschäftlicher Pflichten erforderlich ist.
 
 Soweit Dienstleister Daten ausschließlich in unserem Auftrag verarbeiten, werden sie entsprechend den gesetzlichen Anforderungen als Auftragsverarbeiter eingesetzt.
 
-10. Speicherdauer
+9. Speicherdauer
 
 Wir speichern personenbezogene Daten nur so lange, wie dies für den jeweiligen Verarbeitungszweck erforderlich ist.
 
@@ -345,17 +275,17 @@ Nach Abschluss einer Anfrage werden die Daten gelöscht, sofern keine weitere Ge
 
 Geschäftliche Kommunikation kann gesetzlichen handels- oder steuerrechtlichen Aufbewahrungsfristen unterliegen. In diesem Fall wird die Verarbeitung auf die Erfüllung dieser Pflichten beschränkt.
 
-11. Pflicht zur Bereitstellung von Daten
+10. Pflicht zur Bereitstellung von Daten
 
 Die Bereitstellung personenbezogener Daten ist grundsätzlich weder gesetzlich noch vertraglich vorgeschrieben.
 
-Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlich, damit wir eine über das Anfrageformular gestellte Anfrage bearbeiten und beantworten können. Ohne diese Angaben ist eine Bearbeitung über das Formular nicht möglich.
+Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlich, damit wir eine Anfrage bearbeiten und beantworten können. Ohne diese Angaben ist eine Bearbeitung nicht möglich.
 
-12. Automatisierte Entscheidungen
+11. Automatisierte Entscheidungen
 
 Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO findet nicht statt.
 
-13. Ihre Rechte
+12. Ihre Rechte
 
 Sie haben im Rahmen der gesetzlichen Voraussetzungen insbesondere folgende Rechte:
 
@@ -371,13 +301,13 @@ Der Widerruf einer Einwilligung berührt nicht die Rechtmäßigkeit der Verarbei
 
 Zur Ausübung Ihrer Rechte können Sie sich an datenschutz@dresdnerspitzen.com wenden. Die Rechte können eingeschränkt sein, wenn gesetzliche Ausnahmen oder Aufbewahrungspflichten entgegenstehen.
 
-14. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
+13. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
 
 Soweit wir personenbezogene Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen die Verarbeitung einlegen.
 
 Wir verarbeiten die betreffenden Daten anschließend nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
 
-15. Beschwerderecht
+14. Beschwerderecht
 
 Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen Datenschutzrecht verstößt.
 
@@ -390,7 +320,7 @@ Deutschland
 
 Sie können sich auch an eine andere für Sie zuständige Datenschutzaufsichtsbehörde wenden.
 
-16. Änderungen dieser Datenschutzerklärung
+15. Änderungen dieser Datenschutzerklärung
 
 Wir können diese Datenschutzerklärung anpassen, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen Anforderungen ändern. Es gilt die jeweils auf dieser Website veröffentlichte Fassung.`;
 
