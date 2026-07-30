@@ -19,7 +19,7 @@ import { useLang } from "@/i18n/LanguageContext";
 
 const FooterCertificationLogos = () => (
 
-  <div className="mt-4 flex items-center justify-center gap-10 md:justify-start">
+  <div className="mt-4 flex items-start justify-center gap-10 md:justify-start">
     <a
       href="https://textileexchange.org/recycled-claim-global-recycled-standard/"
       target="_blank"
