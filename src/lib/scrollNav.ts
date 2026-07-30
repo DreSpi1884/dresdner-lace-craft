@@ -5,16 +5,19 @@
 
 const BUFFER_PX = 8;
 
+const SERVICE_SECTION_IDS = new Set([
+  "design",
+  "raw-material-production",
+  "dyeing-finishing",
+  "functional-textiles",
+]);
+
 // Extra breathing room (or negative = scroll further down) needed for
 // specific sections, on top of the base header/sub-nav offset.
 const EXTRA_OFFSET_BY_ID: Record<string, number> = {
   history: -50,
   sustainability: 30,
-  values: -80,
-  design: -60,
-  "raw-material-production": -60,
-  "dyeing-finishing": -60,
-  "functional-textiles": -60,
+  values: 30,
 };
 
 export const getAnchorScrollOffset = (id?: string) => {
@@ -31,8 +34,9 @@ const headerHeight =
   const subNav = document.querySelector<HTMLElement>("[data-anchor-subnav]");
   const subNavHeight = subNav?.getBoundingClientRect().height ?? 0;
   const extra = id ? EXTRA_OFFSET_BY_ID[id] ?? 0 : 0;
+  const buffer = id && SERVICE_SECTION_IDS.has(id) ? 0 : BUFFER_PX;
 
-  return headerHeight + subNavHeight + BUFFER_PX + extra;
+  return headerHeight + subNavHeight + buffer + extra;
 };
 
 export const getAnchorTargetElement = (id: string, pathname: string) => {
