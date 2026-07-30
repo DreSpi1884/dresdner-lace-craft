@@ -1,7 +1,7 @@
 import { Mail, MapPin } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
-import germanyMap from "@/assets/germany-map.png?url";
+import germanyMap from "@/assets/germany-map.webp?url";
 import { useLang } from "@/i18n/LanguageContext";
 import { SITE } from "@/config/site";
 
