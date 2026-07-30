@@ -85,42 +85,7 @@ Processing is carried out to process and answer your inquiry.
 
 If your inquiry relates to a possible contract or an existing business relationship, Art. 6 (1) (b) GDPR is the legal basis. For general inquiries, processing is based on Art. 6 (1) (f) GDPR. Our legitimate interest lies in the proper handling of incoming communication.
 
-7. Inquiry Form and Formspree
-
-For the inquiry form, we use the service Formspree, provided by Formspree, Inc., USA.
-
-Depending on your specifications, the following data in particular is processed via the form:
-
-desired type of textile;
-desired type of lace;
-width specifications;
-intended area of use;
-desired quantity;
-name;
-company;
-email address;
-message;
-selected language;
-time of transmission.
-
-Information on company and message can be voluntary. The information marked as required is needed so that we can process and answer your inquiry.
-
-Formspree receives the form data, protects the form from abusive submissions, stores the submission in the Formspree system, and forwards a notification to us.
-When the form is submitted, Formspree may also technically process the IP address, browser type, domain name, access time and referring website address. This data is processed in particular to operate the service securely and to prevent misuse and fraud.
-
-Processing is carried out to process your inquiry and, if necessary, to prepare an offer or contract. The legal basis is Art. 6 (1) (b) GDPR. For inquiries that are not directed towards a contract, processing is based on Art. 6 (1) (f) GDPR. Our legitimate interest lies in the efficient and secure processing of website inquiries.
-
-Formspree processes data in the United States and, according to its own information, uses technical infrastructure from Amazon Web Services in the USA. Formspree states that it uses standard contractual clauses as an appropriate guarantee for transfers from Europe.
-
-Despite these guarantees, it cannot be completely ruled out that US authorities may access data within the scope of legal powers when processing takes place in the USA.
-
-Please do not submit any special categories of personal data via the form, such as health data, information on ethnic origin, political opinion, religion, or trade union membership.
-
-We delete form data as soon as it is no longer required for processing the inquiry and a possible business relationship. Data may be stored longer if there are legal retention obligations or if it is needed for the assertion, exercise, or defense of legal claims.
-
-According to Formspree, data is stored for as long as is necessary to provide the service, fulfill legal obligations, resolve disputes, or enforce agreements.
-
-8. Links to Instagram and LinkedIn
+8. Links zu Instagram und LinkedIn
 
 Our website contains links to our profiles on Instagram and LinkedIn. These are merely external links. No social media plugins, feeds, or tracking pixels from these providers are integrated into our website.
 
