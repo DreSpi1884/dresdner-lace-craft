@@ -11,6 +11,7 @@ import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import { SITE } from "@/config/site";
 import { useLang, type Lang } from "@/i18n/LanguageContext";
 import logoWhite from "@/assets/dresdner-spitzen-logo-clean.png?url";
+import { getAnchorScrollOffset, getAnchorTargetElement } from "@/lib/scrollNav";
 
 const languages: { code: Lang; label: string }[] = [
   { code: "en", label: "EN" },
@@ -227,15 +228,6 @@ useLayoutEffect(() => {
   };
 }, [isHome]);
 
-const DROPDOWN_SECTION_OFFSETS: Record<string, number> = {
-  history: 112,
-  sustainability: 180,
-  values: 180,
-  design: 112,
-  "raw-material-production": 112,
-  "dyeing-finishing": 112,
-  "functional-textiles": 112,
-};
 
 const handleDropdownAnchor = (
   e: MouseEvent<HTMLAnchorElement>,
@@ -247,13 +239,11 @@ const handleDropdownAnchor = (
   e.preventDefault();
 
   const id = hash.replace("#", "");
-  const target =
-    document.getElementById(`${id}-scroll-target`) ??
-    document.getElementById(id);
+  const target = getAnchorTargetElement(id, path);
 
   if (!target) return;
 
-  const offset = DROPDOWN_SECTION_OFFSETS[id] ?? 175;
+  const offset = getAnchorScrollOffset(id);
   const top = target.getBoundingClientRect().top + window.scrollY - offset;
 
   window.history.replaceState(null, "", `${path}${hash}`);
