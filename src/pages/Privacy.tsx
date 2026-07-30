@@ -301,13 +301,13 @@ Der Widerruf einer Einwilligung berührt nicht die Rechtmäßigkeit der Verarbei
 
 Zur Ausübung Ihrer Rechte können Sie sich an datenschutz@dresdnerspitzen.com wenden. Die Rechte können eingeschränkt sein, wenn gesetzliche Ausnahmen oder Aufbewahrungspflichten entgegenstehen.
 
-14. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
+13. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
 
 Soweit wir personenbezogene Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen die Verarbeitung einlegen.
 
 Wir verarbeiten die betreffenden Daten anschließend nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
 
-15. Beschwerderecht
+14. Beschwerderecht
 
 Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen Datenschutzrecht verstößt.
 
@@ -320,7 +320,7 @@ Deutschland
 
 Sie können sich auch an eine andere für Sie zuständige Datenschutzaufsichtsbehörde wenden.
 
-16. Änderungen dieser Datenschutzerklärung
+15. Änderungen dieser Datenschutzerklärung
 
 Wir können diese Datenschutzerklärung anpassen, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen Anforderungen ändern. Es gilt die jeweils auf dieser Website veröffentlichte Fassung.`;
 
