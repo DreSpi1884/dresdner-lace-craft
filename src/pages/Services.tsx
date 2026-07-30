@@ -4,7 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 import { ChevronDown, Info } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
-import { useQuoteModal } from "@/components/QuoteModal";
+import { SITE } from "@/config/site";
 import { useLang } from "@/i18n/LanguageContext";
 import ProductionAnchorNav from "@/components/ProductionAnchorNav";
 import { getAnchorScrollOffset } from "@/lib/scrollNav";
@@ -139,7 +139,9 @@ const ProductionImageTile = ({
 
 const Services = () => {
   const { t, lang } = useLang();
-  const { open: openQuote } = useQuoteModal();
+  const openQuote = () => {
+    window.location.href = `mailto:${SITE.salesEmail}`;
+  };
   const location = useLocation();
 
   const hashSectionId = location.hash.replace(/^#/, "");

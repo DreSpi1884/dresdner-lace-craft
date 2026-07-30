@@ -8,7 +8,7 @@ import {
 } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Linkedin, ChevronDown } from "lucide-react";
-import { useQuoteModal } from "@/components/QuoteModal";
+import { SITE } from "@/config/site";
 import { useLang, type Lang } from "@/i18n/LanguageContext";
 import logoWhite from "@/assets/dresdner-spitzen-logo-clean.png?url";
 
@@ -58,7 +58,9 @@ const getHeroScale = (width: number, height: number) => {
 const EditorialNav = () => {
   const { t, lang, setLang } = useLang();
   const location = useLocation();
-  const { open: openQuote } = useQuoteModal();
+  const openQuote = () => {
+    window.location.href = `mailto:${SITE.salesEmail}`;
+  };
 
   const isHome = location.pathname === "/";
 
