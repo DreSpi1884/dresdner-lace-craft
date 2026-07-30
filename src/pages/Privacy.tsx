@@ -85,7 +85,7 @@ Processing is carried out to process and answer your inquiry.
 
 If your inquiry relates to a possible contract or an existing business relationship, Art. 6 (1) (b) GDPR is the legal basis. For general inquiries, processing is based on Art. 6 (1) (f) GDPR. Our legitimate interest lies in the proper handling of incoming communication.
 
-8. Links zu Instagram und LinkedIn
+7. Links to Instagram and LinkedIn
 
 Our website contains links to our profiles on Instagram and LinkedIn. These are merely external links. No social media plugins, feeds, or tracking pixels from these providers are integrated into our website.
 
@@ -93,20 +93,19 @@ Only when you click on such a link do you leave our website and a connection to 
 
 The respective platform operator is responsible for the data processing that takes place after clicking. The use of the platforms is subject to their own data protection provisions.
 
-9. Recipients of Personal Data
+8. Recipients of Personal Data
 
 Personal data will only be transferred to recipients if this is necessary to fulfill the described purposes, if a legal obligation exists, or if you have consented.
 
 Possible recipients include in particular:
 
 IONOS SE as hosting and WebAnalytics provider;
-Formspree, Inc. as service provider for the inquiry form;
 internal departments and employees involved in processing your inquiry;
 external advisors or service providers, insofar as this is necessary for the fulfillment of legal or business obligations.
 
 Insofar as service providers process data exclusively on our behalf, they are used as processors in accordance with legal requirements.
 
-10. Storage Period
+9. Storage Period
 
 We store personal data only as long as is necessary for the respective processing purpose.
 
@@ -114,13 +113,13 @@ After completion of an inquiry, the data will be deleted unless a further busine
 
 Business communication may be subject to legal commercial or tax retention periods. In this case, processing is limited to the fulfillment of these obligations.
 
-11. Obligation to Provide Data
+10. Obligation to Provide Data
 
 The provision of personal data is generally not required by law or contract.
 
-However, certain information, in particular name and email address, is required so that we can process and answer an inquiry made via the inquiry form. Without this information, processing via the form is not possible.
+However, certain information, in particular name and email address, is required so that we can process and answer an inquiry. Without this information, processing is not possible.
 
-12. Automated Decisions
+11. Automated Decisions
 
 Automated decision-making, including profiling within the meaning of Art. 22 GDPR, does not take place.
 
