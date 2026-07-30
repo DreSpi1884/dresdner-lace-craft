@@ -19,7 +19,7 @@ import { useLang } from "@/i18n/LanguageContext";
 
 const FooterCertificationLogos = () => (
 
-  <div className="mt-4 flex items-start justify-center gap-10 md:justify-start">
+  <div className="mt-4 flex items-center md:items-start justify-center gap-10 md:justify-start">
     <a
       href="https://textileexchange.org/recycled-claim-global-recycled-standard/"
       target="_blank"
@@ -35,7 +35,7 @@ const FooterCertificationLogos = () => (
     <img
       src={OekoTex}
       alt="OEKO-TEX STeP"
-      className="w-[200px] md:w-[250px] bg-white object-contain mt-2"
+      className="w-[200px] md:w-[250px] bg-white object-contain mt-0 md:mt-2"
     />
   </div>
 );
