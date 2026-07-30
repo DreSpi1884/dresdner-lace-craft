@@ -255,7 +255,7 @@ Erst wenn Sie einen solchen Link anklicken, verlassen Sie unsere Website und es 
 
 Für die nach dem Anklicken erfolgende Datenverarbeitung ist der jeweilige Plattformbetreiber verantwortlich. Die Nutzung der Plattformen richtet sich nach deren eigenen Datenschutzbestimmungen.
 
-9. Empfänger personenbezogener Daten
+8. Empfänger personenbezogener Daten
 
 Personenbezogene Daten werden nur an Empfänger übermittelt, wenn dies zur Erfüllung der beschriebenen Zwecke erforderlich ist, eine gesetzliche Verpflichtung besteht oder Sie eingewilligt haben.
 
@@ -267,7 +267,7 @@ externe Berater oder Dienstleister, soweit dies für die Erfüllung rechtlicher 
 
 Soweit Dienstleister Daten ausschließlich in unserem Auftrag verarbeiten, werden sie entsprechend den gesetzlichen Anforderungen als Auftragsverarbeiter eingesetzt.
 
-10. Speicherdauer
+9. Speicherdauer
 
 Wir speichern personenbezogene Daten nur so lange, wie dies für den jeweiligen Verarbeitungszweck erforderlich ist.
 
@@ -275,17 +275,17 @@ Nach Abschluss einer Anfrage werden die Daten gelöscht, sofern keine weitere Ge
 
 Geschäftliche Kommunikation kann gesetzlichen handels- oder steuerrechtlichen Aufbewahrungsfristen unterliegen. In diesem Fall wird die Verarbeitung auf die Erfüllung dieser Pflichten beschränkt.
 
-11. Pflicht zur Bereitstellung von Daten
+10. Pflicht zur Bereitstellung von Daten
 
 Die Bereitstellung personenbezogener Daten ist grundsätzlich weder gesetzlich noch vertraglich vorgeschrieben.
 
 Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlich, damit wir eine Anfrage bearbeiten und beantworten können. Ohne diese Angaben ist eine Bearbeitung nicht möglich.
 
-12. Automatisierte Entscheidungen
+11. Automatisierte Entscheidungen
 
 Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO findet nicht statt.
 
-13. Ihre Rechte
+12. Ihre Rechte
 
 Sie haben im Rahmen der gesetzlichen Voraussetzungen insbesondere folgende Rechte:
 
