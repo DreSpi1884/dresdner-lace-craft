@@ -35,7 +35,7 @@ const FooterCertificationLogos = () => (
     <img
       src={OekoTex}
       alt="OEKO-TEX STeP"
-      className="w-[200px] md:w-[250px] bg-white object-contain"
+      className="w-[200px] md:w-[250px] bg-white object-contain mt-2"
     />
   </div>
 );
