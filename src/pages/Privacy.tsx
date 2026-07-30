@@ -239,15 +239,23 @@ Sie können die gespeicherte Sprachauswahl jederzeit löschen, indem Sie die Web
 
 6. Kontaktaufnahme per E-Mail
 
+Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen übermittelten Daten, insbesondere Ihre E-Mail-Adresse, Ihren Namen, den Inhalt Ihrer Nachricht und gegebenenfalls weitere von Ihnen freiwillig mitgeteilte Informationen.
+
+Die Verarbeitung erfolgt zur Bearbeitung und Beantwortung Ihrer Anfrage.
+
+Bezieht sich Ihre Anfrage auf einen möglichen Vertrag oder eine bestehende Geschäftsbeziehung, ist Art. 6 Abs. 1 lit. b DSGVO die Rechtsgrundlage. Bei allgemeinen Anfragen erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht in der sachgerechten Bearbeitung eingehender Kommunikation.
+
+7. Kontaktaufnahme per E-Mail
+
 Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten personenbezogenen Daten (z. B. E-Mail-Adresse, Name, Inhalt der Nachricht sowie Zeitpunkt der Übermittlung) von uns verarbeitet, um Ihre Anfrage zu bearbeiten und zu beantworten.
 
 Die Verarbeitung dieser Daten erfolgt zur Bearbeitung Ihrer Anfrage oder zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO). Sofern Ihre Anfrage nicht auf den Abschluss oder die Erfüllung eines Vertrags gerichtet ist, erfolgt die Verarbeitung auf Grundlage unseres berechtigten Interesses an einer effizienten und ordnungsgemäßen Bearbeitung von Anfragen (Art. 6 Abs. 1 lit. f DSGVO).
 
-Die von Ihnen per E-Mail übersandten Daten verbleiben bei uns, bis der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen, insbesondere gesetzliche Aufbewahrungsfristen (z. B. nach HGB oder AO bei geschäftlicher Korrespondenz), bleiben unberührt.
+Die von Ihnen per E-Mail übersandten Daten verbleiben bei uns, bis der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen, insbesondere gesetzliche Aufbewahrungsfristen (z. B. nach HGB oder AO bei geschaufliche Korrespondenz), bleiben unberührt.
 
 Bitte beachten Sie, dass die Datenübertragung im Internet bei der Kommunikation per unverschlüsselter E-Mail Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Übermitteln Sie uns daher bitte keine besonderen Kategorien personenbezogener Daten (z. B. Gesundheitsdaten, Angaben zur ethnischen Herkunft, Religion oder Gewerkschaftszugehörigkeit) per unverschlüsselter E-Mail.
 
-7. Links zu Instagram und LinkedIn
+8. Links zu Instagram und LinkedIn
 
 Unsere Website enthält Links zu unseren Profilen bei Instagram und LinkedIn. Es handelt sich lediglich um externe Links. Auf unserer Website werden keine Social-Media-Plugins, Feeds oder Tracking-Pixel dieser Anbieter eingebunden.
 
@@ -255,19 +263,20 @@ Erst wenn Sie einen solchen Link anklicken, verlassen Sie unsere Website und es 
 
 Für die nach dem Anklicken erfolgende Datenverarbeitung ist der jeweilige Plattformbetreiber verantwortlich. Die Nutzung der Plattformen richtet sich nach deren eigenen Datenschutzbestimmungen.
 
-8. Empfänger personenbezogener Daten
+9. Empfänger personenbezogener Daten
 
 Personenbezogene Daten werden nur an Empfänger übermittelt, wenn dies zur Erfüllung der beschriebenen Zwecke erforderlich ist, eine gesetzliche Verpflichtung besteht oder Sie eingewilligt haben.
 
 Zu den möglichen Empfängern gehören insbesondere:
 
 IONOS SE als Hosting- und WebAnalytics-Anbieter;
+Formspree, Inc. als Dienstleister für das Anfrageformular;
 interne Abteilungen und Beschäftigte, die mit der Bearbeitung Ihrer Anfrage befasst sind;
 externe Berater oder Dienstleister, soweit dies für die Erfüllung rechtlicher oder geschäftlicher Pflichten erforderlich ist.
 
 Soweit Dienstleister Daten ausschließlich in unserem Auftrag verarbeiten, werden sie entsprechend den gesetzlichen Anforderungen als Auftragsverarbeiter eingesetzt.
 
-9. Speicherdauer
+10. Speicherdauer
 
 Wir speichern personenbezogene Daten nur so lange, wie dies für den jeweiligen Verarbeitungszweck erforderlich ist.
 
@@ -275,17 +284,17 @@ Nach Abschluss einer Anfrage werden die Daten gelöscht, sofern keine weitere Ge
 
 Geschäftliche Kommunikation kann gesetzlichen handels- oder steuerrechtlichen Aufbewahrungsfristen unterliegen. In diesem Fall wird die Verarbeitung auf die Erfüllung dieser Pflichten beschränkt.
 
-10. Pflicht zur Bereitstellung von Daten
+11. Pflicht zur Bereitstellung von Daten
 
 Die Bereitstellung personenbezogener Daten ist grundsätzlich weder gesetzlich noch vertraglich vorgeschrieben.
 
-Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlich, damit wir eine Anfrage bearbeiten und beantworten können. Ohne diese Angaben ist eine Bearbeitung nicht möglich.
+Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlich, damit wir eine über das Anfrageformular gestellte Anfrage bearbeiten und beantworten können. Ohne diese Angaben ist eine Bearbeitung über das Formular nicht möglich.
 
-11. Automatisierte Entscheidungen
+12. Automatisierte Entscheidungen
 
 Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO findet nicht statt.
 
-12. Ihre Rechte
+13. Ihre Rechte
 
 Sie haben im Rahmen der gesetzlichen Voraussetzungen insbesondere folgende Rechte:
 
@@ -301,15 +310,15 @@ Der Widerruf einer Einwilligung berührt nicht die Rechtmäßigkeit der Verarbei
 
 Zur Ausübung Ihrer Rechte können Sie sich an datenschutz@dresdnerspitzen.com wenden. Die Rechte können eingeschränkt sein, wenn gesetzliche Ausnahmen oder Aufbewahrungspflichten entgegenstehen.
 
-13. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
+14. Widerspruch gegen Verarbeitungen aufgrund berechtigter Interessen
 
 Soweit wir personenbezogene Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen die Verarbeitung einlegen.
 
 Wir verarbeiten die betreffenden Daten anschließend nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
 
-14. Beschwerderecht
+15. Beschwerderecht
 
-Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen Datenschutzrecht verstößt.
+Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogener Daten gegen Datenschutzrecht verstößt.
 
 Die für Sachsen zuständige Aufsichtsbehörde ist:
 
@@ -320,7 +329,7 @@ Deutschland
 
 Sie können sich auch an eine andere für Sie zuständige Datenschutzaufsichtsbehörde wenden.
 
-15. Änderungen dieser Datenschutzerklärung
+16. Änderungen dieser Datenschutzerklärung
 
 Wir können diese Datenschutzerklärung anpassen, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen Anforderungen ändern. Es gilt die jeweils auf dieser Website veröffentlichte Fassung.`;
 
