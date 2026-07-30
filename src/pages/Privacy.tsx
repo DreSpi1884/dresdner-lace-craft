@@ -284,43 +284,6 @@ Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlic
 
 12. Automatisierte Entscheidungen
 
-8. Links zu Instagram und LinkedIn
-
-Unsere Website enthält Links zu unseren Profilen bei Instagram und LinkedIn. Es handelt sich lediglich um externe Links. Auf unserer Website werden keine Social-Media-Plugins, Feeds oder Tracking-Pixel dieser Anbieter eingebunden.
-
-Erst wenn Sie einen solchen Link anklicken, verlassen Sie unsere Website und es wird eine Verbindung zum jeweiligen Anbieter hergestellt. Dabei können insbesondere Ihre IP-Adresse, Geräte- und Browserinformationen sowie die Information verarbeitet werden, dass Sie von unserer Website auf das jeweilige Angebot gelangt sind.
-
-Für die nach dem Anklicken erfolgende Datenverarbeitung ist der jeweilige Plattformbetreiber verantwortlich. Die Nutzung der Plattformen richtet sich nach deren eigenen Datenschutzbestimmungen.
-
-9. Empfänger personenbezogener Daten
-
-Personenbezogene Daten werden nur an Empfänger übermittelt, wenn dies zur Erfüllung der beschriebenen Zwecke erforderlich ist, eine gesetzliche Verpflichtung besteht oder Sie eingewilligt haben.
-
-Zu den möglichen Empfängern gehören insbesondere:
-
-IONOS SE als Hosting- und WebAnalytics-Anbieter;
-Formspree, Inc. als Dienstleister für das Anfrageformular;
-interne Abteilungen und Beschäftigte, die mit der Bearbeitung Ihrer Anfrage befasst sind;
-externe Berater oder Dienstleister, soweit dies für die Erfüllung rechtlicher oder geschäftlicher Pflichten erforderlich ist.
-
-Soweit Dienstleister Daten ausschließlich in unserem Auftrag verarbeiten, werden sie entsprechend den gesetzlichen Anforderungen als Auftragsverarbeiter eingesetzt.
-
-10. Speicherdauer
-
-Wir speichern personenbezogene Daten nur so lange, wie dies für den jeweiligen Verarbeitungszweck erforderlich ist.
-
-Nach Abschluss einer Anfrage werden die Daten gelöscht, sofern keine weitere Geschäftsbeziehung entsteht und keine gesetzlichen Aufbewahrungspflichten oder berechtigten Interessen an einer weiteren Speicherung bestehen.
-
-Geschäftliche Kommunikation kann gesetzlichen handels- oder steuerrechtlichen Aufbewahrungsfristen unterliegen. In diesem Fall wird die Verarbeitung auf die Erfüllung dieser Pflichten beschränkt.
-
-11. Pflicht zur Bereitstellung von Daten
-
-Die Bereitstellung personenbezogener Daten ist grundsätzlich weder gesetzlich noch vertraglich vorgeschrieben.
-
-Bestimmte Angaben, insbesondere Name und E-Mail-Adresse, sind jedoch erforderlich, damit wir eine über das Anfrageformular gestellte Anfrage bearbeiten und beantworten können. Ohne diese Angaben ist eine Bearbeitung über das Formular nicht möglich.
-
-12. Automatisierte Entscheidungen
-
 Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von Art. 22 DSGVO findet nicht statt.
 
 13. Ihre Rechte
