@@ -309,7 +309,7 @@ Wir verarbeiten die betreffenden Daten anschließend nicht mehr, es sei denn, wi
 
 14. Beschwerderecht
 
-Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen Datenschutzrecht verstößt.
+Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogener Daten gegen Datenschutzrecht verstößt.
 
 Die für Sachsen zuständige Aufsichtsbehörde ist:
 
