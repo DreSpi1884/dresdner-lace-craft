@@ -209,7 +209,7 @@ useLayoutEffect(() => {
                       <p className="whitespace-pre-wrap">
                         {t(
                           "Our production uses an integrative management system and is certified according to internationally recognized standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
-                          "Unsere Produktion nutzt ein integratives Managementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie der Global Recycled Standard (GRS).\n\n"
+                          "Unsere Produktion nutzt ein integratives Managementsystem und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie der Global Recycled Standard (GRS).\n\n"
                         )}
                       </p>
 
