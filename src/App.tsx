@@ -11,6 +11,8 @@ import Jobs from "./pages/Jobs.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Imprint from "./pages/Imprint.tsx";
 import Privacy from "./pages/Privacy.tsx";
+import Terms from "./pages/Terms.tsx";
+import ApplicantPrivacy from "./pages/ApplicantPrivacy.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 
@@ -31,6 +33,8 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/imprint" element={<Imprint />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/agb" element={<Terms />} />
+            <Route path="/bewerber-datenschutz" element={<ApplicantPrivacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
       </BrowserRouter>

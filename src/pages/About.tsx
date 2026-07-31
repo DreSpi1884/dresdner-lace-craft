@@ -47,36 +47,40 @@ const SolarImageCard = ({
 const SustainabilityLogos = ({ className = "" }: { className?: string }) => (
   <div
     data-no-reveal
-    className={`flex w-full items-center justify-start gap-[3vw] sm:gap-4 ${className}`}
+    className={`grid w-full min-w-0 grid-cols-[1fr_1fr_0.8fr] items-center gap-3 sm:gap-5 ${className}`}
   >
     <a
       href="https://textileexchange.org/recycled-claim-global-recycled-standard/"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Global Recycled Standard – mehr erfahren"
-      className="shrink-0"
+      className="flex min-w-0 items-center justify-center"
     >
       <img
         data-no-reveal
         src={grsLogo}
         alt="Global Recycled Standard"
-        className="block w-[clamp(70px,22vw,250px)] shrink-0 bg-white object-contain transition-all duration-150"
+        className="block h-auto max-h-28 w-full min-w-0 object-contain sm:max-h-36 lg:max-h-44"
       />
     </a>
 
-    <img
-      data-no-reveal
-      src={oekoTexLogo}
-      alt="OEKO-TEX STeP"
-      className="block w-[clamp(70px,22vw,250px)] shrink-0 bg-white object-contain transition-all duration-150"
-    />
+    <div className="flex min-w-0 items-center justify-center">
+      <img
+        data-no-reveal
+        src={oekoTexLogo}
+        alt="OEKO-TEX STeP"
+        className="block h-auto max-h-28 w-full min-w-0 object-contain sm:max-h-36 lg:max-h-44"
+      />
+    </div>
 
-    <img
-      data-no-reveal
-      src={umweltallianzLogo}
-      alt="Umwelt- und Klimaallianz Sachsen"
-      className="block w-[clamp(50px,15vw,180px)] shrink-0 object-contain transition-all duration-150"
-    />
+    <div className="flex min-w-0 items-center justify-center">
+      <img
+        data-no-reveal
+        src={umweltallianzLogo}
+        alt="Umwelt- und Klimaallianz Sachsen"
+        className="block h-auto max-h-24 w-full min-w-0 object-contain sm:max-h-32 lg:max-h-40"
+      />
+    </div>
   </div>
 );
 
@@ -342,9 +346,9 @@ useLayoutEffect(() => {
       <div className="editorial-body max-w-[760px] text-left text-muted-foreground lg:pt-32 xl:pt-36">
         <p className="whitespace-pre-wrap">
           {t(
-            "Our production is supported by an energy management system and certified according to internationally recognized standards, including OEKO-TEX® Standard 100,\u00a0\nOEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).",
-            "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie der Global Recycled Standard (GRS)."
-          )}
+                          "Our production uses an integrative management system and is certified according to internationally recognized standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
+                          "Unsere Produktion nutzt ein integratives Managementsystem und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie der Global Recycled Standard (GRS).\n\n"
+                        )}
         </p>
 
         <SustainabilityLogos className="mt-8 mb-6" />
