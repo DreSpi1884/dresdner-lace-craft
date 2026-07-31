@@ -208,8 +208,8 @@ useLayoutEffect(() => {
                     <div className="editorial-body space-y-4 text-left text-muted-foreground">
                       <p className="whitespace-pre-wrap">
                         {t(
-                          "Our production is supported by an energy management system and certified according to internationally recognized standards, \nincluding OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
-                          "Unsere Produktion wird durch ein Energiemanagementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, \ndarunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie der Global Recycled Standard (GRS).\n\n"
+                          "Our production uses an integrative management system and is certified according to internationally recognized standards, including OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 and the Global Recycled Standard (GRS).\n\n",
+                          "Unsere Produktion nutzt ein integratives Managementsystem unterstützt und ist nach international anerkannten Standards zertifiziert, darunter OEKO-TEX® Standard 100, OEKO-TEX® STeP Level 3 sowie der Global Recycled Standard (GRS).\n\n"
                         )}
                       </p>
 
@@ -228,12 +228,12 @@ useLayoutEffect(() => {
                           "Solarstrom von unserem Produktionsstandort Dresden"
                         )}
                         desktopText={t(
-                          "We generate part of our electricity through our solar power systems on our production site in Dresden.",
-                          "Einen Teil unseres Stroms erzeugen wir durch Solaranlagen auf unserem Produktionsgelände."
+                          "We generate part of our electricity through a photovoltaic system on our production site in Dresden.",
+                          "Einen Teil unseres Stroms erzeugen wir durch Photovoltaikanlagen auf unserem Produktionsgelände."
                         )}
                         alt={t(
-                          "Solar panels on the roof of the Dresden production site",
-                          "Solaranlagen auf dem Dach des Produktionsstandorts in Dresden"
+                          "Photovoltaic system on the roof of our Dresden production site",
+                          "Photovoltaikanlagen auf dem Dach unseres Produktionsstandorts in Dresden"
                         )}
                       />
 
