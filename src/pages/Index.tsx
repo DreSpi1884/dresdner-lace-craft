@@ -63,10 +63,18 @@ const Index = () => {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          preload="auto"
+          onCanPlay={(event) => {
+            event.currentTarget.muted = true;
+            void event.currentTarget.play().catch(() => undefined);
+          }}
+          onClick={(event) => {
+            void event.currentTarget.play().catch(() => undefined);
+          }}
+          className="absolute inset-0 h-full w-full cursor-pointer object-cover"
         />
-        <div className="absolute inset-0 bg-foreground/30" />
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] pt-[24vh] py-[clamp(2rem,5vh,5rem)] w-full">
+        <div className="pointer-events-none absolute inset-0 bg-foreground/30" />
+        <div className="pointer-events-none relative z-10 flex flex-col items-center justify-center text-center px-[clamp(1rem,4vw,4rem)] pt-[24vh] py-[clamp(2rem,5vh,5rem)] w-full">
           <div
             className="mx-auto mb-[clamp(0.75rem,2vh,1.5rem)] aspect-[2/3]"
             style={{ width: "clamp(96px, 12.5vw, 240px)" }}

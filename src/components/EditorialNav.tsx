@@ -272,6 +272,8 @@ const handleDropdownAnchor = (
           <img
             ref={logoRef}
             src={logoWhite}
+            width={782}
+            height={1802}
             alt="Dresdner Spitzen logo"
             className="h-16 md:h-20 w-auto pointer-events-none relative z-50 object-contain"
             style={{
@@ -279,7 +281,6 @@ const handleDropdownAnchor = (
               transition: logoTransitionEnabled
                 ? "transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94)"
                 : "none",
-              willChange: "transform",
               ...logoStyle,
             }}
           />
