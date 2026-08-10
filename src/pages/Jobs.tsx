@@ -231,7 +231,7 @@ const Jobs = () => {
                                   <h4 className="mb-3 font-medium text-primary">
                                     {t(
                                       "Your tasks",
-                                      "Deine Aufgaben"
+                                      "Ihre Aufgaben"
                                     )}
                                   </h4>
 
@@ -253,8 +253,8 @@ const Jobs = () => {
                                 <div>
                                   <h4 className="mb-3 font-medium text-primary">
                                     {t(
-                                      "What you bring",
-                                      "Das bringst du mit"
+                                      "Your Competences",
+                                      "Ihre Kompetenzen"
                                     )}
                                   </h4>
 
