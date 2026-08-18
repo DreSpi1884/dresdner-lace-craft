@@ -327,16 +327,16 @@ useLayoutEffect(() => {
       <div className="mt-10 xl:mt-12 px-8 xl:px-12 2xl:px-16">
         <SolarImageCard
           mobileText={t(
-            "Solar power from our site.",
-            "Solarstrom von unserem Produktionsstandort Dresden"
+            "Solar power system at our production site.",
+            "PV-Anlage an unserem Produktionsstandort Dresden"
           )}
           desktopText={t(
-            "We generate part of our electricity through our solar power systems on our production site in Dresden.",
-            "Einen Teil unseres Stroms erzeugen wir durch Solaranlagen auf unserem Produktionsgelände."
+            "We generate part of our electricity through a photovoltaic system on our production site in Dresden.",
+            "Einen Teil unseres Stroms erzeugen wir durch Photovoltaikanlagen auf unserem Produktionsgelände."
           )}
           alt={t(
-            "Solar panels on the roof of the Dresden production site",
-            "Solaranlagen auf dem Dach des Produktionsstandorts in Dresden"
+             "Photovoltaic system on the roof of our Dresden production site",
+             "Photovoltaikanlagen auf dem Dach unseres Produktionsstandorts in Dresden"
           )}
         />
       </div>
