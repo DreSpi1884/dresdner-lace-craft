@@ -73,9 +73,13 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/services", "destination": "/index.html" },
+    { "source": "/jobs", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" },
+    { "source": "/imprint", "destination": "/index.html" },
+    { "source": "/privacy", "destination": "/index.html" },
+    { "source": "/agb", "destination": "/index.html" },
+    { "source": "/bewerber-datenschutz", "destination": "/index.html" }
   ]
 }
