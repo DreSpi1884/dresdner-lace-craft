@@ -3,7 +3,7 @@ export const SITE = {
 
   url: (
     import.meta.env.VITE_SITE_URL ??
-    "https://dresdnerspitzen.de"
+    "https://www.dresdnerspitzen.de"
   ).replace(/\/$/, ""),
 
   salesEmail: "sales@dresdnerspitzen.com",
