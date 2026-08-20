@@ -1,5 +1,57 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/index.php/de/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/en/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/de/unsere-spitze",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/en/our-lace",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/de/unternehmen",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/en/company",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/de/kontakt",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/en/contact",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/de/karriere",
+      "destination": "/jobs",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/en/career",
+      "destination": "/jobs",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
