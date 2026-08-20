@@ -16,7 +16,8 @@ const NotFound = () => {
       <SEO
         title={t("Page Not Found", "Seite nicht gefunden")}
         description={t("This page does not exist.", "Diese Seite existiert nicht.")}
-        path="/404"
+        path={location.pathname}
+        noIndex
       />
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
