@@ -18,6 +18,20 @@
       content="Dresdner Spitzen entwickelt und produziert seit 1884 hochwertige Spitzen, Kettgewirke und technische Textilien in Dresden."
     />
 
+    <style>
+      .seo-fallback-h1 {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -43,7 +57,9 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <h1 class="seo-fallback-h1">The Art of Textiles</h1>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
