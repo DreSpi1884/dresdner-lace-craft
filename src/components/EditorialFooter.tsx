@@ -61,6 +61,13 @@ const EditorialFooter = () => {
   </Link>
 
   <Link
+    to="/jobs"
+    className="editorial-body-sm text-background/70 hover:text-background transition-colors"
+  >
+    {t("Careers", "Karriere")}
+  </Link>
+
+  <Link
     to="/contact"
     className="editorial-body-sm text-background/70 hover:text-background transition-colors"
   >
