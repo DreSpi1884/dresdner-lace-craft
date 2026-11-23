@@ -69,6 +69,7 @@ const EditorialNav = () => {
     { key: "home", label: t("HOME", "START"), path: "/" },
     { key: "services", label: t("SERVICES", "SERVICES"), path: "/services" },
     { key: "about", label: t("ABOUT", "ÜBER UNS"), path: "/about" },
+    { key: "careers", label: t("CAREERS", "KARRIERE"), path: "/jobs" },
     { key: "contact", label: t("CONTACT", "KONTAKT"), path: "/contact" },
   ];
 
