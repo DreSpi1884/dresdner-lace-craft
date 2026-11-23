@@ -75,7 +75,7 @@ const EditorialNav = () => {
 
   const aboutSections = [
     { label: t("HISTORY", "GESCHICHTE"), hash: "#history" },
-    { label: t("SUSTAINABILITY", "NACHHALTIGKEIT"), hash: "#sustainability" },
+    { label: t("STANDARDS & ENGAGEMENT", "STANDARDS & ENGAGEMENT"), hash: "#sustainability" },
     { label: t("VALUES", "WERTE"), hash: "#values" },
   ];
 

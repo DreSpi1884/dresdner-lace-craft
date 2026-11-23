@@ -11,7 +11,7 @@ const AboutAnchorNav = () => {
   const sections = useMemo(
     () => [
       { id: "history", label: t("History", "Geschichte") },
-      { id: "sustainability", label: t("Sustainability", "Nachhaltigkeit") },
+      { id: "sustainability", label: t("Standards & Engagement", "Standards & Engagement") },
       { id: "values", label: t("Values", "Werte") },
     ],
     [t]
