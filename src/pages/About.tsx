@@ -170,7 +170,7 @@ useLayoutEffect(() => {
       <section className="lg:hidden border-t border-primary/10">
         {[
           { id: "history", label: t("History", "Geschichte") },
-          { id: "sustainability", label: t("Sustainability", "Nachhaltigkeit") },
+          { id: "sustainability", label: t("Standards & Engagement", "Standards & Engagement") },
           { id: "values", label: t("Values", "Werte") },
         ].map((section) => {
           const isOpen = mobileOpenId === section.id;
@@ -221,8 +221,15 @@ useLayoutEffect(() => {
 
                       <p className="whitespace-pre-wrap">
                         {t(
-                          "\nThese certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
-                          "\nDiese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
+                          "\nThese certifications cover different areas of our work: from testing our textiles for harmful substances and assessing our production conditions to verifying and tracing recycled materials.",
+                          "\nDiese Zertifizierungen decken unterschiedliche Bereiche unserer Arbeit ab: von der Schadstoffprüfung unserer Textilien über die Bewertung unserer Produktionsbedingungen bis hin zur Überprüfung und Rückverfolgbarkeit recycelter Materialien."
+                        )}
+                      </p>
+
+                      <p className="whitespace-pre-wrap">
+                        {t(
+                          "As a participant in the Environmental and Climate Alliance of Saxony, we are committed through this initiative to voluntary environmental and climate protection measures that go beyond statutory requirements.",
+                          "Wir sind Teilnehmer der Umwelt- und Klimaallianz Sachsen und engagieren uns im Rahmen dieser Initiative für freiwillige Umwelt- und Klimaschutzmaßnahmen über die gesetzlichen Anforderungen hinaus."
                         )}
                       </p>
 
@@ -320,7 +327,7 @@ useLayoutEffect(() => {
         />
 
         <h2 className="editorial-heading-lg text-foreground mb-0">
-          {t("Sustainability", "Nachhaltigkeit")}
+          {t("Standards & Engagement", "Standards & Engagement")}
         </h2>
       </div>
 
@@ -355,8 +362,15 @@ useLayoutEffect(() => {
 
         <p>
           {t(
-            "These certifications reflect our commitment to responsible textile manufacturing, transparent supply chains and sustainable production processes.",
-            "Diese Zertifizierungen stehen für unser Engagement für verantwortungsvolle Textilherstellung, transparente Lieferketten und nachhaltige Produktionsprozesse."
+            "These certifications cover different areas of our work: from testing our textiles for harmful substances and assessing our production conditions to verifying and tracing recycled materials.",
+            "Diese Zertifizierungen decken unterschiedliche Bereiche unserer Arbeit ab: von der Schadstoffprüfung unserer Textilien über die Bewertung unserer Produktionsbedingungen bis hin zur Überprüfung und Rückverfolgbarkeit recycelter Materialien."
+          )}
+        </p>
+
+        <p className="mt-8">
+          {t(
+            "As a participant in the Environmental and Climate Alliance of Saxony, we are committed through this initiative to voluntary environmental and climate protection measures that go beyond statutory requirements.",
+            "Wir sind Teilnehmer der Umwelt- und Klimaallianz Sachsen und engagieren uns im Rahmen dieser Initiative für freiwillige Umwelt- und Klimaschutzmaßnahmen über die gesetzlichen Anforderungen hinaus."
           )}
         </p>
 
