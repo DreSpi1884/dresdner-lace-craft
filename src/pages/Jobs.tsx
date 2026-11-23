@@ -24,7 +24,7 @@ const Jobs = () => {
         "Produktionsmechaniker – Textil (m/w/d)"
       ),
       duration: t("3 years", "3 Jahre"),
-      pdf: "/jobs/ausbildung-produktionsmechaniker-textil.pdf",
+      pdf: "/ausbildung-produktionsmechaniker-textil.pdf",
     },
     {
       title: t(
@@ -32,7 +32,7 @@ const Jobs = () => {
         "Maschinen- und Anlagenführer – Textiltechnik (m/w/d)"
       ),
       duration: t("2 years", "2 Jahre"),
-      pdf: "/jobs/ausbildung-maschinen-und-anlagenfuehrer-textiltechnik.pdf",
+      pdf: "/ausbildung-maschinen-und-anlagenfuehrer-textiltechnik.pdf",
     },
   ];
 
