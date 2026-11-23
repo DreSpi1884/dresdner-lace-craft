@@ -1,103 +1,53 @@
-import { useState } from "react";
 import {
   Mail,
   Phone,
   ArrowRight,
-  ChevronDown,
+  FileText,
 } from "lucide-react";
 import EditorialLayout from "@/components/EditorialLayout";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 
-type JobItem = {
+type Apprenticeship = {
   title: string;
-  type: string;
-  start: string;
   duration: string;
-  tasks: string[];
-  requirements: string[];
-  benefits: string[];
+  pdf: string;
 };
 
 const Jobs = () => {
   const { t } = useLang();
 
-  const [openJob, setOpenJob] = useState<string | null>(null);
-
-  const apprenticeships: JobItem[] = [
+  const apprenticeships: Apprenticeship[] = [
     {
       title: t(
-        "Machine and Plant Operator – Textile Finishing (m/f/d)",
-        "Maschinen- und Anlagenführer Textilveredlung (m/w/d)"
+        "Production Mechanic – Textiles (m/f/d)",
+        "Produktionsmechaniker – Textil (m/w/d)"
       ),
-      type: t("Apprenticeship", "Ausbildung"),
-      start: "01.09.2026",
-      duration: t("2 years", "2 Jahre"),
-
-      /*
-       * HIER SPÄTER DIE AUFGABEN FÜR JOB 1 EINFÜGEN
-       *
-       * Beispiel:
-       * tasks: [
-       *   t("English task 1", "Deutsche Aufgabe 1"),
-       *   t("English task 2", "Deutsche Aufgabe 2"),
-       * ],
-       */
-      tasks: [],
-
-      /*
-       * HIER SPÄTER DIE VORAUSSETZUNGEN FÜR JOB 1 EINFÜGEN
-       */
-      requirements: [],
-
-      /*
-       * HIER SPÄTER "DAS BIETEN WIR" FÜR JOB 1 EINFÜGEN
-       */
-      benefits: [],
-    },
-
-    {
-      title: t(
-        "Textile Product Finisher (m/f/d)",
-        "Produktveredler Textil (m/w/d)"
-      ),
-      type: t("Apprenticeship", "Ausbildung"),
-      start: "01.09.2026",
       duration: t("3 years", "3 Jahre"),
-
-      /*
-       * HIER SPÄTER DIE AUFGABEN FÜR JOB 2 EINFÜGEN
-       */
-      tasks: [],
-
-      /*
-       * HIER SPÄTER DIE VORAUSSETZUNGEN FÜR JOB 2 EINFÜGEN
-       */
-      requirements: [],
-
-      /*
-       * HIER SPÄTER "DAS BIETEN WIR" FÜR JOB 2 EINFÜGEN
-       */
-      benefits: [],
+      pdf: "/jobs/ausbildung-produktionsmechaniker-textil.pdf",
+    },
+    {
+      title: t(
+        "Machine and Plant Operator – Textile Technology (m/f/d)",
+        "Maschinen- und Anlagenführer – Textiltechnik (m/w/d)"
+      ),
+      duration: t("2 years", "2 Jahre"),
+      pdf: "/jobs/ausbildung-maschinen-und-anlagenfuehrer-textiltechnik.pdf",
     },
   ];
 
   return (
     <EditorialLayout title={t("Careers", "Karriere")} heroCompact>
       <SEO
-        title={t(
-          "Careers and Apprenticeships",
-          "Karriere und Ausbildung"
-        )}
+        title={t("Careers and Apprenticeships", "Karriere und Ausbildung")}
         description={t(
-          "Discover current career and apprenticeship opportunities at Dresdner Spitzen in Dresden.",
-          "Entdecken Sie aktuelle Karriere- und Ausbildungsmöglichkeiten bei Dresdner Spitzen in Dresden."
+          "Discover current apprenticeship opportunities at Dresdner Spitzen in Dresden. Training starts on 23 August 2027.",
+          "Entdecken Sie aktuelle Ausbildungsplätze bei Dresdner Spitzen in Dresden. Ausbildungsbeginn ist der 23. August 2027."
         )}
         path="/jobs"
       />
 
       <main className="bg-background text-foreground">
-        {/* Intro */}
         <section className="editorial-container py-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-8xl text-center">
             <p className="mx-auto max-w-8xl whitespace-pre-wrap text-lg leading-[1.9] text-muted-foreground">
@@ -109,210 +59,72 @@ const Jobs = () => {
           </div>
         </section>
 
-        {/* Open positions */}
         <section className="border-t border-primary/15">
           <div className="editorial-container py-12 md:py-16 lg:py-20">
             <div className="mx-auto max-w-5xl">
               <div className="mb-10 md:mb-12">
                 <p className="editorial-label mb-3 text-primary/70">
+                  {t("CURRENT APPRENTICESHIPS", "AKTUELLE AUSBILDUNGSPLÄTZE")}
+                </p>
+                <h2 className="editorial-heading-sm text-primary">
+                  {t("Apprenticeships starting 2027", "Ausbildungsbeginn 2027")}
+                </h2>
+                <p className="mt-4 text-base leading-[1.8] text-muted-foreground">
                   {t(
-                    "CURRENT OPPORTUNITIES",
-                    "AKTUELLE MÖGLICHKEITEN"
+                    "Both apprenticeships start on 23 August 2027 in Dresden. Select a position to open the full job description as a PDF.",
+                    "Beide Ausbildungen beginnen am 23. August 2027 in Dresden. Klicken Sie auf einen Ausbildungsplatz, um die vollständige Beschreibung als PDF zu öffnen."
                   )}
                 </p>
-
-                <h2 className="editorial-heading-sm text-primary">
-                  {t("Open Positions", "Offene Positionen")}
-                </h2>
               </div>
 
-              <div className="grid items-start gap-6 md:grid-cols-2">
-                {apprenticeships.map((job) => {
-                  const isOpen = openJob === job.title;
+              <div className="grid items-stretch gap-6 md:grid-cols-2">
+                {apprenticeships.map((job) => (
+                  <a
+                    key={job.pdf}
+                    href={job.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-full flex-col border border-primary/20 p-8 transition-colors hover:border-primary/50"
+                    aria-label={t(
+                      `Open apprenticeship details: ${job.title} (PDF, opens in a new tab)`,
+                      `Ausbildungsbeschreibung öffnen: ${job.title} (PDF, öffnet in neuem Tab)`
+                    )}
+                  >
+                    <p className="editorial-label mb-4 text-primary/60">
+                      {t("Apprenticeship · 2027", "Ausbildung · 2027")}
+                    </p>
+                    <h3 className="editorial-heading-sm mb-6 text-primary">
+                      {job.title}
+                    </h3>
 
-                  const hasDetails =
-                    job.tasks.length > 0 ||
-                    job.requirements.length > 0 ||
-                    job.benefits.length > 0;
+                    <div className="space-y-2 text-sm leading-[1.8] text-muted-foreground">
+                      <p>
+                        <span className="text-primary">{t("Start", "Beginn")}:</span>{" "}
+                        23.08.2027
+                      </p>
+                      <p>
+                        <span className="text-primary">{t("Duration", "Dauer")}:</span>{" "}
+                        {job.duration}
+                      </p>
+                      <p>
+                        <span className="text-primary">{t("Location", "Ort")}:</span>{" "}
+                        Dresden
+                      </p>
+                    </div>
 
-                  return (
-                    <article
-                      key={job.title}
-                      className="border border-primary/15"
-                    >
-                      {/* Sichtbarer Teil der Jobkarte */}
-                      <div className="p-8">
-                        <p className="editorial-label mb-4 text-primary/60">
-                          {job.type}
-                        </p>
-
-                        <h3 className="editorial-heading-sm mb-6 text-primary">
-                          {job.title}
-                        </h3>
-
-                        <div className="space-y-2 text-sm leading-[1.8] text-muted-foreground">
-                          <p>
-                            <span className="text-primary">
-                              {t("Start", "Beginn")}:
-                            </span>{" "}
-                            {job.start}
-                          </p>
-
-                          <p>
-                            <span className="text-primary">
-                              {t("Duration", "Dauer")}:
-                            </span>{" "}
-                            {job.duration}
-                          </p>
-
-                          <p>
-                            <span className="text-primary">
-                              {t("Location", "Ort")}:
-                            </span>{" "}
-                            Dresden
-                          </p>
-                        </div>
-
-                        {/* Dropdown Button */}
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setOpenJob(isOpen ? null : job.title)
-                          }
-                          className="mt-8 flex w-full items-center justify-between border-t border-primary/15 pt-5 text-left text-primary transition-opacity hover:opacity-70"
-                          aria-expanded={isOpen}
-                        >
-                          <span className="editorial-body-sm font-medium">
-                            {isOpen
-                              ? t(
-                                  "Show less",
-                                  "Weniger anzeigen"
-                                )
-                              : t(
-                                  "Learn more",
-                                  "Mehr erfahren"
-                                )}
-                          </span>
-
-                          <ChevronDown
-                            size={18}
-                            strokeWidth={1.5}
-                            className={`transition-transform duration-300 ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-                      </div>
-
-                      {/* Aufklappbarer Bereich */}
-                      <div
-                        className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-                          isOpen
-                            ? "grid-rows-[1fr]"
-                            : "grid-rows-[0fr]"
-                        }`}
-                      >
-                        <div className="overflow-hidden">
-                          <div className="border-t border-primary/15 px-8 pb-8 pt-7">
-                            <div className="space-y-8">
-                              {/* Noch keine Inhalte eingetragen */}
-                              {!hasDetails && (
-                                <p className="text-sm leading-[1.8] text-muted-foreground">
-                                  {t(
-                                    "Further details about this position will follow shortly.",
-                                    "Weitere Details zu dieser Stelle folgen in Kürze."
-                                  )}
-                                </p>
-                              )}
-
-                              {/* DEINE AUFGABEN */}
-                              {job.tasks.length > 0 && (
-                                <div>
-                                  <h4 className="mb-3 font-medium text-primary">
-                                    {t(
-                                      "Your tasks",
-                                      "Ihre Aufgaben"
-                                    )}
-                                  </h4>
-
-                                  <ul className="list-disc space-y-2 pl-5 text-sm leading-[1.8] text-muted-foreground">
-                                    {job.tasks.map(
-                                      (task, index) => (
-                                        <li key={index}>
-                                          {task}
-                                        </li>
-                                      )
-                                    )}
-                                  </ul>
-                                </div>
-                              )}
-
-                              {/* DAS BRINGST DU MIT */}
-                              {job.requirements.length >
-                                0 && (
-                                <div>
-                                  <h4 className="mb-3 font-medium text-primary">
-                                    {t(
-                                      "Your Competences",
-                                      "Ihre Kompetenzen"
-                                    )}
-                                  </h4>
-
-                                  <ul className="list-disc space-y-2 pl-5 text-sm leading-[1.8] text-muted-foreground">
-                                    {job.requirements.map(
-                                      (
-                                        requirement,
-                                        index
-                                      ) => (
-                                        <li key={index}>
-                                          {requirement}
-                                        </li>
-                                      )
-                                    )}
-                                  </ul>
-                                </div>
-                              )}
-
-                              {/* DAS BIETEN WIR */}
-                              {job.benefits.length > 0 && (
-                                <div>
-                                  <h4 className="mb-3 font-medium text-primary">
-                                    {t(
-                                      "What we offer",
-                                      "Das bieten wir"
-                                    )}
-                                  </h4>
-
-                                  <ul className="list-disc space-y-2 pl-5 text-sm leading-[1.8] text-muted-foreground">
-                                    {job.benefits.map(
-                                      (benefit, index) => (
-                                        <li key={index}>
-                                          {benefit}
-                                        </li>
-                                      )
-                                    )}
-                                  </ul>
-                                </div>
-                              )}
-
-                              {/* Bewerben */}
-                              <a
-                                href="mailto:jobs@dresdnerspitzen.com"
-                                className="inline-flex items-center gap-2 text-primary editorial-body-sm font-medium transition-opacity hover:opacity-70"
-                              >
-                                {t(
-                                  "Apply now",
-                                  "Jetzt bewerben"
-                                )}
-                                <ArrowRight size={16} />
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  );
-                })}
+                    <span className="mt-8 flex items-center justify-between border-t border-primary/15 pt-5 text-primary">
+                      <span className="inline-flex items-center gap-2 editorial-body-sm font-medium">
+                        <FileText size={17} strokeWidth={1.6} />
+                        {t("View job description (PDF)", "Stellenbeschreibung ansehen (PDF)")}
+                      </span>
+                      <ArrowRight
+                        size={18}
+                        strokeWidth={1.5}
+                        className="transition-transform group-hover:translate-x-1"
+                      />
+                    </span>
+                  </a>
+                ))}
               </div>
 
               <p className="mt-10 text-base leading-[1.8] text-muted-foreground">
@@ -325,7 +137,6 @@ const Jobs = () => {
           </div>
         </section>
 
-        {/* Application */}
         <section className="border-t border-primary/15">
           <div className="editorial-container py-12 md:py-14 lg:py-16">
             <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-[0.8fr_1.2fr] md:gap-12">
@@ -337,10 +148,7 @@ const Jobs = () => {
 
               <div className="space-y-6 text-lg leading-[1.85] text-muted-foreground">
                 <p>
-                  {t(
-                    "Please send your application to:",
-                    "Bitte senden Sie Ihre Bewerbung an:"
-                  )}
+                  {t("Please send your application to:", "Bitte senden Sie Ihre Bewerbung an:")}
                 </p>
 
                 <div className="space-y-3 text-base">
@@ -348,10 +156,7 @@ const Jobs = () => {
                     href="mailto:jobs@dresdnerspitzen.com"
                     className="flex items-center gap-3 text-primary transition-opacity hover:opacity-75"
                   >
-                    <Mail
-                      size={18}
-                      strokeWidth={1.6}
-                    />
+                    <Mail size={18} strokeWidth={1.6} />
                     jobs@dresdnerspitzen.com
                   </a>
 
@@ -359,10 +164,7 @@ const Jobs = () => {
                     href="tel:+493512048244"
                     className="flex items-center gap-3 text-primary transition-opacity hover:opacity-75"
                   >
-                    <Phone
-                      size={18}
-                      strokeWidth={1.6}
-                    />
+                    <Phone size={18} strokeWidth={1.6} />
                     0351 2048 244
                   </a>
                 </div>
