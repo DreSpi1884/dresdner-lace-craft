@@ -37,12 +37,12 @@ const Jobs = () => {
   ];
 
   return (
-    <EditorialLayout title={t("Careers", "Karriere")} heroCompact>
+    <EditorialLayout title={t("Careers and Apprenticeships", "Karriere und Ausbildung")} heroCompact>
       <SEO
-        title={t("Careers and Apprenticeships", "Karriere und Ausbildung")}
+        title={t("Textile Apprenticeships in Dresden, Germany", "Ausbildung in der Textilindustrie in Dresden")}
         description={t(
-          "Discover current apprenticeship opportunities at Dresdner Spitzen in Dresden. Training starts on 23 August 2027.",
-          "Entdecken Sie aktuelle Ausbildungsplätze bei Dresdner Spitzen in Dresden. Ausbildungsbeginn ist der 23. August 2027."
+          "Explore 2027 textile apprenticeships at Dresdner Spitzen in Dresden, Germany: Production Mechanic – Textiles and Machine and Plant Operator – Textile Technology. Both programmes start on 23 August 2027.",
+          "Entdecken Sie die Ausbildungsplätze 2027 bei Dresdner Spitzen in Dresden: Produktionsmechaniker – Textil sowie Maschinen- und Anlagenführer – Textiltechnik. Ausbildungsbeginn ist der 23. August 2027."
         )}
         path="/jobs"
       />
@@ -64,15 +64,27 @@ const Jobs = () => {
             <div className="mx-auto max-w-5xl">
               <div className="mb-10 md:mb-12">
                 <p className="editorial-label mb-3 text-primary/70">
-                  {t("CURRENT APPRENTICESHIPS", "AKTUELLE AUSBILDUNGSPLÄTZE")}
+                  {t("CURRENT TEXTILE APPRENTICESHIPS", "AKTUELLE AUSBILDUNGSPLÄTZE IN DER TEXTILINDUSTRIE")}
                 </p>
                 <h2 className="editorial-heading-sm text-primary">
-                  {t("Apprenticeships starting 2027", "Ausbildungsbeginn 2027")}
+                  {t("Textile apprenticeships in Dresden – starting 2027", "Ausbildung in der Textilindustrie in Dresden – Beginn 2027")}
                 </h2>
                 <p className="mt-4 text-base leading-[1.8] text-muted-foreground">
                   {t(
-                    "Both apprenticeships start on 23 August 2027 in Dresden. Select a position to open the full job description as a PDF.",
-                    "Beide Ausbildungen beginnen am 23. August 2027 in Dresden. Klicken Sie auf einen Ausbildungsplatz, um die vollständige Beschreibung als PDF zu öffnen."
+                    "Both apprenticeships take place on site in Dresden, Germany, and start on 23 August 2027. Select a position to open the full job description as a PDF.",
+                    "Beide Ausbildungen finden vor Ort in Dresden statt und beginnen am 23. August 2027. Klicken Sie auf einen Ausbildungsplatz, um die vollständige Beschreibung als PDF zu öffnen."
+                  )}
+                </p>
+              </div>
+
+              <div className="mb-10 border-l-2 border-primary/25 pl-5 text-base leading-[1.8] text-muted-foreground">
+                <h3 className="editorial-heading-sm mb-3 text-primary">
+                  {t("Applying from outside Germany", "Bewerbung aus dem Ausland")}
+                </h3>
+                <p>
+                  {t(
+                    "Our apprenticeship positions are based at our textile manufacturing site in Dresden, Germany. If you are currently living abroad, please contact us before applying so we can clarify the requirements for starting vocational training in Germany.",
+                    "Unsere Ausbildungsplätze befinden sich an unserem Textilproduktionsstandort in Dresden. Wenn Sie derzeit im Ausland leben, kontaktieren Sie uns bitte vor Ihrer Bewerbung, damit wir die Voraussetzungen für einen Ausbildungsbeginn in Deutschland klären können."
                   )}
                 </p>
               </div>
